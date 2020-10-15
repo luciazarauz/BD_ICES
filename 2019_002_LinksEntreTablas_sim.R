@@ -1,26 +1,41 @@
-# 
+# ----------------------------------------------------------------- #
+# Readme:                                                           #
+# ----------------------------------------------------------------- # 
+# De este script no sale ningun fichero nuevo ni se crean variables.
+# sirve para chequear las relaciones entre las diferentes tablas.
+#
+# INDICE:
+#
+# Libraries.
+# Load data from depuracion.
+# Explore links between tables.
+#
+#
+# ----------------------------------------------------------------- # 
 # R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+# ----------------------------------------------------------------- # 
 
-# readme:
-# de este script no sale ningun fichero nuevo ni se crean variables.
-# sirve para chequear las relaciones entre las diferentes tablas
-
-
-# Load                     ####
-############################# #
-# se cargan los datos derivados de la depuracion
-rm(list=ls())
-load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
-
-# Libraries             #####
-############################ #
+# # ################## #
+# # Libraries          #
+# # ################## #
 library(dplyr)
 library(lubridate)
 library(data.table)
 library(reshape2)
 
-# EXPLORE LINKS OF THE TABLES      ########################
-########################################################### #
+
+# # ################## #
+# # Load               #
+# # ################## #
+# Se cargan los datos derivados de la depuracion.
+
+rm(list=ls())
+load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
+
+
+# # ############################# #
+# # EXPLORE LINKS OF THE TABLES   #
+# # ############################# #
 
 head(InfoBase)
 head(InfoBuquesUnique)
@@ -33,14 +48,14 @@ head(InfoCapturaLance0)
 head(InfoDescartes)
 
 
-#
-# InfoCapturas - InfoCapturasCalculadas             #####
-######################################################### #
+# ----------------------------------------------- #
+# InfoCapturas - InfoCapturasCalculadas           #
+# ----------------------------------------------- #
 
-# Todas las IdCaptura de InfoCapturas tienen un Idcaptura en InfoCapturasCalculadas
-# Pero no todas las IdCaptura en InfoCapturasCalculadas tienen un Idcaptura en InfoCapturas (62485 lineas)
-# ya que son registros que vienen de Notas de venta (IdNotaDeVenta, 17290) o de Desembarqes (IdDesembarqueEspecie,8898)
-
+  # Todas las IdCaptura de InfoCapturas tienen un Idcaptura en InfoCapturasCalculadas.
+  # Pero no todas las IdCaptura en InfoCapturasCalculadas tienen un Idcaptura en 
+  # InfoCapturas (62485 lineas) ya que son registros que vienen de Notas de venta 
+  # (IdNotaDeVenta, 17290) o de Desembarqes (IdDesembarqueEspecie,8898).
 
 temp<- InfoCapturas %>% anti_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
 temp<- InfoCapturasCalculadas %>% anti_join(InfoCapturas, by="IdCaptura")  ; dim(temp)
