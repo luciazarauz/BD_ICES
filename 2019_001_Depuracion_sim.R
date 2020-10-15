@@ -6,8 +6,8 @@
 ############################## #
 rm(list=(ls()))
 
-library(fishPiCodes)
-data("UNLOCODE")
+library(fishPiCodes) # librería que se creo en el protecto FishPi y que tiene codigos de puertos, especies, etc
+data("UNLOCODE")     # puertos LOCODE
 library (stringr)
 library(doBy)
 library(dplyr)
@@ -18,6 +18,7 @@ library(reshape2)
 
 # Funciones                 ####
 ############################## #
+# mgsub: función para quitar acentos
 mgsub <- function(pattern, replacement, x, ...) {
   if (length(pattern)!=length(replacement)) {
     stop("pattern and replacement do not have the same length.")
@@ -30,64 +31,76 @@ mgsub <- function(pattern, replacement, x, ...) {
 }
 
 
-# Definir el path           ####
-############################## #
-
-path.data <-  file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\20200421_InfoBaseFinal")
-path.aux  <-  file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Auxtables")
-path.res  <-  file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Results")
-# 
-
 
 # Cargar datos             ####
 ############################# #
 
 # Tablas auxiliares #
-setwd(path.aux)
+  # Censo Flota Operativa: censo flota española
+  # MaestrosBuquesAZTI: tabla maestra de buques en BD AZTI
+  # MaestrosEspeciesAZTI: tabla maestra de especies en BD AZTI
 
-# Puertos <- read.csv("Puertos.csv", sep=",", stringsAsFactors = FALSE)
-MaestroBuques <- read.csv("MaestroBuquesAZTI_2019.txt", sep="\t", dec=",", stringsAsFactors = FALSE)
+MaestroBuques <- read.csv("Auxtables/MaestroBuquesAZTI_2019.txt", sep="\t", dec=",", stringsAsFactors = FALSE)
 MaestroBuques <- MaestroBuques [, !names(MaestroBuques) %in% c("Observaciones","Tipo.pesca.principal", "Segmento", "Varios")]
 names(MaestroBuques) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(MaestroBuques))
 MaestroBuques$Caladero.principal <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), MaestroBuques$Caladero.principal)
-CensoBuques <- read.csv("Censo Flota Operativa_ene 2019.txt", sep="\t", dec=",", stringsAsFactors = FALSE)
 
 # Infobase      #
-setwd(path.data)
-load(file = "DatosOficiales2019_Originales_ultimaversion.RData")
+# cargamos Infobase. Tablas:
+# BarcosAzti:       lista de barcos que han desembarcado al menos un día en el PV. Nos la da HAZI. 
+#                   Nosotros se la mandamos al IEO para que la utilice en el filtro  
+# Infobase:          Metadata
+# InfoBuques:        Censo oficial de barcos con registro de cambios durante 2019. 
+#                    El mismo barco puede tener varios registro sis ha tendio algun cambio en nombre, puerto base, etc
+# InfoDiarios:       Info de Fecha y puerto de salida, regreso y desembarco de la marea.                 
+# InfoOrigenLineas:  Info sobre el area, RectEst y Arte de cada linea de Captura  
+# InfoCapturasCalculadas:     Captura por dia y especie. Incluye PesoConsumo y PesoConsumoBajoTalla.
+#                             El PesoConsumo es lo que consideramos Datos Oficiales de captura para responder al data call
+#                             se saca a apartir del algoritmo de consumo de SGP, que combina Diario de Pesca, Declaración de desembarque y Notas de Venta  
+#                             Hay otros pesos que también salen del algoritmo (Captura, trasbordo, venta, etc) pero que no son Datos Oficiales
+#                             - Para buques con logbook, PesoConsumo, viene de logbook
+#                             - Para buques sin logbook, PesoConsumo, viene de notas de venta
+# InfoCapturas:      Info sobre tiempo pesca numero operaciones y posición para cada linea de captura
+# InfoParametrosArteCapturas: Información sobre la profundidad, altura de malla, numero de anzuelos, etc 
+# InfoCapturaLance0: Info sobre lances con captura cero? **necesitamos aclarar con SGP el significado de esta tabla
+#                    Se relaciona directemente con InfoDiarios
+# InfoDescartes:     Info sobre los descartes: fecha, motivo descarte, peso, posición 
+#                    Se relaciona directemente con InfoDiarios
+# InfoVentas         Info sobre las ventas
+#                    para los buques sin logbook utiliza el peso de venta y crea un idDiario negativo. 
+#                    Pero este idDiario no es una marea sino una venta (buque, fecha venta, especie, comprador)
+#                    ** pedir a SGP que incluya la fecha de regreso
+
+
+
+load(file = "Datos/DatosOficiales2019_Originales_ultimaversion.RData")
 
 # NotasVentas   #
-# setwd(path.venta)
 # load(file = "NotasVenta2019_Originales.RData")
-
-setwd(path.res)
 
 
 # Overview of the tables ########################
 ############################################### #
   
-head(Puertos)
 head(BarcosAzti)
 head(InfoBuques)
-#head(InfoBuquesOk)
 
 head(InfoBase)
 head(InfoDiarios)
 head(InfoOrigenLineas)
-head(InfoCapturas)
 head(InfoCapturasCalculadas)
+head(InfoCapturas)
+head(InfoParametrosArteCapturas)
 
 head(InfoCapturaLance0)
 head(InfoVentas)
 head(InfoDescartes)
 
-head(InfoParametrosArteCapturas)
-#head(ParametrosArte)
 
 
-# Comprobar tablas- Primary Key    #######################
+# Comprobar tablas - Primary Key    #######################
 ########################################################## #
-# revisar cada tabla y ver cual es su primary key
+# revisar cada tabla y ver cual es su id unico
 
 
 # BarcosAZTI
@@ -99,53 +112,55 @@ head(BarcosAzti)
 check <- subset(BarcosAzti, is.na(IdBuque))
 check
 
-subset(InfoBuques, CodigoCFR %in% c(check$CodigoCFR))
-subset(CensoBuques, CODIGO_BUQUE %in% as.integer(substr(check$CodigoCFR,4,12)))[,c("CODIGO_BUQUE", "NOMBRE_BUQUE", "PUERTO_BASE",
-                                                                                   "CENSOPORMODALIDAD")]
+subset(InfoBuques, CodigoCFR %in% c(check$CodigoCFR)) # no hay buques sin codigo en InfoBuques en 2019
 
 
 # InfoBuques
 ############### #
-  # Hay barcos con varios registros por cambios datos tecnicos/motor
+  # Hay barcos con varios registros por cambios datos tecnicos/motor/nombre etc
   # NUEVA TABLA: InfoBuquesUnique
-  #              primary Key: IdBuque o CodigoCFR
-
-  # Identificamos los barcos que han cambiado de Puertobase o caracteristicas tecnicas en 2019 y estan en nuestra BD
-CheckId <- InfoBuques %>%  count(CodigoCFR) %>% filter(n > 1) 
-CheckMaestroBuques <- InfoBuques [InfoBuques$CodigoCFR %in% CheckId$CodigoCFR & 
-                                    InfoBuques$CodigoCFR %in% unique(MaestroBuques$Codigo.UE),]
-CheckMaestroBuques <- CheckMaestroBuques %>% arrange(CodigoCFR)
-write.table(CheckMaestroBuques, "CheckMaestroBuques.csv", sep=",", dec=".", row.names = FALSE)
-write.table(InfoBuques, "MaestroBuques.csv", sep=",", dec=".", row.names = FALSE)
-
+  #              id unico: IdBuque o CodigoCFR
+  
   # Creamos nueva tabla con un registro para cada barco
   # !> lo mas correcto sería cruzarlo con InfoDiarios en función de la fecha 
-names(InfoBuques) <- iconv(names(InfoBuques),to="ASCII//TRANSLIT")
-InfoBuques$fcCambio2 <- ymd(InfoBuques$fcCambio)
+names(InfoBuques) <- iconv(names(InfoBuques),to="ASCII//TRANSLIT") # cambio encoding nombres
+InfoBuques$fcCambio2 <- ymd(InfoBuques$fcCambio)  # cambio de formato de fecha
 
+# nos quedamos con los registros de la ultima fecha de cambio par acada IdBuque
 InfoBuquesUnique <- InfoBuques %>% group_by( IdBuque, CodigoCFR) %>%
 summarise(fcCambio2=max(fcCambio2)) %>%
 left_join(InfoBuques, by=c("IdBuque", "CodigoCFR", "fcCambio2")) %>%
 ungroup()%>% as.data.frame() 
 
-InfoBuquesUnique %>%  count(CodigoCFR) %>% filter(n > 1)  
-subset(InfoBuquesUnique, is.na(CodigoCFR)) ## 
+dim(InfoBuques)
+dim(InfoBuquesUnique)
+
+InfoBuquesUnique %>%  count(CodigoCFR) %>% filter(n > 1)  # comprobamos que IdBuque es unico
+subset(InfoBuquesUnique, is.na(CodigoCFR))                ## hay dos buques sin CodigoCFR
 subset(InfoBuquesUnique, is.na(CodigoCFR), select = c("IdBuque", "CodigoCFR", "Nombre", "PuertoBase",
                                                       "CensoPorModalidad")) 
-subset(InfoDiarios, IdBuque %in% c(51346396, 79454692))
+subset(InfoDiarios, IdBuque %in% c(51346396, 79454692))   #
   ##  quedan 2 barcos sin codigo CFR. Pero no tienen ningun registro en InfoDiarios. Se pueden eliminar
 InfoBuquesUnique <- subset(InfoBuquesUnique, !IdBuque %in% c(51346396, 79454692))
 
-    #Por si queda algún duplicado por algun cambio que no tenga fecha 
-    #(se supone que ya no va apasar pero por si acaso)
-        #CheckId <-  duplicated(InfoBuquesUnique[, names(InfoBuquesUnique)!="CensoPorModalidad"])
-        #InfoBuquesUnique[CheckId,] 
-        #InfoBuquesUnique<- InfoBuquesUnique[!CheckId,]  
+
+
+# Para poder actualizar nuestra BD 
+# Identificamos los barcos que han cambiado de Puertobase o caracteristicas tecnicas en 2019 y estan en nuestra BD
+CheckId <- InfoBuques %>%  count(CodigoCFR) %>% filter(n > 1) 
+CheckMaestroBuques <- InfoBuques [InfoBuques$CodigoCFR %in% CheckId$CodigoCFR & 
+                                    InfoBuques$CodigoCFR %in% unique(MaestroBuques$Codigo.UE),]
+CheckMaestroBuques <- CheckMaestroBuques %>% arrange(CodigoCFR)
+write.table(CheckMaestroBuques, "CheckMaestroBuques.csv", sep=",", dec=".", row.names = FALSE)
+# Censo completo español
+write.table(InfoBuques, "MaestroBuques.csv", sep=",", dec=".", row.names = FALSE)
+
+
 
 
 # InfoDiarios
 ################ #
-  #  Primary key = IdDiarios
+  #  id unico = IdDiarios
 head(InfoDiarios)
 dim(InfoDiarios)
 length(unique(InfoDiarios$IdDiario))
@@ -156,7 +171,7 @@ temp
 
 # InfoVentas
 ################ #
-  #  Primary key = IdVenta
+  #  id unico = IdVenta
 
 head (InfoVentas)
 dim (InfoVentas)
@@ -169,7 +184,7 @@ temp
 
 # InfoOrigenLineas
 ################ #
-  #  Primary key = IdInfoOrigenLineas 
+  #  id unico = IdInfoOrigenLineas 
 dim (InfoOrigenLineas)
 length(unique(InfoOrigenLineas$IdInfoOrigenLineas))
 dim(subset(InfoOrigenLineas, is.na(IdInfoOrigenLineas)))
@@ -177,7 +192,7 @@ dim(subset(InfoOrigenLineas, is.na(IdInfoOrigenLineas)))
 
 # Depurar InfoCapturas
 ###################### #  
-  #  Primary key = IdCaptura 
+  #  id unico = IdCaptura 
 head(InfoCapturas)
 dim (InfoCapturas)
 length(unique(InfoCapturas$IdCaptura))
@@ -186,21 +201,25 @@ length(unique(InfoCapturas$IdCaptura))
 
 # Depurar InfoCapturasCalculadas
 ################################ #  
-  # Primary key: IdCapturaCalculada
+  # id unico: IdInfoOrigenLinea
+  # creamos la variable IdCaptura
 head(InfoCapturasCalculadas)
 dim (InfoCapturasCalculadas)
-length(unique(InfoCapturasCalculadas$c ))
+length(unique(InfoCapturasCalculadas$IdInfoOrigenLinea ))
+
+InfoOrigenLineas$IdCaptura <- InfoCapturasCalculadas$IdCaptura [match(InfoOrigenLineas$IdInfoOrigenLinea, InfoCapturasCalculadas$IdInfoOrigenLinea)]
+
 
 
 # InfoCapturaLance0
 ################### #  
-  # Primary key: IdCaptura
+  # id unica: IdCaptura
 head(InfoCapturaLance0)
 dim (InfoCapturaLance0)
 length(unique(InfoCapturaLance0$IdCaptura))
 
     
-    # hay registros en esta tabla con esfuerzo igual a cero -> preguntar a SGP
+    # hay registros en esta tabla con esfuerzo igual a cero -> ** preguntar a SGP
     length(unique(InfoCapturaLance0$IdDiario))
     dim(InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0,])
     length(unique(InfoCapturaLance0$IdDiario[InfoCapturaLance0$NumOperaciones>0]))
@@ -210,8 +229,16 @@ length(unique(InfoCapturaLance0$IdCaptura))
     dim(InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0,])
     length(unique(InfoCapturaLance0$IdDiario[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0]))
     
-
-
+    # mirar que el IdCaptura en InfoCapturaLance0 estan en InfoCapturasCalculadas
+    InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0,]
+    # hemos revisado que hay registros dentro de InfoCapturaLance0 que estan tambien dentro de InfoCapturasCalculadas
+    # sospechamos que en infocapturaLancecero se incluyen todas aquellas idCaptura con al menos algun lance cero
+    # ** pendiente de aclarar con SGP
+    temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
+    unique(temp$IdCaptura)
+    head(subset(temp, PesoConsumo==0))
+    
+    
 # InfoDescartes
 ################ #  
   # Primary key: IdDescarte
@@ -237,7 +264,7 @@ length(unique(InfoParametrosArteCapturas_wide$IdCaptura))
 
 
 ######################################################## #
-# revisar consistencia en los nombres          ###########
+# revisar consistencia en los nombres entre las tablas #####
 ######################################################## #
   
 # InfoBuques 
@@ -330,9 +357,9 @@ InfoParametrosArteCapturas_wide <- rename(InfoParametrosArteCapturas_wide,
 
 # Save data                 ####
 ############################# #
-setwd(path.data)
+
 save(InfoBase, InfoBuquesUnique, InfoDiarios, InfoVentas, InfoOrigenLineas, 
      InfoCapturaLance0, InfoCapturas, InfoCapturasCalculadas, InfoDescartes, 
-     InfoParametrosArteCapturas_wide,  file="Infobase2019_Unique_20200724.Rdata"  )
+     InfoParametrosArteCapturas_wide,  file="Datos/Infobase2019_Unique_20200724.Rdata"  )
 
     

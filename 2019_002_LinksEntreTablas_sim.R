@@ -1,25 +1,16 @@
 # 
 # R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
 
+# readme:
+# de este script no sale ningun fichero nuevo ni se crean variables.
+# sirve para chequear las relaciones entre las diferentes tablas
+
+
 # Load                     ####
 ############################# #
+# se cargan los datos derivados de la depuracion
 rm(list=ls())
-
-FolderVersionInfoBase <- "20200421_InfoBaseFinal"
-FolderVersionNotasVenta <- "20200221_NotasVenta"
-
-path.data <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\20200421_InfoBaseFinal")
-path.aux <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Auxtables")
-path.res <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Results")
-
-setwd(path.aux)
-#Puertos <- read.csv("Puertos.csv", sep=",", stringsAsFactors = FALSE)
-#BUQUES <- read.csv("BUQUES.csv", sep=";", dec=",", stringsAsFactors = FALSE,encoding="UTF-8")
-
-setwd(path.data)
-load(file="Infobase2019_Unique_20200724.Rdata"   )
-
-setwd(path.res)
+load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
 
 # Libraries             #####
 ############################ #
@@ -41,22 +32,14 @@ head(InfoCapturasCalculadas)
 head(InfoCapturaLance0)
 head(InfoDescartes)
 
-InfoOrigenLineas$IdCaptura <- InfoCapturasCalculadas$IdCaptura [match(InfoOrigenLineas$IdInfoOrigenLinea, InfoCapturasCalculadas$IdInfoOrigenLinea)]
-CheckId <- InfoOrigenLineas %>%  group_by(IdDiario ,IdCaptura, CodigoDivision ,RectanguloEstadistico, GSA, CodigoArte_FaoAL3  ) %>% summarise(n=length(IdInfoOrigenLinea )) 
-CheckId_2 <- CheckId %>%  count(IdDiario ,IdCaptura, CodigoDivision ,RectanguloEstadistico, GSA, CodigoArte_FaoAL3  ) %>% filter(n > 1) 
 
-subset(InfoOrigenLineas, IdDiario ==407374     )
-
-InfoOrigenLineas %>% filter(is.na(IdCaptura))
-
+#
 # InfoCapturas - InfoCapturasCalculadas             #####
 ######################################################### #
 
 # Todas las IdCaptura de InfoCapturas tienen un Idcaptura en InfoCapturasCalculadas
-# Existen las IdCaptura en InfoCapturasCalculadas sin informacion en InfoCapturas (62485 lineas)
-# Son registros que:  tienen IdCaptura NA
-#                     vienen de Notas de venta (IdNotaDeVenta, 17290) o de Desembarqes (IdDesembarqueEspecie,8898)
-#                     pesoconsumo 0 (36297) habría que quitar? todos tienen IdMareaOrigen
+# Pero no todas las IdCaptura en InfoCapturasCalculadas tienen un Idcaptura en InfoCapturas (62485 lineas)
+# ya que son registros que vienen de Notas de venta (IdNotaDeVenta, 17290) o de Desembarqes (IdDesembarqueEspecie,8898)
 
 
 temp<- InfoCapturas %>% anti_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
@@ -164,6 +147,9 @@ temp<- InfoDiarios %>% anti_join(InfoDescartes, by="IdDiario")  ; dim(temp)
 temp<- InfoCapturaLance0 %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
 temp<- InfoDiarios %>% anti_join(InfoCapturaLance0, by="IdDiario")  ; dim(temp)
 
+temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
+unique(temp$IdCaptura)
+head(subset(temp, PesoConsumo==0))
 
 # InfoOrigenLineas/InfoDescartes/ InfoCapturaLance0/ - InfoDiariosUnique             #####
 ########################################################################################## #
