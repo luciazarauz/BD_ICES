@@ -2,7 +2,8 @@
 # Readme:                                                           #
 # ----------------------------------------------------------------- # 
 # De este script no sale ningun fichero nuevo ni se crean variables.
-# sirve para chequear las relaciones entre las diferentes tablas.
+# sirve para chequear las relaciones entre las diferentes tablas y 
+# explorar un poco los datos.
 #
 # INDICE:
 #
@@ -53,9 +54,9 @@ head(InfoDescartes)
 # ----------------------------------------------- #
 
   # Todas las IdCaptura de InfoCapturas tienen un Idcaptura en InfoCapturasCalculadas.
-  # Pero no todas las IdCaptura en InfoCapturasCalculadas tienen un Idcaptura en 
-  # InfoCapturas (62485 lineas) ya que son registros que vienen de Notas de venta 
-  # (IdNotaDeVenta, 17290) o de Desembarqes (IdDesembarqueEspecie,8898).
+  # Pero no todas las IdCaptura en InfoCapturasCalculadas tienen un Idcaptura en InfoCapturas
+  # Esto tiene sentido porque en InfoCapturasCalculadas se combinan datos de logbooks (que tienen informacion de esfuerzo) 
+  #  con notas de venta (que no tienen información de esfuerzo)
 
 temp<- InfoCapturas %>% anti_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
 temp<- InfoCapturasCalculadas %>% anti_join(InfoCapturas, by="IdCaptura")  ; dim(temp)
@@ -66,10 +67,21 @@ dim(subset(temp, !is.na(IdNotaDeVenta)))
 dim(subset(temp, is.na(IdNotaDeVenta)))
 dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & !is.na(IdDesembarqueEspecie)))
 dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)))
+dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)) %>% filter(PesoConsumo>0))
+dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)) %>% filter(PesoCapturado>0))
+dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)) %>% filter(PesoNotaVenta>0)) 
+dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie) & is.na(IdMareaOrigen)))
+length(unique(temp$IdMareaOrigen[is.na(temp$IdCaptura) & is.na(temp$IdNotaDeVenta) & is.na(temp$IdDesembarqueEspecie)]))
+# todos tienen un peso NV positivo, pero peso consumo cero. Todos tienen un codigo marea
+# son 9408 mareas
+# @@ vamos a hacer resta misma comprobación cuando tengamos todas las tablas unidas, para saber que barcos son e intentar entedre de dónde vienen
+#    es posible que el IdMareaOrigen que esta solo en una nota de venta sea erroneo? me extraña q eno tenga un logbooks asociado
+
+
 head(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)))
 t<- (subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)))
 sum(t$PesoConsumo)
-dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie) & is.na(IdMareaOrigen)))
+
 
 tdiario <- unique (t$IdDiario)
 
@@ -77,8 +89,11 @@ test <- InfoCapturasCalculadas %>% filter(IdDiario %in% tdiario) %>% group_by(Id
   summarize(peso=sum(PesoConsumo)) %>% filter(peso==0)
 test
 
+
 InfoCapturasCalculadas%>% filter(IdDiario==437136)
 InfoCapturaLance0 %>% filter(IdDiario==437136)
+InfoOrigenLineas %>% filter(IdDiario==437136)
+
 test%>% filter(IdDiario %in% unique(InfoCapturaLance0$IdDiario))
 test%>% filter(!IdDiario %in% unique(InfoCapturaLance0$IdDiario))
 
@@ -125,30 +140,49 @@ dim(testcap00)
 
 # InfoOrigenLineas - InfoCapturasCalculadas             #####
 ######################################################### #
-# Todas las InfoCapturasCalculadas tienen un IdInfoOrigenLinea en InfoOrigenLineas. 
-# Hay IdInfoOrigenLinea en InfoOrigenLineas que no aprecen en InfoCapturasCalculadas
+# Todas las InfoCapturasCalculadas tienen un Id en InfoOrigenLineas. 
+# pero no todas las todas las InfoOrigenLineas tienen un id en InfoCapturasCalculadas 
+# @@ preguntar SGP. Por qué hay InfoOrigenLineas sin un id en InfoCapturasCalculadas? 
+#    es información que estamos perdiendo, pero no sabemos de dónde viene
 
 temp<- InfoCapturasCalculadas %>% anti_join(InfoOrigenLineas, by=c("IdInfoOrigenLinea"="IdInfoOrigenLinea"))  ; dim(temp)
 temp<- InfoOrigenLineas %>% anti_join(InfoCapturasCalculadas, by=c("IdInfoOrigenLinea"="IdInfoOrigenLinea"))  ; dim(temp)
 
+temp2<- temp %>% anti_join(InfoCapturaLance0, by=c("IdDiario"="IdDiario"))  ; dim(temp2)
+
+
+head(temp)
+table(substr(temp$OrigenIdentificador,1,2))
 aa<- unique(temp$IdDiario)
 
+subset(InfoOrigenLineas, IdInfoOrigenLinea==54656811)
+subset(InfoCapturasCalculadas, IdInfoOrigenLinea==54656811)
+subset(InfoDescartes, IdDiario==448524)
+subset(InfoCapturaLance0, IdDiario==448524)
+subset(InfoCapturasCalculadas, IdDiario==448524)
+
+subset(InfoOrigenLineas, IdInfoOrigenLinea==54833890 )
+subset(InfoCapturasCalculadas, IdInfoOrigenLinea==54833890 )
+subset(InfoDescartes, IdDiario==468693)
+subset(InfoCapturaLance0, IdDiario==468693)
+subset(InfoCapturasCalculadas, IdDiario==468693)
 
 
-# InfoOrigenLineas - InfoDiariosUnique                    #####
+
+# InfoOrigenLineas - InfoDiarios                    #####
 ######################################################### #
-# Todas los IdDiario de InfoOrigenLineas tienen un IdDiario en InfoDiariosUnique 
-# Existen los IdDiario en InfoDiariosUnique sin informacion en InfoOrigenLineas
+# Todas las InfoOrigenLineas tienen un Id en InfoDiarios 
+# pero no todas las todas las InfoDiarios tienen un id en InfoOrigenLineas 
+#   puede ser que vengan de descarte o de infocaptura lance 0
 
 temp<- InfoOrigenLineas %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
 temp<- InfoDiarios %>% anti_join(InfoOrigenLineas, by="IdDiario")  ; dim(temp)
 
-aa2<- unique(temp$IdDiario)
 
-# InfoDescartes - InfoDiariosUnique                 #####
+# InfoDescartes - InfoDiarios                 #####
 ######################################################### #
-# Todas los IdDiario de InfoDescartes tienen un IdDiario en InfoDiariosUnique 
-# Existen los IdDiario en InfoDiariosUnique sin informacion en InfoDescartes
+# Todas las InfoDescartes tienen un Id en InfoDiarios 
+# pero no todas las todas las InfoDiarios tienen un id en InfoDescartes 
 
 temp<- InfoDescartes %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
 temp<- InfoDiarios %>% anti_join(InfoDescartes, by="IdDiario")  ; dim(temp)
@@ -156,24 +190,22 @@ temp<- InfoDiarios %>% anti_join(InfoDescartes, by="IdDiario")  ; dim(temp)
 
 # InfoCapturaLance0 - InfoDiariosUnique             #####
 ######################################################### #
-# Todas los IdDiario de InfoCapturaLance0 tienen un IdDiario en InfoDiariosUnique 
-# Existen los IdDiario en InfoDiariosUnique sin informacion en InfoCapturaLance0
+# Todas las InfoCapturaLance0 tienen un Id en InfoDiarios 
+# pero no todas las todas las InfoDiarios tienen un id en InfoCapturaLance0
 
 temp<- InfoCapturaLance0 %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
 temp<- InfoDiarios %>% anti_join(InfoCapturaLance0, by="IdDiario")  ; dim(temp)
 
-temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
-unique(temp$IdCaptura)
-head(subset(temp, PesoConsumo==0))
 
 # InfoOrigenLineas/InfoDescartes/ InfoCapturaLance0/ - InfoDiariosUnique             #####
 ########################################################################################## #
-# Todas los IdDiario de InfoDiariosUnique tienen un IdDiario en InfoOrigenLineas o InfoDescartes o InfoCapturaLance0 
+# Todas los IdDiario de InfoDiarios tienen un Id en InfoOrigenLineas o InfoDescartes o InfoCapturaLance0 
 
-
-allDiario <- data.frame(IdDiario=c(InfoOrigenLineas$IdDiario, InfoDescartes$IdDiario, InfoCapturaLance0$IdDiario ))
+allDiario <- data.frame(IdDiario=c(InfoCapturasCalculadas$IdDiario, InfoOrigenLineas$IdDiario, InfoDescartes$IdDiario, InfoCapturaLance0$IdDiario ))
 
 temp<- InfoDiarios %>% anti_join(allDiario, by="IdDiario")  ; dim(temp)
+
+temp2 <- temp %>% anti_join(InfoVentas, by="IdDiario")  ; dim(temp2)
 
 
 

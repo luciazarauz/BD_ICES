@@ -12,7 +12,7 @@
 # Funciones.
 # Cargar datos: tablas auxiliares, tablas infobase y tablas Notasventa.
 # Overview tables.
-# Comprobar primary leys de tablas.
+# Comprobar primary keys de tablas.
 # Revisar consistencia en los nombres entre las tablas.
 # Save data.
 #
@@ -159,12 +159,18 @@ subset(InfoBuques, CodigoCFR %in% c(check$CodigoCFR)) # no hay buques sin codigo
   # NUEVA TABLA: InfoBuquesUnique con id unico: IdBuque o CodigoCFR.
   
   # Creamos nueva tabla con un registro para cada barco.
-  # !> lo mas correcto sería cruzarlo con InfoDiarios en función de la fecha. 
+  # !! lo mas correcto sería cruzarlo con InfoDiarios en función de la fecha.
+  #     hay barcos que cambian de puerto a mitad de año y que pueden pasar de laboratorio AZTI a IEO
+  #     (laboratorio AZTI: desembarcos en Euskadi. laboratorio IEO: el resto )
+  #     en este fichero podríamos identificar que codigos CFR tienen algun cambio en puerto base o nombre y en que fecha se da, para luego hacer el link
 
 names(InfoBuques) <- iconv(names(InfoBuques),to="ASCII//TRANSLIT") # cambio encoding nombres
 InfoBuques$fcCambio2 <- ymd(InfoBuques$fcCambio)  # cambio de formato de fecha
 
-  # Nos quedamos con los registros de la ultima fecha de cambio par acada IdBuque.
+InfoBuques %>%  count(CodigoCFR) %>% filter(n > 2) 
+subset(InfoBuques, CodigoCFR=="ESP000025406")
+
+# Nos quedamos con los registros de la ultima fecha de cambio par acada IdBuque.
 
 InfoBuquesUnique <- InfoBuques %>% group_by( IdBuque, CodigoCFR) %>%
 summarise(fcCambio2=max(fcCambio2)) %>%
@@ -400,7 +406,7 @@ names(InfoParametrosArteCapturas_wide) <- mgsub(c("á","é","í","ó","ú"), c("
 names(InfoParametrosArteCapturas_wide) <- make.names(names(InfoParametrosArteCapturas_wide))
 InfoParametrosArteCapturas_wide <- rename(InfoParametrosArteCapturas_wide, 
                                           Profundidad_m                  = FD_Profundidad..metros.,
-                                          TamañoMedioAnzuelos_mm         = GC_Tamaño.medio.de.los.anzuelos..mm.,       
+                                          TamanoMedioAnzuelos_mm         = GC_Tamaño.medio.de.los.anzuelos..mm.,       
                                           Altura_m                       = GD_Altura..metros.,                        
                                           AlturaMediaRedes_m             = GD_Altura.media.de.las.redes..m. ,          
                                           LongitudMediaRedes_m           = GL_Logitud.media.de.las.redes..metros.  ,  
@@ -411,7 +417,7 @@ InfoParametrosArteCapturas_wide <- rename(InfoParametrosArteCapturas_wide,
                                           NumeroPalangresLineasLanzadas  = NN_Numero.de.palangres.o.lineas.lanzadas  ,
                                           NumeroRedesLanzadas            = NN_Numero.de.redes.lanzadas ,              
                                           NumeroTotalRedes               = QG_Numero.total.de.redes.a.bordo  ,         
-                                          LomgitudTotalRedes             = TL_Longitud.total.de.las.redes.a.bordo..m.)
+                                          LongitudTotalRedes             = TL_Longitud.total.de.las.redes.a.bordo..m.)
 
 
 # # ####################### #
