@@ -1,18 +1,20 @@
-# 
+# ----------------------------------------------------------------- #
+# Readme:                                                           #
+# ----------------------------------------------------------------- # 
+# En este script: quitamos tunidos tropicales, creamos las variables de cabecera de nuestra BD y asegurar que tienen dato, y creamos nuevas variables
+#
+# INDICE:
+#
+# Functions
+# Libraries.
+# Cargar la tabla maestra (dori).
+# Crear variables
+#
+# ----------------------------------------------------------------- # 
 # R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+# ----------------------------------------------------------------- # 
 
-# Load                     ####
-############################# #
 rm(list=ls())
-
-path.data <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\20200421_InfoBaseFinal")
-path.aux <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Auxtables")
-path.res <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Results")
-
-setwd(path.data)
-load(file="Dori2019_v1.Rdata" )
-
-
 
 # Funciones  ####
 ################ #
@@ -38,20 +40,28 @@ mgsub <- function(pattern, replacement, x, ...) {
 ############################ #
 
 library(fishPiCodes)
-data("UNLOCODE")
-data("ASFIS")
 library(lubridate)
 library(data.table)
 library(reshape2)
 library(dplyr)
-#library(plyr)
+
+
+# Load                     ####
+############################# #
+
+
+load(file="Datos/Dori2019_v1.Rdata"   )
+
 
 ### Previo
-
+data("UNLOCODE")
+data("ASFIS")
 head(UNLOCODE)
 UNLOCODE$locName <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), UNLOCODE$locName)
 UNLOCODE$locName <- mgsub(c("à", "è"), c("a", "e"), UNLOCODE$locName)
 UNLOCODE$locName <- toupper(UNLOCODE$locName)
+
+
 
 # Identificar y eliminar Atuneros Tropicales #####
 ################################################ #
@@ -81,6 +91,7 @@ Dori <- subset(Dori, !CensoPorModalidad %in% c("ATUNEROS CERQUEROS CONGELADORES 
 
   # estos son errores de asignación del área
   table(Dori$Nombre [ substr(Dori$CodigoDivision, 1,2)!="27"] )
+  table(Dori$CodigoDivision [ substr(Dori$CodigoDivision, 1,2)!="27"] )
   table(Dori$CensoPorModalidad [ substr(Dori$CodigoDivision, 1,2)!="27"] )
   table(Dori$CodigoPuertoDesembarque_AL5 [ substr(Dori$CodigoDivision, 1,2)!="27"] )
   table(Dori$CodigoPuertoRegreso_AL5 [ substr(Dori$CodigoDivision, 1,2)!="27"] )
@@ -97,7 +108,7 @@ Dori$IdDori <- 1:dim(Dori)[1]
 
 #    Variables Cabecera     ####
 ############################## #
-  # requieren completar NAs
+  # requieren completar NAs (no puede haber registros vacíos en la fecha de desembarque, puerto de desembarque...)
   # Identificamos las variables de cabecera con una "C_" al comienzo del nombre
 
 
@@ -123,11 +134,15 @@ Dori$C_FcRegreso <- Dori$FcRegreso
 FcMaxCap <- Dori %>% group_by(IdDiario) %>% summarise(C_Maxcap= max(FcCaptura, rm.na=T))
 Dori$C_FcRegreso[is.na(Dori$C_FcRegreso)] <- FcMaxCap$C_Maxcap[match(Dori$IdDiario[is.na(Dori$C_FcRegreso)], FcMaxCap$IdDiario)]
 
+head(Dori[grepl("Fc", names(Dori))])
+
 
 # Crear IdMarea ####
 ##### #
-    # Al haber lineas creadas con NV y CA es bastante complicado. 
-    # Puede haber barcos+fecha con lineas que vienen de CA/DE con CodigoMarea, y otras lineas que vienen de NV sin CodigoMarea.
+    # CA: captura
+    # DE: desembarcos
+    # NV: nota de venta
+    # Puede haber lineas que vienen de CA/DE con CodigoMarea, y otras lineas que vienen de NV sin CodigoMarea.
     # En la misma marea puede haber FcRegreso que vienen de CA/DE con las que vienen de NV. Cambian las horas. Por eso utilizamos la feha sin hora (floor)
     # criterio: Agrupamos por barco + fecha sin hora ->
     #           IdMarea: Codigomarea de la agrupación. Si la agrupación tiene varios CodigoMarea, los concatenamos. Concatenamos también NAs
@@ -144,6 +159,8 @@ Dori$IdMarea <- gsub("//NA", "" ,Dori$IdMarea)
 Dori$IdMarea[grepl("//", Dori$IdMarea)] <- Dori$CodigoMarea[grepl("//", Dori$IdMarea)] 
 Dori$IdMarea[Dori$IdMarea=="NA"]   <- Dori$Buque_FcRegresoFloor[Dori$IdMarea=="NA"] 
 
+Dori$IdMarea[is.na(Dori$IdMarea)]
+
 # some checkings
   head(unique(Dori$IdMarea[grepl("//NA", Dori$IdMarea)]))
   head(unique(Dori$IdMarea[grepl("NA//", Dori$IdMarea)]))
@@ -154,9 +171,14 @@ Dori$IdMarea[Dori$IdMarea=="NA"]   <- Dori$Buque_FcRegresoFloor[Dori$IdMarea=="N
   dim(Dori[Dori$IdMarea=="NA",] )
   dim(Dori[is.na(Dori$IdMarea),] )
   
+  Dori[Dori$IdMarea=="ESP-13703399//NA",]
+  Dori[Dori$IdMarea=="ESP-TRP-00594820191219012808//ESP-TRP-00594820191220043440",]
+  Dori[Dori$IdMarea=="NA",]
+  
   length(unique(Dori$IdMarea))
   length(unique(Dori$IdMarea[Dori$PesoConsumo!=0]))
-
+## @@ si hubiesemos quitado todas las lineas con pesoconsumo=0 (como hace el IEO), el numero de mareas totales es bastante menor
+##    hay que comprobar si estas mareas que hemos creado, son reales o no  
 
 # some checkings
   Dori %>%  group_by(C_FcRegresoFloor, IdBuque) %>% summarize (n = Fun_unique(IdMarea)) %>% filter(n > 1) 
@@ -168,7 +190,7 @@ Dori$IdMarea[Dori$IdMarea=="NA"]   <- Dori$Buque_FcRegresoFloor[Dori$IdMarea=="N
   
   select(a, c(Nombre, CensoPorModalidad, C_FcRegreso, CodigoMarea, IdMarea, C_FcRegresoFloor, OrigenIdentificador, PesoConsumo)) %>% data.frame
   
-  # mas de una marea en la misma fecha corta?
+  # en la msima marea, mas de una fecha corta?
   Dori  %>% group_by(IdMarea) %>% summarize (n = Fun_unique(C_FcRegresoFloor)) %>% filter(n > 1)  # 
   Dori  %>% group_by(IdMarea) %>% summarize (n = Fun_unique(IdBuque)) %>% filter(n > 1)  # 
   Dori  %>% group_by(Buque_FcRegresoFloor) %>% summarize (n = Fun_unique(IdMarea)) %>% filter(n > 1)  # 
@@ -220,7 +242,7 @@ Dori$C_PuertoDesembarque <- UNLOCODE$locName[match(Dori$C_CodigoPuertoDesembarqu
 
 
 
-# Puerto de Venta y Fecha de Venta) #### 
+# Puerto de Venta y Fecha de Venta  #### 
 #################################################### #
 # para la cabecera necesitamos un único Puerto venta y Fecha Venta, 
 # pero en algunas mareas hay varios puertos/fechas de venta
@@ -229,7 +251,6 @@ Dori$C_PuertoDesembarque <- UNLOCODE$locName[match(Dori$C_CodigoPuertoDesembarqu
 
 # Fecha venta
 ###
-temp<- Dori %>% group_by(IdDiario, IdMarea) %>% summarise(Peso=sum(PesoConsumo))
 InfoVentas$IdMarea <- Dori$IdMarea[match(InfoVentas$IdDiario, Dori$IdDiario)]
 InfoVentas$FcVentaFloor <- floor_date(ymd_hms(InfoVentas$FcVenta, tz = "Europe/Madrid"), "day")
 InfoVentas <- InfoVentas %>% group_by(IdMarea) %>% mutate(C_FcVentaMax= max(FcVentaFloor, rm.na=T)) %>% data.frame
@@ -245,12 +266,15 @@ Dori$C_FcVentaMax <- InfoVentas$C_FcVentaMax[match(Dori$IdMarea, InfoVentas$IdMa
   
   InfoVentas %>% group_by(IdDiario) %>% summarize(n=Fun_unique(FcVentaFloor )) %>% filter(n > 1)
   subset(InfoVentas, IdDiario=="407374" )
+  subset(Dori, IdDiario=="407374" )
   
   InfoVentas %>% group_by(IdDiario) %>% summarize(n=Fun_unique(C_FcVentaMax )) %>% filter(n > 1)
 
 
 # Puerto venta #
 ###
+  #  @@ nos han quedado mareas sin puerto de venta asignado. 
+  #     valora si aplicar el puerto de desembarco
 PuertoVentaSelect <- InfoVentas %>% group_by(IdMarea, CodigoPuertoVenta_AL5) %>% summarise(Peso = sum(Peso, na.rm=T)) %>%
   dcast(IdMarea ~ CodigoPuertoVenta_AL5, value.var="Peso")   
 PuertoVentaSelect<-as.data.table(PuertoVentaSelect)
@@ -260,7 +284,8 @@ PuertoVentaSelect$C_CodigoPuertoVenta_AL5[PuertoVentaSelect$C_CodigoPuertoVenta_
 unique(PuertoVentaSelect$IdDiario[is.na(PuertoVentaSelect$C_CodigoPuertoVenta_AL5)])
 
 Dori$C_CodigoPuertoVenta_AL5 <- PuertoVentaSelect$C_CodigoPuertoVenta_AL5[match(Dori$IdMarea, PuertoVentaSelect$IdMarea)]
-
+Dori[is.na(Dori$C_CodigoPuertoVenta_AL5)]
+length(unique(Dori$IdMarea[is.na(Dori$C_CodigoPuertoVenta_AL5)]))
 
 
 # Division - area ####

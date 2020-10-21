@@ -10,22 +10,6 @@ path.res <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simula
 
 
 
-# Funciones  ####
-################ #
-
-Fun_unique <- function(x){length(unique(x))}
-
-mgsub <- function(pattern, replacement, x, ...) {
-  if (length(pattern)!=length(replacement)) {
-    stop("pattern and replacement do not have the same length.")
-  }
-  result <- x
-  for (i in 1:length(pattern)) {
-    result <- gsub(pattern[i], replacement[i], result, ...)
-  }
-  result
-}
-
 
 
 

@@ -1,18 +1,18 @@
-# 
+# ----------------------------------------------------------------- #
+# Readme:                                                           #
+# ----------------------------------------------------------------- # 
+# En este script combinamos todas las tablas en una sola mediante sus id correspondientes.
+#
+# INDICE:
+#
+# Functions
+# Libraries.
+# Load data from depuracion.
+# Link tables
+#
+# ----------------------------------------------------------------- # 
 # R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
-
-# Load                     ####
-############################# #
-rm(list=ls())
-
-
-path.data <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\20200421_InfoBaseFinal")
-path.aux <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Auxtables")
-path.res <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Results")
-
-
-setwd(path.data)
-load(file="Infobase2019_Unique_20200724.Rdata"   )
+# ----------------------------------------------------------------- # 
 
 
 
@@ -34,7 +34,6 @@ mgsub <- function(pattern, replacement, x, ...) {
 
 
 
-
 # Libraries             #####
 ############################ #
 
@@ -46,6 +45,12 @@ library(reshape2)
 library(dplyr)
 #library(plyr)
 
+# # ################## #
+# # Load               #
+# # ################## #
+
+rm(list=ls())
+load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
 
 
 # EXPLORE LINKS OF THE TABLES      ########################
@@ -78,7 +83,7 @@ temp<- InfoDiarios %>% anti_join(InfoBuquesUnique, by="IdBuque")  ; dim(temp)
 
 InfoCapturas_join <- select(InfoCapturas, -c(FcCaptura))
 InfoParametrosArteCapturas_wide_join <- select(InfoParametrosArteCapturas_wide, -c(CodigoArte_FaoAL3))
-InfoOrigenLineas_join <- select(InfoOrigenLineas, -c(IdDiario, IdNotaDeVenta))
+InfoOrigenLineas_join <- select(InfoOrigenLineas, -c(IdDiario, IdNotaDeVenta,IdCaptura))
 InfoDiariosUnique_join <- select(InfoDiarios, -c())
 InfoBuquesUnique_join <- select(InfoBuquesUnique, -c( FechaCambioDatosTecnicos, FechaCambioDatosMotor,FcEfectoInicial,
                                                       fcCambio, FcCambioIdentificacion))
@@ -109,9 +114,12 @@ InfoCapturasCalculadas_All$CatchCategory <- "CapturasCalculadas"
 
 # Crear tabla completa Descartes     #####
 ######################################## #
+  # @@ qué hacer con las mareas que tienen solo descarte? 
+  #    7 mareas con descarte y capturalance0.
+  #    1 marea con descarte y sin capturalance0 ni capturascaculadas
 
     temp<- InfoCapturasCalculadas_All %>% anti_join(InfoDescartes, by="IdDiario")  ; dim(temp)
-    temp<- InfoDescartes %>% anti_join(InfoCapturasCalculadas_All, by="IdDiario")  ; dim(temp)  # Hay tres mareas que no estan en capturas calculadas
+    temp<- InfoDescartes %>% anti_join(InfoCapturasCalculadas_All, by="IdDiario")  ; dim(temp)  # Hay mareas que no estan en capturas calculadas. 
     temp<- InfoDescartes %>% anti_join(InfoCapturaLance0, by="IdDiario")  ; dim(temp)
     temp<- InfoDescartes %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
     temp<- InfoDescartes %>% anti_join(InfoCapturasCalculadas_All, by="IdDiario") %>% anti_join(InfoCapturaLance0, by="IdDiario") ; dim(temp)
@@ -148,14 +156,15 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
   temp<- InfoCapturaLance0 %>% anti_join(InfoDiarios, by="IdDiario")  ; dim(temp)
   
   temp<- InfoCapturaLance0 %>% anti_join(InfoCapturasCalculadas_All, by="IdCaptura")  ; dim(temp)
-  temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas_All, by="IdCaptura")  ; dim(temp) # Todos los IdCaptura son nuevos. No estan en InfoCapturasCalculadas
+  temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas_All, by="IdCaptura")  ; dim(temp) 
   unique(temp$IdCaptura)
 
-  
-  subset(InfoCapturaLance0, IdCaptura==804106 )
-  head(subset(InfoCapturasCalculadas_All, IdCaptura==804106 ))
-  head(subset(InfoCapturasCalculadas_All, IdCaptura==804106 ))
-  subset(InfoCapturasCalculadas_All, IdCaptura==804106 ) %>% group_by(FcCaptura) %>% summarise(Peso=sum(PesoConsumoTotal))
+
+# @@ que hacemos con la CapturaLance0, que tiene un idCaptura en el que también hay CapturasCalculadas?
+  subset(InfoCapturaLance0, IdCaptura==569807 )
+  (subset(InfoCapturasCalculadas_All, IdCaptura==569807 ))
+  (subset(InfoCapturasCalculadas_All, IdDiario ==461592 ))
+  subset(InfoCapturasCalculadas_All, IdCaptura==569807 ) %>% group_by(FcCaptura) %>% summarise(Peso=sum(PesoConsumoTotal))
   
   
 #creamos nueva tabla  
@@ -199,7 +208,7 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
   
   v2 <- c(names(Dori)[grepl("PesoDescarte", names(Dori))],
           names(Dori)[grepl("NumPiezasDescartadas", names(Dori))])
-  Dori[Dori$CatchCategory %in% c("CapturasCalculadas" ), v2] <- 0 
+  Dori[Dori$CatchCategory %in% c("CapturasCalculadas", "CapturasLance0" ), v2] <- 0 
 
   Dori <- Dori%>% arrange(IdBuque, FcRegreso, FcCaptura, Especie_AL3) %>% data.frame()
 
@@ -218,9 +227,6 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
   sum(InfoDescartes$PesoDescarte, na.rm=T)
   
 
- rm(InfoCapturasCalculadas_All, InfoCapturasCalculadas, InfoDescartes_All, InfoDescartes_join,
-    InfoCapturaLance0_All, InfoCapturaLance0_join, InfoCapturas, InfoCapturas_join)
- 
 
  
 # Grabar fichero                          ####
