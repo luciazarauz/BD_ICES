@@ -232,7 +232,7 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
 # Grabar fichero                          ####
 ############################################### #
   
-  save(Dori,InfoVentas, file="Dori2019_v1.RData")
+  save(Dori,InfoVentas, file="Datos/Dori2019_v1.RData")
 
 
 

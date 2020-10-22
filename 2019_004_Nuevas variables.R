@@ -577,6 +577,6 @@ for (i in sort(unique(Dori$CensoPorModalidad))){
 ############################################### #
 
 setwd(path.data)
-save(Dori, file="Dori2019_v2.RData")
+save(Dori, file="Datos/Dori2019_v2.RData")
 
 
