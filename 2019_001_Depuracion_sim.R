@@ -274,31 +274,7 @@ dim (InfoCapturaLance0)
 length(unique(InfoCapturaLance0$IdCaptura))
 
     
-    # Hay registros en esta tabla con esfuerzo igual a cero -> @@ preguntar a SGP
-    
-    length(unique(InfoCapturaLance0$IdDiario))
-    dim(InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0,])
-    length(unique(InfoCapturaLance0$IdDiario[InfoCapturaLance0$NumOperaciones>0]))
-    dim(InfoCapturaLance0[InfoCapturaLance0$TiempoPescaMin>0,])
-    length(unique(InfoCapturaLance0$IdDiario[InfoCapturaLance0$TiempoPescaMin>0]))
-    
-    dim(InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0,])
-    length(unique(InfoCapturaLance0$IdDiario[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0]))
-    
-    # Mirar que el IdCaptura en InfoCapturaLance0 están en InfoCapturasCalculadas.
-    
-    InfoCapturaLance0[InfoCapturaLance0$NumOperaciones>0 | InfoCapturaLance0$TiempoPescaMin>0,]
-    
-    # Hemos revisado que hay registros dentro de InfoCapturaLance0 que estan tambien dentro 
-    # de InfoCapturasCalculadas.
-    # Sospechamos que en infocapturaLancecero se incluyen todas aquellas idCaptura 
-    # con al menos algun lance cero.
-    # @@Pendiente de aclarar con SGP.
-    
-    temp<- InfoCapturaLance0 %>% inner_join(InfoCapturasCalculadas, by="IdCaptura")  ; dim(temp)
-    unique(temp$IdCaptura)
-    head(subset(temp, PesoConsumo==0))
-    
+
 # # ------------------------------- #    
 # # InfoDescartes                   #
 # # ------------------------------- #
@@ -381,6 +357,7 @@ names(InfoCapturaLance0)
 names(InfoCapturaLance0)[names(InfoCapturaLance0)=="PuertoSalida_AL5"] <- "CodigoPuertoSalida_AL5"
 names(InfoCapturaLance0)[names(InfoCapturaLance0)=="PuertoRegreso_AL5"] <- "CodigoPuertoRegreso_AL5"
 names(InfoCapturaLance0)[names(InfoCapturaLance0)=="PuertoDesembarque_AL5"] <- "CodigoPuertoDesembarque_AL5"
+
 
 # ------------------------------- #  
 # InfoDescartes

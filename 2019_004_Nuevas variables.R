@@ -436,6 +436,8 @@ sapply(Dori[grepl("Peso", names(Dori))], function(x) sum(is.na(x)))
 
 #Posicion ####
 #################################### #
+# @@ funcion para hacer esto? se podría mover al codigo de depuracion para que las X e Y coincidieran con las de Capturas
+
 geom <- sub(Dori$Posicion, pattern = "POINT", replacement = "")
 geom <- sub(geom, pattern = "[( ]", replacement = "")
 geom <- sub(geom, pattern = "[(]", replacement = "")
