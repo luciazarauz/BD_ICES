@@ -38,12 +38,10 @@ Fun_unique <- function(x){length(unique(x))}
 load(file="Datos/Dori2019_v2.Rdata"   )
 load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
 
-
-
-namevar <- c("IdDiario", "Nombre", "EsloraTotal", "CensoPorModalidad", "IdMarea", "C_FcRegresoFloor", "C_PuertoDesembarque_AL5", "C_FcVenta", "C_CodigoPuertoVenta_AL5",
-             "CodigoOrigen", "NCodigoOrigen", "OrigenIdentificador", "CatchCategory", 
-             "FcCaptura", "Posicion", "CodigoDivision", "RectanguloEstadistico", "CodigoArte_FaoAL3", "TiempoPescaMin", "NumOperaciones",
-             "Especie_AL3", "PesoConsumo", "PesoConsumoBajoTalla", "PesoDescarte", "PesoNotaVenta" )
+ namevar <- c("IdDiario", "Nombre", "EsloraTotal", "CensoPorModalidad", "IdMarea", "FcSalida","C_FcRegresoFloor","C_FcRegreso",  "C_CodigoPuertoDesembarque_AL5", "C_FcVentaMax", "C_CodigoPuertoVenta_AL5",
+              "CodigoOrigen", "OrigenIdentificador", "CatchCategory", "Desembarcado",
+              "FcCaptura", "Posicion", "CodigoDivision", "RectanguloEstadistico", "CodigoArte_FaoAL3", "TiempoPescaMin", "NumOperaciones",
+              "Especie_AL3", "PesoConsumo", "PesoConsumoBajoTalla", "FactorConversion",  "PesoDesembarcado","PesoCapturado", "PesoRetenido" ,"PesoNotaVenta",  "PesoDescarte", "MotivoDescarte")
 
 
 # # ################## #
@@ -55,6 +53,7 @@ MareasTotales <- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMa
 MareasTotales <- MareasTotales %>% arrange(CensoPorModalidad, Nombre, EsloraTotal, C_FcRegresoFloor, IdMarea)
   head(MareasTotales)
 
+  
 # # ################## #
 # # InfoCapturasLance0 #
 # # ################## #
@@ -66,7 +65,7 @@ MareasTotales <- MareasTotales %>% arrange(CensoPorModalidad, Nombre, EsloraTota
 dim(InfoCapturaLance0)
 length(unique(InfoCapturaLance0$IdDiario))
 temp <- subset(InfoCapturaLance0, (is.na(NumOperaciones) | NumOperaciones == 0) & 
-                 (is.na(TiempoPescaMin) | TiempoPescaMin == 0))
+                                  (is.na(TiempoPescaMin) | TiempoPescaMin == 0))
 dim(temp)
 unique(temp$NumOperaciones)
 unique(temp$TiempoPescaMin)
@@ -80,10 +79,10 @@ head(unique(temp$IdDiario[temp$IdDiario %in% Dori$IdDiario[Dori$CatchCategory=="
 
     subset(InfoCapturaLance0, IdDiario == 436392)
     subset(InfoCapturasCalculadas, IdDiario == 436392)
-    subset(Dori, IdDiario == 436392)
+    subset(Dori[,namevar], IdDiario == 436392)
     subset(InfoCapturaLance0, IdDiario == 439559 )
     subset(InfoCapturasCalculadas, IdDiario == 439559 )
-    subset(Dori, IdDiario == 439559 )
+    subset(Dori[,namevar], IdDiario == 439559 )
 
 
 # los registros con esfuerzo > 0, tienen datos en infoCapturasCalculadas?
@@ -117,7 +116,7 @@ table(check$CensoPorModalidad[is.na(check$CapturasCalculadas) & is.na(check$Desc
 
 # revisamos mareas que solo tienen información de captura lance cero (con esfuerzo > 0)
 
-subset(Dori, IdMarea  == "ESP-11954963" )
+subset(Dori[,namevar], IdMarea  == "ESP-11954963" )
 subset(Dori, IdMarea  == "ESP-TRP-02135320191007200003" )
 
 subset(Dori, IdMarea  == "ESP-TRP-02306120191122172744" )
@@ -128,14 +127,36 @@ subset(MareasTotales, Nombre=="AKETXE" & month(C_FcRegresoFloor)==2)
 subset(Dori, IdMarea  == "ESP-TRP-02306220190216022826" )
 
 
+subset(Dori, substr(IdMarea,1,3)  == "ESP" )
+a <- (subset(MareasTotales, substr(IdMarea,1,3)  == "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes))))
+subset(MareasTotales, substr(IdMarea,1,3)  != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes)))
+
+# tienen idmarea y esfuerzo = 0
+temp <- subset(Dori, IdMarea %in% a$IdMarea & (is.na(NumOperaciones) | NumOperaciones == 0) & (is.na(TiempoPescaMin) | TiempoPescaMin == 0) )
+head(temp[,namevar])
+dim(temp)
+length(temp$IdMarea)
+table(temp$CensoPorModalidad)
+
+# tienen idmarea y esfuerzo > 0
+temp <- subset(Dori, IdMarea %in% a$IdMarea & ((!is.na(NumOperaciones) & NumOperaciones > 0) | (!is.na(TiempoPescaMin) & TiempoPescaMin > 0)) )
+head(temp[,namevar])
+dim(temp)
+length(temp$IdMarea)
+table(temp$CensoPorModalidad)
+
+
+table(a$CensoPorModalidad)
+table(MareasTotales$CensoPorModalidad)
 
 # CRITERIOS:
 #   - lineas en Capturalance0 sin esfuerzo ->
 #   - lineas en Capturalance0 con esfuerzo -> 
 # @@Pendiente de aclarar con SGP.
+# todos tiene nun codigo de marea
 
-Dori <- subset(Dori, !(CatchCategory =="CapturasLance0" & (is.na(NumOperaciones) | NumOperaciones == 0) & 
-                 (is.na(TiempoPescaMin) | TiempoPescaMin == 0)))
+# Dori <- subset(Dori, !(CatchCategory =="CapturasLance0" & (is.na(NumOperaciones) | NumOperaciones == 0) & 
+#                  (is.na(TiempoPescaMin) | TiempoPescaMin == 0)))
 
 
 # # ################## #
@@ -144,11 +165,11 @@ Dori <- subset(Dori, !(CatchCategory =="CapturasLance0" & (is.na(NumOperaciones)
 
 unique(substr(MareasTotales$IdMarea,1,3))
 
-check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>10)
+check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)
 check
 
 subset(MareasTotales, Nombre=="KALAMENDI" & month(C_FcRegresoFloor)==1)
-subset(Dori, IdMarea=="16288817_2019-01-07")
+subset(Dori[,namevar], IdMarea=="16288817_2019-01-07")
 
 subset(MareasTotales, Nombre=="JON KURTZIO" & month(C_FcRegresoFloor)%in% c(9,10))
 subset(Dori, IdMarea=="12467136_2019-10-08")
@@ -158,7 +179,7 @@ unique(Dori$CodigoOrigen[Dori$IdMarea %in% check$IdMarea])  # vienen todas de no
 
 
 # CRITERIOS:
-#   - Mareas huerfanas (eslora >10 m y creadas a partir de NV) ->
+#   - Mareas huerfanas (eslora >10 m y creadas a partir de NV) -> las quitamos
 # @@Pendiente de aclarar con SGP.
 
 Dori <- subset(Dori, !IdMarea %in% check$IdMarea)
@@ -173,7 +194,7 @@ CodigoOrigen<- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMare
 names(CodigoOrigen) [names(CodigoOrigen) == 0] <- "X0"
 head(CodigoOrigen)
 
-CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>10)  # huerfanas
+CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)  # huerfanas
 
 CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(!is.na(NV)) # menores de 10m.
 CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(is.na(NV))  # todas las lineas vienen de NV
@@ -196,14 +217,20 @@ names(Desembarcado) [names(Desembarcado)=="NA"] <- "XNA"
 head(Desembarcado)
 
 Desembarcado %>% filter(XNA==0)
-subset(Dori, IdMarea=="ESP-TRP-02306220190103004849") # vienen de descarte o capturalance0
+subset(Dori[,namevar], IdMarea=="ESP-TRP-02306220190103004849") # vienen de descarte o capturalance0
 
 Desembarcado %>% filter(False>0)
 subset(Desembarcado, Nombre=="GUK" & month(C_FcRegresoFloor)%in% c(5))
-subset(Dori, IdMarea=="ESP-13699181") 
+subset(Dori[namevar], IdMarea=="ESP-13699181") 
+subset(Dori[namevar], IdMarea=="ESP-TRP-02511520191127164649") 
+
+Desembarcado %>% filter(False==0)
+
+subset(Dori[namevar], IdMarea=="ESP-TRP-00594820190519224932") 
+
 
 # CRITERIOS:
-#   - Desembarco False y PesoConsumo>0 ->
+#   - Desembarco False y PesoConsumo>0 -> mantener
 #
 
 
@@ -215,29 +242,52 @@ subset(Dori, IdMarea=="ESP-13699181")
 MareasTotales <- subset(MareasTotales, IdMarea %in% unique(Dori$IdMarea))
 
 MareasTotales %>% filter(CapturasCalculadas==0)
-MareasTotales %>% filter(CapturasCalculadas==0 & CapturasLance0==0 & !is.na(Descartes))
-    subset(Dori, IdMarea=="ESP-TRP-02522920190902154842") 
-    subset(MareasTotales, Nombre=="BETI PIEDAD" & month(C_FcRegresoFloor)%in% c(9))
+MareasTotales %>% filter(CapturasCalculadas==0 & !is.na(Descartes))
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02522920190902154842") 
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02522920190906213918") 
+    subset(MareasTotales, Nombre=="BETI PIEDAD" & month(C_FcRegresoFloor)%in% c(8,9,10))
+    # 1200 kg de HOM capturados pero no desembarcados.  la marea siguiente(s) se utilizan en como cebo vivo y se declara como descarte (carnada)
 
-MareasTotales %>% filter(CapturasCalculadas==0 & CapturasLance0==0 & is.na(Descartes))    
-    subset(Dori, IdMarea=="ESP-TRP-02306220191118005306") 
+MareasTotales %>% filter(CapturasCalculadas==0 & is.na(Descartes))    
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02306220191118005306") 
     subset(MareasTotales, Nombre=="AKETXE" & month(C_FcRegresoFloor)%in% c(11))
-    subset(Dori, IdMarea=="ESP-TRP-02594520190930163323") 
+    
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02594520190930163323") 
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02594520190926000705") 
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02594520190926061537") 
     subset(MareasTotales, Nombre=="GURE AMETXA" & month(C_FcRegresoFloor)%in% c(9)) 
       # caso curioso. tiene codigo de marea pero peso consumo =0. tiene info de ventas
       # parece que ocurre en mareas que se dan el mismo día
-    subset(Dori, IdMarea=="ESP-TRP-02433220190405053237") 
-    subset(MareasTotales, Nombre=="MADRE CONSUELO" & month(C_FcRegresoFloor)%in% c(4)) 
-      # caso parecido en cerco
+
+    
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02433220190404103821")
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02433220190405053237") 
+    subset(MareasTotales, Nombre=="MADRE CONSUELO" & month(C_FcRegresoFloor)%in% c(4))
+    # caso parecido en cerco
     
     
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02774320190401045446") 
+    subset(Dori[,namevar], IdMarea=="ESP-TRP-02774320190402074415") 
+    subset(MareasTotales, Nombre=="KANTAURI" & month(C_FcRegresoFloor)%in% c(4)) 
     
-check <-  MareasTotales %>% filter(CapturasCalculadas==0 & is.na(CapturasLance0) & is.na(Descartes))    
-check
+    
+check <-  MareasTotales %>% filter(CapturasCalculadas==0 )    
 dim(check)
+table(month(check$C_FcRegresoFloor))
+
+a <- subset (Dori, IdMarea %in% check$IdMarea & (PesoCapturado>0 | PesoDesembarcado>0))
+length(unique(a$IdMarea))
+aa<- subset(check, IdMarea %in% a$IdMarea & CensoPorModalidad=="CERCO EN CANTABRICO NW")
+table(month(aa$C_FcRegresoFloor))
+
+subset(Dori[,namevar], IdMarea=="ESP-TRP-01086320190828155306") 
+subset(MareasTotales, Nombre=="KANTAURI" & month(C_FcRegresoFloor)%in% c(4)) 
+
+
+
 table(check$CensoPorModalidad)
 subset(Dori, IdMarea=="ESP-TRP-02498820190429033952") 
-subset(MareasTotales, Nombre=="ESTELA DEL CARMEN" & month(C_FcRegresoFloor)%in% c(4,5))
+subset(MareasTotales, Nombre=="BETI SAN LUIS" & month(C_FcRegresoFloor)%in% c(8,9))
 
 
 MareasTotales %>% filter(CapturasCalculadas==0) %>% filter(substr(IdMarea,1,3)!="ESP")
@@ -261,10 +311,18 @@ head(CodigoOrigen)
 CodigoOrigen %>% filter (X0>0) 
 check <- CodigoOrigen %>% filter (CA>0 | DE>0) 
 check
-subset(Dori, IdMarea=="ESP-TRP-02306220190101230813") 
 
 lineId <- Dori %>% filter(IdMarea %in% check$IdMarea) %>% filter(PesoConsumoTotal ==0)
+
 lineId <- Dori %>% filter(IdMarea %in% check$IdMarea & !CodigoOrigen %in% c("CA", "DE")) %>% filter(PesoConsumoTotal ==0)
+head(unique(lineId$IdMarea))
+head(subset(Dori[,namevar], IdMarea=="ESP-TRP-00594820190612113122")) 
+
+subset(Dori[,namevar], IdMarea=="ESP-TRP-00594820190519224932") 
+
+
+
+
 lineId <- Dori %>% filter(IdMarea %in% check$IdMarea & CodigoOrigen %in% c("CA", "DE")) %>% filter(PesoConsumoTotal ==0)
 
 table(id$FactorConversion)
