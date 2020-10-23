@@ -58,7 +58,45 @@ MareasTotales <- MareasTotales %>% arrange(CensoPorModalidad, Nombre, EsloraTota
 # # InfoCapturasLance0 #
 # # ################## #
 
-# Hay registros en esta tabla con esfuerzo igual a cero (NumOperaciones == 0 & TiempoPescaMin == 0)
+# Todas las mareas tienen un IdMarea oficial. Esto nos genera dudas a la hora de eliminar las mareas. 
+# Si tienen codigo es porque el barco ha salido de puerto aunque no haya capturado nada
+# y son muchas mareas (3518)
+  
+   subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes)))
+   check <- subset(MareasTotales, !is.na(CapturasLance0) )
+   head(check)
+   dim(check)
+   
+   table(check$CensoPorModalidad)
+   table(MareasTotales$CensoPorModalidad)
+
+   res <- as.data.frame(table(MareasTotales$CensoPorModalidad)) %>% 
+              left_join(as.data.frame(table(check$CensoPorModalidad)), by="Var1")
+   names(res) <- c("CensoPorModalidad", "MareasTotales", "MareasLance0")
+   res$Percent <- res$MareasLance0/(res$MareasTotales-res$MareasLance0)
+   
+   subset(MareasTotales, CensoPorModalidad=="Bacaladeros")
+  
+  # tienen idmarea y esfuerzo = 0
+  temp <- subset(Dori, IdMarea %in% a$IdMarea & (is.na(NumOperaciones) | NumOperaciones == 0) & (is.na(TiempoPescaMin) | TiempoPescaMin == 0) )
+  head(temp[,namevar])
+  dim(temp)
+  length(temp$IdMarea)
+  table(temp$CensoPorModalidad)
+  
+  # tienen idmarea y esfuerzo > 0
+  temp <- subset(Dori, IdMarea %in% a$IdMarea & ((!is.na(NumOperaciones) & NumOperaciones > 0) | (!is.na(TiempoPescaMin) & TiempoPescaMin > 0)) )
+  head(temp[,namevar])
+  dim(temp)
+  length(temp$IdMarea)
+  table(temp$CensoPorModalidad)
+  
+  
+  hay un total de XX mareas, de las cuelas 
+  
+  
+  
+  # Hay registros en esta tabla con esfuerzo igual a cero (NumOperaciones == 0 & TiempoPescaMin == 0)
 # de 3934 idDiario únicos, 2391 tienen esfuerzo = 0
 # @@ preguntar a SGP
 
@@ -127,23 +165,6 @@ subset(MareasTotales, Nombre=="AKETXE" & month(C_FcRegresoFloor)==2)
 subset(Dori, IdMarea  == "ESP-TRP-02306220190216022826" )
 
 
-subset(Dori, substr(IdMarea,1,3)  == "ESP" )
-a <- (subset(MareasTotales, substr(IdMarea,1,3)  == "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes))))
-subset(MareasTotales, substr(IdMarea,1,3)  != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes)))
-
-# tienen idmarea y esfuerzo = 0
-temp <- subset(Dori, IdMarea %in% a$IdMarea & (is.na(NumOperaciones) | NumOperaciones == 0) & (is.na(TiempoPescaMin) | TiempoPescaMin == 0) )
-head(temp[,namevar])
-dim(temp)
-length(temp$IdMarea)
-table(temp$CensoPorModalidad)
-
-# tienen idmarea y esfuerzo > 0
-temp <- subset(Dori, IdMarea %in% a$IdMarea & ((!is.na(NumOperaciones) & NumOperaciones > 0) | (!is.na(TiempoPescaMin) & TiempoPescaMin > 0)) )
-head(temp[,namevar])
-dim(temp)
-length(temp$IdMarea)
-table(temp$CensoPorModalidad)
 
 
 table(a$CensoPorModalidad)
