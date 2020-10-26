@@ -27,6 +27,7 @@ library(data.table)
 library(reshape2)
 library(dplyr)
 #library(plyr)
+library(scales)
 
 Fun_unique <- function(x){length(unique(x))}
 
@@ -63,6 +64,7 @@ MareasTotales <- MareasTotales %>% arrange(CensoPorModalidad, Nombre, EsloraTota
 # y son muchas mareas (3518)
   
    subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes)))
+   
    check <- subset(MareasTotales, !is.na(CapturasLance0) )
    head(check)
    dim(check)
@@ -70,107 +72,75 @@ MareasTotales <- MareasTotales %>% arrange(CensoPorModalidad, Nombre, EsloraTota
    table(check$CensoPorModalidad)
    table(MareasTotales$CensoPorModalidad)
 
+   # Comparativa en N de mareas
    res <- as.data.frame(table(MareasTotales$CensoPorModalidad)) %>% 
               left_join(as.data.frame(table(check$CensoPorModalidad)), by="Var1")
    names(res) <- c("CensoPorModalidad", "MareasTotales", "MareasLance0")
-   res$Percent <- res$MareasLance0/(res$MareasTotales-res$MareasLance0)
+   res$Percent <- percent(res$MareasLance0/res$MareasTotales)
    
-   subset(MareasTotales, CensoPorModalidad=="Bacaladeros")
+   subset(MareasTotales, CensoPorModalidad=="BACALADEROS")
+   subset(Dori[,namevar], IdMarea == "ESP-TRP-01554020190403143914")
+   
   
-  # tienen idmarea y esfuerzo = 0
-  temp <- subset(Dori, IdMarea %in% a$IdMarea & (is.na(NumOperaciones) | NumOperaciones == 0) & (is.na(TiempoPescaMin) | TiempoPescaMin == 0) )
-  head(temp[,namevar])
-  dim(temp)
-  length(temp$IdMarea)
-  table(temp$CensoPorModalidad)
-  
-  # tienen idmarea y esfuerzo > 0
-  temp <- subset(Dori, IdMarea %in% a$IdMarea & ((!is.na(NumOperaciones) & NumOperaciones > 0) | (!is.na(TiempoPescaMin) & TiempoPescaMin > 0)) )
-  head(temp[,namevar])
-  dim(temp)
-  length(temp$IdMarea)
-  table(temp$CensoPorModalidad)
-  
-  
-  hay un total de XX mareas, de las cuelas 
-  
-  
-  
-  # Hay registros en esta tabla con esfuerzo igual a cero (NumOperaciones == 0 & TiempoPescaMin == 0)
-# de 3934 idDiario únicos, 2391 tienen esfuerzo = 0
-# @@ preguntar a SGP
 
-dim(InfoCapturaLance0)
-length(unique(InfoCapturaLance0$IdDiario))
-temp <- subset(InfoCapturaLance0, (is.na(NumOperaciones) | NumOperaciones == 0) & 
-                                  (is.na(TiempoPescaMin) | TiempoPescaMin == 0))
-dim(temp)
-unique(temp$NumOperaciones)
-unique(temp$TiempoPescaMin)
-length(unique(temp$IdDiario))
+  
+# Hay registros en esta tabla con esfuerzo igual a cero (NumOperaciones == 0 & TiempoPescaMin == 0)
+# de 3518 idDiario únicos, 2006 tienen esfuerzo = 0
 
-# los registros con esfuerzo = 0, tienen datos en infoCapturasCalculadas?
-# 1179 idDiarios, sí lo tienen
-# 
-length(unique(temp$IdDiario[temp$IdDiario %in% Dori$IdDiario[Dori$CatchCategory=="CapturasCalculadas"] ]))
-head(unique(temp$IdDiario[temp$IdDiario %in% Dori$IdDiario[Dori$CatchCategory=="CapturasCalculadas"] ]))
-
-    subset(InfoCapturaLance0, IdDiario == 436392)
-    subset(InfoCapturasCalculadas, IdDiario == 436392)
-    subset(Dori[,namevar], IdDiario == 436392)
-    subset(InfoCapturaLance0, IdDiario == 439559 )
-    subset(InfoCapturasCalculadas, IdDiario == 439559 )
-    subset(Dori[,namevar], IdDiario == 439559 )
-
-
-# los registros con esfuerzo > 0, tienen datos en infoCapturasCalculadas?
-# 1811 idDiarios, sí lo tienen
-
-temp <- subset(InfoCapturaLance0, (!is.na(NumOperaciones) & NumOperaciones > 0) | (!is.na(TiempoPescaMin) & TiempoPescaMin > 0))
+   
+  dim(InfoCapturaLance0)
+  length(unique(InfoCapturaLance0$IdDiario))
+  temp <- subset(Dori, CatchCategory=="CapturasLance0" & (is.na(NumOperaciones) | NumOperaciones == 0) & 
+                                                         (is.na(TiempoPescaMin) | TiempoPescaMin == 0))
   unique(temp$NumOperaciones)
   unique(temp$TiempoPescaMin)
-  unique(temp$TiempoPescaMin[temp$NumOperaciones==0])
   length(unique(temp$IdDiario))
 
-length(unique(temp$IdDiario[temp$IdDiario %in% Dori$IdDiario[Dori$CatchCategory=="CapturasCalculadas"] ]))
-head(unique(temp$IdDiario[temp$IdDiario %in% Dori$IdDiario[Dori$CatchCategory=="CapturasCalculadas"] ]))
 
-  subset(InfoCapturaLance0, IdDiario == 436781)
-  subset(InfoCapturasCalculadas, IdDiario == 436781)
-  subset(Dori, IdDiario == 436781)
-  subset(InfoCapturaLance0, IdDiario == 436414 )
-  subset(InfoCapturasCalculadas, IdDiario == 436414 )
-  subset(InfoCapturas, IdDiario == 436414 )
-  subset(Dori, IdDiario == 436414 )
-
-
-temp$IdMarea <- Dori$IdMarea[match(temp$IdDiario, Dori$IdDiario)]
-check <- MareasTotales %>% filter(IdMarea %in% temp$IdMarea) 
-check
-
-head(subset(check, is.na(CapturasCalculadas) & is.na(Descartes)))
-dim(subset(check, is.na(CapturasCalculadas) & is.na(Descartes)))
-table(check$CensoPorModalidad[is.na(check$CapturasCalculadas) & is.na(check$Descartes)])
-
-# revisamos mareas que solo tienen información de captura lance cero (con esfuerzo > 0)
-
-subset(Dori[,namevar], IdMarea  == "ESP-11954963" )
-subset(Dori, IdMarea  == "ESP-TRP-02135320191007200003" )
-
-subset(Dori, IdMarea  == "ESP-TRP-02306120191122172744" )
-subset(MareasTotales, Nombre=="GAZTELUGATXE" & month(C_FcRegresoFloor)==11)
-
-subset(Dori, IdMarea  == "ESP-TRP-02306220190218011858" )
-subset(MareasTotales, Nombre=="AKETXE" & month(C_FcRegresoFloor)==2)
-subset(Dori, IdMarea  == "ESP-TRP-02306220190216022826" )
-
-
-
-
-table(a$CensoPorModalidad)
-table(MareasTotales$CensoPorModalidad)
-
-# CRITERIOS:
+# algunas mareas tienen datso en infoCapturas calculadas
+# otras no. en estas (1393 mareas), incluir la inforamción de InfoCapturaLance0 supone crear nuevas mareas
+  length(unique(check$IdMarea[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ]))
+  length(unique(check$IdMarea[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ]))  
+  
+# Revisamos ejemplos
+    # tienen datos en CapturaCalculada
+    head(check[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"], ])
+    table(check$CensoPorModalidad[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ])
+    head(check[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas" & Dori$CensoPorModalidad=="CERCO EN CANTABRICO NW"], ])
+    
+    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190103004849")
+    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190106230906" )
+    subset(Dori[,namevar], IdMarea == "ESP-TRP-02674120190408043837" )
+        # lienas de captura lance0 con datos de captura en esa misma marea y esfeurzo >0. Quitamos o contabilizamos el esfeurzo?
+    
+    # No tienen datos en CapturaCalculada
+    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"], ])
+    table(check$CensoPorModalidad[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ])
+    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] & check$CensoPorModalidad=="ARTES MENORES EN CANTABRICO NW", ])
+    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] & check$CensoPorModalidad=="CERCO EN CANTABRICO NW", ])
+     
+    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190218011858")
+    subset(MareasTotales, Nombre=="GAZTELUGATXE" & month(C_FcRegresoFloor)==11)
+    
+    subset(Dori[,namevar], IdMarea == "ESP-99007273")
+    subset(MareasTotales, Nombre=="ANTIGUOTARRAK" & month(C_FcRegresoFloor)==8)
+    subset(MareasTotales, Nombre=="ATXURRA ANAIAK" & month(C_FcRegresoFloor)==4)
+    
+    subset(Dori[,namevar], IdMarea == "ESP-TRP-02531520190304172125")
+    subset(MareasTotales, Nombre=="AGUSTIN DEUNA" & month(C_FcRegresoFloor)==3)
+    
+    a<- check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"], ]
+    aa <- data.frame(table(a$Nombre, a$CensoPorModalidad))
+    names(aa) <- c("Nombre", "CensoPorModalidad", "Nmareas")
+    table(aa$CensoPorModalidad [aa$Nmareas==0])
+    table(aa$CensoPorModalidad [aa$Nmareas>0])
+    
+    bb <- data.frame(table(check$Nombre, check$CensoPorModalidad))
+    names(bb) <- c("Nombre", "CensoPorModalidad", "Nmareas")
+    table(bb$CensoPorModalidad [bb$Nmareas==0])
+    table(bb$CensoPorModalidad [bb$Nmareas>0])
+    
+  # CRITERIOS:
 #   - lineas en Capturalance0 sin esfuerzo ->
 #   - lineas en Capturalance0 con esfuerzo -> 
 # @@Pendiente de aclarar con SGP.
