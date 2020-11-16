@@ -74,68 +74,6 @@ dim(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEs
 length(unique(temp$IdMareaOrigen[is.na(temp$IdCaptura) & is.na(temp$IdNotaDeVenta) & is.na(temp$IdDesembarqueEspecie)]))
 # todos tienen un peso NV positivo, pero peso consumo cero. Todos tienen un codigo marea
 # son 9408 mareas
-# @@ vamos a hacer resta misma comprobación cuando tengamos todas las tablas unidas, para saber que barcos son e intentar entedre de dónde vienen
-#    es posible que el IdMareaOrigen que esta solo en una nota de venta sea erroneo? me extraña q eno tenga un logbooks asociado
-
-
-head(subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)))
-t<- (subset(temp, is.na(IdCaptura) & is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)))
-sum(t$PesoConsumo)
-
-
-tdiario <- unique (t$IdDiario)
-
-test <- InfoCapturasCalculadas %>% filter(IdDiario %in% tdiario) %>% group_by(IdDiario) %>% 
-  summarize(peso=sum(PesoConsumo)) %>% filter(peso==0)
-test
-
-
-InfoCapturasCalculadas%>% filter(IdDiario==437136)
-InfoCapturaLance0 %>% filter(IdDiario==437136)
-InfoOrigenLineas %>% filter(IdDiario==437136)
-
-test%>% filter(IdDiario %in% unique(InfoCapturaLance0$IdDiario))
-test%>% filter(!IdDiario %in% unique(InfoCapturaLance0$IdDiario))
-
-subset(temp, is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)) %>% 
-  filter(IdDiario %in% unique(InfoCapturaLance0$IdDiario)) %>% dim()
-subset(temp, is.na(IdNotaDeVenta) & is.na(IdDesembarqueEspecie)) %>% 
-  filter(!IdDiario %in% unique(InfoCapturaLance0$IdDiario)) %>% dim()
-
-z<-tapply(InfoCapturasCalculadas$PesoConsumo, list(InfoCapturasCalculadas$IdDiario, InfoCapturasCalculadas$Desembarcado) , sum)
-write.table(z, "test desembarco.csv", sep=",", dec=".", row.names = TRUE)
-
-
-sum(InfoCapturasCalculadas$PesoNotaVenta)
-sum(InfoVentas$Peso)
-
-
-# mareas con peso consumo total=0
-test <- InfoCapturasCalculadas %>% group_by(IdMareaOrigen, IdDiario) %>% 
-  summarize(peso=sum(PesoConsumo))%>% filter(IdDiario>0); dim(test)
-
-test0 <- InfoCapturasCalculadas %>% group_by(IdMareaOrigen) %>% 
-  summarize(peso=sum(PesoConsumo))  %>% filter(peso==0)
-
-dim(test)
-dim(test0)
-
-test$lance0 <- InfoCapturaLance0$IdDiario[match(test$IdDiario, InfoCapturaLance0$IdDiario)]
-
-test00<- subset(test, !is.na(lance0) & peso==0)
-
-dim(test00)
-
-
-testcap0 <- InfoCapturaLance0 %>% group_by(IdDiario) %>% 
-  summarize(NumOperaciones=sum(NumOperaciones))  
-dim(testcap0)
-testcap0$capcal<- InfoCapturasCalculadas$IdDiario[match(testcap0$IdDiario, InfoCapturasCalculadas$IdDiario)]
-
-testcap00<- subset(testcap0, !is.na(capcal) )
-
-dim(testcap0)
-dim(testcap00)
 
 
 # InfoOrigenLineas - InfoCapturasCalculadas             #####
