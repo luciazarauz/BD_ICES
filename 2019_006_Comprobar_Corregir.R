@@ -53,104 +53,148 @@ MareasTotales <- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMa
                           summarise(PesoConsumo = sum(PesoConsumoTotal),PesoDescarte = sum(PesoDescarte)) 
 MareasTotales$PesoConsumo[!is.na(MareasTotales$PesoDescarte) & MareasTotales$PesoDescarte>0 ] <- MareasTotales$PesoDescarte[!is.na(MareasTotales$PesoDescarte) & MareasTotales$PesoDescarte>0] 
 MareasTotales <-MareasTotales %>% dcast(CensoPorModalidad + Nombre + EsloraTotal + C_FcRegresoFloor + IdMarea ~ CatchCategory,  value.var = "PesoConsumo")
-  
+MareasTotales <-MareasTotales %>% arrange(Nombre, C_FcRegresoFloor, CensoPorModalidad, EsloraTotal, IdMarea)
+
   colSums(MareasTotales[,c("CapturasCalculadas", "CapturasLance0", "Descartes")], na.rm = TRUE)
   sum(Dori$PesoConsumoTotal[Dori$CatchCategory=="CapturasCalculadas"], na.rm = TRUE )
   sum(Dori$PesoConsumoTotal[Dori$CatchCategory=="CapturasLance0"], na.rm = TRUE )
   sum(Dori$PesoDescarte[Dori$CatchCategory=="Descartes"], na.rm = TRUE )
   
 
-
+  
+  # # ################## #
+  # 1. Mareas Huérfanas  #
+  # # ################## #
+  
+  # Mareas huérfanas: aquellas lineas readas a partir de NV que pertenecen a buques con eslora de 10 metros o más pero que no han sido linkadas con un diario de pesca. 
+  #                   Se crea la línea en la tabla de consumos, pero no se tiene en cuenta el consumo (PesoConsumo = 0)
+  # Eliminar: Está contabilizada en el DEA, pero no se ha establecido el link correctamente
+  # 82 mareas
+  
+  check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)
+  check
+  sum(check$CapturasCalculadas)
+  
+  subset(MareasTotales, Nombre=="KALAMENDI" & month(C_FcRegresoFloor)==1)
+  subset(Dori[,namevar], IdMarea=="16288817_2019-01-07") %>% summarise(PesoNotaVenta = sum(PesoNotaVenta * FactorConversion))
+  subset(Dori[,namevar], IdMarea=="16288817_2019-01-07")
+  
+  subset(MareasTotales, Nombre=="JON KURTZIO" & month(C_FcRegresoFloor)%in% c(9,10))
+  subset(Dori, IdMarea=="12467136_2019-10-08")
+  
+  # revisamos el origen del resto de mareas menores de 10 m.
+  # todos los origenes son NV: correcto
+  CodigoOrigen<- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMarea, C_FcRegresoFloor , CodigoOrigen) %>% summarise(PesoConsumo = sum(PesoConsumoTotal)) %>%
+    dcast(CensoPorModalidad + Nombre + EsloraTotal + C_FcRegresoFloor + IdMarea ~ CodigoOrigen,  value.var = "PesoConsumo")
+  names(CodigoOrigen) [names(CodigoOrigen) == 0] <- "X0"
+  head(CodigoOrigen)
+  
+  CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)  # huerfanas
+  
+  CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(!is.na(NV)) # menores de 10m.
+  CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(is.na(NV))  # todas las lineas vienen de NV
+  CodigoOrigen  %>% filter (EsloraTotal<10) %>% filter(is.na(NV)) # menores de 10m. todas las lineas vienen de NV
+  
+  # CRITERIOS:
+  #   - Eslora >10 y PesoConsumo== 0 -> eliminar
+  
+  
+  
+  # # ################## #
+  # 2 Peso Desembarcado  #
+  # # ################## #
+  # identificamos mareas con desembarco False y peso consumo >0
+  
+  Desembarcado<- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMarea, C_FcRegresoFloor , Desembarcado) %>% summarise(PesoConsumo = sum(PesoConsumoTotal)) %>%
+    dcast(CensoPorModalidad + Nombre + EsloraTotal + C_FcRegresoFloor + IdMarea ~ Desembarcado,  value.var = "PesoConsumo")
+  names(Desembarcado) [names(Desembarcado)==0] <- "False"
+  names(Desembarcado) [names(Desembarcado)==1] <- "True"
+  names(Desembarcado) [names(Desembarcado)=="NA"] <- "XNA"
+  
+  head(Desembarcado)
+  
+  Desembarcado %>% filter(XNA==0)
+  subset(Dori[,namevar], IdMarea=="ESP-TRP-02306220190103004849") # son líneas que vienen de descarte o capturalance0
+  
+  Desembarcado %>% filter(False>0)
+  subset(Desembarcado, Nombre=="GUK" & month(C_FcRegresoFloor)%in% c(5))
+  subset(Dori[namevar], IdMarea=="ESP-13699181") 
+  subset(Dori[namevar], IdMarea=="ESP-TRP-02511520191127164649") 
+  
+  Desembarcado %>% filter(False==0)
+  subset(Dori[namevar], IdMarea=="ESP-TRP-00594820190519224932") 
+  
+  
+  # CRITERIOS:
+  #   - Desembarco False y PesoConsumo>0 -> mantener
+  #   - Desembarco False y PesoConsumo==0 -> eliminar
+  
+  
+  
+  
 # # ################## #
 # # InfoCapturasLance0 #
 # # ################## #
 
-# Todas las mareas con Capturalance0 tienen un IdMarea oficial. Esto nos genera dudas a la hora de eliminar las mareas. 
-# Si tienen codigo es porque el barco ha salido de puerto aunque no haya capturado nada
-# y son muchas mareas (3518)
+# Todas las mareas con Capturalance0 tienen un IdMarea oficial. 
+# Si tienen codigo es porque el barco ha salido de puerto aunque no haya capturado nada. 
+# Intentamso entender el por qué
+# son muchas mareas (3518)
   
-  head(  subset(MareasTotales, substr(IdMarea,1,3) != "ESP"))
+  # Todas las mareas con Capturalance0 tienen un IdMarea oficial (3518).
   subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes))) 
   subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & ( is.na(CapturasCalculadas) & is.na(Descartes))) %>% summarise(CapturasLance0 = sum(CapturasLance0))
-  # Todas las mareas con Capturalance0 tienen un IdMarea oficial.
-  
+
+  # Hay 82 mareas con CapturaCalculada = 0 con un IdMarea oficial, 
+  # Hay 148 mareas con CapturaCalculada = 0 sin un IdMarea oficial  
   dim(subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & (CapturasCalculadas == 0))) 
   head(subset(MareasTotales, substr(IdMarea,1,3) != "ESP" & (CapturasCalculadas == 0))) 
   dim(subset(MareasTotales, substr(IdMarea,1,3) == "ESP" & (CapturasCalculadas == 0))) 
   head(subset(MareasTotales, substr(IdMarea,1,3) == "ESP" & (CapturasCalculadas == 0))) 
-  # Hay 82 mareas con CapturaCalculada = 0 con un IdMarea oficial, 
-  # Hay 148 mareas con CapturaCalculada = 0 sin un IdMarea oficial, 
-  
-   # mareas con captura lance 0
+ 
+   # mareas con captura lance 0 (3518)
    check <- subset(MareasTotales, !is.na(CapturasLance0) )
    head(check)
    dim(check)
-   # Comparativa en N de mareas
+   # mareas con captura lance 0 y capturas ==0 (80)
+   check <- subset(MareasTotales, !is.na(CapturasLance0) &!is.na(CapturasCalculadas) & CapturasCalculadas==0 )
+   head(check)
+   dim(check)
+   # mareas con captura lance 0 y capturas >0 (2045)
+   check <- subset(MareasTotales, !is.na(CapturasLance0) &!is.na(CapturasCalculadas) & CapturasCalculadas>0 )
+   head(check)
+   dim(check)
+   # mareas con captura lance 0 y capturas NA (1293)
+   check <- subset(MareasTotales, !is.na(CapturasLance0) &is.na(CapturasCalculadas) )
+   head(check)
+   dim(check)
+   
+   1293+2045+80
+   
+   # Comparativa en N de mareas Total y N de mareas con captura lance 0 (3518)
+   check <- subset(MareasTotales, !is.na(CapturasLance0) )
    res <- as.data.frame(table(MareasTotales$CensoPorModalidad)) %>% 
               left_join(as.data.frame(table(check$CensoPorModalidad)), by="Var1")
    names(res) <- c("CensoPorModalidad", "MareasTotales", "MareasLance0")
    res$Percent <- percent(res$MareasLance0/res$MareasTotales)
+   res
    
-   subset(MareasTotales, CensoPorModalidad=="BACALADEROS")
-   subset(Dori[,namevar], IdMarea == "ESP-TRP-01554020190403143914")
    
-  
-
-  
-# Hay registros en esta tabla con esfuerzo igual a cero (NumOperaciones == 0 & TiempoPescaMin == 0)
-# de 3518 idDiario únicos, 2006 tienen esfuerzo = 0
+   # mareas con captura lance 0 y capturas ==0 y esfuerzo >0
+   check <- subset(MareasTotales, !is.na(CapturasLance0) )
+   
+   esf <- Dori %>% filter(IdMarea %in% check$IdMarea & CatchCategory=="CapturasLance0" ) %>%
+                  group_by(IdMarea, CensoPorModalidad, Nombre) %>% summarise(NumOperaciones = sum(NumOperaciones, na.rm=TRUE),
+                                                  TiempoPescaMin = sum(TiempoPescaMin, na.rm=TRUE))
+   dim(esf)
+   dim(subset(esf, NumOperaciones==0 & TiempoPescaMin ==0))
+   head(subset(esf, NumOperaciones==0 & TiempoPescaMin ==0))
+   dim(subset(esf, NumOperaciones>0 | TiempoPescaMin >0))
+   head(subset(esf, NumOperaciones>0 | TiempoPescaMin >0))
 
    
-  dim(InfoCapturaLance0)
-  length(unique(InfoCapturaLance0$IdDiario))
-  temp <- subset(Dori, CatchCategory=="CapturasLance0" & (is.na(NumOperaciones) | NumOperaciones == 0) & 
-                                                         (is.na(TiempoPescaMin) | TiempoPescaMin == 0))
-  unique(temp$NumOperaciones)
-  unique(temp$TiempoPescaMin)
-  length(unique(temp$IdDiario))
-
-
-# algunas mareas tienen datso en infoCapturas calculadas
-# otras no. en estas (1393 mareas), incluir la inforamción de InfoCapturaLance0 supone crear nuevas mareas
-  length(unique(check$IdMarea[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ]))
-  length(unique(check$IdMarea[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ]))  
-  
-# Revisamos ejemplos
-    # tienen datos en CapturaCalculada
-    head(check[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"], ])
-    table(check$CensoPorModalidad[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ])
-    head(check[check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas" & Dori$CensoPorModalidad=="CERCO EN CANTABRICO NW"], ])
-    
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190103004849")
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190106230906" )
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02674120190408043837" )
-        # lienas de captura lance0 con datos de captura en esa misma marea y esfeurzo >0. Quitamos o contabilizamos el esfeurzo?
-    
-    # No tienen datos en CapturaCalculada
-    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"], ])
-    table(check$CensoPorModalidad[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] ])
-    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] & check$CensoPorModalidad=="ARTES MENORES EN CANTABRICO NW", ])
-    head(check[!check$IdMarea %in% Dori$IdMarea[Dori$CatchCategory=="CapturasCalculadas"] & check$CensoPorModalidad=="CERCO EN CANTABRICO NW", ])
-     
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02306220190218011858")
-    subset(MareasTotales, Nombre=="GAZTELUGATXE" & month(C_FcRegresoFloor)==11)
-    
-    subset(Dori[,namevar], IdMarea == "ESP-99007273")
-    subset(Dori[,namevar], IdMarea == "ESP-99007274")
-    subset(Dori[,namevar], IdMarea == "ESP-99007275")
-    subset(MareasTotales, Nombre=="ANTIGUOTARRAK" & month(C_FcRegresoFloor)==8)
-    
-    subset(Dori[,namevar], IdMarea == "ESP-13702707")
-    subset(Dori[,namevar], IdMarea == "ESP-13702708")
-    subset(Dori[,namevar], IdMarea == "ESP-13702709")
-    subset(MareasTotales, Nombre=="ATXURRA ANAIAK" & month(C_FcRegresoFloor)==4)
-    
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02531520190304172125")
-    subset(Dori[,namevar], IdMarea == "ESP-TRP-02531520190305090122")
-    subset(MareasTotales, Nombre=="AGUSTIN DEUNA" & month(C_FcRegresoFloor)==3)
-    
-    
-
+   
+   
     
   # CRITERIOS:
 #   - lineas en Capturalance0 sin esfuerzo ->
@@ -160,81 +204,6 @@ MareasTotales <-MareasTotales %>% dcast(CensoPorModalidad + Nombre + EsloraTotal
 
 # Dori <- subset(Dori, !(CatchCategory =="CapturasLance0" & (is.na(NumOperaciones) | NumOperaciones == 0) & 
 #                  (is.na(TiempoPescaMin) | TiempoPescaMin == 0)))
-
-
-# # ################## #
-# # Mareas Huerfanas   #
-# # ################## #
-
-unique(substr(MareasTotales$IdMarea,1,3))
-
-check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)
-check
-
-subset(MareasTotales, Nombre=="KALAMENDI" & month(C_FcRegresoFloor)==1)
-subset(Dori[,namevar], IdMarea=="16288817_2019-01-07")
-
-subset(MareasTotales, Nombre=="JON KURTZIO" & month(C_FcRegresoFloor)%in% c(9,10))
-subset(Dori, IdMarea=="12467136_2019-10-08")
-
-
-unique(Dori$CodigoOrigen[Dori$IdMarea %in% check$IdMarea])  # vienen todas de notas de venta. (Huerfanas)
-
-
-# CRITERIOS:
-#   - Mareas huerfanas (eslora >10 m y creadas a partir de NV) -> las quitamos
-# @@Pendiente de aclarar con SGP.
-
-Dori <- subset(Dori, !IdMarea %in% check$IdMarea)
-
-
-
-# revisamos origen del resto de mareas menores de 10 m.
-# todos los origenes son NV: correcto
-
-CodigoOrigen<- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMarea, C_FcRegresoFloor , CodigoOrigen) %>% summarise(PesoConsumo = sum(PesoConsumoTotal)) %>%
-  dcast(CensoPorModalidad + Nombre + EsloraTotal + C_FcRegresoFloor + IdMarea ~ CodigoOrigen,  value.var = "PesoConsumo")
-names(CodigoOrigen) [names(CodigoOrigen) == 0] <- "X0"
-head(CodigoOrigen)
-
-CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)  # huerfanas
-
-CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(!is.na(NV)) # menores de 10m.
-CodigoOrigen %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal<10) %>% filter(is.na(NV))  # todas las lineas vienen de NV
-
-CodigoOrigen  %>% filter (EsloraTotal<10) %>% filter(is.na(NV)) # menores de 10m. todas las lineas vienen de NV
-
-
-
-# # ################## #
-# # Peso Desembarcado  #
-# # ################## #
-# identificamos mareas con desembarco False y peso consumo >0
-
-Desembarcado<- Dori %>% group_by( CensoPorModalidad, Nombre, EsloraTotal, IdMarea, C_FcRegresoFloor , Desembarcado) %>% summarise(PesoConsumo = sum(PesoConsumoTotal)) %>%
-  dcast(CensoPorModalidad + Nombre + EsloraTotal + C_FcRegresoFloor + IdMarea ~ Desembarcado,  value.var = "PesoConsumo")
-names(Desembarcado) [names(Desembarcado)==0] <- "False"
-names(Desembarcado) [names(Desembarcado)==1] <- "True"
-names(Desembarcado) [names(Desembarcado)=="NA"] <- "XNA"
-
-head(Desembarcado)
-
-Desembarcado %>% filter(XNA==0)
-subset(Dori[,namevar], IdMarea=="ESP-TRP-02306220190103004849") # vienen de descarte o capturalance0
-
-Desembarcado %>% filter(False>0)
-subset(Desembarcado, Nombre=="GUK" & month(C_FcRegresoFloor)%in% c(5))
-subset(Dori[namevar], IdMarea=="ESP-13699181") 
-subset(Dori[namevar], IdMarea=="ESP-TRP-02511520191127164649") 
-
-Desembarcado %>% filter(False==0)
-
-subset(Dori[namevar], IdMarea=="ESP-TRP-00594820190519224932") 
-
-
-# CRITERIOS:
-#   - Desembarco False y PesoConsumo>0 -> mantener
-#
 
 
 
