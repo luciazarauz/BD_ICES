@@ -76,6 +76,7 @@ MareasTotales <-MareasTotales %>% arrange(Nombre, C_FcRegresoFloor, CensoPorModa
   check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)
   check
   sum(check$CapturasCalculadas)
+  length(unique(check$IdMarea))
   
   subset(MareasTotales, Nombre=="KALAMENDI" & month(C_FcRegresoFloor)==1)
   subset(Dori[,namevar], IdMarea=="16288817_2019-01-07") %>% summarise(PesoNotaVenta = sum(PesoNotaVenta * FactorConversion))
@@ -106,6 +107,7 @@ MareasTotales <-MareasTotales %>% arrange(Nombre, C_FcRegresoFloor, CensoPorModa
       check <- MareasTotales %>% filter (substr(IdMarea,1,3)!="ESP") %>% filter (EsloraTotal>=10)
       check
       sum(check$CapturasCalculadas)
+      length(unique(check$IdMarea))
       
       Dori <- subset(Dori, !IdMarea %in% check$IdMarea)
       
@@ -142,6 +144,10 @@ MareasTotales <-MareasTotales %>% arrange(Nombre, C_FcRegresoFloor, CensoPorModa
   Desembarcado %>% filter(False == 0 & True ==0)
   subset(Dori[namevar], IdMarea=="ESP-TRP-02369020190604110108") 
   
+  a <- subset(Dori[namevar], Desembarcado== 0 & PesoCapturado>0)
+  subset(Dori[namevar], Desembarcado== 0 & PesoDesembarcado>0)
+  
+  table(a$CensoPorModalidad)  ## revisar criterio
   
   # CRITERIOS:
   #   - Desembarco False y PesoConsumo >0 -> mantener
