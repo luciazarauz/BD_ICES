@@ -284,7 +284,7 @@ PuertoVentaSelect$C_CodigoPuertoVenta_AL5[PuertoVentaSelect$C_CodigoPuertoVenta_
 unique(PuertoVentaSelect$IdDiario[is.na(PuertoVentaSelect$C_CodigoPuertoVenta_AL5)])
 
 Dori$C_CodigoPuertoVenta_AL5 <- PuertoVentaSelect$C_CodigoPuertoVenta_AL5[match(Dori$IdMarea, PuertoVentaSelect$IdMarea)]
-Dori[is.na(Dori$C_CodigoPuertoVenta_AL5)]
+Dori[is.na(Dori$C_CodigoPuertoVenta_AL5),]
 length(unique(Dori$IdMarea[is.na(Dori$C_CodigoPuertoVenta_AL5)]))
 
 
@@ -450,6 +450,13 @@ latlon[latlon$Lat==0 & latlon$Lon==0,] <- NA
 Dori$Lat <- latlon$Lat
 Dori$Lon <- latlon$Lon
 
+Dori$Lat[is.na(Dori$Lat)] <- Dori$X[is.na(Dori$Lat)]
+Dori$Lon[is.na(Dori$Lon)] <- Dori$Y[is.na(Dori$Lon)]
+
+range(Dori$Lat, na.rm=TRUE)
+range(Dori$Lon, na.rm=TRUE)
+
+
 sum(latlon$Lat, na.rm=TRUE)
 sum(Dori$Lat, na.rm=TRUE)
 dim(subset(latlon, !is.na(Lat)))
@@ -466,7 +473,11 @@ head(Dori[is.na(Dori$OrigenIdentificador),])
 head(Dori[is.na(Dori$OrigenIdentificador) & Dori$PesoConsumo>0,])
 
 Dori$CodigoOrigen <- substr(Dori$OrigenIdentificador,1,2)
+Dori$CodigoOrigen[Dori$CatchCategory=="Descartes"] <- "Descartes"
+Dori$CodigoOrigen[Dori$CatchCategory=="CapturasLance0"] <- "CapturasLance0"
+
 Dori$CodigoOrigen[is.na(Dori$CodigoOrigen)] <- 0
+
 
 Dori<- Dori %>% group_by(IdMarea) %>%
   mutate(NCodigoOrigen=length(unique(CodigoOrigen[CatchCategory=="CapturasCalculadas"]))) %>%
@@ -576,7 +587,7 @@ for (i in sort(unique(Dori$CensoPorModalidad))){
 # Grabar fichero                          ####
 ############################################### #
 
-setwd(path.data)
+
 save(Dori, file="Datos/Dori2019_v2.RData")
 
 

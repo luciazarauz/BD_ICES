@@ -31,7 +31,7 @@ library(dplyr)
 # Leer fichero                          ####
 ############################################### #
 setwd(path.data)
-load(file="Dori2019_v2.Rdata" )
+load(file="Dori2019_v3.Rdata" )
 
 # Preparar Tabla Importación  #####
 ################################# #

@@ -371,6 +371,7 @@ names(InfoDescartes)[names(InfoDescartes) == "PesoBajoTalla"] <- "PesoDescarteBa
 names(InfoDescartes)[names(InfoDescartes) == "NumPiezasBajoTalla"] <- "NumPiezasDescartadasBajoTalla"
 names(InfoDescartes)[names(InfoDescartes) == "CodigoRectanguloEstadistico"] <- "RectanguloEstadistico"
 names(InfoDescartes)[names(InfoDescartes) == "Pais_AL3"] <- "PaisBandera_AL3"
+names(InfoDescartes)[names(InfoDescartes) == "FcDescarte"] <- "FcCaptura"
 
 # ------------------------------- #  
 # InfoParametrosArteCapturas

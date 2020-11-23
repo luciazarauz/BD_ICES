@@ -206,10 +206,17 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
           names(Dori)[grepl("NumPiezasCapturadas|NumPiezasDesembarcadas|NumPiezasNotaVenta|NumPiezasRetenidas|NumPiezasTransferidas", names(Dori))])
   Dori[Dori$CatchCategory %in% c("Descartes", "CapturasLance0"), v1] <- 0 
   
+  v1 <- c(names(Dori)[grepl("PesoConsumo|PesoCapturado|PesoDesembarcado|PesoNotaVenta|PesoRetenido|PesoTransferido", names(Dori))],
+          names(Dori)[grepl("NumPiezasCapturadas|NumPiezasDesembarcadas|NumPiezasNotaVenta|NumPiezasRetenidas|NumPiezasTransferidas", names(Dori))])
+  
+  Dori[Dori$CatchCategory %in% c("Descartes"), "Desembarcado"] <- "Descartes" 
+  Dori[Dori$CatchCategory %in% c("CapturasLance0"), "Desembarcado"] <- "CapturasLance0" 
+  
+  
   v2 <- c(names(Dori)[grepl("PesoDescarte", names(Dori))],
           names(Dori)[grepl("NumPiezasDescartadas", names(Dori))])
   Dori[Dori$CatchCategory %in% c("CapturasCalculadas", "CapturasLance0" ), v2] <- 0 
-
+ 
   Dori <- Dori%>% arrange(IdBuque, FcRegreso, FcCaptura, Especie_AL3) %>% data.frame()
 
   
