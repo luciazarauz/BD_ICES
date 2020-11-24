@@ -455,7 +455,7 @@ subset(Dori[,namevar], IdMarea=="ESP-TRP-00796620190813173811")
 check <-  MareasTotales %>% filter(CapturasCalculadas==0 & is.na(Descartes))   
 temp <- subset (Dori[,namevar], IdMarea %in% check$IdMarea & !(PesoCapturado>0 | PesoDesembarcado>0) & Desembarcado==0)
 
-unique(substr(temp$IdMarea,1,3))  # todas las mareas tienen codigo oficial. las guardamos en un atabla a parte y luego las h¡juntamos (Como InfoCapturaLance0)
+unique(substr(temp$IdMarea,1,3))  # todas las mareas tienen codigo oficial. las guardamos en una tabla a parte y luego las juntamos (Como InfoCapturaLance0)
 
 
   length(unique(Dori$IdMarea))
@@ -536,7 +536,7 @@ Dori <- subset(Dori, !IdDori %in% temp$IdDori)
   Dori %>% filter(EsloraTotal<10 & PesoConsumoTotal ==0) # no hay mareas con peso = 0 entre los barcos con eslora <10m
   
   #barcos >10m eslora
-  Dori[, namevar] %>% filter(EsloraTotal >= 10 & FactorConversion ==0 & CodigoOrigen=="NV") # no hya lineas que vienen de NV 
+  Dori[, namevar] %>% filter(EsloraTotal >= 10 & FactorConversion ==0 & CodigoOrigen=="NV") # no haya lineas que vienen de NV 
   Dori[, namevar] %>% filter(EsloraTotal >= 10 & FactorConversion ==0 & CodigoOrigen=="CA")  # más de 1400 que vienen de CA
   Dori[, namevar] %>% filter(EsloraTotal >= 10 & FactorConversion ==0 & CodigoOrigen=="DE")  # cero lineas que vienen de DE
 
@@ -560,7 +560,7 @@ Dori <- subset(Dori, !IdDori %in% temp$IdDori)
 # # ####################################### #
 
 
-   Dori$AZTI_BD <- "incorporar"
+   Dori$AZTI_BD <- "Incorporar"
    Dori_captura0$AZTI_BD <- "Captura0"
    Dori_lance0$AZTI_BD <- "Lance0"
 
@@ -573,3 +573,11 @@ Dori <- subset(Dori, !IdDori %in% temp$IdDori)
    
    # duda: peso desembarcado, peso capturado: lo mantengo en la BD??
    
+   
+   
+   
+   
+   
+   
+   
+  
