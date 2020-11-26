@@ -17,6 +17,40 @@
 # R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
 # ----------------------------------------------------------------- # 
 
+
+# # ################## #
+# # Libraries          #
+# # ################## #
+
+rm(list=ls())
+
+library(fishPiCodes)
+data("UNLOCODE")
+library(lubridate)
+library(data.table)
+library(reshape2)
+library(dplyr)
+#library(plyr)
+library(scales)
+
+Fun_unique <- function(x){length(unique(x))}
+
+
+# # ####################################### #
+# # Load                                 ####
+# # ####################################### #
+
+load(file="Datos/Dori2019_v2.Rdata"   )
+load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
+
+Dori_ini <- Dori
+namevar <- c("IdDori", "IdDiario", "Nombre", "EsloraTotal", "CensoPorModalidad", "PuertoBase", "IdMarea", 
+             "FcSalida","CodigoPuertoSalida_AL5", "C_FcRegresoFloor","C_FcRegreso",  "C_CodigoPuertoDesembarque_AL5", "C_FcVentaMax", "C_CodigoPuertoVenta_AL5",
+             "CodigoOrigen", "OrigenIdentificador", "CatchCategory", "Desembarcado",
+             "FcCaptura", "Posicion", "CodigoDivision", "RectanguloEstadistico", "CodigoArte_FaoAL3", "TiempoPescaMin", "NumOperaciones",
+             "Especie_AL3", "Presentacion_AL3", "PesoConsumo", "PesoConsumoBajoTalla", "FactorConversion",  "PesoDesembarcado","PesoCapturado", "PesoRetenido" ,"PesoNotaVenta",  "PesoDescarte", "MotivoDescarte")
+
+
 # # ####################################### #
 # # tablas para el chequeo               ####
 # # ####################################### #
@@ -132,6 +166,7 @@ check <-  MareasTotales %>% filter(CapturasCalculadas==0 & is.na(Descartes))  # 
 temp <- subset (Dori, IdMarea %in% check$IdMarea & !(PesoCapturado>0 | PesoDesembarcado>0) )
   length(unique(temp$IdMarea))
   table(temp$CodigoOrigen)
+  table(temp$CensoPorModalidad)
   unique(substr(temp$IdMarea,1,3))
 Dori_captura0 <- subset(Dori, IdDori %in% temp$IdDori)
 Dori <- subset(Dori, !IdDori %in% temp$IdDori)
@@ -141,7 +176,10 @@ Dori <- subset(Dori, !IdDori %in% temp$IdDori)
   sum(Dori_ref$PesoConsumoTotal); sum(Dori_ref$PesoDescarte)
   sum(Dori$PesoConsumoTotal);     sum(Dori$PesoDescarte)
 
-
+# 
+#   xx <- subset (Dori, IdMarea %in% check$IdMarea  ) 
+#   xx <- subset (Dori,  FactorConversion==0) 
+#   subset(xx, IdMarea %in% check$IdMarea )
 
 
 # # ####################################### #
