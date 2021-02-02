@@ -1,0 +1,522 @@
+---
+title: "Posa"
+author: "lzarauz & mkorta"
+date: "1/2/2021"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_folding: hide
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=12)
+#knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Objetivo
+
+En este codigo vamos a comparar los datos de muestreo, ventas y N1V. El objetivo de ver la magnitud de los desembarcos que se llevan a POSA, si están incluidos en las hojas de venta de la OPPAO y si los observamos en el muestreo.
+
+
+# Resumen
+
+Tenemos dos fuentes de datos de venta para la flota de arrastre de Ondarroa: 
+
+* Las Notas de Venta oficiales (proprcionadas por HAZI). Estas NV incluyen tanto lo que va a POSA, como lo adquirido por otros compradores.
+
+* Las hojas de la OPPAO que nos proporcionan los armadores. A estas hojas de venta añadimos las notas que nos pasa POSA en pdf. 
+
+
+La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan bastante bien. De esta manera, parece comprobado que el muestreador accede a lo que se registra en la hoja de la OPPAO que no tiene encuentra POSA. Esto se da en ambos metier. 
+
+Al añadir POSA, en PTB no cambia mucho (debido a que hay muy poca POSA declarada en Ventas), pero en OTB se observa que en general el peso Venta es mayor que el peso Muestreado, particularmente en merluza, fanecas y gallos, y quiza triglidos. Estas especies son de las que nos estaríamos perdiendo parte de sus desembarcos porque se llevan a POSA y el muestreaor no tiene acceso a ellos.
+
+
+**Parejas 8abd**: la merluza muestra algo de "underreporting". También rapes, rayas, pintaroja y congrio (que son pocos kilos). Para chicharros y gallos el peso es mayor en N1V.
+
+**Parejas de litoral**: gallos y verdel se suman a la lista de "underreporting".
+
+**Bakas**: en general están bastate ajustados los pesos de N1V y Ventas pero hay un sesgo por barco. Sobresale el Kalamendi que declara  mas en NV que en Ventas. 
+
+Hasta ahora siempre hemos asumido que se declaran mayores desembarcos en OPPAO que en N1V. esto se confirma en las parejas, pero no en las bacas (y eso es raro). 
+
+Las parejas (tanto las de 8abd como las de litoral) declaran menos en POSA que las bakas. En las bakas los pesos POSA declarados en N1V y en los pdf que introducimos en Ventas se ajustan bastante bien. Se observa una declaración mayor de merluza en en POSA- Ventas, y una declaración mayor de tríglidos en POSA- N1V, pero la tendencia es bastante buena. En las sparejas, sin embargo, se declara  más POSA en N1V que en los pdf que introducimos en Ventas. 
+
+
+# Anáslisis y resultados
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+rm(list=(ls()))
+
+library(lubridate)
+library (stringr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(reshape2)
+library(data.table)
+library(DT)
+library(scales)
+library(ggthemes)
+
+# contar valores únicos
+Fun_CountUnique <- function (x) { length(unique(x))}   
+
+# quitar acentos
+mgsub <- function(pattern, replacement, x, ...) {
+  if (length(pattern)!=length(replacement)) {
+    stop("pattern and replacement do not have the same length.")
+  }
+  result <- x
+  for (i in 1:length(pattern)) {
+    result <- gsub(pattern[i], replacement[i], result, ...)
+  }
+  result
+}
+
+      equal_breaks <- function(n = 3, s = 0.05, ...){
+  function(x){
+    # rescaling
+    d <- s * diff(range(x)) / (1+2*s)
+    seq(min(x)+d, max(x)-d, length=n)
+  }
+}
+      
+      
+# fija el tema de las figuras del ggplot
+theme_set(theme_bw(base_size=16))
+```
+
+## Datos
+
+Se cargan los ficheros de Ventas, N1V y Muestreos (Tallas) por un lado y por otro los maestros de Especies y Buques. En un primer paso se filtran en todos los ficheros la flota de Ondarroa: parejas (8abd) "PTB_DEF_>=70_0_0", parejas de litoral "PTB_MPD_>=55_0_0" y las bacas (8abd) "OTB_DEF_>=70_0_0". 
+
+Se unifica con un código lo que identificamos que procede de POSA y lo que no, en los ficheros de N1V y Ventas. En Muestreos no lo sabemos con segurdad, pero rellenamos el campo como "no POSA".
+
+Debido a que  para el año 2020 tenemos una introducción de datos incompleta (datos de la OPPAO: introducidos de enero a octubre, datos de POSA introducidos hasta Junio; N1V: completo; Tallas: completo) se eliminan los meses incompletos para que los datos sean comparables. El ejercicio se realizará con el primer semestre del año 2020.
+
+Para que los pesos de N1V, Ventas y Muestreos sean equivalentes se agregan las capturas de ambos barcos en las parejas. Esto es así, porque en la base de datos los desembarcos de las parejas se asignana al 50% a cada buque que comforman la pareja.
+
+Se unen las tres tablas (N1V, Ventas y Muestreo) previamente habiendolas agregado por "IdVenta", "Especie" y "Posa (sí/no)" para obter el sumatorio de los Pesos. Se unifican corrijen y unifican tmabién los nombres de las especies entre las tablas. Finalmente se agrega a la tabla "nombre de buque", "Mes", "Día", "Año" y "Metier". Convertimos NA en ceros, para el peso OPPAO y el peso NV.
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+#      Leer los ficheros y corregir acentos       ####
+##################################################### #
+DBfile      <- "Datos/Ventas_2020.csv"  # Está toda la flota que desembarca en euskadi. OPPAO con sus hojas de venta, el resto con las NV
+                                  # Me dice Carmen que ha metido también los datos de POSA hasta junio. Estan identificados como tamaño POSA
+NVfile      <- "Datos/N1V_2020.csv"     # está toda la flota que desembarca en euskadi.
+Tallasfile  <- "Datos/Tallas_2020.txt"  # mareas muestradas. toda la flota
+Especies    <- "Maestros/Especies_2020.txt"# lista maestra de species
+Buques      <- "Maestros/Buques_2020.txt"  # lista maestra buques
+
+#Desembarcos
+DB0 <-read.table(DBfile, sep=",",dec=".",header=T, stringsAsFactors = FALSE)#, skip=10)# comment.char = "#")
+DB<- DB0
+names(DB) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(DB))
+DB$Nombre_Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), DB$Nombre_Buque)
+DB$Puerto_Base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), DB$Puerto_Base )
+DB$Puerto_Base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), DB$Puerto_Base )
+DB$Puerto_Venta  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), DB$Puerto_Venta )
+
+names(DB)[names(DB)=="Kg_Desemb_Peso_Vivo"] <- "Peso"
+
+
+#Notas de Primera venta
+NV0 <-read.table(NVfile, sep=";",dec=",",header=T, stringsAsFactors = FALSE)
+NV<- NV0
+names(NV) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(NV))
+NV$Nombre_Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), NV$Nombre_Buque)
+NV$Puerto_Venta  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), NV$Puerto_Venta )
+
+names(NV)[names(NV)=="Peso_Neto"] <- "Peso"
+
+
+#Tallas
+LN0 <-read.table(Tallasfile, sep="\t",dec=",",header=T, stringsAsFactors = FALSE)
+LN<- LN0
+names(LN) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(LN))
+LN$Barco <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), LN$Barco)
+LN$Puerto.venta  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), LN$Puerto.venta )
+
+names(LN)[names(LN)=="Barco.real"] <- "Nombre_Buque"
+names(LN)[names(LN)=="Id.Venta"] <- "IdVenta"
+names(LN)[names(LN)=="Especie.comercial"] <- "Especie_ALFA3"
+LN$Fecha_Venta <- as_date(as.Date(LN$Fecha.venta, "%d/%m/%Y"))
+LN$Mes <- month(LN$Fecha_Venta)
+
+
+#Maestro especies
+conv_sp<- read.csv(Especies, header=T,sep="\t", stringsAsFactors = FALSE); 
+names(conv_sp) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_sp))
+conv_sp$Nombre.Oficial  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_sp$Nombre.Oficial )
+
+#Maestro buques
+conv_censo<- read.csv(Buques, header=T,sep="\t", stringsAsFactors = FALSE); 
+  names(conv_censo) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_censo))
+  conv_censo$Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Buque)
+  conv_censo$Puerto.base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Puerto.base )
+  conv_censo$Caladero.principal <- conv_censo$CensoPorModalidad
+  conv_censo$Caladero.principal <- toupper(conv_censo$Caladero.principal)
+  
+
+#Año
+año <- unique(c(DB$Año, NV$Año))
+
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+
+ # Hacemos tabla resumen de mareas con la información de cabecera (barco, puerto venta, fecha venta...). 
+#############
+  Cabeceras <- DB %>% group_by(IdVenta, Nombre_Buque, Cod_UE, Dia, Mes, Año, Metier, Puerto_Venta, Puerto_Base) %>% summarize(Peso=sum(Peso))
+
+  
+
+# filtramos la flota de Ondarroa (OPPAO)
+#############
+  
+  DB1 <- subset( DB, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
+                   Puerto_Venta=="Ondarroa")
+
+  NV1 <- subset( NV, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
+                   Puerto_Venta=="Ondarroa")
+
+  LN1 <- subset( LN, Arte %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
+                   Puerto.venta=="Ondarroa")
+  
+
+  # Creamos variable Posa
+  
+  DB1$Posa <- DB1$Tamaño
+  DB1$Posa[DB1$Posa %in% c("POSA", "POSA Ab")] <- "POSA"
+  DB1$Posa[!DB1$Posa %in% c("POSA", "POSA Ab")] <- "noPOSA"
+  
+  NV1$Posa <- NV1$Comprador
+  NV1$Posa[NV1$Comprador %in% c("PROYECTO ONDARROA S.A.-POSA")] <- "POSA"
+  NV1$Posa[!NV1$Comprador %in% c("PROYECTO ONDARROA S.A.-POSA")] <- "noPOSA"
+  
+  LN1$Posa <- "noPOSA"  # no estamos seguros de si lo que muestreamso incluye Posa o no. De momento lo igualo a NoPosa para poder cruzar las tablas
+  
+# para el año 2020 tenemos una introducción de datos incompleta
+#   DB: datos de la OPPAO introducidos de enero a octubre
+#       datos de POSA introducidos hasta Junio 
+#   NV completo
+#   Tallas: completo
+#   eliminamos los meses incompletospara que los datos sean comparables
+#############
+  # 
+  DB1 <- subset( DB1, Mes %in% 1:6)
+  NV1 <- subset( NV1, Mes_Venta %in% 1:6)
+  #NV1<- subset( NV1, !(Posa=="POSA" & Mes_Venta %in% 7:12))
+  LN1 <- subset( LN1, Mes %in% 1:6)
+
+
+
+# unir tablas 
+#############
+  
+  DB2<- DB1 %>% group_by(IdVenta, Especie_ALFA3, Posa) %>% summarize(Peso=sum(Peso))
+  NV2<- NV1 %>% group_by(IdVenta, Especie_ALFA3, Posa) %>% summarize(Peso=sum(Peso))
+  LN2ini<- LN1 %>% group_by(IdVenta, Nombre_Buque, CodigoTalla, Especie_ALFA3, Categoria.comercial, Posa) %>% summarize(Peso=unique(PesTotCat.Kg.))
+  LN2<- LN2ini %>% group_by(IdVenta, Especie_ALFA3, Posa) %>% summarize(Peso=sum(Peso))
+  
+  
+  Comp0<- merge(DB2, NV2, by=c("IdVenta", "Especie_ALFA3", "Posa"), all=TRUE, suffixes=c("", ".NV"))
+  Comp0<- merge(Comp0, LN2, by=c("IdVenta", "Especie_ALFA3", "Posa"), all=TRUE, suffixes=c("", ".LN"))
+  
+  names(Comp0)[names(Comp0)=="Peso"] <- "Peso.Ventas"
+  
+  Comp0$Nombre.Oficial <-  conv_sp$Nombre.Oficial[match(Comp0$Especie_ALFA3, conv_sp$Cod..ALFA.3)]
+  Comp0$Nombre.Check <- Comp0$Nombre.Oficial
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Calamar comun", "Calamares Loliginidae", "Calamar veteado", "Calamares Loligo spp.")] <- "Calamares"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Faneca comun", "Fanecas spp", "Faneca menor - Fodon - Capellan")] <- "Fanecas"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Gallo whiffiagonis", "Gallo boscii" ,"Gallos - ollarra")] <- "Gallos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Lenguado" ,"Lenguado de arena")] <- "Lenguado"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Rapes Lophiidae", "Rape blanco" , "Rape negro", "Rapes Lophius")] <- "Rapes"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Rayas (Rajidae)", "Raya de clavos", "Raya de Murray (DEA)", "Raya santiaguesa", "Rayas spp")] <- "Rayas"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Sepia comun" ,"Sepias y chocos", "Choco-Sepia elegante", "Choco/sepia con punta", "Potas", "Pota europea")] <- "Sepias y chocos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Bejel", "Cuco - Peona", "Perlon", "Triglidos", "Garneo", "Garneos nep")] <- "Triglidos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Aligote", "Boga", "Mojarras nep (DEA)", "Sargo mojarra")] <- "Esparidos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Pintarroja", "Pintarrojas nep (DEA)")] <- "Pintarroja"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Pota costera", "Pota voladora", "Potas Ommastrephidae nep", "Potas voladoras nep (N1V)")] <- "Potas"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Pulpo blanco", "Pulpo comun", "Pulpos Octopodidae")] <- "Pulpos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Salmonete de roca", "Salmonetes (Mullus spp)")] <- "Salmonetes"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Acedia", "Soleidos", "Ratas", "Soldadito")] <- "Soleidos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Cohombro", "Cohombro rojo")] <- "Cohombros"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Chicharro Blanco", "Chicharro Negro")] <- "Chicharros"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Estornino del Atlantico", "Estornino del Pacifico")] <- "Estorninos"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Pejerrey - Abichon - Chirrete")] <- "Peon - pez plata"
+  
+  
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Brotola de fango (Phycis blennoides)")] <- "Brotola de fango"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Cabra (Helicolenus dactylopterus)")] <- "Cabra"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Verdel - Caballa")] <- "Verdel"
+  Comp0$Nombre.Check[Comp0$Nombre.Oficial %in% c("Lirio - Bacaladilla")] <- "Lirio"
+  Comp0$Nombre.Check[Comp0$Nombre.Check %in% c("Peon - pez plata")] <- "Peon"
+
+
+  # Agregamos información sobre la marea (Cabecera)  
+  Comp0$Nombre_Buque <-  Cabeceras$Nombre_Buque[match(Comp0$IdVenta, Cabeceras$IdVenta)]
+  Comp0$Mes <-  Cabeceras$Mes[match(Comp0$IdVenta, Cabeceras$IdVenta)]
+  Comp0$Dia <-  Cabeceras$Dia[match(Comp0$IdVenta, Cabeceras$IdVenta)]
+  Comp0$Año <-  Cabeceras$Año[match(Comp0$IdVenta, Cabeceras$IdVenta)]
+  Comp0$Metier <-  Cabeceras$Metier[match(Comp0$IdVenta, Cabeceras$IdVenta)]
+  
+  # Convertimos NA en ceros, para el peso OPPAO y el peso NV
+  Comp0$Peso.OPPAO[is.na(Comp0$Peso.Ventas)] <- 0
+  Comp0$Peso.NV[is.na(Comp0$Peso.NV)] <- 0
+  
+  Comp <- Comp0
+  # Guardamos la tabla detallada por si queremos ver la correspondenca entre nombres
+  #write.table(Comp0, paste("BD_POSA/Output/CheckPOSA_detailed_",año,".csv", sep=""), sep=";", dec=",", row.names = F)
+  
+
+```
+
+## Tablas 
+
+### Tabla por especie: POSA
+En tabla esta mostramos los pesos totales (kg) por especie para cada fuente de datos: Ventas-POSA, Ventas-NoPOSA, N1V-POSA, N1V-POSA. Podemos filtrar qué especies se desembarcan en Ventas y no en N1V, ya la inversa. Nos puede dar pistas de qué correcciones tenemos que hacer por especie smal asignadas.
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+
+checktab <- Comp %>% group_by(Nombre.Oficial, Posa) %>% summarise(Peso.Ventas = sum(Peso.Ventas, na.rm=T),
+                                                                     Peso.NV    = sum(Peso.NV, na.rm=T))
+  checktab <- dcast(setDT(checktab), Nombre.Oficial ~  Posa, value.var = c("Peso.Ventas", "Peso.NV"))
+  checktab[is.na(checktab)] <- 0
+  
+  checktab[,c("Peso.Ventas_noPOSA", "Peso.Ventas_POSA","Peso.NV_POSA", "Peso.NV_noPOSA")] <- round(checktab[,c("Peso.Ventas_noPOSA", "Peso.Ventas_POSA","Peso.NV_POSA", "Peso.NV_noPOSA")] ,0)
+  checktab$Peso.Ventas.Total   <- checktab$Peso.Ventas_POSA + checktab$Peso.Ventas_noPOSA
+  checktab$Ventas.percentPOSA  <- percent(round(checktab$Peso.Ventas_POSA/checktab$Peso.Ventas.Total, 2),0)
+  checktab$Peso.NV.Total       <- checktab$Peso.NV_POSA + checktab$Peso.NV_noPOSA
+  checktab$NV.percentPOSA      <- percent(round(checktab$Peso.NV_POSA/checktab$Peso.NV.Total, 2),0)
+
+  checktab <- checktab[,c("Nombre.Oficial", "Peso.Ventas_noPOSA", "Peso.Ventas_POSA",  "Peso.Ventas.Total", "Ventas.percentPOSA",
+                          "Peso.NV_noPOSA", "Peso.NV_POSA",  "Peso.NV.Total", "NV.percentPOSA")]
+
+  names(checktab) <- c("Nombre.Oficial", "Ventas_noPOSA", "Ventas_POSA",  "Ventas.Total", "Ventas.prop.POSA",
+                          "NV_noPOSA", "NV_POSA",  "NV.Total", "NV.prop.POSA")
+
+    
+  checktab <- subset(checktab, Nombre.Oficial != "0") # habrá que chequearlo porque sale  
+  
+  font.size <- "10pt"
+  DT::datatable(checktab, 
+                options = list( 
+                               #searching = FALSE,
+                               pageLength = 10, 
+                               autoWidth=T, 
+                               scrollX=TRUE,
+                               initComplete = htmlwidgets::JS(
+                                "function(settings, json) {",
+                                paste0("$(this.api().table().container()).css({'font-size': '", font.size, "'});"),
+                                "}")
+                        # initComplete = JS("function(settings, json) {",
+                        # "$(this.api().table().header()).css({'background-color': '#000', 'color':'#fff'});","}")
+                         ),
+                filter = 'top')
+  
+   
+                # %>% 
+                # formatStyle(columns=colnames(checktab),
+                # backgroundColor = '#222222', color = "white")
+                # 
+
+
+
+
+```
+
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+
+  # agregamos las Parejas
+
+  Comp0$Nombre_Buque2 <- Comp0$Nombre_Buque
+  Comp0$Nombre_Buque2[Comp0$Nombre_Buque2 %in% c("Aketxe", "Gaztelugatxe")] <- "Aketxe - Gaztelugatxe"
+  Comp0$Nombre_Buque2[Comp0$Nombre_Buque2 %in% c("Arretxu Berria", "Andrekala Berria")] <- "Arretxu Berria - Andrekala Berria"
+  Comp0$Nombre_Buque2[Comp0$Nombre_Buque2 %in% c("Kaxu", "Kaxarra")] <- "Kaxu - Kaxarra"
+  
+  Comp0$IdVenta_ini <- Comp0$IdVenta
+  Comp0$IdVenta <- paste(Comp0$Nombre_Buque2, Comp0$Mes, Comp0$Dia, Comp0$Año)
+  Comp0$IdVenta[!Comp0$Metier %in% c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0")] <- Comp0$IdVenta_ini[!Comp0$Metier %in% c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0")]
+
+  # Agregamos la tabla para quitar el código ALFA y quedarnos solo con la especie corregida
+  Comp0 <- Comp0 %>% group_by(IdVenta, Nombre_Buque2, Mes, Dia,Año, Metier, Nombre.Check, Posa ) %>% 
+    summarize (Peso.Ventas = sum(Peso.Ventas, na.rm=TRUE),
+               Peso.NV = sum(Peso.NV, na.rm=TRUE),
+               Peso.LN = sum(Peso.LN, na.rm=TRUE))
+  
+  
+    # Guardamos la tabla agregada
+    #write.table(Comp0, paste("BD_POSA/Output/CheckPOSA_aggregated_",año,".csv", sep=""), sep=";", dec=",", row.names = F)
+  
+
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# Select main especies  
+  listSp <- Comp0 %>% group_by(Nombre.Check) %>% summarize (Peso=sum(Peso.Ventas, na.rm=TRUE)) %>% arrange(-Peso) %>% mutate(PesoCum=cumsum(Peso)) 
+  listSp$PesoCum2 <- listSp$PesoCum/sum(listSp$Peso, na.rm=TRUE)
+  listSpPlot <- listSp$Nombre.Check[listSp$PesoCum2<0.98]
+ 
+  
+```
+
+
+## Figuras
+
+
+### Peso Muestreo vs Peso ventas por marea (no incluye POSA)
+
+La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan bastante bien, salvo algunos puntos que hemos identificado para revisar. 
+De esta manera, parece comprobado que el muestreador accede a lo que se registra en la hoja de la OPPAO que no tiene encuentra POSA. Estos se da en ambos metier. 
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+  t <- subset(Comp0, Peso.LN>0 &  Posa=="noPOSA" & Nombre.Check %in% listSpPlot)  
+
+  for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+      plottitle <- i
+    
+    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + 
+      geom_point(size = 2) +
+      #geom_label(label=rownames(subset(t, Metier==i))) +
+      geom_abline(intercept = 0, slope = 1, col="red") +
+      facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+      ggtitle(plottitle) +
+      theme( plot.title = element_text(hjust = 0.5))
+    
+    #windows(25,15)
+    ggp <- plot (ggp)
+    #ggsave(gsub(" ", "", plottitle),scale=1.5)
+    
+  }
+
+```
+
+### Peso Muestreo vs Peso ventas por marea (incluye POSA)
+
+Al añadir POSA, en PTB no cambia mucho (debido a que hay muy poca POSA declarada en Ventas), pero en OTB se observa que en general el peso Venta es mayor que el peso Muestreado, particularmente en merluza, fanecas y gallos, y quiza triglidos. Estas especies son de las que nos estaríamos perdiendo parte de sus desembarcos porque se llevan a POSA y el muestreaor no tiene acceso a ellos.
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+  t <- Comp0 %>% group_by(IdVenta, Nombre_Buque2, Mes, Dia, Metier, Nombre.Check ) %>% 
+    summarize (Peso.Ventas = sum( Peso.Ventas, na.rm=TRUE),
+               Peso.NV = sum(Peso.NV, na.rm=TRUE),
+               Peso.LN = sum(Peso.LN, na.rm=TRUE))
+
+  t <- subset(t, Peso.LN>0 & Nombre.Check %in% listSpPlot) 
+  
+
+for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+    plottitle <- i
+    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + 
+      geom_point(size = 2) +
+      geom_abline(intercept = 0, slope = 1, col="red") +
+      facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+      ggtitle(plottitle) +
+      theme(plot.title = element_text(hjust = 0.5))
+  
+  #windows(25,15)
+  ggp <- plot (ggp)
+  #ggsave(gsub(" ", "", plottitle),scale=1.5)
+  
+}
+
+```
+
+### Peso NV vs Peso ventas por mes y por barco (incluye POSA)
+
+Parejas 8abd: la merluza muestra algo de "underreporting". También rapes, rayas, pintaroja y congrio (que son pocos kilos). Para chicharros y gallos el peso es mayor en N1V
+Parejas de litoral: gallos y verdel se suman a la lista de "underreporting" 
+Bakas: en general están bastate ajustados los pesos de N1V y Ventas pero hay un sesgo por barco. Sobresale el Kalamendi que declara  mas en NV que en Ventas. 
+
+Hasta ahora siempre hemos asumido que se declaran mayores desembarcos en OPPAO que en N1V. esto se confirma en las parejas, pero no en las bacas (y eso es raro). 
+
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+
+t <- Comp0 %>% group_by(Nombre_Buque2, Mes, Metier, Nombre.Check ) %>% 
+              summarize (Peso.Ventas = sum( Peso.Ventas, na.rm=TRUE),
+                                           Peso.NV = sum(Peso.NV, na.rm=TRUE),
+                                           Peso.LN = sum(Peso.LN, na.rm=TRUE))
+t <- subset(t, Nombre.Check %in% listSpPlot) 
+
+
+for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+  plottitle <- i
+#  ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Peso.LN>0)) +  # marco de color las mareas muestreadas
+ ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Nombre_Buque2)) +
+    geom_point(size = 2) +
+    scale_color_colorblind()+
+    geom_abline(intercept = 0, slope = 1, col="red") +
+    facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+    ggtitle(plottitle) +
+    theme(plot.title = element_text(hjust = 0.5),
+          legend.position = "bottom")
+  
+  #windows(25,15)
+  plot (ggp)
+  #ggsave(gsub(" ", "", plottitle),scale=1.5)
+}
+
+
+```
+
+### Peso NV vs Peso ventas por mes y separando POSA y no POSA
+
+Ya se ha mencionado que se declara muy poca POSA en Parejas (abd), pero parece que se declara ligeramente más POSA en N1V que en Ventas. Ocurre lo mismo en las parejas del litoral. En cambio, en las bacas los pesos POSA declarados en N1V y Ventan se ajustan bastante bien, a excepción de merluza y tríglidos quizá, donde se declara más POSA-merluza en Ventas y más POSA-triglidos en N1V.
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+t <- Comp0 %>% group_by(Nombre_Buque2, Mes, Metier, Nombre.Check, Posa ) %>% 
+  summarize (Peso.Ventas = sum( Peso.Ventas, na.rm=TRUE),
+             Peso.NV = sum(Peso.NV, na.rm=TRUE),
+             Peso.LN = sum(Peso.LN, na.rm=TRUE))
+
+t <- subset(t, Nombre.Check %in% listSpPlot)  
+
+
+for (i in c("PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+  plottitle <- i
+  ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Posa)) + 
+    geom_point(size = 2) +
+    scale_colour_colorblind()+
+    geom_abline(intercept = 0, slope = 1, col="red") +
+    facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+    ggtitle(plottitle) +
+    theme(plot.title = element_text(hjust = 0.5),
+          legend.position = "bottom")
+  
+
+#windows(25,15)
+plot (ggp)
+#ggsave(gsub(" ", "", plottitle),scale=1.5)
+
+}
+
+```
+
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+sessionInfo()
+```
+
+
+
+
+
+
+
+
