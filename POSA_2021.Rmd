@@ -25,9 +25,9 @@ En este codigo vamos a comparar los datos de muestreo, ventas y N1V. El objetivo
 
 Tenemos dos fuentes de datos de venta para la flota de arrastre de Ondarroa: 
 
-* Las Notas de Venta oficiales (proprcionadas por HAZI). Estas NV incluyen tanto lo que va a POSA, como lo adquirido por otros compradores.
+* N1V: Las Notas de Venta oficiales (proprcionadas por HAZI). Estas NV incluyen tanto lo que va a POSA, como lo adquirido por otros compradores.
 
-* Las hojas de la OPPAO que nos proporcionan los armadores. A estas hojas de venta añadimos las notas que nos pasa POSA en pdf. 
+* Ventas: Las hojas de la OPPAO que nos proporcionan los armadores. A estas hojas de venta añadimos las notas que nos pasa POSA en pdf. 
 
 
 La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan bastante bien. De esta manera, parece comprobado que el muestreador accede a lo que se registra en la hoja de la OPPAO que no tiene encuentra POSA. Esto se da en ambos metier. 
@@ -104,6 +104,23 @@ Para que los pesos de N1V, Ventas y Muestreos sean equivalentes se agregan las c
 Se unen las tres tablas (N1V, Ventas y Muestreo) previamente habiendolas agregado por "IdVenta", "Especie" y "Posa (sí/no)" para obter el sumatorio de los Pesos. Se unifican corrijen y unifican tmabién los nombres de las especies entre las tablas. Finalmente se agrega a la tabla "nombre de buque", "Mes", "Día", "Año" y "Metier". Convertimos NA en ceros, para el peso OPPAO y el peso NV.
 
 ```{r echo=F, message=FALSE, warning=FALSE}
+
+#  Informes necesarios:
+#
+#  Desembarcos (Ventas) 
+#  Todos los buques; Todas las especies; Todas las zonas; Todos los metiers
+#  Puertos de Venta:	Euskadi; Puertos Base:	España;  Unidad Temporal:	Dia; 
+#  csv. configuración ESP
+#
+#  Notas de Primera Venta 
+#  Todos los buques; Todas las especies; Todas las zonas; Todos los metiers
+#  Puertos de Venta:	Euskadi; Puertos Base:	España;  Unidad Temporal:	Dia;    
+#  csv. configuración ESP
+#
+#  Tallas (Informe IEO)
+#  Todos los metiers GNS/GTR/LLS/FPO/LHM/LTL/LHP/OTB/PTB/PS/MIS
+#  Convertir a txt
+
 
 #      Leer los ficheros y corregir acentos       ####
 ##################################################### #
