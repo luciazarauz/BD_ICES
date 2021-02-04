@@ -1,0 +1,287 @@
+---
+title: "Depuracion biológicos 2020:PNDB-SIRENO "
+author: "mkorta"
+date: "2/2/2021"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    code_folding: hide
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=12)
+```
+
+
+You can also embed plots, for example:
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+rm(list=(ls()))
+
+library(lubridate)
+#library (stringr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+#library(reshape2)
+#library(data.table)
+library(DT)
+#library(scales)
+library(ggthemes)
+
+# fija el tema de las figuras del ggplot
+theme_set(theme_bw(base_size=16))
+```
+
+# Preparación de los datos
+
+Se leen los ficheros y creamos nuevos factores temporales.
+
+```{r message=FALSE, warning=FALSE}
+
+## ------------------
+## Read datafile  
+## ------------------
+
+dat <- read.csv(file.path(getwd(),"Data/all_2020.csv"), header=T, sep=";", dec=",")
+dat$fecha <- dat$FechaVenta
+dat$fecha <- as.Date(dat$fecha, format="%d/%m/%Y")
+dat$M <- as.factor(month(dat$fecha)) 
+dat$Q <- as.factor(quarter(dat$fecha))
+dat$S <- as.factor(semester(dat$fecha)) 
+dat$Y <- as.factor(year(dat$fecha)) 
+
+# L-W:: w in meg is PesEvisc and PesoTotal in the rest of species
+dat$PesoPivot <- NA
+dat$PesoPivot <- dat$PesoEvisc
+dat$PesoPivot[dat$Especie.ALFA3 != "MEG"] <- dat$PesoTotal
+
+# for labeling outliers
+dat$label <- paste("T",dat$TallaTotal, "-", "P",dat$PesoTotal)
+# for meg
+dat$label[dat$Especie.ALFA3 == "MEG"] <- paste("T",dat$TallaTotal, "-", "PE",dat$PesoEvisc)
+
+#str(dat)
+dat$NombreEstMadSexual <- as.factor(dat$NombreEstMadSexual)
+#head(dat)
+```
+
+# Resumen
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+summary(dat[, c("NombreZona", "Especie.ALFA3", "TallaTotal", "PesoTotal", "NombreSexo", "NombreEstMadSexual",          "PesoGonadas", "EdadFinal")])
+```
+
+## datasets
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+rest <- subset(dat,Especie.ALFA3 != "MEG")
+meg  <- subset(dat,Especie.ALFA3 == "MEG")
+ane  <- subset(dat,Especie.ALFA3 == "ANE")
+pil  <- subset(dat,Especie.ALFA3 == "PIL")
+hom  <- subset(dat,Especie.ALFA3 == "HOM")
+mac  <- subset(dat,Especie.ALFA3 == "MAC")
+hke  <- subset(dat,Especie.ALFA3 == "HKE")
+```
+
+## Length - weight checking
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+ggplot (dat, aes(TallaTotal, PesoPivot))+
+  geom_point()+
+   facet_wrap(~ Especie.ALFA3, scales="free", ncol=3) 
+```
+
+## Madurez checking
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+ggplot (dat, aes(TallaTotal, PesoPivot))+
+  geom_point()+
+   facet_wrap(~ Especie.ALFA3, scales="free", ncol=3) 
+```
+
+## Edad checking
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+ggplot (dat, aes(TallaTotal, PesoPivot))+
+  geom_point()+
+   facet_wrap(~ Especie.ALFA3, scales="free", ncol=3) 
+```
+
+## ANE
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# ggplot (ane, aes(TallaTotal, PesoTotal))+
+#   geom_point()+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+  
+
+# outliers
+out145162<-subset (ane,TallaTotal > 144 & PesoTotal < 16)
+out134<-subset (ane,TallaTotal == 134 & PesoTotal > 19)
+out151<-subset (ane,TallaTotal == 151 & PesoTotal > 26)
+
+aux <- rbind(out145162, out134)
+outs.ane <- rbind(aux, out151)
+
+# identify
+ggplot (ane, aes(TallaTotal, PesoTotal))+
+  geom_point()+
+  geom_point(data=outs.ane, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.ane, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+## PIL
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# ggplot (pil, aes(TallaTotal, PesoTotal))+
+#   geom_point()+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+  
+
+# outliers
+out144<-subset (pil,TallaTotal < 145 & PesoTotal > 26)
+out181<-subset (pil,TallaTotal == 181 & PesoTotal > 75)
+
+outs.pil <- rbind(out144, out181)
+
+# identify
+ggplot (pil, aes(TallaTotal, PesoTotal))+
+  geom_point()+
+  geom_point(data=outs.pil, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.pil, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+## HOM
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# ggplot (hom, aes(TallaTotal, PesoTotal))+
+#   geom_point()+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+  
+# outliers
+outs.hom<-subset (hom,TallaTotal== 286 & PesoTotal <150)
+
+# identify
+ggplot (hom, aes(TallaTotal, PesoTotal))+
+  geom_point()+
+  geom_point(data=outs.hom, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.hom, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+## MAC
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# ggplot (mac, aes(TallaTotal, PesoTotal))+
+#   geom_point()+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+  
+# outliers
+outs358375<-subset (mac,TallaTotal > 355 & PesoTotal < 270)
+outs311<-subset (mac,TallaTotal < 333 & PesoTotal > 320)
+
+outs.mac <- rbind(outs358375, outs311)
+
+# identify
+ggplot (mac, aes(TallaTotal, PesoTotal))+
+  geom_point()+
+  geom_point(data=outs.mac, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.mac, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+
+## MAC
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# ggplot (hke, aes(TallaTotal, PesoTotal))+
+#   geom_point()+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+  
+# outliers
+outs241<-subset (hke, TallaTotal < 242 & PesoTotal > 200)
+outs311<-subset (hke, TallaTotal > 300 & TallaTotal < 323 & PesoTotal > 300)
+outs364<-subset (hke, TallaTotal == 364 & PesoTotal < 200)
+outs421<-subset (hke, TallaTotal == 421 & PesoTotal > 600)
+outs489<-subset (hke, TallaTotal == 489 & PesoTotal > 1000)
+
+aux <- rbind(outs241, outs311)
+aux2 <- rbind(aux, outs364)
+aux3 <- rbind(aux2, outs421)
+outs.hke <- rbind(aux3, outs489)
+
+# identify
+ggplot (hke, aes(TallaTotal, PesoTotal))+
+  geom_point()+
+  geom_point(data=outs.hke, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.hke, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+## MEG
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# Length- weight
+
+# ggplot (meg, aes(TallaTotal, PesoEvisc))+
+#   geom_point()+
+#   geom_point(data=outs)+
+#   geom_text(aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+
+# outliers
+out4<-subset (dat,Especie.ALFA3 == "MEG" & TallaTotal < 225 & PesoEvisc >100)
+out229 <-subset (dat,Especie.ALFA3 == "MEG" & TallaTotal < 250 & PesoEvisc < 50)
+out301 <- subset (dat,Especie.ALFA3 == "MEG" & TallaTotal < 305 & PesoEvisc > 300)
+out309 <- subset (dat,Especie.ALFA3 == "MEG" & TallaTotal == 309 & PesoEvisc < 150)
+out426 <- subset (dat,Especie.ALFA3 == "MEG" & TallaTotal > 400 & PesoEvisc < 100)
+
+aux <- rbind(out4, out229)
+aux2 <- rbind(aux, out301)
+aux3 <- rbind(aux2, out309)
+outs.meg <- rbind(aux3, out426)
+
+# identify
+ggplot (meg, aes(TallaTotal, PesoEvisc))+
+  geom_point()+
+  geom_point(data=outs.meg, colour = "red", shape =1, size = 4)+
+  geom_text(data = outs.meg, aes(label=TallaTotal),hjust=0, vjust=0, size = 3)
+```
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# Maturity
+
+unique(meg$NombreEstMadSexual)
+meg$conversion <- NA
+meg$conversion[meg$NombreEstMadSexual == "1" | meg$NombreEstMadSexual == "2"] <- "1"
+meg$conversion[meg$NombreEstMadSexual == "3"] <- "2"
+meg$conversion[meg$NombreEstMadSexual == "4" | meg$NombreEstMadSexual == "5" ] <- "3"
+meg$conversion[meg$NombreEstMadSexual == "6"] <- "4"
+
+```
+
+## Revisión de outliers
+```{r echo=F, message=FALSE, warning=FALSE}
+
+aux <- rbind(outs.ane, outs.pil)
+aux2 <- rbind(aux, outs.hom)
+aux3 <- rbind(aux2, outs.mac)
+aux4<- rbind(aux3, outs.hke)
+outs.all<- rbind(aux4, outs.meg)
+
+# exporta para que los analistas los chequeen
+#write.table(outs.all, paste("outs.all_",unique(dat$Y),".csv", sep=""), sep=";", dec=",", row.names = F)
+
+```
