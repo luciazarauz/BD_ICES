@@ -2,5 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-0_Datos/
-0_Maestros/
+/0_Datos/
+/0_Maestros/
+/Depuracion_biologicos/Data/
+/Procesados_LWR/Data/
