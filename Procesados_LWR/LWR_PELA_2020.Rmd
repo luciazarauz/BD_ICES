@@ -1,5 +1,5 @@
 ---
-title: "Analisis muestras para estima factores a y b pelágicos"
+title: "Análisis muestras pelágicos (a y b)"
 author: "mkorta"
 content: "Script to estimate a&b factor in LWR after IEO and AZTI agreement"
 date:  "February 2021"
@@ -18,12 +18,14 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
 
 # Background
 
-El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. EL IEO disponen de muy pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse con los datos de AZTI y si no habría que decidir si aplicamos las LWR del año pasado.  
+El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. EL IEO dispone de muy pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse los parámetros a y b con los datos de AZTI e IEO conjutamente, o aplicar las LWR del año pasado 2019.  
 
-# Resumen 
+# Resumen AZTI 2020
 
-* AZTI tiene similar covertura que el año 2019.
-
+* En general la covertura es **menor** en 2020 que en 2019 para todas las especies, excepto para la sardina.
+* Atendiendo a las muestras medidas en "Fresco" la covertura es **mayor** en 2020 que en 2019 para PIL y MAC, siendo  similar para HOM y menor para ANE.
+* En cuanto a la distribución temporal (2020) para la **zona 8c** hay datos en ambos semestres para ANE, PIL y MAC; HOM sólo se encuentra en el segundo sementre. Para la **zona 8b** tenemos datos de ambos semestres para ANE y un semestre para el resto de las especies; primer semestre MAC y segundo semestre HOM y PIL.
+* En cuanto a al distribución trimestral (2020), en todas las especies y zonas falta uno o dos trimestres. En algunos casos sólo se encuntra un único trimestre como es el caso de PIL, MAC y HOM en la zona 8b y, HOM también en la zona 8c.
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
@@ -69,33 +71,42 @@ dat$NombreZona <- factor(dat$NombreZona)
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
-wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% count(Y)
-pivot_wider(wide, names_from = Y, values_from = n) %>% 
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% count(Y) %>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n) %>%
   kbl(caption = "Número de individuos medidos por especie y zona. Comparación 2019-2020") %>%
   kable_classic(full_width = T, html_font = "Cambria")
-
 ```
 
-## Solo FRESCO
+## Numero de muestras y zonas: sólo "Fresco"
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
 dat <- subset(dat, NombreEstado == "Fresco")
-wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% count(Y)
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% count(Y)%>% arrange(Especie.ALFA3)
 pivot_wider(wide, names_from = Y, values_from = n)%>% 
-  kbl(caption = "Número de individuos medidos en <Fresco> por especie y zona. Comparación 2019-2020") %>%
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie y zona. Comparación 2019-2020") %>%
   kable_classic(full_width = T, html_font = "Cambria") 
 ```
 
-## Distribucion temporal 
+## Distribucion temporal (S y Q): sólo "Fresco" 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
+
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, S)%>% count(Y)%>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n)%>% 
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie, zona y S. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria") 
 
 ggplot(dat, aes(Y, fill=S))+
   geom_bar(position = "dodge2")+
   scale_fill_colorblind()+
   ylab("Number of observations")+
   facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, Q)%>% count(Y)%>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n)%>% 
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie, zona y Q. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria") 
 
 ggplot(dat, aes(Y, fill=Q))+
   geom_bar()+
