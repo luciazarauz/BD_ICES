@@ -22,7 +22,7 @@ El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. EL IEO d
 
 # Resumen AZTI 2020
 
-* En general la covertura es **menor** en 2020 que en 2019 para todas las especies, excepto para la sardina.
+* En general la covertura es **menor** en 2020 que en 2019 para todas las especies, excepto para la sardina. En el caso de ANE, que la diferencia es tan significativa, se debe a que la flota estuvo alrededor de Asturias durante casi toda la costeta y no se acercaron a los puertos de PV.
 * Atendiendo a las muestras medidas en "Fresco" la covertura es **mayor** en 2020 que en 2019 para PIL y MAC, siendo  similar para HOM y menor para ANE.
 * En cuanto a la distribución temporal (2020) para la **zona 8c** hay datos en ambos semestres para ANE, PIL y MAC; HOM sólo se encuentra en el segundo sementre. Para la **zona 8b** tenemos datos de ambos semestres para ANE y un semestre para el resto de las especies; primer semestre MAC y segundo semestre HOM y PIL.
 * En cuanto a al distribución trimestral (2020), en todas las especies y zonas falta uno o dos trimestres. En algunos casos sólo se encuntra un único trimestre como es el caso de PIL, MAC y HOM en la zona 8b y, HOM también en la zona 8c.
