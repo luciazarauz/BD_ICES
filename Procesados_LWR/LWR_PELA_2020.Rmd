@@ -1,7 +1,7 @@
 ---
-title: "Análisis muestras pelágicos (a y b)"
-author: "mkorta"
-content: "Script to estimate a&b factor in LWR after IEO and AZTI agreement"
+title: "Análisis muestras pelágicos 2020"
+author: "mkorta & lzarauz"
+content: "Script estimar parámetros a&b de RTP - acuerdo IEO and AZTI"
 date:  "February 2021"
 output: 
   html_document:
@@ -16,16 +16,16 @@ output:
 knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
 ```
 
-# Background
+# Antecedentes
 
-El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. EL IEO dispone de muy pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse los parámetros a y b con los datos de AZTI e IEO conjutamente, o aplicar las LWR del año pasado 2019.  
+El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. El IEO dispone de pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse los parámetros a y b con los datos de AZTI e IEO conjutamente, de lo contrario se podría aplicar los parámetros estimados el año pasado, 2019.  
 
 # Resumen AZTI 2020
 
-* En general la covertura es **menor** en 2020 que en 2019 para todas las especies, excepto para la sardina. En el caso de ANE, que la diferencia es tan significativa, se debe a que la flota estuvo alrededor de Asturias durante casi toda la costera y no se acercaron a los puertos de PV.
+* En general la covertura es **menor** en 2020 que en 2019 para todas las especies, excepto para PIL. En el caso de ANE, que la diferencia es tan significativa, se debe a que la flota estuvo alrededor de Asturias durante casi toda la costera del 2020 y no se acercaron a los puertos del PV.
 * Atendiendo a las muestras medidas en "Fresco" la covertura es **mayor** en 2020 que en 2019 para PIL y MAC, siendo  similar para HOM y menor para ANE.
-* En cuanto a la distribución temporal (2020) para la **zona 8c** hay datos en ambos semestres para ANE, PIL y MAC; HOM sólo se encuentra en el segundo sementre. Para la **zona 8b** tenemos datos de ambos semestres para ANE y un semestre para el resto de las especies; primer semestre MAC y segundo semestre HOM y PIL.
-* En cuanto a al distribución trimestral (2020), en todas las especies y zonas falta uno o dos trimestres. En algunos casos sólo se encuntra un único trimestre como es el caso de PIL, MAC y HOM en la zona 8b y, HOM también en la zona 8c.
+* En cuanto a la distribución temporal (2020) para la **zona 8c** hay datos en ambos semestres para ANE, PIL y MAC; HOM sólo se encuentra en el segundo sementre. Para la **zona 8b** tenemos datos de ambos semestres para ANE y un semestre para el resto de las especies: primer semestre MAC y segundo semestre HOM y PIL.
+* En cuanto a la distribución trimestral (2020), en todas las especies y zonas falta uno o dos trimestres. En algunos casos sólo se encuntra un único trimestre como es el caso de PIL, MAC y HOM en la zona 8b y, HOM también en la zona 8c.
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
