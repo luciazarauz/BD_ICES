@@ -1,0 +1,137 @@
+---
+title: "Covertuta muestreo 2020"
+author: "mkorta & lzarauz"
+content: "Script estimar visualizar relación muestreo vs desembarcos"
+date:  "February 2021"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    toc_float: true
+    theme: united
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+# Antecedentes
+
+
+
+# Resumen 
+
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+library(tidyr)
+library(ggthemes)
+#library(FSA)
+library(kableExtra)
+theme_set(theme_bw(base_size=12))
+```
+
+# Datos 
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+# datos muestreo
+dat <- read.csv(file.path(getwd(),"Data/all_2020.csv"), header=T, sep=";", dec=",")
+aux <- read.csv(file.path(getwd(),"Data/all_2019.csv"), header=T, sep=";", dec="," )
+
+# datos desembarcos
+des <- read.csv(file.path(getwd(),"Data/desembarcos_pel_2019_2020.csv"), header=T, sep=";", dec="," )
+
+#names(dat)
+#names(aux)
+
+# dat customize
+dat <- rbind(dat, aux)
+ 
+dat$fecha <- dat$FechaVenta
+dat$fecha <- as.Date(dat$fecha, format="%d/%m/%Y")
+dat$M <- as.factor(month(dat$fecha)) 
+dat$Q <- as.factor(quarter(dat$fecha))
+dat$S <- as.factor(semester(dat$fecha)) 
+dat$Y <- as.factor(year(dat$fecha)) 
+
+dat$NombreZona[dat$NombreZona == "27.8.c.e"] <- "27.8.c"
+dat$NombreZona <- factor(dat$NombreZona)
+
+# str(dat)
+# head(dat)
+# summary(dat)
+
+# des customize
+#str(des)
+des$Q <- des$Trimestre.Desembarco
+des$S [des$Q %in% c(1,2)] <- "1"
+des$S [des$Q %in% c(3,4)] <- "2"
+des$Y <- des$Año 
+des$NombreZona <- des$Zona 
+levels(des$NombreZona)[levels(des$NombreZona)=="27.8.abd"] <- "27.8.abd" # para poder comparar con muestreo
+```
+
+## Kg desembarcados por especie y zona y metier
+
+No se incluye posteriormente el metier porque no hay ese dato en biológicos. Importante!
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+wide <-des %>% group_by (Y, NombreZona, Especie.ALFA3)%>% summarise(Peso.kg = sum(Kg.Desembarcados)) %>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = NombreZona, values_from = Peso.kg) %>%
+#wide %>%
+  kbl(caption = "Número de individuos medidos por especie y zona. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria")
+```
+
+## Numero de muestras por especie y zonas y tipo de dato (NoLength, NoAge, NoMaturity)
+```{r echo=F, message=FALSE, warning=FALSE}
+
+dat <- subset(dat, NombreEstado == "Fresco")
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% count(Y)%>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n)%>% 
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie y zona. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria") 
+```
+
+## Distribucion temporal (S y Q): sólo "Fresco" 
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, S)%>% count(Y)%>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n)%>% 
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie, zona y S. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria") 
+
+ggplot(dat, aes(Y, fill=S))+
+  geom_bar(position = "dodge2")+
+  scale_fill_colorblind()+
+  ylab("Number of observations")+
+  facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, Q)%>% count(Y)%>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Y, values_from = n)%>% 
+  kbl(caption = "Número de individuos medidos en - Fresco - por especie, zona y Q. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria") 
+
+ggplot(dat, aes(Y, fill=Q))+
+  geom_bar()+
+  scale_fill_colorblind()+
+  ylab("Number of observations")+
+  facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+```
+
+## Covertura muestreo (muestreo vs desembarcos) # total 
+
+```{r echo=F, message=FALSE, warning=FALSE}
+#sessionInfo()
+```
+
+
+
+
