@@ -18,7 +18,10 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
 
 # Antecedentes
 
-El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. El IEO dispone de pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse los parámetros a y b con los datos de AZTI e IEO conjutamente, de lo contrario se podría aplicar los parámetros estimados el año pasado, 2019.  
+El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. El IEO dispone de pocos muestreos biológicos; de manera que vamos ver si AZTI cubre el año con los muestreos. Si fuera así podrían calcularse los parámetros a y b con los datos de AZTI e IEO conjutamente, de lo contrario se podría aplicar los parámetros estimados el año pasado, 2019. 
+
+Por otro lado, se revisará la covertura del muestreo con los desembarcos. 
+
 
 # Resumen AZTI 2020
 
@@ -27,6 +30,13 @@ El año 2020 ha sido inusual en cuanto al muestreo debido a la COVID19. El IEO d
 * En cuanto a la distribución temporal (2020) para la **zona 8c** hay datos en ambos semestres para ANE, PIL y MAC; HOM sólo se encuentra en el segundo sementre. Para la **zona 8b** tenemos datos de ambos semestres para ANE y un semestre para el resto de las especies: primer semestre MAC y segundo semestre HOM y PIL.
 * En cuanto a la distribución trimestral (2020), en todas las especies y zonas falta uno o dos trimestres. En algunos casos sólo se encuntra un único trimestre como es el caso de PIL, MAC y HOM en la zona 8b y, HOM también en la zona 8c.
 
+* **En cuento a la covertura de meustreo en 2020** sigue la tendencia de los desembarcos en general, si bien ANE está sobremuestreada en ambas áreas y en MAC 27.8.c es deficiente. 
+* HOM 27.8bcWest (anual): covertura sigue tendencia de desembarcos.
+* MAC 27.8bc (semestral): deficiente en 27.8.c (S1) se suple en (S2). adecuado en 28.b (S1), en (S2) apenas desembarcos.
+* PIL 27.8.abd (semestral). deficiente (S1) y sobremuestreo (S2).
+* ANE 27.8 (semestral): sigue tencencia, sobremuestreo en 27.8 (S2)
+* PIL 27.8.c (Trimestral): misma covertura cuando en el Q4 se doblan lo desembarcos (Q3 no muestreo, escasos desemb.)
+
 ```{r echo=F, message=FALSE, warning=FALSE}
 
 library(ggplot2)
@@ -34,6 +44,7 @@ library(lubridate)
 library(dplyr)
 library(tidyr)
 library(ggthemes)
+library(RColorBrewer)
 #library(FSA)
 library(kableExtra)
 theme_set(theme_bw(base_size=12))
@@ -43,14 +54,19 @@ theme_set(theme_bw(base_size=12))
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
+# datos muestreo
 dat <- read.csv(file.path(getwd(),"Data/all_2020.csv"), header=T, sep=";", dec=",")
 aux <- read.csv(file.path(getwd(),"Data/all_2019.csv"), header=T, sep=";", dec="," )
+
+# datos desembarcos pelágicos
+des <- read.csv(file.path(getwd(),"Data/desembarcos_pel_2019_2020.csv"), header=T, sep=";", dec="," )
 
 #names(dat)
 #names(aux)
 
+# dat customize
 dat <- rbind(dat, aux)
-
+ 
 dat$fecha <- dat$FechaVenta
 dat$fecha <- as.Date(dat$fecha, format="%d/%m/%Y")
 dat$M <- as.factor(month(dat$fecha)) 
@@ -62,9 +78,26 @@ dat <- subset (dat, !Especie.ALFA3 %in% c("HKE", "MEG", "ANK"))
 dat$Especie.ALFA3 <- factor(dat$Especie.ALFA3)
 dat$NombreZona[dat$NombreZona == "27.8.c.e"] <- "27.8.c"
 dat$NombreZona <- factor(dat$NombreZona)
+
 # str(dat)
 # head(dat)
 # summary(dat)
+
+# str(dat)
+# head(dat)
+# summary(dat)
+
+# des customize
+#str(des)
+des$Q <- des$Trimestre.Desembarco
+des$S [des$Q %in% c(1,2)] <- "1"
+des$S [des$Q %in% c(3,4)] <- "2"
+des$Y <- des$Año 
+des$S <- as.factor(des$S)
+des$Q <- as.factor(des$Q)
+des$Y <- as.factor(des$Y)
+des$NombreZona <- des$Zona 
+levels(des$NombreZona)[levels(des$NombreZona)=="27.8.abd"] <- "27.8.b" # para poder comparar con muestreo
 ```
 
 ## Numero de muestras y zonas
@@ -76,6 +109,26 @@ pivot_wider(wide, names_from = Y, values_from = n) %>%
   kbl(caption = "Número de individuos medidos por especie y zona. Comparación 2019-2020") %>%
   kable_classic(full_width = T, html_font = "Cambria")
 ```
+
+## Numero de muestras por tipo de muestra (NoLength, NoAge, NoMaturity) y zonas
+
+```{r echo=F, message=FALSE, warning=FALSE}
+wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3)%>% summarize_at(vars(c("TallaTotal", "NombreEstMadSexual", "EdadFinal")), function(x) sum(x > 0,na.rm = TRUE))
+wide %>%
+  kbl(caption = "Número de individuos medidos por tipo de muestra, especie y zona. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria")
+
+samples <- wide%>%
+            pivot_longer(!c("Y", "NombreZona", "Especie.ALFA3"), names_to = "variable", values_to = "NoMuestra")
+
+ggplot(samples, aes(x=Y,y=NoMuestra, fill=variable))+
+  geom_bar(position = "dodge2", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("No observaciones (n)")+
+  xlab("Año")+
+  facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+```
+
 
 ## Numero de muestras y zonas: sólo "Fresco"
 
@@ -100,7 +153,7 @@ pivot_wider(wide, names_from = Y, values_from = n)%>%
 ggplot(dat, aes(Y, fill=S))+
   geom_bar(position = "dodge2")+
   scale_fill_colorblind()+
-  ylab("Number of observations")+
+  ylab("No observaciones (n)")+
   facet_grid(Especie.ALFA3~NombreZona, scales = "free")
 
 wide <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, Q)%>% count(Y)%>% arrange(Especie.ALFA3)
@@ -109,10 +162,135 @@ pivot_wider(wide, names_from = Y, values_from = n)%>%
   kable_classic(full_width = T, html_font = "Cambria") 
 
 ggplot(dat, aes(Y, fill=Q))+
-  geom_bar()+
+  geom_bar(position = "dodge2")+
   scale_fill_colorblind()+
-  ylab("Number of observations")+
+  ylab("No observaciones (n)")+
   facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+```
+
+## Kg desembarcados por especie y zona 
+
+No se incluye posteriormente el metier porque no hay ese dato en biológicos. Importante!
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+wide <-des %>% group_by (Y, NombreZona, Especie.ALFA3)%>% summarise(Peso.kg = sum(Kg.Desembarcados)) %>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = NombreZona, values_from = Peso.kg) %>%
+#wide %>%
+  kbl(caption = "Peso desembarcado (kg) por especie y zona. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria")
+
+```
+
+## Kg desembarcados por especie y zona y metier
+
+No se incluye posteriormente el metier porque no hay ese dato en biológicos. Importante!
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+wide <-des %>% group_by (Y, NombreZona, Especie.ALFA3, Metier)%>% summarise(Peso.kg = sum(Kg.Desembarcados)) %>% arrange(Especie.ALFA3)
+pivot_wider(wide, names_from = Metier, values_from = Peso.kg) %>%
+#wide %>%
+  kbl(caption = "Peso desembarcado (kg) por especie y zona y metier. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria")%>%
+  kable_styling(fixed_thead = T) %>%
+  #row_spec(0, angle = -45)%>%
+  kableExtra::scroll_box(width = "100%")
+
+
+colourCount = length(unique(wide$Metier))
+getPalette = colorRampPalette(brewer.pal(12, "Accent"))
+
+ggplot(wide, aes(x=as.factor(Y), y=Peso.kg, fill=Metier))+
+  geom_bar(position= "dodge", stat="identity")+
+  scale_fill_manual(values = colorRampPalette(brewer.pal(12, "Accent"))(colourCount))+
+  #scale_fill_colorblind()+
+  ylab("Peso desembarcado (kg)")+
+  xlab ("Año")+
+  facet_grid(Especie.ALFA3~NombreZona, scales = "free")
+```
+
+## Comparación Kg desembarcados vs muestreo por especie y zona 
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+wide.bio <-dat %>% group_by (Y, NombreZona, Especie.ALFA3, S, Q)%>% count(Y)%>% arrange(Especie.ALFA3)
+wide.des <-des %>% group_by (Y, NombreZona, Especie.ALFA3, S, Q)%>% summarise(Peso.kg = sum(Kg.Desembarcados))%>% arrange(Especie.ALFA3)
+
+wide.all <- left_join(wide.des,wide.bio,by=c("Y", "NombreZona", "Especie.ALFA3", "S", "Q"))
+
+wide.all %>%
+  kbl(caption = "Número de individuos medidos y kg desembarcados por especie y zona. Comparación 2019-2020") %>%
+  kable_classic(full_width = T, html_font = "Cambria")%>%
+  kable_styling("striped", fixed_thead = T) %>% 
+  scroll_box( width = "100%", height = "500px")
+
+wide.bio$variable <- "NoMuestras (n)"
+names(wide.bio) <- c("Y", "NombreZona", "Especie.ALFA3", "S", "Q", "value", "variable") 
+
+wide.des$variable <- "Desembarcos (kg)"
+names(wide.des) <- c("Y", "NombreZona", "Especie.ALFA3", "S", "Q", "value", "variable") 
+
+wide.all.0 <- rbind(wide.bio, wide.des)
+
+ggplot(wide.all.0, aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+```
+
+## Comparación Kg desembarcados vs muestreo por especie y zona y semestre.
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+ggplot(subset(wide.all.0, S=="1"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Semestre 1")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+
+ggplot(subset(wide.all.0, S=="2"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Semestre 2")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+```
+
+## Comparación Kg desembarcados vs muestreo por especie y zona y trimestre.
+
+```{r echo=F, message=FALSE, warning=FALSE}
+
+ggplot(subset(wide.all.0, Q=="1"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Trimestre 1")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+
+ggplot(subset(wide.all.0, Q=="2"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Trimestre 2")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+
+ggplot(subset(wide.all.0, Q=="3"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Trimestre 3")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
+
+ggplot(subset(wide.all.0, Q=="4"), aes(x=as.factor(Y), y=value, fill=Especie.ALFA3))+
+  geom_bar(position = "dodge", stat="identity")+
+  scale_fill_colorblind()+
+  ylab("Trimestre 4")+
+  xlab ("Año")+
+  facet_grid(variable~NombreZona, scales = "free")
 ```
 
 
