@@ -143,7 +143,22 @@ Tallasfile  <- "0_Datos/Tallas_2020.txt"  # mareas muestradas. toda la flota
 Especies    <- "0_Maestros/Especies_2020.txt"# lista maestra de species
 Buques      <- "0_Maestros/Buques_2020.txt"  # lista maestra buques
 
-#Desembarcos
+
+#Maestro especies
+conv_sp<- read.csv(Especies, header=T,sep="\t", stringsAsFactors = FALSE); 
+names(conv_sp) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_sp))
+conv_sp$Nombre.Oficial  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_sp$Nombre.Oficial )
+
+#Maestro buques
+conv_censo<- read.csv(Buques, header=T,sep="\t", stringsAsFactors = FALSE); 
+  names(conv_censo) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_censo))
+  conv_censo$Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Buque)
+  conv_censo$Puerto.base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Puerto.base )
+  conv_censo$Caladero.principal <- conv_censo$CensoPorModalidad
+  conv_censo$Caladero.principal <- toupper(conv_censo$Caladero.principal)
+  
+  
+  #Desembarcos
 DB0 <-read.table(DBfile, sep=",",dec=".",header=T, stringsAsFactors = FALSE)#, skip=10)# comment.char = "#")
 DB<- DB0
 names(DB) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(DB))
@@ -177,21 +192,9 @@ names(LN)[names(LN)=="Id.Venta"] <- "IdVenta"
 names(LN)[names(LN)=="Especie.comercial"] <- "Especie_ALFA3"
 LN$Fecha_Venta <- as_date(as.Date(LN$Fecha.venta, "%d/%m/%Y"))
 LN$Mes <- month(LN$Fecha_Venta)
+LN$Puerto_Base <- conv_censo$Puerto.base[match(LN$Nombre_Buque, conv_censo$Buque )]
 
 
-#Maestro especies
-conv_sp<- read.csv(Especies, header=T,sep="\t", stringsAsFactors = FALSE); 
-names(conv_sp) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_sp))
-conv_sp$Nombre.Oficial  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_sp$Nombre.Oficial )
-
-#Maestro buques
-conv_censo<- read.csv(Buques, header=T,sep="\t", stringsAsFactors = FALSE); 
-  names(conv_censo) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_censo))
-  conv_censo$Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Buque)
-  conv_censo$Puerto.base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Puerto.base )
-  conv_censo$Caladero.principal <- conv_censo$CensoPorModalidad
-  conv_censo$Caladero.principal <- toupper(conv_censo$Caladero.principal)
-  
 
 #Año
 año <- unique(c(DB$Año, NV$Año))
@@ -220,6 +223,7 @@ año <- unique(c(DB$Año, NV$Año))
                    Puerto_Base=="Ondarroa")
   
 
+  
   # Creamos variable Posa
   
   DB1$Posa <- DB1$Tamaño
@@ -244,10 +248,10 @@ año <- unique(c(DB$Año, NV$Año))
   # unique(NV1$Mes)
   # unique(LN1$Mes)
       
-  DB1 <- subset( DB1, Mes %in% 1:6)
-  NV1 <- subset( NV1, Mes_Venta %in% 1:6)
-  #NV1<- subset( NV1, !(Posa=="POSA" & Mes_Venta %in% 7:12))
-  LN1 <- subset( LN1, Mes %in% 1:6)
+  # DB1 <- subset( DB1, Mes %in% 1:6)
+  # NV1 <- subset( NV1, Mes_Venta %in% 1:6)
+  # #NV1<- subset( NV1, !(Posa=="POSA" & Mes_Venta %in% 7:12))
+  # LN1 <- subset( LN1, Mes %in% 1:6)
 
 
 
