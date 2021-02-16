@@ -222,7 +222,14 @@ año <- unique(c(DB$Año, NV$Año))
   LN1 <- subset( LN, Arte %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
                    Puerto_Base=="Ondarroa")
   
-
+# identificamos metiers OTB en areas 6 y 7
+#############
+  # table(NV1$Metier, NV1$Sub_Zona_N1V)
+  # subset(NV1, is.na(Sub_Zona_N1V))
+  idx <- NV1$IdVenta[NV1$Sub_Zona_N1V %in% c("27.6","27.7")]
+  DB1$Metier[DB1$IdVenta %in% idx]  <-  "OTB_DEF_100-119_0_0"
+  NV1$Metier[NV1$IdVenta %in% idx]  <-  "OTB_DEF_100-119_0_0" 
+  LN1$Arte[LN1$IdVenta %in% idx]    <-  "OTB_DEF_100-119_0_0"
   
   # Creamos variable Posa
   
@@ -422,7 +429,7 @@ De esta manera, parece comprobado que el muestreador accede a lo que se registra
 
   t <- subset(Comp0, Peso.LN>0 &  Posa=="noPOSA" & Nombre.Check %in% listSpPlot)  
 
-  for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+  for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
       plottitle <- i
     
     ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + 
@@ -455,7 +462,7 @@ Al añadir POSA, en PTB no cambia mucho debido a que hay muy poca POSA declarada
   t <- subset(t, Peso.LN>0 & Nombre.Check %in% listSpPlot) 
   
 
-for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
     plottitle <- i
     ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + 
       geom_point(size = 2) +
@@ -493,7 +500,7 @@ t <- Comp0 %>% group_by(Nombre_Buque2, Mes, Metier, Nombre.Check ) %>%
 t <- subset(t, Nombre.Check %in% listSpPlot) 
 
 
-for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
   plottitle <- i
 #  ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Peso.LN>0)) +  # marco de color las mareas muestreadas
  ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Nombre_Buque2)) +
@@ -531,7 +538,7 @@ t <- Comp0 %>% group_by(Nombre_Buque2, Mes, Metier, Nombre.Check, Posa ) %>%
 t <- subset(t, Nombre.Check %in% listSpPlot)  
 
 
-for (i in c("PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0")) {
+for (i in c("PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
   plottitle <- i
   ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.NV, colour = Posa)) + 
     geom_point(size = 2) +
