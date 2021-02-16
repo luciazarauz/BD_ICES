@@ -20,9 +20,8 @@
 
 
 ############################################################################# #
-# En este codigo vamos a comparar los datos de ventas y NV con el objetivo de ver
-# la magnitud de los desembarcos que se llevan a POSA y si están incluidos en las
-# hojas de venta de la OPPAO
+# En este codigo vamos a explorar los muestreos de tallas que tenemos para ver la mejor forma de 
+# hacer lso repartos
 ############################################################################# #
 
 #      Librerias y datos      #####
@@ -62,16 +61,12 @@ mgsub <- function(pattern, replacement, x, ...) {
 }
 
 # Datos
-path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/2021/1_Depuracion datos/2_POSA"  
-dat.path <- paste(path,"/Datos/",sep="")
-setwd(dat.path)
 
 #      Leer los ficheros       ####
 ################################## #
-DBfile      <- "Ventas_2020.csv"  # Está toda la flota que desembarca en euskadi. OPPAO con sus hojas de venta, el resto con las NV
-# Me dice Carmen que ha metido también los datos de POSA hasta junio. Estan identificados como tamaño POSA
-NVfile      <- "N1V_2020.csv"     # está toda la flota que desembarca en euskadi.
-Tallasfile  <- "Tallas_2020.txt"  # mareas muestradas. toda la flota
+DBfile      <- "0_Datos/Ventas_2020.csv"  # Está toda la flota que desembarca en euskadi. OPPAO con sus hojas de venta, más POSA, el resto con las NV
+NVfile      <- "0_Datos/N1V_2020.csv"     # está toda la flota que desembarca en euskadi.
+Tallasfile  <- "0_Datos/Tallas_2020.txt"  # mareas muestradas. toda la flota
 #
 # # 
 # DBfile      <- "Ventas_2019.csv"  #
@@ -81,13 +76,13 @@ Tallasfile  <- "Tallas_2020.txt"  # mareas muestradas. toda la flota
 
 
 #Maestro especies
-conv_sp<- read.csv("Especies_2020.txt",header=T,sep="\t", stringsAsFactors = FALSE); head(conv_sp)
+conv_sp<- read.csv("0_Maestros/Especies_2020.txt",header=T,sep="\t", stringsAsFactors = FALSE); head(conv_sp)
 head(conv_sp)
 names(conv_sp) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_sp))
 conv_sp$Nombre.Oficial  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_sp$Nombre.Oficial )
 
 #Maestro buques
-conv_censo<- read.csv("Buques_2020.txt",header=T,sep="\t", stringsAsFactors = FALSE); head(conv_censo)
+conv_censo<- read.csv("0_Maestros/Buques_2020.txt",header=T,sep="\t", stringsAsFactors = FALSE); head(conv_censo)
 names(conv_censo) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(conv_censo))
 conv_censo$Buque <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Buque)
 conv_censo$Puerto.base  <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), conv_censo$Puerto.base )
@@ -133,9 +128,10 @@ names(LN)[names(LN)=="Especie.comercial"]   <- "Especie_ALFA3"
 names(LN)[names(LN)=="Arte"]                <- "Metier"
 names(LN)[names(LN)=="Nº.Individuos"]       <- "N.Individuos"
 names(LN)[names(LN)=="PesMueCat.Kg."]       <- "PesoMuestreado"
+names(LN)[names(LN)=="PesTotCat.Kg."]       <- "Peso"
 names(LN)[names(LN)=="Especie.muestreada"]  <- "Especie.muestreada.ALFA3"
-names(LN)[names(LN)=="Especie_ALFA3"]       <- "Especie.comercial.ALFA3"
 
+names(LN)[names(LN)=="Especie_ALFA3"]       <- "Especie.comercial.ALFA3"
 
 LN$Fecha_Venta <- as_date(as.Date(LN$Fecha.venta, "%d/%m/%Y"))
 LN$Mes <- month(LN$Fecha_Venta)
@@ -143,30 +139,14 @@ LN$Trimestre <- quarter(LN$Fecha_Venta)
 LN$Especie.comercial <- conv_sp$Nombre.Oficial[match(LN$Especie.comercial.ALFA3, conv_sp$Cod..ALFA.3)]
 LN$Especie.muestreada <- conv_sp$Nombre.Oficial[match(LN$Especie.muestreada.ALFA3, conv_sp$Cod..ALFA.3)]
 
-
+# agregamos el fichero de tallas por muestra (quitamos el nº de individuos por cm)
 LN<- LN %>%  group_by_at(vars(- N.Individuos, -Talla.cm.)) %>% summarize(N.Individuos=sum(N.Individuos = sum(N.Individuos))) %>% data.frame()
-
 
 
 
 #Año
 año <- unique(c(DB$Año, NV$Año))
 año 
-
-
-# Hacemos tabla resumen de mareas con la información de cabecera (barco, puerto venta, fecha venta...). 
-#############
-Cabeceras <- DB %>% group_by(IdVenta, Nombre_Buque, Cod_UE, Dia, Mes, Año, Metier, Puerto_Venta, Puerto_Base) %>% summarize(Peso=sum(Peso))
-dim(Cabeceras)
-
-
-# Corrección especies
-# DB$Especie_Oficial_ini <- DB$Especie_Oficial
-# DB$Especie_Oficial <- make.names(DB$Especie_Oficial )
-# DB$Especie_Oficial <- gsub("...", ".", DB$Especie_Oficial, fixed = TRUE)
-# DB$Especie_Oficial <- gsub("..", ".", DB$Especie_Oficial, fixed = TRUE)
-
-
 
 
 # 
@@ -177,7 +157,7 @@ tab_repartos <- NULL
 
 rapes     <-  c( "Rapes Lophius", "Rape blanco", "Rape negro")
 gallos    <-  c( "Gallos - ollarra", "Gallo boscii", "Gallo whiffiagonis")
-calamares <-  c( "Calamares Loligo spp.", "Calamar comun", "Calamares Loliginidae", "Calamar veteado" )
+calamares <-  c( "Calamares Loliginidae", "Calamar comun", "Calamar veteado" )
 sepias    <-  c( "Sepias y chocos", "Sepia comun", "Choco/sepia con punta" )
 potas     <-  c( "Potas Ommastrephidae nep", "Pota Norteña",  "Pota costera",  "Pota voladora" )
 triglidos <-  c( "Triglidos", "Perlon", "Bejel", "Rubio",  "Garneos nep", "Garneo", "Cuco - Peona", "Arete oscuro " )
@@ -200,9 +180,13 @@ tab_repartos<- data.frame(Especie_Oficial = c(rapes, gallos, calamares, sepias, 
                                                   rep(cabrachos[1], length(cabrachos))),
                           stringsAsFactors = F)
 
+sp <- unique(tab_repartos$Especie_Oficial)[!unique(tab_repartos$Especie_Oficial) %in% unique(tab_repartos$Especie_Oficial_Gen)]
 
 
-# Correción de especies: solo un nombre genérico & sin especies DEA  ###
+
+# Correción de especies: 
+# unificamos los nombres genéricos de forma que solo se llamen de una forma
+# y quitamos las sespecies marcadas scomo "(DEA)" o "(NV)" porque se supone que son erroneas (la spasamso al genérico)
 ########### #
 
 temp <- c(DB$Especie_Oficial, LN$Especie.comercial, LN$Especie.muestreada)
@@ -242,27 +226,32 @@ LN$Especie.comercial[LN$Especie.comercial %in% c("Faneca noruega (DEA)")] <- "Fa
 unique(temp[grepl("rasca|cabra", temp, ignore.case=TRUE)])  
 
 
-# Correción de especies: asignación de especies datos OPPAO  ###
+# Correción de especies: 
+# Corregimos asignación de especies datos OPPAO  (triglidos y fanecas) ###
+# se supone que los triglidos tienen que ir como triglidos
+# se supone que las fanecas pequeñas (fanequita, fodon) tienen que ir como fanecas spp
+# aquí tengo un poco de dudas porque cuando hay tallas cambiamso las ventas
 ########### #
 
 DBidOPPAO <- unique(subset(DB, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &  Puerto_Venta=="Ondarroa", select="IdVenta"))
 LNidOPPAO <- unique(subset(LN, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &  Puerto.venta=="Ondarroa", select="IdVenta"))
 
 # fanecas
-LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO & LN$Categoria.comercial %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Fanecas spp"
-LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO & !LN$Categoria.comercial %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Faneca comun"
-DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO & DB$Tamaño %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Fanecas spp"
-DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO & DB$Tamaño %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Faneca comun"
+unique(LN$Categoria.comercial[LN$Especie.comercial %in% fanecas])
+unique(DB$Tamaño[DB$Especie_Oficial %in% fanecas])
+
+LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO$IdVenta & LN$Especie.comercial %in% fanecas & LN$Categoria.comercial %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Fanecas spp"
+LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO$IdVenta & LN$Especie.comercial %in% fanecas & !LN$Categoria.comercial %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Faneca comun"
+DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO$IdVenta & DB$Especie_Oficial %in% fanecas & DB$Tamaño %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Fanecas spp"
+DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO$IdVenta & DB$Especie_Oficial %in% fanecas & !DB$Tamaño %in% c("Faneca Fanequita Ab", "Fogon Cd")] <- "Faneca comun"
 
 
 # triglidos
-LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO & LN$Especie.comercial %in% triglidos] <- "Triglidos"
-LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO & LN$Especie.comercial %in% triglidos] <- "Triglidos"
-DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO & DB$Especie_Oficial %in% triglidos] <- "Triglidos"
-DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO & DB$Especie_Oficial %in% triglidos] <- "Triglidos"
+LN$Especie.comercial[LN$IdVenta %in% LNidOPPAO$IdVenta & LN$Especie.comercial %in% triglidos] <- "Triglidos"
+DB$Especie_Oficial[DB$IdVenta %in% DBidOPPAO$IdVenta & DB$Especie_Oficial %in% triglidos] <- "Triglidos"
 
-                                  
-# Nueva variable: especie genérico ###
+
+# Creamos una nueva variable con la especie genérica para las especies de reparto ###
 ########### #
 
 DB$Especie_Oficial_Gen <- tab_repartos$Especie_Oficial_Gen[match(DB$Especie_Oficial, tab_repartos$Especie_Oficial)]
@@ -271,46 +260,68 @@ DB$Especie_Oficial_Gen[is.na(DB$Especie_Oficial_Gen)] <- DB$Especie_Oficial[is.n
 LN$Especie.comercial.Gen <- tab_repartos$Especie_Oficial_Gen[match(LN$Especie.comercial, tab_repartos$Especie_Oficial)]
 LN$Especie.comercial.Gen[is.na(LN$Especie.comercial.Gen)] <- LN$Especie.comercial[is.na(LN$Especie.comercial.Gen)]
 
+subset(LN, IdVenta %in% c(538377, 538838, 539178, 539379, 552483, 552797, 553043, 553112 ) &
+         Especie.muestreada.ALFA3 %in% c("MEG", "LDB")) %>% group_by(Trimestre) %>% summarise(Ntrips=length(unique(IdVenta)))
 
-## Gallos
+subset(LN, IdVenta %in% c(553112) & Especie.muestreada.ALFA3 %in% c("MEG", "LDB"))
+
+
+## seleccionar especies
+# rapes, gallos,  calamares, sepias, potas, triglidos, rayas, soleidos, fanecas, cabrachos
 
 i <- gallos [1]; i
 i <- triglidos [1]; i
+i <- calamares [1]; i
+
+
 
   
-# General
-## % en desembarcos
+## General
+##  % en desembarcos
 
 DB_summary <- DB %>% filter(Especie_Oficial_Gen %in% i) %>% 
   group_by (Metier, Especie_Oficial) %>% 
   summarise(Peso = round(sum(Peso, na.rm=T),0)) %>%
-  dcast(Metier ~ Especie_Oficial, value.var= "Peso") %>%
+  dcast(Metier  ~ Especie_Oficial, value.var= "Peso") %>%
   data.frame()
 DB_summary[is.na(DB_summary)] <- 0
 
-prop <- prop.table(as.matrix(DB_summary[,2:4]), margin = 1)
-prop <- round(prop,2 )
+prop <- prop.table(as.matrix(DB_summary[,2:ncol(DB_summary)]), margin = 1)
+prop <- round(prop,3)
 prop <- data.frame(cbind(DB_summary[,"Metier"], prop  ))
+names(prop)[1] <- "Metier"
+
+## tabla resumen de muestreos
+LN_TripSamp <- LN %>% group_by(Metier,  Puerto.venta, Trimestre, Especie.comercial) %>% 
+  summarise(TripSamp = length(unique(IdVenta)))
+temp <- LN %>% group_by (Metier, Puerto.venta, Trimestre, Especie.comercial.Gen, Especie.comercial, Especie.muestreada) %>% 
+  summarise(Peso = sum(Peso, na.rm=T)) %>%
+  left_join(LN_TripSamp, by=c("Metier","Puerto.venta", "Trimestre", "Especie.comercial"))
+
+write.table(temp, "infoRepartos.csv", sep=";", dec=",", row.names = F)
 
 
-# Opcion 1
+## Opcion 1
 ## convertimos todo al generico antes de repartir
-
+    
+      # calculamos el nº de muestreos
 LN_TripSamp <- LN %>% group_by(Metier, Trimestre, Especie.comercial.Gen) %>% 
   summarise(TripSamp = length(unique(IdVenta)),
             PesoSamp = round(sum(PesoMuestreado),2))
-
+    
+      # calculamos porcentajes
 temp1 <- LN %>% filter(Especie.comercial.Gen %in% i) %>% 
   group_by (Metier, Trimestre, Especie.comercial.Gen, Especie.muestreada) %>% 
-  summarise(Peso = sum(PesoMuestreado, na.rm=T)) %>%
+  summarise(Peso = sum(Peso, na.rm=T)) %>%
   left_join(LN_TripSamp, by=c("Metier", "Trimestre", "Especie.comercial.Gen")) %>%
   dcast(Metier + Trimestre + TripSamp + PesoSamp + Especie.comercial.Gen ~ Especie.muestreada, value.var= "Peso")
 temp1[is.na(temp1)] <- 0
 
-prop1 <- prop.table(as.matrix(temp1[,6:7]), margin = 1)
-prop1 <- round(prop1,2 )
+prop1 <- prop.table(as.matrix(temp1[,6:ncol(temp1)]), margin = 1)
+prop1 <- round(prop1,3 ).
 
 tablefin1 <- data.frame(cbind(temp1[,1:5], prop1  ))
+
 
 DB_reparto1 <- DB %>% filter(Especie_Oficial_Gen %in% i) %>% 
   group_by (Metier, Trimestre, Especie_Oficial_Gen) %>% 
@@ -318,27 +329,33 @@ DB_reparto1 <- DB %>% filter(Especie_Oficial_Gen %in% i) %>%
   left_join(tablefin1, by=c("Metier" = "Metier", "Trimestre" = "Trimestre", "Especie_Oficial_Gen" = "Especie.comercial.Gen")) %>%
   data.frame()
 
+      # calculamos pesos
+DB_reparto1_KG <- DB_reparto1 %>% mutate_at(.funs = funs(.* Peso ), .vars = vars(7:ncol(DB_reparto1)) )
+DB_reparto1_KG[,7:ncol(DB_reparto1_KG)] <- round(DB_reparto1_KG[,7:ncol(DB_reparto1_KG)],0)
+
 
 
 ## opción 2
 ## mantenemos asignacion de desembarcos y solo repartimos lo que esta mezclado
 
-
+      # calculamos el nº de muestreos
 LN_TripSamp <- LN %>% group_by(Metier, Trimestre, Especie.comercial) %>% 
   summarise(TripSamp = length(unique(IdVenta)),
             PesoSamp = round(sum(PesoMuestreado),2))
 
+      # calculamos porcentajes
 temp1 <- LN %>% filter(Especie.comercial %in% i) %>% 
   group_by (Metier, Trimestre, Especie.comercial, Especie.muestreada) %>% 
-  summarise(Peso = sum(PesoMuestreado, na.rm=T)) %>%
+  summarise(Peso = sum(Peso, na.rm=T)) %>%
   left_join(LN_TripSamp, by=c("Metier", "Trimestre", "Especie.comercial")) %>%
   dcast(Metier + Trimestre + TripSamp + PesoSamp + Especie.comercial ~ Especie.muestreada, value.var= "Peso")
 temp1[is.na(temp1)] <- 0
 
-prop1 <- prop.table(as.matrix(temp1[,6:7]), margin = 1)
+prop1 <- prop.table(as.matrix(temp1[,6:ncol(temp1)]), margin = 1)
 prop1 <- round(prop1,2 )
 
 tablefin1 <- data.frame(cbind(temp1[,1:5], prop1  ))
+
 
 DB_reparto2 <- DB %>% filter(Especie_Oficial %in% i) %>% 
   group_by (Metier, Trimestre, Especie_Oficial) %>% 
@@ -346,6 +363,7 @@ DB_reparto2 <- DB %>% filter(Especie_Oficial %in% i) %>%
   left_join(tablefin1, by=c("Metier" = "Metier", "Trimestre" = "Trimestre", "Especie_Oficial" = "Especie.comercial")) %>%
   data.frame()
 
-
-
+        # calculamos pesos
+DB_reparto2_KG <- DB_reparto2 %>% mutate_at(.funs = funs(. * Peso ), .vars = vars(7:ncol(DB_reparto2))) 
+DB_reparto2_KG[,7:ncol(DB_reparto2_KG)] <- round(DB_reparto2_KG[,7:ncol(DB_reparto2_KG)],0)
 
