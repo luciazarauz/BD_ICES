@@ -211,13 +211,13 @@ año <- unique(c(DB$Año, NV$Año))
 #############
   
   DB1 <- subset( DB, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto_Venta=="Ondarroa")
+                   Puerto_Base %in% c("Ondarroa", "Pasaia"))
 
   NV1 <- subset( NV, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto_Venta=="Ondarroa")
+                   Puerto_Base=="Ondarroa")
 
   LN1 <- subset( LN, Arte %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto.venta=="Ondarroa")
+                   Puerto_Base=="Ondarroa")
   
 
   # Creamos variable Posa
