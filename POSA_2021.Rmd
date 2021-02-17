@@ -208,29 +208,39 @@ año <- unique(c(DB$Año, NV$Año))
 #############
   Cabeceras <- DB %>% group_by(IdVenta, Nombre_Buque, Cod_UE, Dia, Mes, Año, Metier, Puerto_Venta, Puerto_Base) %>% summarize(Peso=sum(Peso))
 
-  
-
-# filtramos la flota de Ondarroa (OPPAO)
-#############
-  
-  DB1 <- subset( DB, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto_Base %in% c("Ondarroa", "Pasaia"))
-
-  NV1 <- subset( NV, Metier %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto_Base=="Ondarroa")
-
-  LN1 <- subset( LN, Arte %in% c("OTB_DEF_>=70_0_0","PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0") &
-                   Puerto_Base=="Ondarroa")
-  
+    
 # identificamos metiers OTB en areas 6 y 7
 #############
   # table(NV1$Metier, NV1$Sub_Zona_N1V)
   # subset(NV1, is.na(Sub_Zona_N1V))
-  idx <- NV1$IdVenta[NV1$Sub_Zona_N1V %in% c("27.6","27.7")]
-  DB1$Metier[DB1$IdVenta %in% idx]  <-  "OTB_DEF_100-119_0_0"
-  NV1$Metier[NV1$IdVenta %in% idx]  <-  "OTB_DEF_100-119_0_0" 
-  LN1$Arte[LN1$IdVenta %in% idx]    <-  "OTB_DEF_100-119_0_0"
+  idx <- NV$IdVenta[substr(NV$Metier,1,3) %in% c("OTB","PTB") &
+                      NV$Puerto_Base=="Ondarroa" &
+                      NV$Sub_Zona_N1V %in% c("27.6","27.7")]
+
+  Cabeceras$Metier[Cabeceras$IdVenta %in% idx]  <-  "OTB_DEF_100-119_0_0"
+  Cabeceras$Metier[Cabeceras$Nombre_Buque=="Gure Kantabriko" & Cabeceras$Dia==30 & Cabeceras$Mes==3]  <-  "OTB_DEF_100-119_0_0"
+  Cabeceras$Metier[Cabeceras$Nombre_Buque=="Gure Kantabriko" & Cabeceras$Dia==13 & Cabeceras$Mes==4]  <-  "OTB_DEF_100-119_0_0"
+  Cabeceras$Metier[Cabeceras$Nombre_Buque=="Gure Kantabriko" & Cabeceras$Dia==20 & Cabeceras$Mes==4]  <-  "OTB_DEF_100-119_0_0"
+
+# subset(Cabeceras, Nombre_Buque=="Gure Kantabriko") %>% data.frame()
+# subset(Cabeceras, Nombre_Buque=="Mar Mares") %>% data.frame()
+# subset(Cabeceras, Nombre_Buque=="Gure Gaskuña") %>% data.frame()
+
+
+
+# filtramos la flota de Ondarroa (OPPAO)
+#############
   
+  DB1 <- subset( DB, substr(Metier,1,3) %in% c("OTB", "PTB" ) &
+                   Puerto_Base %in% c("Ondarroa", "Pasaia"))
+
+  NV1 <- subset( NV, substr(Metier,1,3) %in% c("OTB", "PTB" )&
+                   Puerto_Base=="Ondarroa")
+
+  LN1 <- subset( LN, substr(Arte,1,3) %in% c("OTB", "PTB" ) &
+                   Puerto_Base=="Ondarroa")
+  
+
   # Creamos variable Posa
   
   DB1$Posa <- DB1$Tamaño

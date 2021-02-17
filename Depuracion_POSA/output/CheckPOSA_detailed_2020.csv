@@ -4875,18 +4875,18 @@
 532602;"SMD";"noPOSA";3,874;0;NA;"Musola";"Musola";"Kaxu";3;23;2020;"PTB_DEF_>=70_0_0";NA
 532602;"SYC";"noPOSA";14,75;0;NA;"Pintarroja";"Pintarroja";"Kaxu";3;23;2020;"PTB_DEF_>=70_0_0";NA
 532602;"WEG";"noPOSA";55,75;19;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxu";3;23;2020;"PTB_DEF_>=70_0_0";NA
-532603;"ANK";"noPOSA";214,2;178,5;NA;"Rape negro";"Rapes";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"BRF";"noPOSA";11,9;11,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"BRF";"POSA";137;136,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"GFB";"noPOSA";1950,96;1673,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"GFB";"POSA";NA;81,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";0
-532603;"HKE";"noPOSA";3165,2746;3013,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"LEZ";"noPOSA";6540,518;6249,6;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"LIN";"noPOSA";2011,57;1270;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"MON";"noPOSA";2884,56;2403,8;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"SQC";"noPOSA";45,3;45,3;NA;"Calamares Loligo spp.";"Calamares";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"UCA";"POSA";82;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
-532603;"WIT";"noPOSA";187,11;178,2;NA;"Mendo";"Mendo";"Gure Kantabriko";3;23;2020;"OTB_DEF_>=70_0_0";NA
+532603;"ANK";"noPOSA";214,2;178,5;NA;"Rape negro";"Rapes";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"BRF";"noPOSA";11,9;11,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"BRF";"POSA";137;136,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"GFB";"noPOSA";1950,96;1673,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"GFB";"POSA";NA;81,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";0
+532603;"HKE";"noPOSA";3165,2746;3013,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"LEZ";"noPOSA";6540,518;6249,6;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"LIN";"noPOSA";2011,57;1270;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"MON";"noPOSA";2884,56;2403,8;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"SQC";"noPOSA";45,3;45,3;NA;"Calamares Loligo spp.";"Calamares";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"UCA";"POSA";82;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
+532603;"WIT";"noPOSA";187,11;178,2;NA;"Mendo";"Mendo";"Gure Kantabriko";3;23;2020;"OTB_DEF_100-119_0_0";NA
 532604;"ANK";"noPOSA";39,18;65;NA;"Rape negro";"Rapes";"Kaxarra";3;23;2020;"PTB_DEF_>=70_0_0";NA
 532604;"BIB";"noPOSA";NA;107;NA;"Faneca comun";"Fanecas";"Kaxarra";3;23;2020;"PTB_DEF_>=70_0_0";0
 532604;"BSS";"noPOSA";50,05;28;NA;"Lubina";"Lubina";"Kaxarra";3;23;2020;"PTB_DEF_>=70_0_0";NA
@@ -4986,11 +4986,11 @@
 532811;"OMZ";"noPOSA";NA;7;NA;"Potas Ommastrephidae nep";"Potas";"Gaztelugatxe";3;26;2020;"PTB_MPD_>=55_0_0";0
 532811;"WHB";"noPOSA";861;138;NA;"Lirio - Bacaladilla";"Lirio";"Gaztelugatxe";3;26;2020;"PTB_MPD_>=55_0_0";NA
 532811;"WHB";"POSA";900;1800;NA;"Lirio - Bacaladilla";"Lirio";"Gaztelugatxe";3;26;2020;"PTB_MPD_>=55_0_0";NA
-532920;"BRF";"POSA";670;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532920;"LDB";"noPOSA";NA;1185,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";0
-532920;"LEZ";"POSA";6171,32;0;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532920;"MNZ";"POSA";2845,2;0;NA;"Rapes Lophius";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532920;"UCA";"POSA";109;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
+532920;"BRF";"POSA";670;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532920;"LDB";"noPOSA";NA;1185,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";0
+532920;"LEZ";"POSA";6171,32;0;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532920;"MNZ";"POSA";2845,2;0;NA;"Rapes Lophius";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532920;"UCA";"POSA";109;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
 532935;"ARY";"noPOSA";19,25;0;NA;"Peon - pez plata";"Peon";"Aketxe";3;30;2020;"PTB_MPD_>=55_0_0";NA
 532935;"ATP";"noPOSA";NA;15;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";3;30;2020;"PTB_MPD_>=55_0_0";0
 532935;"CTL";"noPOSA";10;0;NA;"Sepias y chocos";"Sepias y chocos";"Aketxe";3;30;2020;"PTB_MPD_>=55_0_0";NA
@@ -5121,17 +5121,17 @@
 532975;"SQC";"noPOSA";NA;14;NA;"Calamares Loligo spp.";"Calamares";"Kaxu";3;30;2020;"PTB_DEF_>=70_0_0";0
 532975;"SYC";"noPOSA";12;0;NA;"Pintarroja";"Pintarroja";"Kaxu";3;30;2020;"PTB_DEF_>=70_0_0";NA
 532975;"WEG";"noPOSA";38;46;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxu";3;30;2020;"PTB_DEF_>=70_0_0";NA
-532976;"BRF";"noPOSA";127,3;127,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"BRF";"POSA";NA;670,2;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";0
-532976;"GFB";"noPOSA";2772,99;2520,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"GFB";"POSA";NA;108,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";0
-532976;"HKE";"noPOSA";8593,8368;8125,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"LEZ";"noPOSA";6678,848;7370,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"LEZ";"POSA";NA;5722,1;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";0
-532976;"LIN";"noPOSA";0;159;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"MON";"noPOSA";715,68;655,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
-532976;"MON";"POSA";NA;2371;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";0
-532976;"WIT";"noPOSA";631,155;601,1;NA;"Mendo";"Mendo";"Gure Kantabriko";3;30;2020;"OTB_DEF_>=70_0_0";NA
+532976;"BRF";"noPOSA";127,3;127,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"BRF";"POSA";NA;670,2;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";0
+532976;"GFB";"noPOSA";2772,99;2520,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"GFB";"POSA";NA;108,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";0
+532976;"HKE";"noPOSA";8593,8368;8125,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"LEZ";"noPOSA";6678,848;7370,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"LEZ";"POSA";NA;5722,1;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";0
+532976;"LIN";"noPOSA";0;159;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"MON";"noPOSA";715,68;655,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
+532976;"MON";"POSA";NA;2371;NA;"Rape blanco";"Rapes";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";0
+532976;"WIT";"noPOSA";631,155;601,1;NA;"Mendo";"Mendo";"Gure Kantabriko";3;30;2020;"OTB_DEF_100-119_0_0";NA
 532977;"ARY";"noPOSA";2,75;0;NA;"Peon - pez plata";"Peon";"Kaxarra";3;30;2020;"PTB_DEF_>=70_0_0";NA
 532977;"ATP";"noPOSA";NA;7;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Kaxarra";3;30;2020;"PTB_DEF_>=70_0_0";0
 532977;"BIB";"noPOSA";NA;93;NA;"Faneca comun";"Fanecas";"Kaxarra";3;30;2020;"PTB_DEF_>=70_0_0";0
@@ -5372,18 +5372,18 @@
 533273;"SMD";"noPOSA";220,4008;0;NA;"Musola";"Musola";"Kaxarra";4;6;2020;"PTB_DEF_>=70_0_0";NA
 533273;"SYC";"noPOSA";55;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";4;6;2020;"PTB_DEF_>=70_0_0";NA
 533273;"WEG";"noPOSA";49,5;0;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";4;6;2020;"PTB_DEF_>=70_0_0";NA
-533280;"BRF";"POSA";460;460,1;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"GFB";"noPOSA";2537,04;2306,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"GFB";"POSA";NA;203,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";0
-533280;"HKE";"noPOSA";1596,6878;2029,5;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"LDB";"noPOSA";NA;1664,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";0
-533280;"LEZ";"noPOSA";6289,298;5724,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"LEZ";"POSA";6364,24;6854,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"LIN";"noPOSA";0;296,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"MON";"noPOSA";2610;2353,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"MON";"POSA";2952;2459,5;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"UCA";"POSA";203;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
-533280;"WIT";"noPOSA";443,1;422;NA;"Mendo";"Mendo";"Gure Kantabriko";4;6;2020;"OTB_DEF_>=70_0_0";NA
+533280;"BRF";"POSA";460;460,1;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"GFB";"noPOSA";2537,04;2306,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"GFB";"POSA";NA;203,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";0
+533280;"HKE";"noPOSA";1596,6878;2029,5;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"LDB";"noPOSA";NA;1664,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";0
+533280;"LEZ";"noPOSA";6289,298;5724,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"LEZ";"POSA";6364,24;6854,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"LIN";"noPOSA";0;296,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"MON";"noPOSA";2610;2353,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"MON";"POSA";2952;2459,5;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"UCA";"POSA";203;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
+533280;"WIT";"noPOSA";443,1;422;NA;"Mendo";"Mendo";"Gure Kantabriko";4;6;2020;"OTB_DEF_100-119_0_0";NA
 533285;"ARY";"noPOSA";35,25;0;NA;"Peon - pez plata";"Peon";"Aketxe";4;6;2020;"PTB_MPD_>=55_0_0";NA
 533285;"ATP";"noPOSA";NA;8;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";4;6;2020;"PTB_MPD_>=55_0_0";0
 533285;"BIB";"noPOSA";3,3;14;NA;"Faneca comun";"Fanecas";"Aketxe";4;6;2020;"PTB_MPD_>=55_0_0";NA
@@ -5788,7 +5788,7 @@
 533419;"OCC";"noPOSA";NA;43;NA;"Pulpo comun";"Pulpos";"Mar Mares";4;13;2020;"OTB_DEF_>=70_0_0";0
 533419;"OMM";"noPOSA";355;0;NA;"Potas voladoras nep (N1V)";"Potas";"Mar Mares";4;13;2020;"OTB_DEF_>=70_0_0";NA
 533419;"OMZ";"noPOSA";NA;394;NA;"Potas Ommastrephidae nep";"Potas";"Mar Mares";4;13;2020;"OTB_DEF_>=70_0_0";0
-533431;"LDB";"noPOSA";1206,28;1138;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
+533431;"LDB";"noPOSA";1206,28;1138;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
 533449;"ARY";"noPOSA";6;0;NA;"Peon - pez plata";"Peon";"Aketxe";4;13;2020;"PTB_MPD_>=55_0_0";NA
 533449;"BIB";"noPOSA";NA;45;NA;"Faneca comun";"Fanecas";"Aketxe";4;13;2020;"PTB_MPD_>=55_0_0";0
 533449;"BOG";"noPOSA";21;51;NA;"Boga";"Esparidos";"Aketxe";4;13;2020;"PTB_MPD_>=55_0_0";NA
@@ -5821,17 +5821,17 @@
 533450;"OMZ";"noPOSA";NA;81;NA;"Potas Ommastrephidae nep";"Potas";"Gaztelugatxe";4;13;2020;"PTB_MPD_>=55_0_0";0
 533450;"RJC";"noPOSA";12,75;22;NA;"Raya de clavos";"Rayas";"Gaztelugatxe";4;13;2020;"PTB_MPD_>=55_0_0";NA
 533450;"WHB";"noPOSA";7150,5;6447;NA;"Lirio - Bacaladilla";"Lirio";"Gaztelugatxe";4;13;2020;"PTB_MPD_>=55_0_0";NA
-533451;"BRF";"POSA";893;893;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"GFB";"noPOSA";2871,77;2610,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"GFB";"POSA";NA;199,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";0
-533451;"HKE";"noPOSA";1624,1276;1998,1;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"LEZ";"noPOSA";7089,492;5199,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"LEZ";"POSA";4848,44;5532;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"LIN";"noPOSA";0;428,2;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"MON";"noPOSA";4270,2;3366,8;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"MON";"POSA";2949,6;2458,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"UCA";"POSA";199;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
-533451;"WIT";"noPOSA";470,295;447,9;NA;"Mendo";"Mendo";"Gure Kantabriko";4;13;2020;"OTB_DEF_>=70_0_0";NA
+533451;"BRF";"POSA";893;893;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"GFB";"noPOSA";2871,77;2610,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"GFB";"POSA";NA;199,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";0
+533451;"HKE";"noPOSA";1624,1276;1998,1;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"LEZ";"noPOSA";7089,492;5199,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"LEZ";"POSA";4848,44;5532;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"LIN";"noPOSA";0;428,2;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"MON";"noPOSA";4270,2;3366,8;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"MON";"POSA";2949,6;2458,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"UCA";"POSA";199;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
+533451;"WIT";"noPOSA";470,295;447,9;NA;"Mendo";"Mendo";"Gure Kantabriko";4;13;2020;"OTB_DEF_100-119_0_0";NA
 533452;"HKE";"noPOSA";343,5;336;NA;"Merluza europea";"Merluza europea";"Aketxe";4;14;2020;"PTB_MPD_>=55_0_0";NA
 533452;"MAC";"noPOSA";4833;4080;NA;"Verdel - Caballa";"Verdel";"Aketxe";4;14;2020;"PTB_MPD_>=55_0_0";NA
 533452;"OMM";"noPOSA";17,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Aketxe";4;14;2020;"PTB_MPD_>=55_0_0";NA
@@ -6029,20 +6029,20 @@
 533604;"RJN";"POSA";105;0;NA;"Raya santiaguesa";"Rayas";"Antiuko Ama";4;20;2020;"OTB_DEF_>=70_0_0";NA
 533604;"SMD";"noPOSA";50,064;0;NA;"Musola";"Musola";"Antiuko Ama";4;20;2020;"OTB_DEF_>=70_0_0";NA
 533604;"SYC";"POSA";600;540;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"BLI";"noPOSA";2261,16;0;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"BRF";"noPOSA";1881,2;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"BRF";"POSA";871;870,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"GFB";"noPOSA";3357,42;3031,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"GFB";"POSA";NA;149,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";0
-533607;"HKE";"noPOSA";1445,273;5445,6;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"LDB";"noPOSA";NA;1082,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";0
-533607;"LEZ";"noPOSA";1099,22;4840,5;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"LEZ";"POSA";4680,96;4321,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"MON";"noPOSA";6526,68;2642;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"MON";"POSA";3067,2;2556,2;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"UCA";"POSA";150;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-533607;"WIT";"noPOSA";353,535;379,1;NA;"Mendo";"Mendo";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
+533607;"BLI";"noPOSA";2261,16;0;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"BRF";"noPOSA";1881,2;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"BRF";"POSA";871;870,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"GFB";"noPOSA";3357,42;3031,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"GFB";"POSA";NA;149,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";0
+533607;"HKE";"noPOSA";1445,273;5445,6;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"LDB";"noPOSA";NA;1082,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";0
+533607;"LEZ";"noPOSA";1099,22;4840,5;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"LEZ";"POSA";4680,96;4321,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"MON";"noPOSA";6526,68;2642;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"MON";"POSA";3067,2;2556,2;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"UCA";"POSA";150;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+533607;"WIT";"noPOSA";353,535;379,1;NA;"Mendo";"Mendo";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
 533629;"ANK";"noPOSA";27,78;0;NA;"Rape negro";"Rapes";"Aketxe";4;20;2020;"PTB_MPD_>=55_0_0";NA
 533629;"ARY";"noPOSA";2,6;0;NA;"Peon - pez plata";"Peon";"Aketxe";4;20;2020;"PTB_MPD_>=55_0_0";NA
 533629;"CTL";"noPOSA";4;0;NA;"Sepias y chocos";"Sepias y chocos";"Aketxe";4;20;2020;"PTB_MPD_>=55_0_0";NA
@@ -6599,21 +6599,21 @@
 534013;"SMD";"noPOSA";264,028;0;NA;"Musola";"Musola";"Antiuko Ama";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534013;"SOL";"noPOSA";37,275;88;NA;"Lenguado";"Lenguado";"Antiuko Ama";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534013;"SYC";"POSA";1704;1600;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"BLI";"noPOSA";2260,72;1849,7;2160,65310789;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"BRF";"noPOSA";1900,4;1681,2;1900,4;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"BRF";"POSA";508;507;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"GFB";"noPOSA";3357,42;2802,2;3357,42;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"GFB";"POSA";NA;262,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";0
-534014;"HKE";"noPOSA";1445,273;1369,1;1445,273;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"LDB";"noPOSA";NA;529;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";0
-534014;"LEZ";"noPOSA";NA;887;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";0
-534014;"LEZ";"POSA";1621,8;1529,8;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"LIN";"noPOSA";31,46;0;41,35636554;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"MEG";"noPOSA";1099,114;0;1099,114;"Gallo whiffiagonis";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"MON";"noPOSA";6526,32;5735,7;6526,32;"Rape blanco";"Rapes";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"MON";"POSA";1214,4;1508,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"UCA";"POSA";263;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534014;"WIT";"noPOSA";353,535;336,7;353,535;"Mendo";"Mendo";"Gure Kantabriko";4;27;2020;"OTB_DEF_>=70_0_0";NA
+534014;"BLI";"noPOSA";2260,72;1849,7;2160,65310789;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"BRF";"noPOSA";1900,4;1681,2;1900,4;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"BRF";"POSA";508;507;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"GFB";"noPOSA";3357,42;2802,2;3357,42;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"GFB";"POSA";NA;262,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";0
+534014;"HKE";"noPOSA";1445,273;1369,1;1445,273;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"LDB";"noPOSA";NA;529;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";0
+534014;"LEZ";"noPOSA";NA;887;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";0
+534014;"LEZ";"POSA";1621,8;1529,8;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"LIN";"noPOSA";31,46;0;41,35636554;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"MEG";"noPOSA";1099,114;0;1099,114;"Gallo whiffiagonis";"Gallos";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"MON";"noPOSA";6526,32;5735,7;6526,32;"Rape blanco";"Rapes";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"MON";"POSA";1214,4;1508,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"UCA";"POSA";263;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534014;"WIT";"noPOSA";353,535;336,7;353,535;"Mendo";"Mendo";"Gure Kantabriko";4;27;2020;"OTB_DEF_100-119_0_0";NA
 534015;"ANK";"noPOSA";1308,6;1113,6;NA;"Rape negro";"Rapes";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534015;"ARY";"noPOSA";186,1;0;NA;"Peon - pez plata";"Peon";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534015;"ATP";"noPOSA";NA;186,1;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";0
@@ -6647,20 +6647,20 @@
 534015;"SOL";"noPOSA";71,82;77,1;NA;"Lenguado";"Lenguado";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534015;"SYC";"noPOSA";1176;1176;NA;"Pintarroja";"Pintarroja";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534015;"WEG";"noPOSA";404,8;404,8;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Gure Gaskuña";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"ANK";"noPOSA";6,84;30;NA;"Rape negro";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"BLI";"noPOSA";2637,25;2297,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"BRF";"noPOSA";2752,5;2752,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"BRF";"POSA";364;364;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"GFB";"noPOSA";3122,9;3987;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"HKE";"noPOSA";8684,2008;2396;NA;"Merluza europea";"Merluza europea";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"LDB";"noPOSA";NA;1031;NA;"Gallo boscii";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";0
-534016;"LEZ";"noPOSA";2800,52;2642;NA;"Gallos - ollarra";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"LEZ";"POSA";1233,84;1164,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"LIN";"noPOSA";0;487;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"MON";"noPOSA";7842,6;7407;NA;"Rape blanco";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"MON";"POSA";1071,6;893;NA;"Rape blanco";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"RED";"noPOSA";12;0;NA;"Gallinetas del Atlantico nep";"Gallinetas del Atlantico nep";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
-534016;"WIT";"noPOSA";333,9;375,5;NA;"Mendo";"Mendo";"Mar Mares";4;27;2020;"OTB_DEF_>=70_0_0";NA
+534016;"ANK";"noPOSA";6,84;30;NA;"Rape negro";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"BLI";"noPOSA";2637,25;2297,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"BRF";"noPOSA";2752,5;2752,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"BRF";"POSA";364;364;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"GFB";"noPOSA";3122,9;3987;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"HKE";"noPOSA";8684,2008;2396;NA;"Merluza europea";"Merluza europea";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"LDB";"noPOSA";NA;1031;NA;"Gallo boscii";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";0
+534016;"LEZ";"noPOSA";2800,52;2642;NA;"Gallos - ollarra";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"LEZ";"POSA";1233,84;1164,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"LIN";"noPOSA";0;487;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"MON";"noPOSA";7842,6;7407;NA;"Rape blanco";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"MON";"POSA";1071,6;893;NA;"Rape blanco";"Rapes";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"RED";"noPOSA";12;0;NA;"Gallinetas del Atlantico nep";"Gallinetas del Atlantico nep";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
+534016;"WIT";"noPOSA";333,9;375,5;NA;"Mendo";"Mendo";"Mar Mares";4;27;2020;"OTB_DEF_100-119_0_0";NA
 534084;"ANK";"noPOSA";2307,6;1750;NA;"Rape negro";"Rapes";"Intxortamendi";4;27;2020;"OTB_DEF_>=70_0_0";NA
 534084;"ANK";"POSA";NA;102;NA;"Rape negro";"Rapes";"Intxortamendi";4;27;2020;"OTB_DEF_>=70_0_0";0
 534084;"ARY";"noPOSA";14,5;0;NA;"Peon - pez plata";"Peon";"Intxortamendi";4;27;2020;"OTB_DEF_>=70_0_0";NA
@@ -6847,34 +6847,34 @@
 534236;"RJC";"noPOSA";2,25;0;NA;"Raya de clavos";"Rayas";"Kaxarra";5;4;2020;"PTB_DEF_>=70_0_0";NA
 534236;"SMD";"noPOSA";2,384;0;NA;"Musola";"Musola";"Kaxarra";5;4;2020;"PTB_DEF_>=70_0_0";NA
 534236;"SYC";"noPOSA";16,5;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";5;4;2020;"PTB_DEF_>=70_0_0";NA
-534239;"BRF";"noPOSA";2401,7;2993,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"BRF";"POSA";279;278,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"GFB";"noPOSA";NA;1970,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";0
-534239;"GFB";"POSA";NA;266,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";0
-534239;"HKE";"noPOSA";4511,4778;4183,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"LDB";"noPOSA";NA;518,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";0
-534239;"LEZ";"noPOSA";192,92;255;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"LEZ";"POSA";1121,48;1057,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"LIN";"noPOSA";0;201,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"MON";"noPOSA";4997,88;5553,4;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"MON";"POSA";817,2;681;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"RJC";"noPOSA";NA;10,5;NA;"Raya de clavos";"Rayas";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";0
-534239;"SMD";"noPOSA";1468,7824;0;NA;"Musola";"Musola";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"UCA";"POSA";267;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534239;"WIT";"noPOSA";280,77;267,4;NA;"Mendo";"Mendo";"Gure Kantabriko";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"ANK";"noPOSA";175,2;197;NA;"Rape negro";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"BLI";"noPOSA";NA;696,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";0
-534240;"BRF";"noPOSA";1685,5;1529;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"BRF";"POSA";287;287,28;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"COD";"noPOSA";69,99999996;82;NA;"Bacalao";"Bacalao";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"GFB";"noPOSA";881,65;1415;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"HKE";"noPOSA";3716,495;3655,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"LDB";"noPOSA";NA;1307,5;NA;"Gallo boscii";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";0
-534240;"LEZ";"noPOSA";668,86;736;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"LEZ";"POSA";1435,24;1353,57;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"MON";"noPOSA";7121,4;6310,5;NA;"Rape blanco";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"MON";"POSA";759,6;632,66;NA;"Rape blanco";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
-534240;"WIT";"noPOSA";1164,45;1169;NA;"Mendo";"Mendo";"Mar Mares";5;4;2020;"OTB_DEF_>=70_0_0";NA
+534239;"BRF";"noPOSA";2401,7;2993,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"BRF";"POSA";279;278,9;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"GFB";"noPOSA";NA;1970,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";0
+534239;"GFB";"POSA";NA;266,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";0
+534239;"HKE";"noPOSA";4511,4778;4183,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"LDB";"noPOSA";NA;518,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";0
+534239;"LEZ";"noPOSA";192,92;255;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"LEZ";"POSA";1121,48;1057,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"LIN";"noPOSA";0;201,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"MON";"noPOSA";4997,88;5553,4;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"MON";"POSA";817,2;681;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"RJC";"noPOSA";NA;10,5;NA;"Raya de clavos";"Rayas";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";0
+534239;"SMD";"noPOSA";1468,7824;0;NA;"Musola";"Musola";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"UCA";"POSA";267;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534239;"WIT";"noPOSA";280,77;267,4;NA;"Mendo";"Mendo";"Gure Kantabriko";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"ANK";"noPOSA";175,2;197;NA;"Rape negro";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"BLI";"noPOSA";NA;696,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";0
+534240;"BRF";"noPOSA";1685,5;1529;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"BRF";"POSA";287;287,28;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"COD";"noPOSA";69,99999996;82;NA;"Bacalao";"Bacalao";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"GFB";"noPOSA";881,65;1415;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"HKE";"noPOSA";3716,495;3655,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"LDB";"noPOSA";NA;1307,5;NA;"Gallo boscii";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";0
+534240;"LEZ";"noPOSA";668,86;736;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"LEZ";"POSA";1435,24;1353,57;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"MON";"noPOSA";7121,4;6310,5;NA;"Rape blanco";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"MON";"POSA";759,6;632,66;NA;"Rape blanco";"Rapes";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
+534240;"WIT";"noPOSA";1164,45;1169;NA;"Mendo";"Mendo";"Mar Mares";5;4;2020;"OTB_DEF_100-119_0_0";NA
 534266;"ANK";"noPOSA";18,54;21,2;NA;"Rape negro";"Rapes";"Aketxe";5;4;2020;"PTB_MPD_>=55_0_0";NA
 534266;"ARY";"noPOSA";42;0;NA;"Peon - pez plata";"Peon";"Aketxe";5;4;2020;"PTB_MPD_>=55_0_0";NA
 534266;"ATP";"noPOSA";NA;28;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";5;4;2020;"PTB_MPD_>=55_0_0";0
@@ -7245,13 +7245,13 @@
 534415;"HKE";"noPOSA";5565;5772,5;NA;"Merluza europea";"Merluza europea";"Kaxarra";5;8;2020;"PTB_DEF_>=70_0_0";NA
 534415;"HKE";"POSA";NA;662,5;NA;"Merluza europea";"Merluza europea";"Kaxarra";5;8;2020;"PTB_DEF_>=70_0_0";0
 534415;"MAC";"noPOSA";NA;93;NA;"Verdel - Caballa";"Verdel";"Kaxarra";5;8;2020;"PTB_DEF_>=70_0_0";0
-534452;"GFB";"noPOSA";3334,32;0;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;"HKE";"noPOSA";5604,221;0;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;"LEZ";"noPOSA";5944,48;0;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;"MON";"noPOSA";2586,12;0;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;"WIT";"noPOSA";398,055;0;NA;"Mendo";"Mendo";"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";NA
-534452;NA;"noPOSA";NA;0;NA;NA;NA;"Gure Kantabriko";4;20;2020;"OTB_DEF_>=70_0_0";0
+534452;"GFB";"noPOSA";3334,32;0;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;"HKE";"noPOSA";5604,221;0;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;"LEZ";"noPOSA";5944,48;0;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;"MON";"noPOSA";2586,12;0;NA;"Rape blanco";"Rapes";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;"WIT";"noPOSA";398,055;0;NA;"Mendo";"Mendo";"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";NA
+534452;NA;"noPOSA";NA;0;NA;NA;NA;"Gure Kantabriko";4;20;2020;"OTB_DEF_100-119_0_0";0
 534453;"ANK";"noPOSA";20,28;0;NA;"Rape negro";"Rapes";"Arretxu Berria";4;23;2020;"PTB_MPD_>=55_0_0";NA
 534453;"ARY";"noPOSA";18;0;NA;"Peon - pez plata";"Peon";"Arretxu Berria";4;23;2020;"PTB_MPD_>=55_0_0";NA
 534453;"EOI";"POSA";6;0;NA;"Pulpo blanco";"Pulpos";"Arretxu Berria";4;23;2020;"PTB_MPD_>=55_0_0";NA
@@ -7307,33 +7307,33 @@
 534475;"POL";"noPOSA";4,95;0;NA;"Abadejo";"Abadejo";"Kaxarra";5;11;2020;"PTB_DEF_>=70_0_0";NA
 534475;"RJC";"noPOSA";9,75;0;NA;"Raya de clavos";"Rayas";"Kaxarra";5;11;2020;"PTB_DEF_>=70_0_0";NA
 534475;"SYC";"noPOSA";16,75;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";5;11;2020;"PTB_DEF_>=70_0_0";NA
-534477;"ANK";"noPOSA";661,32;788,1;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"BRF";"noPOSA";614,4;614,4;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"BRF";"POSA";132;132,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"GFB";"noPOSA";313,61;285,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"GFB";"POSA";NA;176,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";0
-534477;"HKE";"noPOSA";2245,876;2174,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"LDB";"noPOSA";NA;1488,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";0
-534477;"LEZ";"noPOSA";3725,582;3663,6;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"LEZ";"POSA";2548,24;2705,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"LIN";"noPOSA";0;173,2;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"MON";"noPOSA";258,24;2142,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"MON";"POSA";2420,4;2017,2;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"UCA";"POSA";177;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534477;"WIT";"noPOSA";1764,21;1716,8;NA;"Mendo";"Mendo";"Gure Kantabriko";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"ANK";"noPOSA";842,4;866,5;NA;"Rape negro";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"BRF";"noPOSA";125,5;90;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"BRF";"POSA";141;140,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"GFB";"noPOSA";55,55;35;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"HKE";"noPOSA";3376,6382;2964,8;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"LDB";"noPOSA";NA;1559;NA;"Gallo boscii";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";0
-534478;"LEZ";"noPOSA";3081,95;2888,95;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"LEZ";"POSA";2458,14;2319,1;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"LIN";"noPOSA";0;154;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"MON";"noPOSA";1291,2;2172;NA;"Rape blanco";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"MON";"POSA";2713,2;2260,79;NA;"Rape blanco";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
-534478;"TUR";"noPOSA";NA;44;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";0
-534478;"WIT";"noPOSA";1325,1;1274,5;NA;"Mendo";"Mendo";"Mar Mares";5;11;2020;"OTB_DEF_>=70_0_0";NA
+534477;"ANK";"noPOSA";661,32;788,1;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"BRF";"noPOSA";614,4;614,4;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"BRF";"POSA";132;132,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"GFB";"noPOSA";313,61;285,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"GFB";"POSA";NA;176,7;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";0
+534477;"HKE";"noPOSA";2245,876;2174,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"LDB";"noPOSA";NA;1488,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";0
+534477;"LEZ";"noPOSA";3725,582;3663,6;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"LEZ";"POSA";2548,24;2705,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"LIN";"noPOSA";0;173,2;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"MON";"noPOSA";258,24;2142,9;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"MON";"POSA";2420,4;2017,2;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"UCA";"POSA";177;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534477;"WIT";"noPOSA";1764,21;1716,8;NA;"Mendo";"Mendo";"Gure Kantabriko";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"ANK";"noPOSA";842,4;866,5;NA;"Rape negro";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"BRF";"noPOSA";125,5;90;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"BRF";"POSA";141;140,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"GFB";"noPOSA";55,55;35;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"HKE";"noPOSA";3376,6382;2964,8;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"LDB";"noPOSA";NA;1559;NA;"Gallo boscii";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";0
+534478;"LEZ";"noPOSA";3081,95;2888,95;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"LEZ";"POSA";2458,14;2319,1;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"LIN";"noPOSA";0;154;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"MON";"noPOSA";1291,2;2172;NA;"Rape blanco";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"MON";"POSA";2713,2;2260,79;NA;"Rape blanco";"Rapes";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
+534478;"TUR";"noPOSA";NA;44;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";0
+534478;"WIT";"noPOSA";1325,1;1274,5;NA;"Mendo";"Mendo";"Mar Mares";5;11;2020;"OTB_DEF_100-119_0_0";NA
 534514;"ANK";"noPOSA";2703,6;2216,5;NA;"Rape negro";"Rapes";"Intxortamendi";5;11;2020;"OTB_DEF_>=70_0_0";NA
 534514;"ARY";"noPOSA";46;0;NA;"Peon - pez plata";"Peon";"Intxortamendi";5;11;2020;"OTB_DEF_>=70_0_0";NA
 534514;"ATP";"noPOSA";NA;51;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Intxortamendi";5;11;2020;"OTB_DEF_>=70_0_0";0
@@ -7761,31 +7761,31 @@
 534690;"SMD";"noPOSA";5,364;0;NA;"Musola";"Musola";"Kaxarra";5;18;2020;"PTB_DEF_>=70_0_0";NA
 534690;"SYC";"noPOSA";23,75;29;NA;"Pintarroja";"Pintarroja";"Kaxarra";5;18;2020;"PTB_DEF_>=70_0_0";NA
 534690;"WEG";"noPOSA";1,5;0;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";5;18;2020;"PTB_DEF_>=70_0_0";NA
-534692;"ANK";"noPOSA";492;1960,5;NA;"Rape negro";"Rapes";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"BRF";"noPOSA";102;91;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"COD";"noPOSA";NA;327;NA;"Bacalao";"Bacalao";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";0
-534692;"GFB";"noPOSA";37,4;35;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"HKE";"noPOSA";1125,142;1486;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"LDB";"noPOSA";NA;1267,5;NA;"Gallo boscii";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";0
-534692;"LEZ";"noPOSA";5021,22;4737;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"LEZ";"POSA";2366,98;2232,73;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"MON";"noPOSA";4400,4;3544;NA;"Rape blanco";"Rapes";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"TUR";"noPOSA";63,315;111,8;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534692;"WIT";"noPOSA";373,275;415,5;NA;"Mendo";"Mendo";"Mar Mares";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"ANK";"noPOSA";462,48;795,9;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"BRF";"noPOSA";1286,6;1286,6;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"BRF";"POSA";127;126,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"GFB";"noPOSA";220,99;200,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"GFB";"POSA";NA;54,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";0
-534693;"HKE";"noPOSA";1940,7322;2029;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"LDB";"noPOSA";NA;2878;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";0
-534693;"LEZ";"noPOSA";4348,226;4669,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"LEZ";"POSA";2375,46;2240,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"LIN";"noPOSA";0;174,6;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"MON";"noPOSA";1506;2684;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"UCA";"POSA";55;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
-534693;"WIT";"noPOSA";2367,225;2289,2;NA;"Mendo";"Mendo";"Gure Kantabriko";5;18;2020;"OTB_DEF_>=70_0_0";NA
+534692;"ANK";"noPOSA";492;1960,5;NA;"Rape negro";"Rapes";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"BRF";"noPOSA";102;91;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"COD";"noPOSA";NA;327;NA;"Bacalao";"Bacalao";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";0
+534692;"GFB";"noPOSA";37,4;35;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"HKE";"noPOSA";1125,142;1486;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"LDB";"noPOSA";NA;1267,5;NA;"Gallo boscii";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";0
+534692;"LEZ";"noPOSA";5021,22;4737;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"LEZ";"POSA";2366,98;2232,73;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"MON";"noPOSA";4400,4;3544;NA;"Rape blanco";"Rapes";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"TUR";"noPOSA";63,315;111,8;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534692;"WIT";"noPOSA";373,275;415,5;NA;"Mendo";"Mendo";"Mar Mares";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"ANK";"noPOSA";462,48;795,9;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"BRF";"noPOSA";1286,6;1286,6;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"BRF";"POSA";127;126,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"GFB";"noPOSA";220,99;200,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"GFB";"POSA";NA;54,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";0
+534693;"HKE";"noPOSA";1940,7322;2029;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"LDB";"noPOSA";NA;2878;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";0
+534693;"LEZ";"noPOSA";4348,226;4669,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"LEZ";"POSA";2375,46;2240,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"LIN";"noPOSA";0;174,6;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"MON";"noPOSA";1506;2684;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"UCA";"POSA";55;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
+534693;"WIT";"noPOSA";2367,225;2289,2;NA;"Mendo";"Mendo";"Gure Kantabriko";5;18;2020;"OTB_DEF_100-119_0_0";NA
 534711;"ANK";"noPOSA";1796,4;1606;NA;"Rape negro";"Rapes";"Intxortamendi";5;18;2020;"OTB_DEF_>=70_0_0";NA
 534711;"ARY";"noPOSA";26;0;NA;"Peon - pez plata";"Peon";"Intxortamendi";5;18;2020;"OTB_DEF_>=70_0_0";NA
 534711;"ATP";"noPOSA";NA;26;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Intxortamendi";5;18;2020;"OTB_DEF_>=70_0_0";0
@@ -8334,32 +8334,32 @@
 534934;"SQC";"noPOSA";NA;14,9;NA;"Calamares Loligo spp.";"Calamares";"Eguzki Lore";5;25;2020;"OTB_DEF_>=70_0_0";0
 534934;"SYC";"noPOSA";76,3;299;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";5;25;2020;"OTB_DEF_>=70_0_0";NA
 534934;"WHB";"noPOSA";678;674;NA;"Lirio - Bacaladilla";"Lirio";"Eguzki Lore";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"ANK";"noPOSA";400,8;971,5;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"BRF";"noPOSA";632,3;632,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"BRF";"POSA";60;59,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"GFB";"noPOSA";39,82;48,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"GFB";"POSA";NA;153,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";0
-534935;"HKE";"noPOSA";2039,251;1949,2;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"LDB";"noPOSA";NA;2318,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";0
-534935;"LEZ";"noPOSA";7897,848;7728,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"LEZ";"POSA";1961;1849,8;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"LIN";"noPOSA";0;239,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"MON";"noPOSA";1965,48;3094,6;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"TUR";"noPOSA";137,655;177,6;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"UCA";"POSA";153;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534935;"WIT";"noPOSA";1206,345;1750,4;NA;"Mendo";"Mendo";"Gure Kantabriko";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"ANK";"noPOSA";88,8;374;NA;"Rape negro";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"BRF";"noPOSA";323,5;323,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"BRF";"POSA";51;51,07;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"HKE";"noPOSA";950,475;1224,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"LEZ";"noPOSA";6709,27;6329,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"LEZ";"POSA";1940,86;1830,72;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"MON";"noPOSA";4727,4;3960;NA;"Rape blanco";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"TUR";"noPOSA";155,4;141,1;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534937;"WIT";"noPOSA";792,75;755;NA;"Mendo";"Mendo";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534939;"ANK";"noPOSA";1003,8;836,5;NA;"Rape negro";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534939;"LDB";"noPOSA";1378,848;1300,8;NA;"Gallo boscii";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
-534939;"MON";"noPOSA";3,6;3;NA;"Rape blanco";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_>=70_0_0";NA
+534935;"ANK";"noPOSA";400,8;971,5;NA;"Rape negro";"Rapes";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"BRF";"noPOSA";632,3;632,3;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"BRF";"POSA";60;59,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"GFB";"noPOSA";39,82;48,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"GFB";"POSA";NA;153,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";0
+534935;"HKE";"noPOSA";2039,251;1949,2;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"LDB";"noPOSA";NA;2318,5;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";0
+534935;"LEZ";"noPOSA";7897,848;7728,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"LEZ";"POSA";1961;1849,8;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"LIN";"noPOSA";0;239,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"MON";"noPOSA";1965,48;3094,6;NA;"Rape blanco";"Rapes";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"TUR";"noPOSA";137,655;177,6;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"UCA";"POSA";153;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534935;"WIT";"noPOSA";1206,345;1750,4;NA;"Mendo";"Mendo";"Gure Kantabriko";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"ANK";"noPOSA";88,8;374;NA;"Rape negro";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"BRF";"noPOSA";323,5;323,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"BRF";"POSA";51;51,07;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"HKE";"noPOSA";950,475;1224,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"LEZ";"noPOSA";6709,27;6329,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"LEZ";"POSA";1940,86;1830,72;NA;"Gallos - ollarra";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"MON";"noPOSA";4727,4;3960;NA;"Rape blanco";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"TUR";"noPOSA";155,4;141,1;NA;"Rodaballo";"Rodaballo";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534937;"WIT";"noPOSA";792,75;755;NA;"Mendo";"Mendo";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534939;"ANK";"noPOSA";1003,8;836,5;NA;"Rape negro";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534939;"LDB";"noPOSA";1378,848;1300,8;NA;"Gallo boscii";"Gallos";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
+534939;"MON";"noPOSA";3,6;3;NA;"Rape blanco";"Rapes";"Mar Mares";5;25;2020;"OTB_DEF_100-119_0_0";NA
 534974;"BIB";"noPOSA";NA;14;NA;"Faneca comun";"Fanecas";"Aketxe";5;26;2020;"PTB_MPD_>=55_0_0";0
 534974;"HKE";"noPOSA";259,6329;112;NA;"Merluza europea";"Merluza europea";"Aketxe";5;26;2020;"PTB_MPD_>=55_0_0";NA
 534974;"MAC";"noPOSA";105;228;NA;"Verdel - Caballa";"Verdel";"Aketxe";5;26;2020;"PTB_MPD_>=55_0_0";NA
@@ -8564,36 +8564,36 @@
 535110;"SYC";"noPOSA";97,5;75;NA;"Pintarroja";"Pintarroja";"Kaxarra";6;1;2020;"PTB_DEF_>=70_0_0";NA
 535110;"UCA";"noPOSA";0,75;0;NA;"Verrugato de fango";"Verrugato de fango";"Kaxarra";6;1;2020;"PTB_DEF_>=70_0_0";NA
 535110;"WEG";"noPOSA";183,25;159;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";6;1;2020;"PTB_DEF_>=70_0_0";NA
-535111;"ANK";"noPOSA";25,56;229,3;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"BRF";"noPOSA";1099,6;1099,6;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"GFB";"POSA";NA;161,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";0
-535111;"HKE";"noPOSA";1072,5766;1066,8;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"LDB";"noPOSA";NA;2035;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";0
-535111;"LEZ";"noPOSA";6510,944;6498,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"LEZ";"POSA";1937,68;1828,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"LIN";"POSA";NA;109,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";0
-535111;"MON";"noPOSA";73,2;854,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"MON";"POSA";1111,2;926;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"TUR";"noPOSA";NA;86,9;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";0
-535111;"UCA";"POSA";161;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535111;"WIT";"noPOSA";1160,985;1165,6;NA;"Mendo";"Mendo";"Gure Kantabriko";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"ANK";"noPOSA";73,8;620,5;NA;"Rape negro";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"BRF";"noPOSA";854,5;852,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"BRF";"POSA";196;195,86;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"COD";"noPOSA";205,37;256,5;NA;"Bacalao";"Bacalao";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"GFB";"noPOSA";411,4;362,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"HKE";"noPOSA";823,194;1016;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"LDB";"noPOSA";NA;1487,5;NA;"Gallo boscii";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";0
-535127;"LEZ";"noPOSA";7599,14;7160,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"LEZ";"POSA";1935,56;1825,52;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"LIN";"POSA";NA;112;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";0
-535127;"MON";"noPOSA";865,2;993;NA;"Rape blanco";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"MON";"POSA";2157,6;1797,89;NA;"Rape blanco";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"RJC";"noPOSA";242,5;177;NA;"Raya de clavos";"Rayas";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"TUR";"noPOSA";8,19;37,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
-535127;"WIT";"noPOSA";956,55;911;NA;"Mendo";"Mendo";"Mar Mares";6;1;2020;"OTB_DEF_>=70_0_0";NA
+535111;"ANK";"noPOSA";25,56;229,3;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"BRF";"noPOSA";1099,6;1099,6;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"GFB";"POSA";NA;161,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";0
+535111;"HKE";"noPOSA";1072,5766;1066,8;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"LDB";"noPOSA";NA;2035;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";0
+535111;"LEZ";"noPOSA";6510,944;6498,4;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"LEZ";"POSA";1937,68;1828,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"LIN";"POSA";NA;109,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";0
+535111;"MON";"noPOSA";73,2;854,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"MON";"POSA";1111,2;926;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"TUR";"noPOSA";NA;86,9;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";0
+535111;"UCA";"POSA";161;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535111;"WIT";"noPOSA";1160,985;1165,6;NA;"Mendo";"Mendo";"Gure Kantabriko";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"ANK";"noPOSA";73,8;620,5;NA;"Rape negro";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"BRF";"noPOSA";854,5;852,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"BRF";"POSA";196;195,86;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"COD";"noPOSA";205,37;256,5;NA;"Bacalao";"Bacalao";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"GFB";"noPOSA";411,4;362,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"HKE";"noPOSA";823,194;1016;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"LDB";"noPOSA";NA;1487,5;NA;"Gallo boscii";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";0
+535127;"LEZ";"noPOSA";7599,14;7160,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"LEZ";"POSA";1935,56;1825,52;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"LIN";"POSA";NA;112;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";0
+535127;"MON";"noPOSA";865,2;993;NA;"Rape blanco";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"MON";"POSA";2157,6;1797,89;NA;"Rape blanco";"Rapes";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"RJC";"noPOSA";242,5;177;NA;"Raya de clavos";"Rayas";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"TUR";"noPOSA";8,19;37,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
+535127;"WIT";"noPOSA";956,55;911;NA;"Mendo";"Mendo";"Mar Mares";6;1;2020;"OTB_DEF_100-119_0_0";NA
 535141;"ANK";"noPOSA";44,76;0;NA;"Rape negro";"Rapes";"Aketxe";6;1;2020;"PTB_MPD_>=55_0_0";NA
 535141;"ARY";"noPOSA";13,5;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;1;2020;"PTB_MPD_>=55_0_0";NA
 535141;"EOI";"noPOSA";1,25;0;NA;"Pulpo blanco";"Pulpos";"Aketxe";6;1;2020;"PTB_MPD_>=55_0_0";NA
@@ -8892,35 +8892,35 @@
 535302;"SOL";"noPOSA";NA;99;NA;"Lenguado";"Lenguado";"Antiuko Ama";6;8;2020;"OTB_DEF_>=70_0_0";0
 535302;"SYC";"noPOSA";1764;1836;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";6;8;2020;"OTB_DEF_>=70_0_0";NA
 535302;"WEG";"noPOSA";293,5;303;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Antiuko Ama";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"ANK";"noPOSA";824,4;687;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"BRF";"noPOSA";1693,7;1693,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"GFB";"noPOSA";312,95;284,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"GFB";"POSA";NA;91,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";0
-535313;"HKE";"noPOSA";2287,752;2094,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"LDB";"noPOSA";NA;1578;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";0
-535313;"LEZ";"noPOSA";10027,918;9814,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"LEZ";"POSA";589,36;555,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"LIN";"POSA";NA;191,5;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";0
-535313;"MON";"noPOSA";2620,08;2184,4;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"POK";"noPOSA";10,45;9,5;NA;"Carbonero - fogonero";"Carbonero - fogonero";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"TUR";"noPOSA";NA;46,1;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";0
-535313;"UCA";"POSA";92;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535313;"WIT";"noPOSA";2130,555;2074,7;NA;"Mendo";"Mendo";"Gure Kantabriko";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"ANK";"noPOSA";10,2;732;10,269241137;"Rape negro";"Rapes";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"BRF";"noPOSA";1960,5;1960,5;1970,5;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"BRF";"POSA";158;158,09;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"GFB";"noPOSA";282,7;257;282,15;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"HKE";"noPOSA";897,579;1034;901,57604629;"Merluza europea";"Merluza europea";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"LDB";"noPOSA";NA;2089;190,318806243;"Gallo boscii";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";0
-535314;"LEZ";"noPOSA";NA;7537;8051,7111938;"Gallos - ollarra";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";0
-535314;"LEZ";"POSA";621,16;585,56;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"MEG";"noPOSA";7988,69;0;NA;"Gallo whiffiagonis";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"MON";"noPOSA";1634,4;2115;1634,4;"Rape blanco";"Rapes";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"NEP";"noPOSA";8,5;0;NA;"Cigala";"Cigala";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"TUR";"noPOSA";39,165;67,5;39,165;"Rodaballo";"Rodaballo";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535314;"WIT";"noPOSA";1300,425;1158,5;1300,425;"Mendo";"Mendo";"Mar Mares";6;8;2020;"OTB_DEF_>=70_0_0";NA
+535313;"ANK";"noPOSA";824,4;687;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"BRF";"noPOSA";1693,7;1693,7;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"GFB";"noPOSA";312,95;284,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"GFB";"POSA";NA;91,9;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";0
+535313;"HKE";"noPOSA";2287,752;2094,9;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"LDB";"noPOSA";NA;1578;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";0
+535313;"LEZ";"noPOSA";10027,918;9814,2;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"LEZ";"POSA";589,36;555,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"LIN";"POSA";NA;191,5;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";0
+535313;"MON";"noPOSA";2620,08;2184,4;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"POK";"noPOSA";10,45;9,5;NA;"Carbonero - fogonero";"Carbonero - fogonero";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"TUR";"noPOSA";NA;46,1;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";0
+535313;"UCA";"POSA";92;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535313;"WIT";"noPOSA";2130,555;2074,7;NA;"Mendo";"Mendo";"Gure Kantabriko";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"ANK";"noPOSA";10,2;732;10,269241137;"Rape negro";"Rapes";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"BRF";"noPOSA";1960,5;1960,5;1970,5;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"BRF";"POSA";158;158,09;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"GFB";"noPOSA";282,7;257;282,15;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"HKE";"noPOSA";897,579;1034;901,57604629;"Merluza europea";"Merluza europea";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"LDB";"noPOSA";NA;2089;190,318806243;"Gallo boscii";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";0
+535314;"LEZ";"noPOSA";NA;7537;8051,7111938;"Gallos - ollarra";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";0
+535314;"LEZ";"POSA";621,16;585,56;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"MEG";"noPOSA";7988,69;0;NA;"Gallo whiffiagonis";"Gallos";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"MON";"noPOSA";1634,4;2115;1634,4;"Rape blanco";"Rapes";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"NEP";"noPOSA";8,5;0;NA;"Cigala";"Cigala";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"TUR";"noPOSA";39,165;67,5;39,165;"Rodaballo";"Rodaballo";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535314;"WIT";"noPOSA";1300,425;1158,5;1300,425;"Mendo";"Mendo";"Mar Mares";6;8;2020;"OTB_DEF_100-119_0_0";NA
 535322;"ARY";"noPOSA";3;0;NA;"Peon - pez plata";"Peon";"Andrekala Berria";6;8;2020;"PTB_MPD_>=55_0_0";NA
 535322;"EOI";"noPOSA";6;0;NA;"Pulpo blanco";"Pulpos";"Andrekala Berria";6;8;2020;"PTB_MPD_>=55_0_0";NA
 535322;"GAD";"noPOSA";13,97;0;NA;"Fanecas spp";"Fanecas";"Andrekala Berria";6;8;2020;"PTB_MPD_>=55_0_0";NA
@@ -9107,19 +9107,19 @@
 535350;"OMZ";"noPOSA";NA;19;NA;"Potas Ommastrephidae nep";"Potas";"Gaztelugatxe";6;8;2020;"PTB_MPD_>=55_0_0";0
 535350;"SYC";"noPOSA";NA;94;NA;"Pintarroja";"Pintarroja";"Gaztelugatxe";6;8;2020;"PTB_MPD_>=55_0_0";0
 535350;"WHB";"noPOSA";2139;3366;NA;"Lirio - Bacaladilla";"Lirio";"Gaztelugatxe";6;8;2020;"PTB_MPD_>=55_0_0";NA
-535352;"ANK";"noPOSA";5046;3595,4;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"ANK";"POSA";NA;738,6;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";0
-535352;"EOI";"noPOSA";160,8;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"GFB";"noPOSA";622,38;565,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"HKE";"noPOSA";2142,288;2025,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"LEZ";"noPOSA";1886,482;1774,7;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"MNZ";"noPOSA";19,56;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"MON";"noPOSA";3214,596;2446,9;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"MON";"POSA";NA;331,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";0
-535352;"OCC";"noPOSA";NA;160,8;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";0
-535352;"OMM";"noPOSA";493,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
-535352;"OMZ";"noPOSA";NA;493,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";0
-535352;"WIT";"noPOSA";96,075;91,5;NA;"Mendo";"Mendo";"Gure Gaskuña";6;8;2020;"OTB_DEF_>=70_0_0";NA
+535352;"ANK";"noPOSA";5046;3595,4;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"ANK";"POSA";NA;738,6;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";0
+535352;"EOI";"noPOSA";160,8;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"GFB";"noPOSA";622,38;565,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"HKE";"noPOSA";2142,288;2025,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"LEZ";"noPOSA";1886,482;1774,7;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"MNZ";"noPOSA";19,56;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"MON";"noPOSA";3214,596;2446,9;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"MON";"POSA";NA;331,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";0
+535352;"OCC";"noPOSA";NA;160,8;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";0
+535352;"OMM";"noPOSA";493,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
+535352;"OMZ";"noPOSA";NA;493,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";0
+535352;"WIT";"noPOSA";96,075;91,5;NA;"Mendo";"Mendo";"Gure Gaskuña";6;8;2020;"OTB_DEF_100-119_0_0";NA
 535363;"ANK";"noPOSA";28,2;0;NA;"Rape negro";"Rapes";"Aketxe";6;9;2020;"PTB_MPD_>=55_0_0";NA
 535363;"ARY";"noPOSA";7,65;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;9;2020;"PTB_MPD_>=55_0_0";NA
 535363;"ATP";"noPOSA";NA;19;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";6;9;2020;"PTB_MPD_>=55_0_0";0
@@ -9361,24 +9361,24 @@
 535458;"RJC";"noPOSA";4,25;0;NA;"Raya de clavos";"Rayas";"Kaxarra";6;15;2020;"PTB_DEF_>=70_0_0";NA
 535458;"SYC";"noPOSA";41,25;40;NA;"Pintarroja";"Pintarroja";"Kaxarra";6;15;2020;"PTB_DEF_>=70_0_0";NA
 535458;"WEG";"noPOSA";5,25;64;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";6;15;2020;"PTB_DEF_>=70_0_0";NA
-535467;"ANK";"noPOSA";400,2;1260;NA;"Rape negro";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"BLI";"noPOSA";NA;2759;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";0
-535467;"BRF";"noPOSA";960;952;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"BRF";"POSA";189;189,71;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"COD";"noPOSA";110,55;286;NA;"Bacalao";"Bacalao";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"GFB";"noPOSA";521,4;513;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"HKE";"noPOSA";751,564;1062,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"LDB";"noPOSA";NA;1057;NA;"Gallo boscii";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";0
-535467;"LEZ";"noPOSA";5071,57;4949,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"LEZ";"POSA";1614,38;1522,63;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"MON";"noPOSA";3322,8;3896,5;NA;"Rape blanco";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"MON";"POSA";285,6;238;NA;"Rape blanco";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"NEP";"noPOSA";18;0;NA;"Cigala";"Cigala";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"OMM";"noPOSA";96,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"OMZ";"noPOSA";NA;91;NA;"Potas Ommastrephidae nep";"Potas";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";0
-535467;"TUR";"noPOSA";70,56;114,6;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535467;"WIT";"noPOSA";505,575;481,5;NA;"Mendo";"Mendo";"Mar Mares";6;15;2020;"OTB_DEF_>=70_0_0";NA
+535467;"ANK";"noPOSA";400,2;1260;NA;"Rape negro";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"BLI";"noPOSA";NA;2759;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";0
+535467;"BRF";"noPOSA";960;952;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"BRF";"POSA";189;189,71;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"COD";"noPOSA";110,55;286;NA;"Bacalao";"Bacalao";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"GFB";"noPOSA";521,4;513;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"HKE";"noPOSA";751,564;1062,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"LDB";"noPOSA";NA;1057;NA;"Gallo boscii";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";0
+535467;"LEZ";"noPOSA";5071,57;4949,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"LEZ";"POSA";1614,38;1522,63;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"MON";"noPOSA";3322,8;3896,5;NA;"Rape blanco";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"MON";"POSA";285,6;238;NA;"Rape blanco";"Rapes";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"NEP";"noPOSA";18;0;NA;"Cigala";"Cigala";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"OMM";"noPOSA";96,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"OMZ";"noPOSA";NA;91;NA;"Potas Ommastrephidae nep";"Potas";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";0
+535467;"TUR";"noPOSA";70,56;114,6;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535467;"WIT";"noPOSA";505,575;481,5;NA;"Mendo";"Mendo";"Mar Mares";6;15;2020;"OTB_DEF_100-119_0_0";NA
 535477;"ANK";"noPOSA";41,52;20;NA;"Rape negro";"Rapes";"Aketxe";6;15;2020;"PTB_MPD_>=55_0_0";NA
 535477;"ARY";"noPOSA";19,25;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;15;2020;"PTB_MPD_>=55_0_0";NA
 535477;"ATP";"noPOSA";NA;44;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";6;15;2020;"PTB_MPD_>=55_0_0";0
@@ -9492,37 +9492,37 @@
 535487;"RJN";"noPOSA";286,5;307;NA;"Raya santiaguesa";"Rayas";"Eguzki Lore";6;15;2020;"OTB_DEF_>=70_0_0";NA
 535487;"SOL";"noPOSA";NA;35;NA;"Lenguado";"Lenguado";"Eguzki Lore";6;15;2020;"OTB_DEF_>=70_0_0";0
 535487;"SYC";"noPOSA";312;455;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"ANK";"noPOSA";1144,2;982,3;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"BRF";"noPOSA";206,4;206,4;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"BRF";"POSA";188;188,2;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"GFB";"noPOSA";1086,25;987,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"GFB";"POSA";NA;103,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";0
-535489;"HKE";"noPOSA";1194,7884;1198,1;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"LEZ";"noPOSA";5930,064;6053,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"LEZ";"POSA";2022,48;1907,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"LIN";"noPOSA";0;174,6;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"LIN";"POSA";NA;268,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";0
-535489;"MON";"noPOSA";3982,92;3319,1;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"MON";"POSA";330;274,7;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"TUR";"noPOSA";NA;63,5;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";0
-535489;"UCA";"POSA";103;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535489;"WIT";"noPOSA";716,625;682,5;NA;"Mendo";"Mendo";"Gure Kantabriko";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"ANK";"noPOSA";4354,32;3461;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"ANK";"POSA";NA;230;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"COE";"noPOSA";67,21;61,1;NA;"Congrio";"Congrio";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"EOI";"noPOSA";152,3;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"GFB";"noPOSA";387,64;352,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"GUG";"noPOSA";NA;19;NA;"Perlon";"Triglidos";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"GUX";"noPOSA";19;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"HKE";"noPOSA";2318,608;2201,5;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"LEZ";"noPOSA";1772,214;1671,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"MON";"noPOSA";2688,96;2032,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"MON";"POSA";NA;318,5;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"OCC";"noPOSA";NA;152,3;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"OMM";"noPOSA";475,1;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
-535490;"OMZ";"noPOSA";NA;475,1;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"TUR";"noPOSA";NA;44,9;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";0
-535490;"WIT";"noPOSA";85,365;81,3;NA;"Mendo";"Mendo";"Gure Gaskuña";6;15;2020;"OTB_DEF_>=70_0_0";NA
+535489;"ANK";"noPOSA";1144,2;982,3;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"BRF";"noPOSA";206,4;206,4;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"BRF";"POSA";188;188,2;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"GFB";"noPOSA";1086,25;987,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"GFB";"POSA";NA;103,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";0
+535489;"HKE";"noPOSA";1194,7884;1198,1;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"LEZ";"noPOSA";5930,064;6053,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"LEZ";"POSA";2022,48;1907,7;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"LIN";"noPOSA";0;174,6;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"LIN";"POSA";NA;268,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";0
+535489;"MON";"noPOSA";3982,92;3319,1;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"MON";"POSA";330;274,7;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"TUR";"noPOSA";NA;63,5;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";0
+535489;"UCA";"POSA";103;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535489;"WIT";"noPOSA";716,625;682,5;NA;"Mendo";"Mendo";"Gure Kantabriko";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"ANK";"noPOSA";4354,32;3461;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"ANK";"POSA";NA;230;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"COE";"noPOSA";67,21;61,1;NA;"Congrio";"Congrio";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"EOI";"noPOSA";152,3;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"GFB";"noPOSA";387,64;352,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"GUG";"noPOSA";NA;19;NA;"Perlon";"Triglidos";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"GUX";"noPOSA";19;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"HKE";"noPOSA";2318,608;2201,5;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"LEZ";"noPOSA";1772,214;1671,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"MON";"noPOSA";2688,96;2032,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"MON";"POSA";NA;318,5;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"OCC";"noPOSA";NA;152,3;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"OMM";"noPOSA";475,1;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
+535490;"OMZ";"noPOSA";NA;475,1;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"TUR";"noPOSA";NA;44,9;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";0
+535490;"WIT";"noPOSA";85,365;81,3;NA;"Mendo";"Mendo";"Gure Gaskuña";6;15;2020;"OTB_DEF_100-119_0_0";NA
 535499;"ATP";"noPOSA";NA;7;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";6;16;2020;"PTB_MPD_>=55_0_0";0
 535499;"HKE";"noPOSA";976,0987;468;NA;"Merluza europea";"Merluza europea";"Aketxe";6;16;2020;"PTB_MPD_>=55_0_0";NA
 535499;"HKE";"POSA";NA;102;NA;"Merluza europea";"Merluza europea";"Aketxe";6;16;2020;"PTB_MPD_>=55_0_0";0
@@ -9765,36 +9765,36 @@
 535626;"POL";"noPOSA";0,495;0;NA;"Abadejo";"Abadejo";"Kaxarra";6;22;2020;"PTB_DEF_>=70_0_0";NA
 535626;"SYC";"noPOSA";30,25;48;NA;"Pintarroja";"Pintarroja";"Kaxarra";6;22;2020;"PTB_DEF_>=70_0_0";NA
 535626;"WEG";"noPOSA";10;57;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";6;22;2020;"PTB_DEF_>=70_0_0";NA
-535631;"ANK";"noPOSA";829,8;2677;NA;"Rape negro";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"ANK";"POSA";NA;257,5;NA;"Rape negro";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";0
-535631;"BRF";"noPOSA";81;90,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"COD";"noPOSA";281,05;388;NA;"Bacalao";"Bacalao";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"GFB";"noPOSA";152,9;159,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"HKE";"noPOSA";873,335;915;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"LDB";"noPOSA";NA;1803;NA;"Gallo boscii";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";0
-535631;"LEZ";"noPOSA";7958,48;7561;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"LEZ";"POSA";1349,38;1273,22;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"MON";"noPOSA";2024,4;2687;NA;"Rape blanco";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"MON";"POSA";370,8;778,27;NA;"Rape blanco";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535631;"TUR";"noPOSA";NA;394,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";0
-535631;"WIT";"noPOSA";385,35;361;NA;"Mendo";"Mendo";"Mar Mares";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"ANK";"noPOSA";698,76;582,3;699,63695728;"Rape negro";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"BRF";"noPOSA";347,5;347,5;347,5;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"BRF";"POSA";298;298;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"GFB";"noPOSA";1117,38;1015,8;1093,07;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"GFB";"POSA";NA;83,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";0
-535642;"HKE";"noPOSA";1636,9108;1465,8;1639,94166624;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"LDB";"noPOSA";NA;1495;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";0
-535642;"LEZ";"noPOSA";NA;4274,2;4399,848;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";0
-535642;"LEZ";"POSA";1404,5;1325,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"LIN";"noPOSA";0;56,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"MEG";"noPOSA";4399,848;0;NA;"Gallo whiffiagonis";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"MON";"noPOSA";7055,28;4445,1;7056,96127909;"Rape blanco";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"MON";"POSA";434,4;1796;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"TUR";"noPOSA";NA;75,1;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";0
-535642;"UCA";"POSA";83;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535642;"WIT";"noPOSA";781,515;744,3;781,515;"Mendo";"Mendo";"Gure Kantabriko";6;22;2020;"OTB_DEF_>=70_0_0";NA
+535631;"ANK";"noPOSA";829,8;2677;NA;"Rape negro";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"ANK";"POSA";NA;257,5;NA;"Rape negro";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";0
+535631;"BRF";"noPOSA";81;90,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"COD";"noPOSA";281,05;388;NA;"Bacalao";"Bacalao";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"GFB";"noPOSA";152,9;159,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"HKE";"noPOSA";873,335;915;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"LDB";"noPOSA";NA;1803;NA;"Gallo boscii";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";0
+535631;"LEZ";"noPOSA";7958,48;7561;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"LEZ";"POSA";1349,38;1273,22;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"LIN";"noPOSA";0;0;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"MON";"noPOSA";2024,4;2687;NA;"Rape blanco";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"MON";"POSA";370,8;778,27;NA;"Rape blanco";"Rapes";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535631;"TUR";"noPOSA";NA;394,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";0
+535631;"WIT";"noPOSA";385,35;361;NA;"Mendo";"Mendo";"Mar Mares";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"ANK";"noPOSA";698,76;582,3;699,63695728;"Rape negro";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"BRF";"noPOSA";347,5;347,5;347,5;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"BRF";"POSA";298;298;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"GFB";"noPOSA";1117,38;1015,8;1093,07;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"GFB";"POSA";NA;83,1;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";0
+535642;"HKE";"noPOSA";1636,9108;1465,8;1639,94166624;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"LDB";"noPOSA";NA;1495;NA;"Gallo boscii";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";0
+535642;"LEZ";"noPOSA";NA;4274,2;4399,848;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";0
+535642;"LEZ";"POSA";1404,5;1325,3;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"LIN";"noPOSA";0;56,4;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"MEG";"noPOSA";4399,848;0;NA;"Gallo whiffiagonis";"Gallos";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"MON";"noPOSA";7055,28;4445,1;7056,96127909;"Rape blanco";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"MON";"POSA";434,4;1796;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"TUR";"noPOSA";NA;75,1;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";0
+535642;"UCA";"POSA";83;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535642;"WIT";"noPOSA";781,515;744,3;781,515;"Mendo";"Mendo";"Gure Kantabriko";6;22;2020;"OTB_DEF_100-119_0_0";NA
 535651;"ANK";"noPOSA";82,74;64;NA;"Rape negro";"Rapes";"Aketxe";6;22;2020;"PTB_MPD_>=55_0_0";NA
 535651;"ARY";"noPOSA";18;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;22;2020;"PTB_MPD_>=55_0_0";NA
 535651;"ATP";"noPOSA";NA;20;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Aketxe";6;22;2020;"PTB_MPD_>=55_0_0";0
@@ -9882,18 +9882,18 @@
 535654;"SOL";"noPOSA";NA;35;NA;"Lenguado";"Lenguado";"Eguzki Lore";6;22;2020;"OTB_DEF_>=70_0_0";0
 535654;"SYC";"noPOSA";516;663;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";6;22;2020;"OTB_DEF_>=70_0_0";NA
 535654;"WHB";"noPOSA";11;42;NA;"Lirio - Bacaladilla";"Lirio";"Eguzki Lore";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"ANK";"noPOSA";4400,76;3919;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"COE";"noPOSA";39,71;36,1;NA;"Congrio";"Congrio";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"EOI";"noPOSA";117,4;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"GFB";"noPOSA";129,58;117,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"HKE";"noPOSA";1305,5394;1269,2;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"LEZ";"noPOSA";2136,006;2015,1;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"MON";"noPOSA";2251,32;1953,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"OCC";"noPOSA";NA;117,4;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";0
-535702;"OMM";"noPOSA";578,7;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
-535702;"OMZ";"noPOSA";NA;578,7;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";0
-535702;"TUR";"noPOSA";NA;80,7;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";0
-535702;"WIT";"noPOSA";84,105;80,1;NA;"Mendo";"Mendo";"Gure Gaskuña";6;22;2020;"OTB_DEF_>=70_0_0";NA
+535702;"ANK";"noPOSA";4400,76;3919;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"COE";"noPOSA";39,71;36,1;NA;"Congrio";"Congrio";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"EOI";"noPOSA";117,4;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"GFB";"noPOSA";129,58;117,8;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"HKE";"noPOSA";1305,5394;1269,2;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"LEZ";"noPOSA";2136,006;2015,1;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"MON";"noPOSA";2251,32;1953,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"OCC";"noPOSA";NA;117,4;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";0
+535702;"OMM";"noPOSA";578,7;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
+535702;"OMZ";"noPOSA";NA;578,7;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";0
+535702;"TUR";"noPOSA";NA;80,7;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";0
+535702;"WIT";"noPOSA";84,105;80,1;NA;"Mendo";"Mendo";"Gure Gaskuña";6;22;2020;"OTB_DEF_100-119_0_0";NA
 535712;"ANK";"noPOSA";9,24;20,1;NA;"Rape negro";"Rapes";"Aketxe";6;23;2020;"PTB_MPD_>=55_0_0";NA
 535712;"ARY";"noPOSA";5,4;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;23;2020;"PTB_MPD_>=55_0_0";NA
 535712;"BXD";"noPOSA";2,2;0;NA;"Palometa roja (Beryx decadactylus)";"Palometa roja (Beryx decadactylus)";"Aketxe";6;23;2020;"PTB_MPD_>=55_0_0";NA
@@ -10143,47 +10143,47 @@
 535854;"SYC";"noPOSA";538,2;611;538,2;"Pintarroja";"Pintarroja";"Eguzki Lore";6;29;2020;"OTB_DEF_>=70_0_0";NA
 535854;"SYC";"POSA";312;351;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";6;29;2020;"OTB_DEF_>=70_0_0";NA
 535854;"WHB";"noPOSA";388,8;428;388,8;"Lirio - Bacaladilla";"Lirio";"Eguzki Lore";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"ANK";"noPOSA";279,96;0;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"BRF";"noPOSA";291,1;253,1;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"GFB";"noPOSA";1064,14;967,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"GFB";"POSA";NA;102;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";0
-535855;"HKE";"noPOSA";696,1334;814,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"LEZ";"noPOSA";858,706;1097,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"LEZ";"POSA";1810,48;1707,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"LIN";"noPOSA";0;107,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"MON";"noPOSA";3456,6;2849,6;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"MON";"POSA";1692;1410,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"POK";"noPOSA";16,06;10;NA;"Carbonero - fogonero";"Carbonero - fogonero";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"TUR";"noPOSA";NA;91,8;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";0
-535855;"UCA";"POSA";102;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535855;"WIT";"noPOSA";569,94;542,8;NA;"Mendo";"Mendo";"Gure Kantabriko";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"ANK";"noPOSA";4736,76;2930,1;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"ANK";"POSA";NA;779,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";0
-535856;"COE";"noPOSA";48,62;44,2;NA;"Congrio";"Congrio";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"EOI";"noPOSA";76,7;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"GFB";"noPOSA";136,95;124,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"HKE";"noPOSA";1515,1398;1351,4;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"LEZ";"noPOSA";1722,818;1625,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"MON";"noPOSA";1662,12;1081,8;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"MON";"POSA";NA;897,7;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";0
-535856;"OCC";"noPOSA";NA;76,7;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";0
-535856;"OMM";"noPOSA";403,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535856;"OMZ";"noPOSA";NA;403,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";0
-535856;"TUR";"noPOSA";NA;92,4;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";0
-535856;"WIT";"noPOSA";57,645;54,9;NA;"Mendo";"Mendo";"Gure Gaskuña";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"ANK";"noPOSA";58,8;483;NA;"Rape negro";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"BLI";"noPOSA";NA;3398,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";0
-535857;"BRF";"noPOSA";1972,5;1938;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"BRF";"POSA";158;157,55;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"GFB";"noPOSA";2011,05;1898;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"HKE";"noPOSA";276,051;415,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"LEZ";"noPOSA";938,63;1055,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"LEZ";"POSA";488,66;461;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"MON";"noPOSA";10656,6;8361,5;NA;"Rape blanco";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"MON";"POSA";1521,6;1758,28;NA;"Rape blanco";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"OMM";"noPOSA";110,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
-535857;"OMZ";"noPOSA";NA;111;NA;"Potas Ommastrephidae nep";"Potas";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";0
-535857;"WIT";"noPOSA";122,85;137,5;NA;"Mendo";"Mendo";"Mar Mares";6;29;2020;"OTB_DEF_>=70_0_0";NA
+535855;"ANK";"noPOSA";279,96;0;NA;"Rape negro";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"BRF";"noPOSA";291,1;253,1;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"GFB";"noPOSA";1064,14;967,4;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"GFB";"POSA";NA;102;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";0
+535855;"HKE";"noPOSA";696,1334;814,7;NA;"Merluza europea";"Merluza europea";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"LEZ";"noPOSA";858,706;1097,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"LEZ";"POSA";1810,48;1707,9;NA;"Gallos - ollarra";"Gallos";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"LIN";"noPOSA";0;107,8;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"MON";"noPOSA";3456,6;2849,6;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"MON";"POSA";1692;1410,3;NA;"Rape blanco";"Rapes";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"POK";"noPOSA";16,06;10;NA;"Carbonero - fogonero";"Carbonero - fogonero";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"TUR";"noPOSA";NA;91,8;NA;"Rodaballo";"Rodaballo";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";0
+535855;"UCA";"POSA";102;0;NA;"Verrugato de fango";"Verrugato de fango";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535855;"WIT";"noPOSA";569,94;542,8;NA;"Mendo";"Mendo";"Gure Kantabriko";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"ANK";"noPOSA";4736,76;2930,1;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"ANK";"POSA";NA;779,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";0
+535856;"COE";"noPOSA";48,62;44,2;NA;"Congrio";"Congrio";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"EOI";"noPOSA";76,7;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"GFB";"noPOSA";136,95;124,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"HKE";"noPOSA";1515,1398;1351,4;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"LEZ";"noPOSA";1722,818;1625,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"MON";"noPOSA";1662,12;1081,8;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"MON";"POSA";NA;897,7;NA;"Rape blanco";"Rapes";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";0
+535856;"OCC";"noPOSA";NA;76,7;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";0
+535856;"OMM";"noPOSA";403,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535856;"OMZ";"noPOSA";NA;403,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";0
+535856;"TUR";"noPOSA";NA;92,4;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";0
+535856;"WIT";"noPOSA";57,645;54,9;NA;"Mendo";"Mendo";"Gure Gaskuña";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"ANK";"noPOSA";58,8;483;NA;"Rape negro";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"BLI";"noPOSA";NA;3398,5;NA;"Maruca azul - Palo (Molva dypterygia)";"Maruca azul - Palo (Molva dypterygia)";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";0
+535857;"BRF";"noPOSA";1972,5;1938;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"BRF";"POSA";158;157,55;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"GFB";"noPOSA";2011,05;1898;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"HKE";"noPOSA";276,051;415,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"LEZ";"noPOSA";938,63;1055,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"LEZ";"POSA";488,66;461;NA;"Gallos - ollarra";"Gallos";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"MON";"noPOSA";10656,6;8361,5;NA;"Rape blanco";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"MON";"POSA";1521,6;1758,28;NA;"Rape blanco";"Rapes";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"OMM";"noPOSA";110,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
+535857;"OMZ";"noPOSA";NA;111;NA;"Potas Ommastrephidae nep";"Potas";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";0
+535857;"WIT";"noPOSA";122,85;137,5;NA;"Mendo";"Mendo";"Mar Mares";6;29;2020;"OTB_DEF_100-119_0_0";NA
 535930;"ANK";"noPOSA";4,98;0;NA;"Rape negro";"Rapes";"Aketxe";6;30;2020;"PTB_MPD_>=55_0_0";NA
 535930;"ARY";"noPOSA";2;0;NA;"Peon - pez plata";"Peon";"Aketxe";6;30;2020;"PTB_MPD_>=55_0_0";NA
 535930;"GFB";"noPOSA";7,865;13;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Aketxe";6;30;2020;"PTB_MPD_>=55_0_0";NA
@@ -10324,31 +10324,31 @@
 536057;"OMM";"noPOSA";47,25;0;NA;"Potas voladoras nep (N1V)";"Potas";"Kaxarra";7;6;2020;"PTB_DEF_>=70_0_0";NA
 536057;"OMZ";"noPOSA";NA;97;NA;"Potas Ommastrephidae nep";"Potas";"Kaxarra";7;6;2020;"PTB_DEF_>=70_0_0";0
 536057;"SYC";"noPOSA";17,5;31;NA;"Pintarroja";"Pintarroja";"Kaxarra";7;6;2020;"PTB_DEF_>=70_0_0";NA
-536100;"ANK";"noPOSA";602,4;524,5;NA;"Rape negro";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"BRF";"noPOSA";144,5;286,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"BRF";"POSA";NA;783,84;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";0
-536100;"COD";"noPOSA";243,65;369,5;NA;"Bacalao";"Bacalao";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"GFB";"noPOSA";1474;1340;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"GFB";"POSA";NA;176,77;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";0
-536100;"HKE";"noPOSA";644,67;1396;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"LEZ";"noPOSA";1544,95;2109;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"LEZ";"POSA";NA;1370;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";0
-536100;"MON";"noPOSA";7773;6552;NA;"Rape blanco";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536100;"MON";"POSA";NA;1270,45;NA;"Rape blanco";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";0
-536100;"TUR";"noPOSA";NA;68,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";0
-536100;"WIT";"noPOSA";180,6;169,5;NA;"Mendo";"Mendo";"Mar Mares";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"ANK";"noPOSA";3510,96;3033,2;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"COE";"noPOSA";56,98;51,8;NA;"Congrio";"Congrio";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"EOI";"noPOSA";46;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"GFB";"noPOSA";103,62;94,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"HKE";"noPOSA";1082,715;998,1;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"LEZ";"noPOSA";1616,818;1538,2;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"MON";"noPOSA";2274,84;2081,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"OCC";"noPOSA";NA;46;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";0
-536146;"OMM";"noPOSA";270,3;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
-536146;"OMZ";"noPOSA";NA;270,3;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";0
-536146;"TUR";"noPOSA";NA;95,3;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";0
-536146;"WIT";"noPOSA";79,38;63,6;NA;"Mendo";"Mendo";"Gure Gaskuña";7;6;2020;"OTB_DEF_>=70_0_0";NA
+536100;"ANK";"noPOSA";602,4;524,5;NA;"Rape negro";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"BRF";"noPOSA";144,5;286,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"BRF";"POSA";NA;783,84;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";0
+536100;"COD";"noPOSA";243,65;369,5;NA;"Bacalao";"Bacalao";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"GFB";"noPOSA";1474;1340;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"GFB";"POSA";NA;176,77;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";0
+536100;"HKE";"noPOSA";644,67;1396;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"LEZ";"noPOSA";1544,95;2109;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"LEZ";"POSA";NA;1370;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";0
+536100;"MON";"noPOSA";7773;6552;NA;"Rape blanco";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536100;"MON";"POSA";NA;1270,45;NA;"Rape blanco";"Rapes";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";0
+536100;"TUR";"noPOSA";NA;68,5;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";0
+536100;"WIT";"noPOSA";180,6;169,5;NA;"Mendo";"Mendo";"Mar Mares";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"ANK";"noPOSA";3510,96;3033,2;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"COE";"noPOSA";56,98;51,8;NA;"Congrio";"Congrio";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"EOI";"noPOSA";46;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"GFB";"noPOSA";103,62;94,2;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"HKE";"noPOSA";1082,715;998,1;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"LEZ";"noPOSA";1616,818;1538,2;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"MON";"noPOSA";2274,84;2081,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"OCC";"noPOSA";NA;46;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";0
+536146;"OMM";"noPOSA";270,3;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
+536146;"OMZ";"noPOSA";NA;270,3;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";0
+536146;"TUR";"noPOSA";NA;95,3;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";0
+536146;"WIT";"noPOSA";79,38;63,6;NA;"Mendo";"Mendo";"Gure Gaskuña";7;6;2020;"OTB_DEF_100-119_0_0";NA
 536186;"ANK";"noPOSA";25,14;27;NA;"Rape negro";"Rapes";"Kaxu";7;9;2020;"PTB_DEF_>=70_0_0";NA
 536186;"BIB";"noPOSA";4,675;84;NA;"Faneca comun";"Fanecas";"Kaxu";7;9;2020;"PTB_DEF_>=70_0_0";NA
 536186;"COE";"noPOSA";4,95;0;NA;"Congrio";"Congrio";"Kaxu";7;9;2020;"PTB_DEF_>=70_0_0";NA
@@ -10406,41 +10406,41 @@
 536256;"OMM";"noPOSA";16,5;0;NA;"Potas voladoras nep (N1V)";"Potas";"Kaxarra";7;13;2020;"PTB_DEF_>=70_0_0";NA
 536256;"OMZ";"noPOSA";NA;42;NA;"Potas Ommastrephidae nep";"Potas";"Kaxarra";7;13;2020;"PTB_DEF_>=70_0_0";0
 536256;"SYC";"noPOSA";26,5;38;NA;"Pintarroja";"Pintarroja";"Kaxarra";7;13;2020;"PTB_DEF_>=70_0_0";NA
-536258;"ANK";"noPOSA";4797,84;3616,3;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"ANK";"POSA";NA;381,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"COE";"noPOSA";65,45;59,5;NA;"Congrio";"Congrio";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"EOI";"noPOSA";81,8;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"GFB";"noPOSA";92,4;84;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"GUG";"noPOSA";NA;190,3;NA;"Perlon";"Triglidos";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"GUX";"noPOSA";190,3;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"HKE";"noPOSA";825,949;824,6;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"LEZ";"noPOSA";1440,964;1359,4;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"LIN";"noPOSA";13,53;12,3;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"MNZ";"noPOSA";69,12;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"MON";"noPOSA";1821,24;1381,1;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"MON";"POSA";NA;341,9;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"OCC";"noPOSA";NA;81,8;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"OMM";"noPOSA";182,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536258;"OMZ";"noPOSA";NA;182,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"TUR";"noPOSA";NA;112,8;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";0
-536258;"WIT";"noPOSA";68,355;65,1;NA;"Mendo";"Mendo";"Gure Gaskuña";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"ANK";"noPOSA";682,8;1708,5;NA;"Rape negro";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"ANK";"POSA";NA;390,5;NA;"Rape negro";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"BRF";"noPOSA";15,5;35;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"BRF";"POSA";NA;281,44;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"COD";"noPOSA";NA;97,5;NA;"Bacalao";"Bacalao";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"GFB";"noPOSA";140,25;254,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"GFB";"POSA";NA;151,01;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"HKE";"noPOSA";654,037;1145;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"LDB";"noPOSA";NA;800;NA;"Gallo boscii";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"LEZ";"noPOSA";3401,01;3663,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"LEZ";"POSA";NA;1774,46;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"MNZ";"noPOSA";6;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"MON";"noPOSA";1733,4;1465;NA;"Rape blanco";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"MON";"POSA";NA;2579,32;NA;"Rape blanco";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";0
-536268;"RJC";"noPOSA";561;500;NA;"Raya de clavos";"Rayas";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"TUR";"noPOSA";87,99;288,4;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
-536268;"WIT";"noPOSA";226,275;543;NA;"Mendo";"Mendo";"Mar Mares";7;13;2020;"OTB_DEF_>=70_0_0";NA
+536258;"ANK";"noPOSA";4797,84;3616,3;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"ANK";"POSA";NA;381,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"COE";"noPOSA";65,45;59,5;NA;"Congrio";"Congrio";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"EOI";"noPOSA";81,8;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"GFB";"noPOSA";92,4;84;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"GUG";"noPOSA";NA;190,3;NA;"Perlon";"Triglidos";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"GUX";"noPOSA";190,3;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"HKE";"noPOSA";825,949;824,6;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"LEZ";"noPOSA";1440,964;1359,4;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"LIN";"noPOSA";13,53;12,3;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"MNZ";"noPOSA";69,12;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"MON";"noPOSA";1821,24;1381,1;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"MON";"POSA";NA;341,9;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"OCC";"noPOSA";NA;81,8;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"OMM";"noPOSA";182,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536258;"OMZ";"noPOSA";NA;182,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"TUR";"noPOSA";NA;112,8;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";0
+536258;"WIT";"noPOSA";68,355;65,1;NA;"Mendo";"Mendo";"Gure Gaskuña";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"ANK";"noPOSA";682,8;1708,5;NA;"Rape negro";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"ANK";"POSA";NA;390,5;NA;"Rape negro";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"BRF";"noPOSA";15,5;35;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"BRF";"POSA";NA;281,44;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"COD";"noPOSA";NA;97,5;NA;"Bacalao";"Bacalao";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"GFB";"noPOSA";140,25;254,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"GFB";"POSA";NA;151,01;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"HKE";"noPOSA";654,037;1145;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"LDB";"noPOSA";NA;800;NA;"Gallo boscii";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"LEZ";"noPOSA";3401,01;3663,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"LEZ";"POSA";NA;1774,46;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"MNZ";"noPOSA";6;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"MON";"noPOSA";1733,4;1465;NA;"Rape blanco";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"MON";"POSA";NA;2579,32;NA;"Rape blanco";"Rapes";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";0
+536268;"RJC";"noPOSA";561;500;NA;"Raya de clavos";"Rayas";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"TUR";"noPOSA";87,99;288,4;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
+536268;"WIT";"noPOSA";226,275;543;NA;"Mendo";"Mendo";"Mar Mares";7;13;2020;"OTB_DEF_100-119_0_0";NA
 536298;"ANK";"noPOSA";1104;1512;NA;"Rape negro";"Rapes";"Antiuko Ama";7;13;2020;"OTB_DEF_>=70_0_0";NA
 536298;"ARY";"noPOSA";117;0;NA;"Peon - pez plata";"Peon";"Antiuko Ama";7;13;2020;"OTB_DEF_>=70_0_0";NA
 536298;"ATP";"noPOSA";NA;157;NA;"Pejerrey - Abichon - Chirrete";"Peon";"Antiuko Ama";7;13;2020;"OTB_DEF_>=70_0_0";0
@@ -10547,37 +10547,37 @@
 536448;"MON";"noPOSA";NA;8,5;NA;"Rape blanco";"Rapes";"Kaxarra";7;20;2020;"PTB_DEF_>=70_0_0";0
 536448;"OMM";"noPOSA";5,75;0;NA;"Potas voladoras nep (N1V)";"Potas";"Kaxarra";7;20;2020;"PTB_DEF_>=70_0_0";NA
 536448;"SYC";"noPOSA";55,25;30;NA;"Pintarroja";"Pintarroja";"Kaxarra";7;20;2020;"PTB_DEF_>=70_0_0";NA
-536501;"ANK";"noPOSA";5063,16;4155,4;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"ANK";"POSA";NA;430,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"COE";"noPOSA";67,32;30,3;NA;"Congrio";"Congrio";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"EOI";"noPOSA";33,2;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"GFB";"noPOSA";523,38;420,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"GUG";"noPOSA";NA;70;NA;"Perlon";"Triglidos";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"GUX";"noPOSA";70;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"HKE";"noPOSA";1405,1602;1526,1;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"LEZ";"noPOSA";2576,118;2467,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"MNZ";"noPOSA";76,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"MON";"noPOSA";3385,8;2872,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"MON";"POSA";NA;323,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"OCC";"noPOSA";NA;38;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"OMM";"noPOSA";157,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536501;"OMZ";"noPOSA";NA;157,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"TUR";"noPOSA";NA;116,3;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";0
-536501;"WIT";"noPOSA";106,89;101,8;NA;"Mendo";"Mendo";"Gure Gaskuña";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"ANK";"noPOSA";2340;1807,5;NA;"Rape negro";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"BRF";"noPOSA";12;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"COD";"noPOSA";44;143;NA;"Bacalao";"Bacalao";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"GFB";"noPOSA";87,45;85;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"HKE";"noPOSA";1539,494;1601,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"LEZ";"noPOSA";2595,94;2828,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"LEZ";"POSA";NA;1030,54;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";0
-536502;"MAC";"noPOSA";256,5;251,5;NA;"Verdel - Caballa";"Verdel";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"MNZ";"noPOSA";34,8;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"MON";"noPOSA";4245;2927;NA;"Rape blanco";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"MON";"POSA";NA;594;NA;"Rape blanco";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";0
-536502;"RJC";"noPOSA";569,5;509;NA;"Raya de clavos";"Rayas";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"TUR";"noPOSA";155,4;191;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
-536502;"WIT";"noPOSA";96,075;90;NA;"Mendo";"Mendo";"Mar Mares";7;20;2020;"OTB_DEF_>=70_0_0";NA
+536501;"ANK";"noPOSA";5063,16;4155,4;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"ANK";"POSA";NA;430,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"COE";"noPOSA";67,32;30,3;NA;"Congrio";"Congrio";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"EOI";"noPOSA";33,2;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"GFB";"noPOSA";523,38;420,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"GUG";"noPOSA";NA;70;NA;"Perlon";"Triglidos";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"GUX";"noPOSA";70;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"HKE";"noPOSA";1405,1602;1526,1;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"LEZ";"noPOSA";2576,118;2467,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"MNZ";"noPOSA";76,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"MON";"noPOSA";3385,8;2872,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"MON";"POSA";NA;323,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"OCC";"noPOSA";NA;38;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"OMM";"noPOSA";157,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536501;"OMZ";"noPOSA";NA;157,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"TUR";"noPOSA";NA;116,3;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";0
+536501;"WIT";"noPOSA";106,89;101,8;NA;"Mendo";"Mendo";"Gure Gaskuña";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"ANK";"noPOSA";2340;1807,5;NA;"Rape negro";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"BRF";"noPOSA";12;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"COD";"noPOSA";44;143;NA;"Bacalao";"Bacalao";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"GFB";"noPOSA";87,45;85;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"HKE";"noPOSA";1539,494;1601,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"LEZ";"noPOSA";2595,94;2828,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"LEZ";"POSA";NA;1030,54;NA;"Gallos - ollarra";"Gallos";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";0
+536502;"MAC";"noPOSA";256,5;251,5;NA;"Verdel - Caballa";"Verdel";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"MNZ";"noPOSA";34,8;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"MON";"noPOSA";4245;2927;NA;"Rape blanco";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"MON";"POSA";NA;594;NA;"Rape blanco";"Rapes";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";0
+536502;"RJC";"noPOSA";569,5;509;NA;"Raya de clavos";"Rayas";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"TUR";"noPOSA";155,4;191;NA;"Rodaballo";"Rodaballo";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
+536502;"WIT";"noPOSA";96,075;90;NA;"Mendo";"Mendo";"Mar Mares";7;20;2020;"OTB_DEF_100-119_0_0";NA
 536565;"ANK";"noPOSA";50,46;49;NA;"Rape negro";"Rapes";"Kaxu";7;23;2020;"PTB_DEF_>=70_0_0";NA
 536565;"BIB";"noPOSA";24,75;112;NA;"Faneca comun";"Fanecas";"Kaxu";7;23;2020;"PTB_DEF_>=70_0_0";NA
 536565;"COE";"noPOSA";2,475;0;NA;"Congrio";"Congrio";"Kaxu";7;23;2020;"PTB_DEF_>=70_0_0";NA
@@ -10988,16 +10988,16 @@
 537510;"RJC";"noPOSA";21,2;58;NA;"Raya de clavos";"Rayas";"Eguzki Lore";8;31;2020;"OTB_DEF_>=70_0_0";NA
 537510;"SOL";"noPOSA";1,89;47;NA;"Lenguado";"Lenguado";"Eguzki Lore";8;31;2020;"OTB_DEF_>=70_0_0";NA
 537510;"SYC";"noPOSA";152,3;468;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"ANK";"noPOSA";1130,4;1127,5;NA;"Rape negro";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"BRF";"noPOSA";77,5;80;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"GFB";"noPOSA";65,45;61;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"HKE";"noPOSA";4051,9636;3874,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"LEZ";"noPOSA";5544,33;5956;NA;"Gallos - ollarra";"Gallos";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"LEZ";"POSA";NA;982,39;NA;"Gallos - ollarra";"Gallos";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";0
-537511;"MNZ";"noPOSA";10,2;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"MON";"noPOSA";1803;1226,5;NA;"Rape blanco";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
-537511;"MON";"POSA";NA;971,22;NA;"Rape blanco";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";0
-537511;"WIT";"noPOSA";534,45;529,5;NA;"Mendo";"Mendo";"Mar Mares";8;31;2020;"OTB_DEF_>=70_0_0";NA
+537511;"ANK";"noPOSA";1130,4;1127,5;NA;"Rape negro";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"BRF";"noPOSA";77,5;80;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"GFB";"noPOSA";65,45;61;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"HKE";"noPOSA";4051,9636;3874,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"LEZ";"noPOSA";5544,33;5956;NA;"Gallos - ollarra";"Gallos";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"LEZ";"POSA";NA;982,39;NA;"Gallos - ollarra";"Gallos";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";0
+537511;"MNZ";"noPOSA";10,2;0;NA;"Rapes Lophius";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"MON";"noPOSA";1803;1226,5;NA;"Rape blanco";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
+537511;"MON";"POSA";NA;971,22;NA;"Rape blanco";"Rapes";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";0
+537511;"WIT";"noPOSA";534,45;529,5;NA;"Mendo";"Mendo";"Mar Mares";8;31;2020;"OTB_DEF_100-119_0_0";NA
 537552;"ARY";"noPOSA";5,5;5;NA;"Peon - pez plata";"Peon";"Andrekala Berria";9;2;2020;"PTB_MPD_>=55_0_0";NA
 537552;"GUG";"noPOSA";NA;12;NA;"Perlon";"Triglidos";"Andrekala Berria";9;2;2020;"PTB_MPD_>=55_0_0";0
 537552;"GUX";"noPOSA";9;0;NA;"Triglidos";"Triglidos";"Andrekala Berria";9;2;2020;"PTB_MPD_>=55_0_0";NA
@@ -11205,14 +11205,14 @@
 537656;"SOL";"noPOSA";14,175;46;NA;"Lenguado";"Lenguado";"Eguzki Lore";9;7;2020;"OTB_DEF_>=70_0_0";NA
 537656;"SQC";"noPOSA";NA;24;NA;"Calamares Loligo spp.";"Calamares";"Eguzki Lore";9;7;2020;"OTB_DEF_>=70_0_0";0
 537656;"SYC";"noPOSA";864;1170;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"ANK";"noPOSA";1906,8;1833;NA;"Rape negro";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"BRF";"noPOSA";145,5;218;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"HKE";"noPOSA";1395,132;1549;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"LEZ";"noPOSA";4895,61;5773;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"LEZ";"POSA";NA;821,36;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";0
-537657;"MON";"noPOSA";2240,4;1638,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
-537657;"MON";"POSA";NA;1621,97;NA;"Rape blanco";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";0
-537657;"WIT";"noPOSA";212,1;334;NA;"Mendo";"Mendo";"Mar Mares";9;7;2020;"OTB_DEF_>=70_0_0";NA
+537657;"ANK";"noPOSA";1906,8;1833;NA;"Rape negro";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
+537657;"BRF";"noPOSA";145,5;218;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
+537657;"HKE";"noPOSA";1395,132;1549;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
+537657;"LEZ";"noPOSA";4895,61;5773;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
+537657;"LEZ";"POSA";NA;821,36;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";0
+537657;"MON";"noPOSA";2240,4;1638,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
+537657;"MON";"POSA";NA;1621,97;NA;"Rape blanco";"Rapes";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";0
+537657;"WIT";"noPOSA";212,1;334;NA;"Mendo";"Mendo";"Mar Mares";9;7;2020;"OTB_DEF_100-119_0_0";NA
 537666;"ARY";"noPOSA";3,6;6;NA;"Peon - pez plata";"Peon";"Aketxe";9;8;2020;"PTB_MPD_>=55_0_0";NA
 537666;"HKE";"noPOSA";909,306;552;NA;"Merluza europea";"Merluza europea";"Aketxe";9;8;2020;"PTB_MPD_>=55_0_0";NA
 537666;"HKE";"POSA";NA;174;NA;"Merluza europea";"Merluza europea";"Aketxe";9;8;2020;"PTB_MPD_>=55_0_0";0
@@ -11483,15 +11483,15 @@
 537818;"SOL";"noPOSA";NA;81;NA;"Lenguado";"Lenguado";"Eguzki Lore";9;14;2020;"OTB_DEF_>=70_0_0";0
 537818;"SYC";"noPOSA";NA;312;NA;"Pintarroja";"Pintarroja";"Eguzki Lore";9;14;2020;"OTB_DEF_>=70_0_0";0
 537818;"WEG";"noPOSA";32,2;35;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Eguzki Lore";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"ANK";"noPOSA";1682,4;1902;NA;"Rape negro";"Rapes";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"BRF";"noPOSA";50;86,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"GFB";"noPOSA";126,5;115,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"HAD";"noPOSA";14,3;0;NA;"Eglefino";"Eglefino";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"HKE";"noPOSA";2250,284;2445;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"LEZ";"noPOSA";5183,93;5651;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"LEZ";"POSA";NA;1000,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";0
-537819;"MON";"noPOSA";3199,2;3172,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
-537819;"WIT";"noPOSA";308,7;351,5;NA;"Mendo";"Mendo";"Mar Mares";9;14;2020;"OTB_DEF_>=70_0_0";NA
+537819;"ANK";"noPOSA";1682,4;1902;NA;"Rape negro";"Rapes";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"BRF";"noPOSA";50;86,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"GFB";"noPOSA";126,5;115,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"HAD";"noPOSA";14,3;0;NA;"Eglefino";"Eglefino";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"HKE";"noPOSA";2250,284;2445;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"LEZ";"noPOSA";5183,93;5651;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"LEZ";"POSA";NA;1000,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";0
+537819;"MON";"noPOSA";3199,2;3172,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
+537819;"WIT";"noPOSA";308,7;351,5;NA;"Mendo";"Mendo";"Mar Mares";9;14;2020;"OTB_DEF_100-119_0_0";NA
 537860;"ARY";"noPOSA";5;0;NA;"Peon - pez plata";"Peon";"Andrekala Berria";9;15;2020;"PTB_MPD_>=55_0_0";NA
 537860;"GFB";"noPOSA";2,75;0;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Andrekala Berria";9;15;2020;"PTB_MPD_>=55_0_0";NA
 537860;"HKE";"noPOSA";938,1056;250;NA;"Merluza europea";"Merluza europea";"Andrekala Berria";9;15;2020;"PTB_MPD_>=55_0_0";NA
@@ -11788,31 +11788,31 @@
 538013;"SOL";"noPOSA";53,97;51,4;NA;"Lenguado";"Lenguado";"Gure Kantabriko";9;21;2020;"OTB_DEF_>=70_0_0";NA
 538013;"SYC";"noPOSA";120;110;NA;"Pintarroja";"Pintarroja";"Gure Kantabriko";9;21;2020;"OTB_DEF_>=70_0_0";NA
 538013;"WEG";"noPOSA";24,2;24,2;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Gure Kantabriko";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"ANK";"noPOSA";4655,4;4005,7;NA;"Rape negro";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"COE";"noPOSA";63,69;57,9;NA;"Congrio";"Congrio";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"GFB";"noPOSA";11,55;10,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"HKE";"noPOSA";1050,4264;1122,9;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"LEZ";"noPOSA";2712,222;2558,7;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"MNZ";"noPOSA";37,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"MON";"noPOSA";1969,56;1303,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"MON";"POSA";NA;502,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";0
-538014;"SOL";"noPOSA";26,46;25,2;NA;"Lenguado";"Lenguado";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"TUR";"noPOSA";NA;14,2;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";0
-538014;"WHG";"noPOSA";12,21;11,1;NA;"Merlan";"Merlan";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538014;"WIT";"noPOSA";178,71;170,2;NA;"Mendo";"Mendo";"Gure Gaskuña";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"ANK";"noPOSA";1230;1022;1230;"Rape negro";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"BRF";"noPOSA";NA;20,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"BRF";"POSA";NA;157,19;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"GFB";"noPOSA";176,55;148,5;176,89925432;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"HKE";"noPOSA";544,939;739,5;547,27102821;"Merluza europea";"Merluza europea";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"LDB";"noPOSA";NA;0;29,07038627;"Gallo boscii";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"LEZ";"noPOSA";NA;6864,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"LEZ";"POSA";NA;586,73;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"MEG";"noPOSA";6587,37;0;6646,27961373;"Gallo whiffiagonis";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"MON";"noPOSA";2121;2095;2121;"Rape blanco";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"MON";"POSA";NA;516,72;NA;"Rape blanco";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";0
-538015;"RJC";"noPOSA";1550;1443,5;1550;"Raya de clavos";"Rayas";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
-538015;"WIT";"noPOSA";645,225;614,5;645,225;"Mendo";"Mendo";"Mar Mares";9;21;2020;"OTB_DEF_>=70_0_0";NA
+538014;"ANK";"noPOSA";4655,4;4005,7;NA;"Rape negro";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"COE";"noPOSA";63,69;57,9;NA;"Congrio";"Congrio";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"GFB";"noPOSA";11,55;10,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"HKE";"noPOSA";1050,4264;1122,9;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"LEZ";"noPOSA";2712,222;2558,7;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"MNZ";"noPOSA";37,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"MON";"noPOSA";1969,56;1303,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"MON";"POSA";NA;502,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";0
+538014;"SOL";"noPOSA";26,46;25,2;NA;"Lenguado";"Lenguado";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"TUR";"noPOSA";NA;14,2;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";0
+538014;"WHG";"noPOSA";12,21;11,1;NA;"Merlan";"Merlan";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538014;"WIT";"noPOSA";178,71;170,2;NA;"Mendo";"Mendo";"Gure Gaskuña";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"ANK";"noPOSA";1230;1022;1230;"Rape negro";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"BRF";"noPOSA";NA;20,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"BRF";"POSA";NA;157,19;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"GFB";"noPOSA";176,55;148,5;176,89925432;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"HKE";"noPOSA";544,939;739,5;547,27102821;"Merluza europea";"Merluza europea";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"LDB";"noPOSA";NA;0;29,07038627;"Gallo boscii";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"LEZ";"noPOSA";NA;6864,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"LEZ";"POSA";NA;586,73;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"MEG";"noPOSA";6587,37;0;6646,27961373;"Gallo whiffiagonis";"Gallos";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"MON";"noPOSA";2121;2095;2121;"Rape blanco";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"MON";"POSA";NA;516,72;NA;"Rape blanco";"Rapes";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";0
+538015;"RJC";"noPOSA";1550;1443,5;1550;"Raya de clavos";"Rayas";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
+538015;"WIT";"noPOSA";645,225;614,5;645,225;"Mendo";"Mendo";"Mar Mares";9;21;2020;"OTB_DEF_100-119_0_0";NA
 538049;"ANK";"noPOSA";13,14;0;NA;"Rape negro";"Rapes";"Andrekala Berria";9;23;2020;"PTB_MPD_>=55_0_0";NA
 538049;"ARY";"noPOSA";9;0;NA;"Peon - pez plata";"Peon";"Andrekala Berria";9;23;2020;"PTB_MPD_>=55_0_0";NA
 538049;"EOI";"noPOSA";2,5;0;NA;"Pulpo blanco";"Pulpos";"Andrekala Berria";9;23;2020;"PTB_MPD_>=55_0_0";NA
@@ -11940,13 +11940,13 @@
 538142;"OCC";"POSA";NA;83;NA;"Pulpo comun";"Pulpos";"Antiuko Ama";9;28;2020;"OTB_DEF_>=70_0_0";0
 538142;"RJC";"noPOSA";28;0;NA;"Raya de clavos";"Rayas";"Antiuko Ama";9;28;2020;"OTB_DEF_>=70_0_0";NA
 538142;"SYC";"noPOSA";672;672;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"ANK";"noPOSA";1757,4;1464,5;NA;"Rape negro";"Rapes";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"BRF";"noPOSA";35,5;55,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"HKE";"noPOSA";604,447;618,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"LEZ";"noPOSA";6691,25;7417,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"MON";"noPOSA";3208,2;3203,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"RJC";"noPOSA";2374,5;3614,5;NA;"Raya de clavos";"Rayas";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538143;"WIT";"noPOSA";534,45;509;NA;"Mendo";"Mendo";"Mar Mares";9;28;2020;"OTB_DEF_>=70_0_0";NA
+538143;"ANK";"noPOSA";1757,4;1464,5;NA;"Rape negro";"Rapes";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"BRF";"noPOSA";35,5;55,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"HKE";"noPOSA";604,447;618,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"LEZ";"noPOSA";6691,25;7417,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"MON";"noPOSA";3208,2;3203,5;NA;"Rape blanco";"Rapes";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"RJC";"noPOSA";2374,5;3614,5;NA;"Raya de clavos";"Rayas";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538143;"WIT";"noPOSA";534,45;509;NA;"Mendo";"Mendo";"Mar Mares";9;28;2020;"OTB_DEF_100-119_0_0";NA
 538145;"HKE";"noPOSA";3108,35;936;NA;"Merluza europea";"Merluza europea";"Aketxe";9;28;2020;"PTB_MPD_>=55_0_0";NA
 538145;"MON";"noPOSA";11,28;0;NA;"Rape blanco";"Rapes";"Aketxe";9;28;2020;"PTB_MPD_>=55_0_0";NA
 538145;"OMM";"noPOSA";64,25;0;NA;"Potas voladoras nep (N1V)";"Potas";"Aketxe";9;28;2020;"PTB_MPD_>=55_0_0";NA
@@ -12079,19 +12079,19 @@
 538152;"LEZ";"noPOSA";11,13;0;NA;"Gallos - ollarra";"Gallos";"Kaxarra";9;28;2020;"PTB_DEF_>=70_0_0";NA
 538152;"MON";"noPOSA";7,5;14,5;NA;"Rape blanco";"Rapes";"Kaxarra";9;28;2020;"PTB_DEF_>=70_0_0";NA
 538152;"SYC";"noPOSA";34,25;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";9;28;2020;"PTB_DEF_>=70_0_0";NA
-538153;"ANK";"noPOSA";4692,12;4096,7;NA;"Rape negro";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"COE";"noPOSA";11,22;10,2;NA;"Congrio";"Congrio";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"GUG";"noPOSA";NA;4;NA;"Perlon";"Triglidos";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";0
-538153;"GUX";"noPOSA";4;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"HKE";"noPOSA";1227,1872;1189,5;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"JOD";"noPOSA";5,6;5,6;NA;"Pez de San Pedro";"Pez de San Pedro";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"LEZ";"noPOSA";2427,824;2290,4;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"LIN";"noPOSA";4,73;4,3;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"MNZ";"noPOSA";122,28;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"MON";"noPOSA";1915,32;1370,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"MON";"POSA";NA;350,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";0
-538153;"SOL";"noPOSA";54,285;51,7;NA;"Lenguado";"Lenguado";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
-538153;"WIT";"noPOSA";189;180;NA;"Mendo";"Mendo";"Gure Gaskuña";9;28;2020;"OTB_DEF_>=70_0_0";NA
+538153;"ANK";"noPOSA";4692,12;4096,7;NA;"Rape negro";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"COE";"noPOSA";11,22;10,2;NA;"Congrio";"Congrio";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"GUG";"noPOSA";NA;4;NA;"Perlon";"Triglidos";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";0
+538153;"GUX";"noPOSA";4;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"HKE";"noPOSA";1227,1872;1189,5;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"JOD";"noPOSA";5,6;5,6;NA;"Pez de San Pedro";"Pez de San Pedro";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"LEZ";"noPOSA";2427,824;2290,4;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"LIN";"noPOSA";4,73;4,3;NA;"Maruca - Juliana (Molva molva)";"Maruca - Juliana (Molva molva)";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"MNZ";"noPOSA";122,28;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"MON";"noPOSA";1915,32;1370,4;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"MON";"POSA";NA;350,3;NA;"Rape blanco";"Rapes";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";0
+538153;"SOL";"noPOSA";54,285;51,7;NA;"Lenguado";"Lenguado";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
+538153;"WIT";"noPOSA";189;180;NA;"Mendo";"Mendo";"Gure Gaskuña";9;28;2020;"OTB_DEF_100-119_0_0";NA
 538178;"ANK";"noPOSA";3,84;6,4;NA;"Rape negro";"Rapes";"Andrekala Berria";9;29;2020;"PTB_MPD_>=55_0_0";NA
 538178;"ARY";"noPOSA";9,2;18,4;NA;"Peon - pez plata";"Peon";"Andrekala Berria";9;29;2020;"PTB_MPD_>=55_0_0";NA
 538178;"COE";"noPOSA";1,375;0;NA;"Congrio";"Congrio";"Andrekala Berria";9;29;2020;"PTB_MPD_>=55_0_0";NA
@@ -12250,15 +12250,15 @@
 538351;"SYC";"noPOSA";936;878;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";10;5;2020;"OTB_DEF_>=70_0_0";NA
 538351;"WEG";"noPOSA";795,5;1300;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Antiuko Ama";10;5;2020;"OTB_DEF_>=70_0_0";NA
 538351;"WHG";"noPOSA";35,75;66;NA;"Merlan";"Merlan";"Antiuko Ama";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"ANK";"noPOSA";1021,2;1889,5;NA;"Rape negro";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"BRF";"noPOSA";63,5;66;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"HKE";"noPOSA";519,042;576;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"LDB";"noPOSA";NA;537;NA;"Gallo boscii";"Gallos";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";0
-538355;"LEZ";"noPOSA";5621,18;6102;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"MON";"noPOSA";2788,2;2469;NA;"Rape blanco";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"MON";"POSA";NA;840;NA;"Rape blanco";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";0
-538355;"RJC";"noPOSA";559,5;1699;NA;"Raya de clavos";"Rayas";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538355;"WIT";"noPOSA";693;660;NA;"Mendo";"Mendo";"Mar Mares";10;5;2020;"OTB_DEF_>=70_0_0";NA
+538355;"ANK";"noPOSA";1021,2;1889,5;NA;"Rape negro";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"BRF";"noPOSA";63,5;66;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"HKE";"noPOSA";519,042;576;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"LDB";"noPOSA";NA;537;NA;"Gallo boscii";"Gallos";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";0
+538355;"LEZ";"noPOSA";5621,18;6102;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"MON";"noPOSA";2788,2;2469;NA;"Rape blanco";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"MON";"POSA";NA;840;NA;"Rape blanco";"Rapes";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";0
+538355;"RJC";"noPOSA";559,5;1699;NA;"Raya de clavos";"Rayas";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538355;"WIT";"noPOSA";693;660;NA;"Mendo";"Mendo";"Mar Mares";10;5;2020;"OTB_DEF_100-119_0_0";NA
 538371;"ANK";"noPOSA";6,3;0;NA;"Rape negro";"Rapes";"Aketxe";10;5;2020;"PTB_MPD_>=55_0_0";NA
 538371;"ARY";"noPOSA";47,1;8;NA;"Peon - pez plata";"Peon";"Aketxe";10;5;2020;"PTB_MPD_>=55_0_0";NA
 538371;"BIB";"noPOSA";NA;11;NA;"Faneca comun";"Fanecas";"Aketxe";10;5;2020;"PTB_MPD_>=55_0_0";0
@@ -12401,21 +12401,21 @@
 538381;"JOD";"noPOSA";12;10;NA;"Pez de San Pedro";"Pez de San Pedro";"Kaxarra";10;5;2020;"PTB_DEF_>=70_0_0";NA
 538381;"RJC";"noPOSA";3,5;0;NA;"Raya de clavos";"Rayas";"Kaxarra";10;5;2020;"PTB_DEF_>=70_0_0";NA
 538381;"SYC";"noPOSA";9,5;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";10;5;2020;"PTB_DEF_>=70_0_0";NA
-538382;"ANK";"noPOSA";4319,04;2787,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"ANK";"POSA";NA;620;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";0
-538382;"COE";"noPOSA";26,51;24,1;NA;"Congrio";"Congrio";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"GFB";"noPOSA";24,86;22,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"GUG";"noPOSA";NA;11,9;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";0
-538382;"GUX";"noPOSA";11,9;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"HKE";"noPOSA";1665,3424;1592,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"LEZ";"noPOSA";2785,574;2627,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"MNZ";"noPOSA";131,28;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"MON";"noPOSA";1327,08;1581;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"MON";"POSA";NA;512,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";0
-538382;"OMM";"noPOSA";254,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"OMZ";"noPOSA";NA;254,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";0
-538382;"SOL";"noPOSA";26,46;25,2;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
-538382;"WIT";"noPOSA";205,275;195,5;NA;"Mendo";"Mendo";"Gure Gaskuña";10;5;2020;"OTB_DEF_>=70_0_0";NA
+538382;"ANK";"noPOSA";4319,04;2787,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"ANK";"POSA";NA;620;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";0
+538382;"COE";"noPOSA";26,51;24,1;NA;"Congrio";"Congrio";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"GFB";"noPOSA";24,86;22,6;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"GUG";"noPOSA";NA;11,9;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";0
+538382;"GUX";"noPOSA";11,9;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"HKE";"noPOSA";1665,3424;1592,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"LEZ";"noPOSA";2785,574;2627,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"MNZ";"noPOSA";131,28;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"MON";"noPOSA";1327,08;1581;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"MON";"POSA";NA;512,2;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";0
+538382;"OMM";"noPOSA";254,8;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"OMZ";"noPOSA";NA;254,8;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";0
+538382;"SOL";"noPOSA";26,46;25,2;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
+538382;"WIT";"noPOSA";205,275;195,5;NA;"Mendo";"Mendo";"Gure Gaskuña";10;5;2020;"OTB_DEF_100-119_0_0";NA
 538394;"ANK";"noPOSA";523,2;612;NA;"Rape negro";"Rapes";"Eguzki Lore";10;5;2020;"OTB_DEF_>=70_0_0";NA
 538394;"ARY";"noPOSA";76,3;73;NA;"Peon - pez plata";"Peon";"Eguzki Lore";10;5;2020;"OTB_DEF_>=70_0_0";NA
 538394;"BIB";"noPOSA";NA;1503;NA;"Faneca comun";"Fanecas";"Eguzki Lore";10;5;2020;"OTB_DEF_>=70_0_0";0
@@ -12788,18 +12788,18 @@
 538564;"OMM";"noPOSA";1,25;0;NA;"Potas voladoras nep (N1V)";"Potas";"Kaxarra";10;12;2020;"PTB_DEF_>=70_0_0";NA
 538564;"RJC";"noPOSA";1,75;0;NA;"Raya de clavos";"Rayas";"Kaxarra";10;12;2020;"PTB_DEF_>=70_0_0";NA
 538564;"SYC";"noPOSA";143,75;180;NA;"Pintarroja";"Pintarroja";"Kaxarra";10;12;2020;"PTB_DEF_>=70_0_0";NA
-538565;"ANK";"noPOSA";6086,64;3912,8;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"COE";"noPOSA";21,34;19,4;NA;"Congrio";"Congrio";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"GUG";"noPOSA";NA;24,5;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";0
-538565;"GUX";"noPOSA";24,5;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"HKE";"noPOSA";1095,0574;1018,6;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"LEZ";"noPOSA";1824,578;1721,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"MNZ";"noPOSA";199,2;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"MON";"noPOSA";2550;1735;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"OMM";"noPOSA";153,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"OMZ";"noPOSA";NA;153,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";0
-538565;"SOL";"noPOSA";50,505;48,1;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538565;"WIT";"noPOSA";126,525;120,5;NA;"Mendo";"Mendo";"Gure Gaskuña";10;12;2020;"OTB_DEF_>=70_0_0";NA
+538565;"ANK";"noPOSA";6086,64;3912,8;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"COE";"noPOSA";21,34;19,4;NA;"Congrio";"Congrio";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"GUG";"noPOSA";NA;24,5;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";0
+538565;"GUX";"noPOSA";24,5;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"HKE";"noPOSA";1095,0574;1018,6;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"LEZ";"noPOSA";1824,578;1721,3;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"MNZ";"noPOSA";199,2;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"MON";"noPOSA";2550;1735;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"OMM";"noPOSA";153,9;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"OMZ";"noPOSA";NA;153,9;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";0
+538565;"SOL";"noPOSA";50,505;48,1;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538565;"WIT";"noPOSA";126,525;120,5;NA;"Mendo";"Mendo";"Gure Gaskuña";10;12;2020;"OTB_DEF_100-119_0_0";NA
 538622;"ANK";"noPOSA";2212,8;1238,5;NA;"Rape negro";"Rapes";"Intxortamendi";10;12;2020;"OTB_DEF_>=70_0_0";NA
 538622;"ANK";"POSA";NA;206,5;NA;"Rape negro";"Rapes";"Intxortamendi";10;12;2020;"OTB_DEF_>=70_0_0";0
 538622;"BIB";"noPOSA";14,3;2387;NA;"Faneca comun";"Fanecas";"Intxortamendi";10;12;2020;"OTB_DEF_>=70_0_0";NA
@@ -12869,16 +12869,16 @@
 538623;"SOL";"noPOSA";100,275;110;NA;"Lenguado";"Lenguado";"Antiuko Ama";10;12;2020;"OTB_DEF_>=70_0_0";NA
 538623;"SYC";"noPOSA";2268;2260;NA;"Pintarroja";"Pintarroja";"Antiuko Ama";10;12;2020;"OTB_DEF_>=70_0_0";NA
 538623;"WEG";"POSA";NA;2500;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Antiuko Ama";10;12;2020;"OTB_DEF_>=70_0_0";0
-538624;"ANK";"noPOSA";1149;1072;NA;"Rape negro";"Rapes";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"BRF";"noPOSA";129,5;109,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"GFB";"noPOSA";99,55;72,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"HKE";"noPOSA";630,895;607,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"LEZ";"noPOSA";4592,98;5528,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"LEZ";"POSA";NA;536;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";0
-538624;"MON";"noPOSA";4389;3664;NA;"Rape blanco";"Rapes";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"RJC";"noPOSA";2330;2330;NA;"Raya de clavos";"Rayas";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
-538624;"RJN";"noPOSA";NA;878;NA;"Raya santiaguesa";"Rayas";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";0
-538624;"WIT";"noPOSA";1004,325;956,5;NA;"Mendo";"Mendo";"Mar Mares";10;12;2020;"OTB_DEF_>=70_0_0";NA
+538624;"ANK";"noPOSA";1149;1072;NA;"Rape negro";"Rapes";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"BRF";"noPOSA";129,5;109,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"GFB";"noPOSA";99,55;72,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"HKE";"noPOSA";630,895;607,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"LEZ";"noPOSA";4592,98;5528,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"LEZ";"POSA";NA;536;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";0
+538624;"MON";"noPOSA";4389;3664;NA;"Rape blanco";"Rapes";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"RJC";"noPOSA";2330;2330;NA;"Raya de clavos";"Rayas";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
+538624;"RJN";"noPOSA";NA;878;NA;"Raya santiaguesa";"Rayas";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";0
+538624;"WIT";"noPOSA";1004,325;956,5;NA;"Mendo";"Mendo";"Mar Mares";10;12;2020;"OTB_DEF_100-119_0_0";NA
 538635;"ANK";"noPOSA";2,76;0;NA;"Rape negro";"Rapes";"Andrekala Berria";10;13;2020;"PTB_MPD_>=55_0_0";NA
 538635;"ARY";"noPOSA";9;18;NA;"Peon - pez plata";"Peon";"Andrekala Berria";10;13;2020;"PTB_MPD_>=55_0_0";NA
 538635;"COE";"noPOSA";1,87;3,4;NA;"Congrio";"Congrio";"Andrekala Berria";10;13;2020;"PTB_MPD_>=55_0_0";NA
@@ -13081,16 +13081,16 @@
 538805;"OMZ";"noPOSA";NA;41;NA;"Potas Ommastrephidae nep";"Potas";"Kaxarra";10;19;2020;"PTB_DEF_>=70_0_0";0
 538805;"SYC";"noPOSA";33,75;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";10;19;2020;"PTB_DEF_>=70_0_0";NA
 538805;"WEG";"noPOSA";39;20;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";10;19;2020;"PTB_DEF_>=70_0_0";NA
-538818;"ANK";"noPOSA";946,8;2048;NA;"Rape negro";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"BRF";"noPOSA";86;89;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"GFB";"noPOSA";51,7;47,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"HKE";"noPOSA";1105,857;1112,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"LDB";"noPOSA";NA;527,5;NA;"Gallo boscii";"Gallos";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";0
-538818;"LEZ";"noPOSA";6066,91;6607,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"MON";"noPOSA";3856,2;2725,5;NA;"Rape blanco";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"MON";"POSA";NA;488;NA;"Rape blanco";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";0
-538818;"RJC";"noPOSA";1446;1896;NA;"Raya de clavos";"Rayas";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538818;"WIT";"noPOSA";456,225;454,5;NA;"Mendo";"Mendo";"Mar Mares";10;19;2020;"OTB_DEF_>=70_0_0";NA
+538818;"ANK";"noPOSA";946,8;2048;NA;"Rape negro";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"BRF";"noPOSA";86;89;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"GFB";"noPOSA";51,7;47,5;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"HKE";"noPOSA";1105,857;1112,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"LDB";"noPOSA";NA;527,5;NA;"Gallo boscii";"Gallos";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";0
+538818;"LEZ";"noPOSA";6066,91;6607,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"MON";"noPOSA";3856,2;2725,5;NA;"Rape blanco";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"MON";"POSA";NA;488;NA;"Rape blanco";"Rapes";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";0
+538818;"RJC";"noPOSA";1446;1896;NA;"Raya de clavos";"Rayas";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538818;"WIT";"noPOSA";456,225;454,5;NA;"Mendo";"Mendo";"Mar Mares";10;19;2020;"OTB_DEF_100-119_0_0";NA
 538829;"ARY";"noPOSA";48,5;24;NA;"Peon - pez plata";"Peon";"Aketxe";10;19;2020;"PTB_MPD_>=55_0_0";NA
 538829;"BIB";"noPOSA";39,6;0;NA;"Faneca comun";"Fanecas";"Aketxe";10;19;2020;"PTB_MPD_>=55_0_0";NA
 538829;"BRF";"noPOSA";32,5;0;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Aketxe";10;19;2020;"PTB_MPD_>=55_0_0";NA
@@ -13232,25 +13232,25 @@
 538837;"SOL";"noPOSA";125,58;117,8;NA;"Lenguado";"Lenguado";"Gure Kantabriko";10;19;2020;"OTB_DEF_>=70_0_0";NA
 538837;"SYC";"noPOSA";636;636;NA;"Pintarroja";"Pintarroja";"Gure Kantabriko";10;19;2020;"OTB_DEF_>=70_0_0";NA
 538837;"WEG";"noPOSA";286,9;286,9;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Gure Kantabriko";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"ANK";"noPOSA";6134,52;5112,1;6134,52;"Rape negro";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"COE";"noPOSA";29,04;26,4;NA;"Congrio";"Congrio";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"GUG";"noPOSA";NA;232,8;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"GUU";"noPOSA";109,9;0;NA;"Bejel";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"GUX";"noPOSA";NA;0;110,79;"Triglidos";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"HKE";"noPOSA";165,4102;171,6;166,728;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"LEZ";"noPOSA";NA;2030,2;2151,21;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"MEG";"noPOSA";2152,012;0;NA;"Gallo whiffiagonis";"Gallos";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"MNZ";"noPOSA";547,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"MON";"noPOSA";1497,12;2076,8;1496,04;"Rape blanco";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"OMM";"noPOSA";NA;0;536;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"OMZ";"noPOSA";NA;536,6;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"SOL";"noPOSA";66,36;63,2;66,36;"Lenguado";"Lenguado";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"SQC";"noPOSA";NA;69;694;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"SQF";"noPOSA";69;0;NA;"Calamar veteado";"Calamares";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"SQM";"noPOSA";536,6;0;NA;"Pota voladora";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"TUR";"noPOSA";NA;21,6;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";0
-538838;"WHB";"noPOSA";135,1;0;NA;"Lirio - Bacaladilla";"Lirio";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
-538838;"WIT";"noPOSA";252,735;240,7;252,735;"Mendo";"Mendo";"Gure Gaskuña";10;19;2020;"OTB_DEF_>=70_0_0";NA
+538838;"ANK";"noPOSA";6134,52;5112,1;6134,52;"Rape negro";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"COE";"noPOSA";29,04;26,4;NA;"Congrio";"Congrio";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"GUG";"noPOSA";NA;232,8;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"GUU";"noPOSA";109,9;0;NA;"Bejel";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"GUX";"noPOSA";NA;0;110,79;"Triglidos";"Triglidos";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"HKE";"noPOSA";165,4102;171,6;166,728;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"LEZ";"noPOSA";NA;2030,2;2151,21;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"MEG";"noPOSA";2152,012;0;NA;"Gallo whiffiagonis";"Gallos";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"MNZ";"noPOSA";547,8;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"MON";"noPOSA";1497,12;2076,8;1496,04;"Rape blanco";"Rapes";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"OMM";"noPOSA";NA;0;536;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"OMZ";"noPOSA";NA;536,6;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"SOL";"noPOSA";66,36;63,2;66,36;"Lenguado";"Lenguado";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"SQC";"noPOSA";NA;69;694;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"SQF";"noPOSA";69;0;NA;"Calamar veteado";"Calamares";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"SQM";"noPOSA";536,6;0;NA;"Pota voladora";"Potas";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"TUR";"noPOSA";NA;21,6;NA;"Rodaballo";"Rodaballo";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";0
+538838;"WHB";"noPOSA";135,1;0;NA;"Lirio - Bacaladilla";"Lirio";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
+538838;"WIT";"noPOSA";252,735;240,7;252,735;"Mendo";"Mendo";"Gure Gaskuña";10;19;2020;"OTB_DEF_100-119_0_0";NA
 538923;"ANK";"noPOSA";2104,2;1526;NA;"Rape negro";"Rapes";"Intxortamendi";10;19;2020;"OTB_DEF_>=70_0_0";NA
 538923;"ANK";"POSA";NA;296,5;NA;"Rape negro";"Rapes";"Intxortamendi";10;19;2020;"OTB_DEF_>=70_0_0";0
 538923;"ARY";"noPOSA";14;14;NA;"Peon - pez plata";"Peon";"Intxortamendi";10;19;2020;"OTB_DEF_>=70_0_0";NA
@@ -13421,18 +13421,18 @@
 539153;"RJC";"noPOSA";27,75;0;NA;"Raya de clavos";"Rayas";"Kaxarra";10;26;2020;"PTB_DEF_>=70_0_0";NA
 539153;"SYC";"noPOSA";40,75;0;NA;"Pintarroja";"Pintarroja";"Kaxarra";10;26;2020;"PTB_DEF_>=70_0_0";NA
 539153;"WEG";"noPOSA";73,5;0;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Kaxarra";10;26;2020;"PTB_DEF_>=70_0_0";NA
-539161;"ANK";"noPOSA";1582,2;2888;NA;"Rape negro";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"ANK";"POSA";NA;288,5;NA;"Rape negro";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";0
-539161;"BRF";"noPOSA";26;24,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"GFB";"noPOSA";13,2;12;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"HKE";"noPOSA";357,599;379;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"LDB";"noPOSA";NA;554,5;NA;"Gallo boscii";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";0
-539161;"LEZ";"noPOSA";6143,23;5410;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"LEZ";"POSA";NA;827,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";0
-539161;"MON";"noPOSA";5756,4;4519,5;NA;"Rape blanco";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"MON";"POSA";NA;298;NA;"Rape blanco";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";0
-539161;"RJC";"noPOSA";1815;2351;NA;"Raya de clavos";"Rayas";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539161;"WIT";"noPOSA";251,475;229,5;NA;"Mendo";"Mendo";"Mar Mares";10;26;2020;"OTB_DEF_>=70_0_0";NA
+539161;"ANK";"noPOSA";1582,2;2888;NA;"Rape negro";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"ANK";"POSA";NA;288,5;NA;"Rape negro";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";0
+539161;"BRF";"noPOSA";26;24,5;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"GFB";"noPOSA";13,2;12;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"HKE";"noPOSA";357,599;379;NA;"Merluza europea";"Merluza europea";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"LDB";"noPOSA";NA;554,5;NA;"Gallo boscii";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";0
+539161;"LEZ";"noPOSA";6143,23;5410;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"LEZ";"POSA";NA;827,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";0
+539161;"MON";"noPOSA";5756,4;4519,5;NA;"Rape blanco";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"MON";"POSA";NA;298;NA;"Rape blanco";"Rapes";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";0
+539161;"RJC";"noPOSA";1815;2351;NA;"Raya de clavos";"Rayas";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539161;"WIT";"noPOSA";251,475;229,5;NA;"Mendo";"Mendo";"Mar Mares";10;26;2020;"OTB_DEF_100-119_0_0";NA
 539171;"ARY";"noPOSA";84;0;NA;"Peon - pez plata";"Peon";"Andrekala Berria";10;26;2020;"PTB_MPD_>=55_0_0";NA
 539171;"BIB";"noPOSA";8,25;18,4;NA;"Faneca comun";"Fanecas";"Andrekala Berria";10;26;2020;"PTB_MPD_>=55_0_0";NA
 539171;"BRF";"noPOSA";1,7;3,4;NA;"Cabra (Helicolenus dactylopterus)";"Cabra";"Andrekala Berria";10;26;2020;"PTB_MPD_>=55_0_0";NA
@@ -13552,21 +13552,21 @@
 539178;"SYC";"noPOSA";396;396;396;"Pintarroja";"Pintarroja";"Gure Kantabriko";10;26;2020;"OTB_DEF_>=70_0_0";NA
 539178;"WEG";"noPOSA";293,4;293,4;293,4;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Gure Kantabriko";10;26;2020;"OTB_DEF_>=70_0_0";NA
 539178;"WHG";"noPOSA";22,22;20,2;22,22;"Merlan";"Merlan";"Gure Kantabriko";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"ANK";"noPOSA";5032,2;3935,6;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"ANK";"POSA";NA;257,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";0
-539179;"COE";"noPOSA";39,38;35,8;NA;"Congrio";"Congrio";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"GFB";"noPOSA";12,43;11,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"GUG";"noPOSA";NA;65,7;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";0
-539179;"GUX";"noPOSA";65,7;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"HKE";"noPOSA";1342,0156;839,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"LEZ";"noPOSA";2169,714;2046,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"MNZ";"noPOSA";372;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"MON";"noPOSA";1746,48;1803;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"OMM";"noPOSA";321,2;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"OMZ";"noPOSA";NA;321,2;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";0
-539179;"SOL";"noPOSA";53,445;50,9;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"SQC";"noPOSA";115,1;115,1;NA;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
-539179;"WIT";"noPOSA";169,68;161,6;NA;"Mendo";"Mendo";"Gure Gaskuña";10;26;2020;"OTB_DEF_>=70_0_0";NA
+539179;"ANK";"noPOSA";5032,2;3935,6;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"ANK";"POSA";NA;257,9;NA;"Rape negro";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";0
+539179;"COE";"noPOSA";39,38;35,8;NA;"Congrio";"Congrio";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"GFB";"noPOSA";12,43;11,3;NA;"Brotola de fango (Phycis blennoides)";"Brotola de fango";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"GUG";"noPOSA";NA;65,7;NA;"Perlon";"Triglidos";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";0
+539179;"GUX";"noPOSA";65,7;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"HKE";"noPOSA";1342,0156;839,7;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"LEZ";"noPOSA";2169,714;2046,9;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"MNZ";"noPOSA";372;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"MON";"noPOSA";1746,48;1803;NA;"Rape blanco";"Rapes";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"OMM";"noPOSA";321,2;0;NA;"Potas voladoras nep (N1V)";"Potas";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"OMZ";"noPOSA";NA;321,2;NA;"Potas Ommastrephidae nep";"Potas";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";0
+539179;"SOL";"noPOSA";53,445;50,9;NA;"Lenguado";"Lenguado";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"SQC";"noPOSA";115,1;115,1;NA;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
+539179;"WIT";"noPOSA";169,68;161,6;NA;"Mendo";"Mendo";"Gure Gaskuña";10;26;2020;"OTB_DEF_100-119_0_0";NA
 539211;"ANK";"noPOSA";621,36;64;NA;"Rape negro";"Rapes";"Aketxe";10;26;2020;"PTB_MPD_>=55_0_0";NA
 539211;"ARY";"noPOSA";91,5;69;NA;"Peon - pez plata";"Peon";"Aketxe";10;26;2020;"PTB_MPD_>=55_0_0";NA
 539211;"BIB";"noPOSA";3,3;0;NA;"Faneca comun";"Fanecas";"Aketxe";10;26;2020;"PTB_MPD_>=55_0_0";NA
@@ -13912,46 +13912,46 @@
 539380;"SOL";"noPOSA";190,365;194,1;NA;"Lenguado";"Lenguado";"Gure Kantabriko";11;2;2020;"OTB_DEF_>=70_0_0";NA
 539380;"SYC";"noPOSA";372;372;NA;"Pintarroja";"Pintarroja";"Gure Kantabriko";11;2;2020;"OTB_DEF_>=70_0_0";NA
 539380;"WEG";"noPOSA";34,4;24,4;NA;"Salvario - Escorpion - Escarapote - Araña";"Salvario - Escorpion - Escarapote - Araña";"Gure Kantabriko";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"ANK";"noPOSA";2471,52;1998,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"ARY";"noPOSA";83,2;78;NA;"Peon - pez plata";"Peon";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"BIB";"noPOSA";319,66;1022,7;NA;"Faneca comun";"Fanecas";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"BSS";"noPOSA";NA;31;NA;"Lubina";"Lubina";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"CET";"noPOSA";NA;37;NA;"Acedia";"Soleidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"COE";"noPOSA";186,45;125,5;NA;"Congrio";"Congrio";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"CTC";"noPOSA";NA;58,5;NA;"Sepia comun";"Sepias y chocos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"CTL";"noPOSA";58,5;0;NA;"Sepias y chocos";"Sepias y chocos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"EOI";"noPOSA";516,1;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"GAD";"noPOSA";849,31;0;NA;"Fanecas spp";"Fanecas";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"GUG";"noPOSA";NA;194,7;NA;"Perlon";"Triglidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"GUX";"noPOSA";194,7;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"HAD";"noPOSA";1275,34;1159,4;NA;"Eglefino";"Eglefino";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"HKE";"noPOSA";4971,7832;4539,3;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"HOM";"noPOSA";226,8;226,8;NA;"Chicharro Negro";"Chicharros";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"JOD";"noPOSA";29,1;29,1;NA;"Pez de San Pedro";"Pez de San Pedro";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"LEZ";"noPOSA";1134,836;1020,6;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MGR";"noPOSA";41,4;41,4;NA;"Corvina";"Corvina";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MKG";"noPOSA";72,6;0;NA;"Soldadito";"Soleidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MNZ";"noPOSA";314,04;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MOJ";"noPOSA";6,5;0;NA;"Mojarras nep (DEA)";"Esparidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MON";"noPOSA";641,52;725,6;NA;"Rape blanco";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MUR";"noPOSA";57;0;NA;"Salmonete de roca";"Salmonetes";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"MUX";"noPOSA";NA;57;NA;"Salmonetes (Mullus spp)";"Salmonetes";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"OCC";"noPOSA";NA;420,1;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";0
-539381;"POL";"noPOSA";5,28;0;NA;"Abadejo";"Abadejo";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"RJC";"noPOSA";194,3;194,3;NA;"Raya de clavos";"Rayas";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"RJN";"noPOSA";845,4;350;NA;"Raya santiaguesa";"Rayas";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"SOL";"noPOSA";231,63;132;NA;"Lenguado";"Lenguado";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"SQC";"noPOSA";12,9;0;NA;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"SYC";"noPOSA";180;180;NA;"Pintarroja";"Pintarroja";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"WHG";"noPOSA";258,06;225,6;NA;"Merlan";"Merlan";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539381;"WIT";"noPOSA";20,895;0;NA;"Mendo";"Mendo";"Gure Gaskuña";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"ANK";"noPOSA";485,4;509;NA;"Rape negro";"Rapes";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"COD";"noPOSA";57,2;129;NA;"Bacalao";"Bacalao";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"HKE";"noPOSA";841,377;780,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"LEZ";"noPOSA";627,52;1322,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"MON";"noPOSA";1570,8;1307;NA;"Rape blanco";"Rapes";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"RJC";"noPOSA";543;1052,5;NA;"Raya de clavos";"Rayas";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
-539476;"WIT";"noPOSA";51,45;52;NA;"Mendo";"Mendo";"Mar Mares";11;2;2020;"OTB_DEF_>=70_0_0";NA
+539381;"ANK";"noPOSA";2471,52;1998,5;NA;"Rape negro";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"ARY";"noPOSA";83,2;78;NA;"Peon - pez plata";"Peon";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"BIB";"noPOSA";319,66;1022,7;NA;"Faneca comun";"Fanecas";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"BSS";"noPOSA";NA;31;NA;"Lubina";"Lubina";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"CET";"noPOSA";NA;37;NA;"Acedia";"Soleidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"COE";"noPOSA";186,45;125,5;NA;"Congrio";"Congrio";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"CTC";"noPOSA";NA;58,5;NA;"Sepia comun";"Sepias y chocos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"CTL";"noPOSA";58,5;0;NA;"Sepias y chocos";"Sepias y chocos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"EOI";"noPOSA";516,1;0;NA;"Pulpo blanco";"Pulpos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"GAD";"noPOSA";849,31;0;NA;"Fanecas spp";"Fanecas";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"GUG";"noPOSA";NA;194,7;NA;"Perlon";"Triglidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"GUX";"noPOSA";194,7;0;NA;"Triglidos";"Triglidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"HAD";"noPOSA";1275,34;1159,4;NA;"Eglefino";"Eglefino";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"HKE";"noPOSA";4971,7832;4539,3;NA;"Merluza europea";"Merluza europea";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"HOM";"noPOSA";226,8;226,8;NA;"Chicharro Negro";"Chicharros";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"JOD";"noPOSA";29,1;29,1;NA;"Pez de San Pedro";"Pez de San Pedro";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"LEZ";"noPOSA";1134,836;1020,6;NA;"Gallos - ollarra";"Gallos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MGR";"noPOSA";41,4;41,4;NA;"Corvina";"Corvina";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MKG";"noPOSA";72,6;0;NA;"Soldadito";"Soleidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MNZ";"noPOSA";314,04;0;NA;"Rapes Lophius";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MOJ";"noPOSA";6,5;0;NA;"Mojarras nep (DEA)";"Esparidos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MON";"noPOSA";641,52;725,6;NA;"Rape blanco";"Rapes";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MUR";"noPOSA";57;0;NA;"Salmonete de roca";"Salmonetes";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"MUX";"noPOSA";NA;57;NA;"Salmonetes (Mullus spp)";"Salmonetes";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"OCC";"noPOSA";NA;420,1;NA;"Pulpo comun";"Pulpos";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";0
+539381;"POL";"noPOSA";5,28;0;NA;"Abadejo";"Abadejo";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"RJC";"noPOSA";194,3;194,3;NA;"Raya de clavos";"Rayas";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"RJN";"noPOSA";845,4;350;NA;"Raya santiaguesa";"Rayas";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"SOL";"noPOSA";231,63;132;NA;"Lenguado";"Lenguado";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"SQC";"noPOSA";12,9;0;NA;"Calamares Loligo spp.";"Calamares";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"SYC";"noPOSA";180;180;NA;"Pintarroja";"Pintarroja";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"WHG";"noPOSA";258,06;225,6;NA;"Merlan";"Merlan";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539381;"WIT";"noPOSA";20,895;0;NA;"Mendo";"Mendo";"Gure Gaskuña";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"ANK";"noPOSA";485,4;509;NA;"Rape negro";"Rapes";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"COD";"noPOSA";57,2;129;NA;"Bacalao";"Bacalao";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"HKE";"noPOSA";841,377;780,5;NA;"Merluza europea";"Merluza europea";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"LEZ";"noPOSA";627,52;1322,5;NA;"Gallos - ollarra";"Gallos";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"MON";"noPOSA";1570,8;1307;NA;"Rape blanco";"Rapes";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"RJC";"noPOSA";543;1052,5;NA;"Raya de clavos";"Rayas";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
+539476;"WIT";"noPOSA";51,45;52;NA;"Mendo";"Mendo";"Mar Mares";11;2;2020;"OTB_DEF_100-119_0_0";NA
 539568;"BIB";"noPOSA";20;20;NA;"Faneca comun";"Fanecas";"Andrekala Berria";11;4;2020;"PTB_MPD_>=55_0_0";NA
 539568;"COE";"noPOSA";6,38;5,8;NA;"Congrio";"Congrio";"Andrekala Berria";11;4;2020;"PTB_MPD_>=55_0_0";NA
 539568;"GUG";"noPOSA";48;48;NA;"Perlon";"Triglidos";"Andrekala Berria";11;4;2020;"PTB_MPD_>=55_0_0";NA
