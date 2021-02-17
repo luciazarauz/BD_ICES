@@ -85,7 +85,7 @@ Tenemos tres fuentes de datos de venta para la flota de arrastre de Ondarroa:
 
 ### Procesados
 
-Se cargan los ficheros de Ventas, N1V y Muestreos (Tallas) por un lado y por otro los maestros de Especies y Buques. En un primer paso se filtran en todos los ficheros la flota de Ondarroa: parejas (8abd) "PTB_DEF_>=70_0_0", parejas de litoral "PTB_MPD_>=55_0_0" y las bacas (8abd) "OTB_DEF_>=70_0_0". 
+Se cargan los ficheros de Ventas, N1V y Muestreos (Tallas) por un lado y por otro los maestros de Especies y Buques. En un primer paso se filtran en todos los ficheros la flota de Ondarroa: parejas 8abd (PTB_DEF_>=70_0_0), parejas de litoral (PTB_MPD_>=55_0_0) y las bacas 8abd (OTB_DEF_>=70_0_0") y bakas 6 (OTB_DEF_100-119_0_0). Incluimos desembarcos en Ondarroa y en Pasaia.
 
 Se unifica con un código lo que identificamos que procede de POSA y lo que no, en los ficheros de N1V y Ventas. En Muestreos no lo sabemos con segurdad, pero rellenamos el campo como "no POSA".
 
@@ -409,7 +409,7 @@ checktab <- Comp %>% group_by(Nombre.Oficial, Nombre.Check, Posa) %>% summarise(
 ## Figuras {.tabset .tabset-pills}
  
 
-### PM - PV (sinPOSA) {-}
+### PM vs PV (sinPOSA) {-}
 
 **Peso Muestreo vs Peso ventas por marea (no incluye POSA)**
 
@@ -448,7 +448,7 @@ bakas 6a: La relación entre los pesos observados en los muestreos, y las pesos 
 
 ```
 
-### PM - PV (all) {-}
+### PM vs PV (all) {-}
 
 **Peso Muestreo vs Peso ventas por marea (incluye POSA)**
 
@@ -486,7 +486,7 @@ for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
 ```
 
 
-### PNV - PV (barplot) {-}
+### PNV vs PV (barplot) {-}
 
 *Parejas 8abd*: en Ventas no se declara ningun kg de merluza de POSA (los pdf), sin embargo, en N1V sí que se declara merluza de POSA. A pesar de no incluir nada de POSA, el peso de Ventas es mayor.
 
@@ -531,7 +531,7 @@ plot (ggp)
 ```
 
 
-### PNV - PV (all) {-}
+### PNV vs PV (all) {-}
 
 **Peso NV vs Peso ventas por mes y por barco (incluye POSA)**
 
@@ -576,7 +576,7 @@ for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_
 
 ```
 
-### PNV - PV {-}
+### PNV vs PV (separando POSA) {-}
 
 **Peso NV vs Peso ventas por mes y separando POSA y no POSA**
 
