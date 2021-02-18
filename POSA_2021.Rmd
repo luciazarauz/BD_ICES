@@ -65,7 +65,10 @@ mgsub <- function(pattern, replacement, x, ...) {
     seq(min(x)+d, max(x)-d, length=n)
   }
 }
-      
+   
+      f <- function(x){
+  format(round(x, 0), nsmall=0)
+}   
       
 # fija el tema de las figuras del ggplot
 theme_set(theme_bw(base_size=16))
@@ -92,6 +95,10 @@ Se unifica con un código lo que identificamos que procede de POSA y lo que no, 
 Para que los pesos de N1V, Ventas y Muestreos sean equivalentes se agregan las capturas de ambos barcos en las parejas. Esto es así, porque en la base de datos los desembarcos de las parejas se asignana al 50% a cada buque que comforman la pareja.
 
 Se unen las tres tablas (N1V, Ventas y Muestreo) previamente habiendolas agregado por "IdVenta", "Especie" y "Posa (sí/no)" para obter el sumatorio de los Pesos. Se unifican corrijen y unifican tmabién los nombres de las especies entre las tablas. Finalmente se agrega a la tabla "nombre de buque", "Mes", "Día", "Año" y "Metier". Convertimos NA en ceros, para el peso OPPAO y el peso NV.
+
+alguna correcion de nombre que hay que revisar en la BD:
+
+* declarado en NV como "Pejerrey - Abichon - Chirrete", es en realidad "Peon - pez plata"
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 
@@ -413,11 +420,11 @@ checktab <- Comp %>% group_by(Nombre.Oficial, Nombre.Check, Posa) %>% summarise(
 
 **Peso Muestreo vs Peso ventas por marea (no incluye POSA)**
 
-parejas 8c: Observamos que en las hay descargas que no llegamos a muestrear, principalmente de merluza y lirio, y algo en triglidos. El resto d eespecies se ajustan bien
+*parejas 8c*: Observamos que en las hay descargas que no llegamos a muestrear, principalmente de merluza y lirio, y algo en triglidos. El resto d eespecies se ajustan bien
 
-bakas 8abd: Observamos que en las hay descargas de merluza que no llegamos a muestrear. Revisando la marea (Eguzkilore 28/09/2020) vemos que la razón no es que estas descargas se vayan a POSA. Pero no sabemso por qué. El resto d eespecies se ajustan bien
+*bakas 8abd*: Observamos que en las hay descargas de merluza que no llegamos a muestrear. Revisando las mareas (Eguzkilore 28/09/2020, Mar Mares 23/11/2020) vemos que la razón no es que estas descargas se vayan a POSA. Pero no sabemos por qué. El resto de especies se ajustan bien
 
-bakas 6a: La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan muy bien.
+*bakas 6a*: La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan muy bien.
 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
@@ -427,11 +434,13 @@ bakas 6a: La relación entre los pesos observados en los muestreos, y las pesos 
   for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
       plottitle <- i
     
-    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + 
+    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN,0)) + 
       geom_point(size = 2) +
-      #geom_label(label=rownames(subset(t, Metier==i))) +
+      # geom_label(label=rownames(subset(t, Metier==i))) +
       geom_abline(intercept = 0, slope = 1, col="red") +
       facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+      scale_x_continuous(labels=f) +
+      scale_y_continuous(labels=f) +
       ggtitle(plottitle) +
       theme( plot.title = element_text(hjust = 0.5))
     
@@ -442,6 +451,7 @@ bakas 6a: La relación entre los pesos observados en los muestreos, y las pesos 
   }
 
 
+# subset(t, Metier=="OTB_DEF_>=70_0_0") [203,]
 # subset(t, Metier=="OTB_DEF_100-119_0_0" & Nombre.Check=="Potas")
 # subset(t, Metier=="OTB_DEF_100-119_0_0" & Mes==10 & Dia==19)
 # subset(t, Metier=="OTB_DEF_100-119_0_0" & Nombre.Check=="Rapes")
@@ -474,6 +484,8 @@ for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
       geom_point(size = 2) +
       geom_abline(intercept = 0, slope = 1, col="red") +
       facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+      scale_x_continuous(labels=f) +
+      scale_y_continuous(labels=f) +
       ggtitle(plottitle) +
       theme(plot.title = element_text(hjust = 0.5))
   
@@ -488,6 +500,8 @@ for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
 
 ### PNV vs PV (barplot) {-}
 
+**Peso total anual separando POSA de no POSA, en NV y en ventas**
+
 *Parejas 8abd*: en Ventas no se declara ningun kg de merluza de POSA (los pdf), sin embargo, en N1V sí que se declara merluza de POSA. A pesar de no incluir nada de POSA, el peso de Ventas es mayor.
 
 *Parejas 8c*: Lirio y Potas tienen kg declarados como POSA tanto en NV como en Ventas. merluza y peon, solo tienen KG declarados como  POSA en NV.En general, el total de desembarcos es mayor en Ventas
@@ -500,7 +514,6 @@ Lo que vemos es que no siempre hay correspondencia entre lo declarado como POSA 
 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
-
 t0 <- Comp0 %>% group_by(Metier, Nombre.Check, Posa ) %>% 
   summarise (Peso.Ventas = sum( Peso.Ventas, na.rm=TRUE),
              Peso.NV = sum(Peso.NV, na.rm=TRUE))
@@ -516,6 +529,7 @@ for (i in c("PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF
     geom_bar(stat="identity") +
     scale_fill_colorblind()+
     facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+    scale_y_continuous(labels=f) +
     ggtitle(plottitle) +
     theme(plot.title = element_text(hjust = 0.5),
           legend.position = "bottom")
@@ -564,6 +578,8 @@ for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_
     scale_color_colorblind()+
     geom_abline(intercept = 0, slope = 1, col="red") +
     facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+    scale_x_continuous(labels=f) +
+    scale_y_continuous(labels=f) +
     ggtitle(plottitle) +
     theme(plot.title = element_text(hjust = 0.5),
           legend.position = "bottom")
@@ -598,6 +614,8 @@ for (i in c("PTB_DEF_>=70_0_0", "PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF
     scale_colour_colorblind()+
     geom_abline(intercept = 0, slope = 1, col="red") +
     facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
+    scale_x_continuous(labels=f) +
+    scale_y_continuous(labels=f) +
     ggtitle(plottitle) +
     theme(plot.title = element_text(hjust = 0.5),
           legend.position = "bottom")

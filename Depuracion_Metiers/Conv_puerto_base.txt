@@ -1,0 +1,147 @@
+puerto,origen,origen_cod
+A Coruna,Galicia,ESP
+A Coruna (prov.),Galicia,ESP
+A Guarda,Galicia,ESP
+Aldan-Hio,Galicia,ESP
+Aldan - Hio,Galicia,ESP
+Alemania, Alemania,DEU
+Algeciras,Cadiz,ESP
+Arcachon,Francia,FRA
+Ares,Galicia,ESP
+Armintza,Euskadi,ARM
+Auray,Francia,FRA
+Aveiro,Galicia,ESP
+Aviles,Asturias,ESP
+Ayr,Escocia,ESC
+Banff,Inglaterra,ING
+Bilbao,Euskadi,BIO
+Baiona,Galicia,ESP
+Bayonne,Francia,FRA
+Barallobre,Galicia,ESP
+Bermeo,Euskadi,BER
+Bueu,Galicia,ESP
+Burela,Galicia,ESP
+Bustio,Asturias,ESP
+Candas,Galicia,ESP
+Camarinas,Galicia,ESP
+Cambados,Galicia,ESP
+Cangas do Morrazo,Galicia,ESP
+Cantabria,Cantabria,ESP
+Cap Breton,Francia,FRA
+Carboneras,Almeria,ESP
+Carino,Galicia,ESP
+Carreira,Galicia,ESP
+Castlebay, Escocia, SCO
+Castletownbere,Irlanda,IRL
+Castro Urdiales,Cantabria,ESP
+Cedeira,Galicia,ESP
+Celeiro,Galicia,ESP
+Cherbourg,Francia,FRA
+Ciboure,Francia,FRA
+Colindres,Cantabria,ESP
+Comillas,Cantabria,ESP
+Concarneau,Francia,FRA
+Cork,Irlanda,IRL
+Cudillero,Asturias,ESP
+Desconocido,Desconocido,DES
+Desconocido (c),Desconocido,DES
+Dieppe,Francia,FRA
+Donostia,Euskadi,DON
+Drogheda,Irlanda,IRL
+Drogheda incorrecto,Desconocido,DES
+Dublin,Irlanda,IRL
+Euskadi,Euskadi,EUS
+Elantxobe,Euskadi,ELA
+El Musel-Gijon,Asturias,ESP
+Ferrol,Galicia,ESP
+Figueras,Gerona,ESP
+Fisterra,Galicia,ESP
+Fleetwood,Inglaterra,ING
+Foz,Galicia,ESP
+Francia,Francia,FRA
+Galicia,Galicia,ESP
+Galway,Irlanda,IRL
+Getaria,Euskadi,GET
+Guilvinec,Francia,FRA
+Gran Bretana,Inglaterra,ING
+Grimsby,Inglaterra,ING
+Hendaye,Francia,FRA
+Hondarribia,Euskadi,HON
+Ile d'Oleron,Francia,FRA
+Ile d'Oleron (Le Chateau),Francia,FRA
+Ile d'Yeu,Francia,FRA
+Illa de Arosa,Galicia,ESP
+Inglaterra y Gales,Inglaterra,ING
+Inverness,Escocia,ESC
+Irlanda,Irlanda,IRL
+La Rochelle,Francia,FRA
+Laredo,Cantabria,ESP
+Lastres,Asturias,ESP
+Laxe,Galicia,ESP
+Leixoes,Portugal,POR
+Lekeitio,Euskadi,LEK
+Lira-Carnota,Galicia,ESP
+Llanes,Asturias,ESP
+Lorient,Francia,FRA
+Lowestoft,Inglaterra,ING
+Luarca,Asturias,ESP
+Malpica de Bergantinos,Galicia,ESP
+Marennes,Francia,FRA
+Marin,Galicia,ESP
+Milford Haven,Inglaterra,ING
+Motril,Granada,ESP
+Mugardos,Galicia,ESP
+Mundaka,Euskadi,MUN
+Muros,Galicia,ESP
+Musel-Gijon,Asturias,ESP
+Mutriku,Euskadi,MUT
+Muxia, Galicia, ESP
+Newlyn,Inglaterra,ING
+Noia,Galicia,ESP
+O Grove,Galicia,ESP
+Oban,Escocia,ESC
+Ondarroa,Euskadi,OND
+Orio,Euskadi,ORI
+Ortigueira,Galicia,ESP
+Ovinana,Asturias,ESP
+Pasaia,Euskadi,PAS
+Pasajes,Euskadi,PAS
+Pasajes de San Juan,Euskadi,PAS
+Pasajes de San Pedro,Euskadi,PAS
+Plentzia,Euskadi,PLE
+Plymouth,Inglaterra,ING
+Pontedeume,Galicia,ESP
+Porto do Son,Galicia,ESP
+Portonovo,Galicia,ESP
+Portosin,Galicia,ESP
+Portugal,Portugal,POR
+Puerto de Vega,Asturias,ESP
+Puertos Franceses,Francia,FRA
+Puertos Ingleses,Inglaterra,ING
+Puertos Irlandeses,Irlanda,IRL
+Raxo,Galicia,ESP
+Redondela,Galicia,ESP
+Sada,Galicia,ESP
+Saint Jean de Luz,Francia,FRA
+San Ciprian,Galicia,ESP
+San Juan de la Arena,Asturias,ESP
+San Vicente de la Barquera,Cantabria,ESP
+Santa Uxia de Ribeira,Galicia,ESP
+Santander,Cantabria,ESP
+Santona,Cantabria,ESP
+Santurtzi,Euskadi,SAN
+Skibbereen,Irlanda,IRL
+Sligo,Irlanda,IRL
+Suances,Cantabria,ESP
+Tapia de Casariego,Asturias,ESP
+Tralee,Irlanda,IRL
+Tralle,Irlanda,IRL
+Tralle incorrect,Desconocido,DES
+Ullapool,Escocia,ESC
+Vicedo,Galicia,ESP
+Vigo,Galicia,ESP
+Vivero,Galicia,ESP
+Zierbena,Euskadi,ZIE
+Zumaia,Euskadi,ZUM
+
+

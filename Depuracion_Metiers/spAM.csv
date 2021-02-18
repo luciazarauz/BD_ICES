@@ -1,0 +1,54 @@
+Cod ALFA 3;Nombre Cientifico;Nombre Oficial;Grupo
+SWX;Algae;Algas nep (DEA);ALG
+GEL;Gelidium spp;Algas Gelidium;ALG
+GEQ;Gelidium corneum;Alga Imperial (Gelidium);ALG
+CRE;Cancer pagurus;Buey;CRU
+LIO;Necora puber;Necora;CRU
+QPX;Palaemon spp;Camarones ;CRU
+GUM;Chelidonichthys obscurus;Arete oscuro ;GNS
+GUU;Chelidonichthys lucerna;Bejel;GNS
+HMM;Trachurus mediterraneus;Chicharro Blanco;GNS
+HOM;Trachurus trachurus;Chicharro Negro;GNS
+JAX;Trachurus spp;Chicharros;GNS
+HOM;Trachurus picturatus;Chicharro Azul;GNS
+BIB;Trisopterus luscus;Faneca comun;GNS
+GAD;Trisopterus spp;Fanecas spp;GNS
+HKE;Merluccius merluccius;Merluza europea;GNS
+MUR;Mullus surmuletus;Salmonete de roca;GNS
+MUX;Mullus spp;Salmonetes (Mullus spp);GNS
+MUT;Mullus barbatus;Salmonete de fango;GNS
+GUX;Triglidae;Triglidos;GNS
+GUG;Eutrigla gurnardus;Perlon;GNS
+CTZ;Trigloporus lastoviza;Rubio;GNS
+GUN;Trigla lyra;Garneo;GNS
+GUR;Chelidonichthys cuculus;Cuco, Peona;GNS
+MAC;Scomber scombrus;Verdel, Caballa;LHM
+RSE;Scorpaena scrofa;Cabracho;GTR
+SOS;Pegusa lascaris;Lenguado de arena;GTR
+SOL;Solea solea;Lenguado ;GTR
+MON;Lophius piscatorius;Rape blanco;GTR
+ANK;Lophius budegassa;Rape negro;GTR
+MNZ;Lophius;Rapes Lophius;GTR
+BBS;Scorpaena porcus;Rascacio;GTR
+SCS;Scorpaena spp;Rascacios , Cabrachos (Scorpaena spp);GTR
+SNQ;Scorpaena notata;Escorpora, obispo;GTR
+WEG;Trachinus draco;Salvario scorpion Escarapote Arana;GTR
+RJC;Raja clavata;Raya de clavos;GTR
+RAJ;Rajidae;Rayas (Rajidae);GTR
+SKA;Raja spp;Rayas spp;GTR
+RJN;Leucoraja naevus;Raya santiaguesa;GTR
+SRX;Rajidae;Rayas, pastinacas, mantas nep (DEA);GTR
+BLL;Scophthalmus rhombus;Remol, Corujo;GTR
+TUR;Scophthalmus maximus;Rodaballo;GTR
+CTC;Sepia officinalis;Sepia;GTR
+CTL;Sepiidae;Sepias y chocos;GTR
+EOI;Eledone cirrhosa;Pulpo blanco;MOL
+OCC;Octopus vulgaris;Pulpo comun;MOL
+OCT;Octopodidae;Pulpos;MOL
+ALB;Thunnus alalunga;Bonito del Norte;TUN
+BFT;Thunnus thynnus;Cimarron, Atun rojo;TUN
+NOW;Anemonia sulcata;Anemona de mar comun;MIS
+SQC;Loligo;Calamares Loligo spp.;CEP
+SQR;Loligo vulgaris;Calamar común;CEP
+SQZ;Loliginidae;Calamares Loliginidae;CEP
+SQU;Loliginidae Ommastrephidae;Calamares jibias potas DEA;CEP
