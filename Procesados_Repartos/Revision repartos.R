@@ -291,14 +291,17 @@ prop <- round(prop,3)
 prop <- data.frame(cbind(DB_summary[,"Metier"], prop  ))
 names(prop)[1] <- "Metier"
 
-## tabla resumen de muestreos
-LN_TripSamp <- LN %>% group_by(Metier,  Puerto.venta, Trimestre, Especie.comercial) %>% 
-  summarise(TripSamp = length(unique(IdVenta)))
-temp <- LN %>% group_by (Metier, Puerto.venta, Trimestre, Especie.comercial.Gen, Especie.comercial, Especie.muestreada) %>% 
-  summarise(Peso = sum(Peso, na.rm=T)) %>%
-  left_join(LN_TripSamp, by=c("Metier","Puerto.venta", "Trimestre", "Especie.comercial"))
 
-write.table(temp, "infoRepartos.csv", sep=";", dec=",", row.names = F)
+
+
+## tabla resumen de muestreos
+LN_TripSamp <- LN %>% group_by(IdVenta, Metier,  Puerto.venta, Trimestre, Especie.comercial) %>% 
+  summarise(TripSamp = length(unique(IdVenta)))
+temp <- LN %>% group_by (IdVenta, Metier, Puerto.venta, Trimestre, Especie.comercial.Gen, Especie.comercial, Especie.comercial.ALFA3, Especie.muestreada, Especie.muestreada.ALFA3) %>% 
+  summarise(Peso = sum(Peso, na.rm=T)) %>%
+  left_join(LN_TripSamp, by=c("IdVenta",  "Metier","Puerto.venta", "Trimestre", "Especie.comercial"))
+
+write.table(temp, "infoRepartos2.csv", sep=";", dec=",", row.names = F)
 
 
 ## Opcion 1
@@ -318,7 +321,7 @@ temp1 <- LN %>% filter(Especie.comercial.Gen %in% i) %>%
 temp1[is.na(temp1)] <- 0
 
 prop1 <- prop.table(as.matrix(temp1[,6:ncol(temp1)]), margin = 1)
-prop1 <- round(prop1,3 ).
+prop1 <- round(prop1,3 )
 
 tablefin1 <- data.frame(cbind(temp1[,1:5], prop1  ))
 
