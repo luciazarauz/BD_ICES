@@ -22,9 +22,23 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=12)
 En este codigo vamos a comparar los datos de muestreo, ventas y N1V. El objetivo de ver la magnitud de los desembarcos que se llevan a POSA, si están incluidos en las hojas de venta de la OPPAO y si los observamos en el muestreo.
 
 
-# Resumen
+# Conclusiones
 
-** a concluir entre todos
+* En general, el muestreador tiene buen acceso a lo declarado en Ventas (Hojas de la OPPAO), aunque llaman la atención algunas diferencias para el lirio y la merluza en parejas, probablemente porqye se vende directamente, sin pasar por la subasta de la OPPAO
+
+* Sin embargo, lo que se va a POSA no lo estamos muestreando. En general, en 2020 ha ido a POSA un volumen de pescado mucho menor que en años anteriores, pero nos procupa la merluza de las bakas de la 8. Hay un volumen significativo que va a POSA, y si estamos perdiendo tamaños concretos, esto podría tener un impacto en la distribución final de tallas.
+
+* Las bakas de la 6, que otros años han vendido mucho a POSA, este año han vendido mucho menos.
+
+* Nos llama la atención la difernecia entre lo declarado como POSA en NV y en Ventas. Sobre todo las mareas que en las que en Ventas no aparece ninguna captura como POSA pero si aparecen kg en POSA de NV
+
+
+* Decicimos tomar las iguientes acciones:
+
+  * Comparar la distribución de tallas final de merluza de bakas de la 8abd, utilizando el muestreo en puerto  y e muetsreo en la mar. Se puede hacer mediante los ficheros Intercatch. Ver la diferencia y valorar que datos utilizaremos para contestar al data call de ICES
+
+  * Hablar con POSA (Garbiñe) para comprobar que nos están dado todo lo que compran a la OPPAO. Se pueden identificar mareas concretas en las que tengamos POSA en NV pero no en Ventas. Consultarle la posibilidad de que nos pase los datos en un fichero plano. si no pueden ellos hacer una salida de su BD, podemos valorar la posibilidad de prepararles nosotros un programa, como hicimos con las cofradías.
+
 
 # Anáslisis y resultados
 
@@ -80,11 +94,11 @@ theme_set(theme_bw(base_size=16))
 
 Tenemos tres fuentes de datos de venta para la flota de arrastre de Ondarroa: 
 
-* N1V: Las Notas de Venta oficiales (proprcionadas por HAZI). Estas NV incluyen tanto lo que va a POSA, como lo adquirido por otros compradores.
+* **Notas de primera venta (NV)**: Las Notas de Venta oficiales (proprcionadas por HAZI). Estas NV incluyen tanto lo que va a POSA, como lo adquirido por otros compradores.
 
-* Ventas: Las hojas de la OPPAO que nos proporcionan los armadores. A estas hojas de venta añadimos las notas que nos pasa POSA en pdf. 
+* **Ventas (V)**: Las hojas de la OPPAO que nos proporcionan los armadores. A estas hojas de venta añadimos las notas que nos pasa POSA en pdf. 
 
-* Muestreo en puerto: los datos que recogen los muestreadores (tallas y peso desembarcado)
+* **Muestreo en puerto (M)**: los datos que recogen los muestreadores (tallas y peso desembarcado)
 
 ### Procesados
 
@@ -416,15 +430,17 @@ checktab <- Comp %>% group_by(Nombre.Oficial, Nombre.Check, Posa) %>% summarise(
 ## Figuras {.tabset .tabset-pills}
  
 
-### PM vs PV (sinPOSA) {-}
+### M vs V (sinPOSA) {-}
 
 **Peso Muestreo vs Peso ventas por marea (no incluye POSA)**
 
-*parejas 8c*: Observamos que en las hay descargas que no llegamos a muestrear, principalmente de merluza y lirio, y algo en triglidos. El resto d eespecies se ajustan bien
+*parejas 8c*: Observamos que en las hay descargas que no llegamos a muestrear, principalmente de merluza y lirio, y algo en triglidos. El resto de especies se ajustan bien
 
 *bakas 8abd*: Observamos que en las hay descargas de merluza que no llegamos a muestrear. Revisando las mareas (Eguzkilore 28/09/2020, Mar Mares 23/11/2020) vemos que la razón no es que estas descargas se vayan a POSA. Pero no sabemos por qué. El resto de especies se ajustan bien
 
 *bakas 6a*: La relación entre los pesos observados en los muestreos, y las pesos de ventas se ajustan muy bien.
+
+Sabemos que a veces hay pescado que la OPPAO vende directamente, antes de abrir su subasta. Ese pescado no lo ve el muestreador
 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
@@ -434,9 +450,9 @@ checktab <- Comp %>% group_by(Nombre.Oficial, Nombre.Check, Posa) %>% summarise(
   for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
       plottitle <- i
     
-    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN,0)) + 
+    ggp <- ggplot(subset(t, Metier==i), aes(Peso.Ventas, Peso.LN)) + #, colour = Nombre_Buque2)
       geom_point(size = 2) +
-      # geom_label(label=rownames(subset(t, Metier==i))) +
+      #geom_label(label=rownames(subset(t, Metier==i))) +
       geom_abline(intercept = 0, slope = 1, col="red") +
       facet_wrap( ~ Nombre.Check, scales="free", ncol=4) +
       scale_x_continuous(labels=f) +
@@ -458,13 +474,13 @@ checktab <- Comp %>% group_by(Nombre.Oficial, Nombre.Check, Posa) %>% summarise(
 
 ```
 
-### PM vs PV (all) {-}
+### M vs V (all) {-}
 
 **Peso Muestreo vs Peso ventas por marea (incluye POSA)**
 
 *parejas 8c*: Al añadir POSA,no cambia mucho debido a que para esta flota hay muy poca POSA declarada en Ventas, aunque si se observan algunos meses con más desembarcos en Ventas para verdel y lirio. 
 
-*bakas de la 8abd*: Se observa que en general el peso Venta es mayor que el peso muestreado, particularmente en merluza, fanecas, gallos y tríglidos. Estas especies son de las que nos estaríamos perdiendo parte de sus desembarcos porque se llevan a POSA y el muestreaor no tiene acceso a ellos. Para verdel no se observan diferencias enre el peso muestreado y el peso de venta
+*bakas de la 8abd*: Se observa que en general el peso Venta es mayor que el peso muestreado, particularmente en merluza, fanecas, gallos y tríglidos. Estas especies son de las que nos estaríamos perdiendo parte de sus desembarcos porque se llevan a POSA y el muestreaor no tiene acceso a ellos. Para verdel no se observan diferencias enre el peso muestreado y el peso de venta. Nos preocupa le meustreo de merluza, ya que podemos estar perdiendo categrias de tamaño concretas y esto tendria un efecto en la distribución de tallas total. Decidimos comparar el muestreo en puerto con el muestreo en la mar para la merluza de las bakas de la 8.
 
 *bakas de la 6*: No se observan diferencias enre el peso muestreado y el peso de venta para merluza. Sí se observa alguna diferencia para gallso y rapes
 
@@ -498,7 +514,7 @@ for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
 ```
 
 
-### PNV vs PV (barplot) {-}
+### NV vs V (barplot) {-}
 
 **Peso total anual separando POSA de no POSA, en NV y en ventas**
 
@@ -510,7 +526,7 @@ for (i in c("PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_100-119_0_0")) {
 
 *Bakas 6*: solamente POSA en gallos, rapes y brótola de fango. Los totales eajustan bastante bien
 
-Lo que vemos es que no siempre hay correspondencia entre lo declarado como POSA en NV y en el pdf (Ventas). No sabemos cuál es la correcta. 
+Lo que vemos es que no siempre hay correspondencia entre lo declarado como POSA en NV y en el pdf (Ventas). Tradicionalmente, sabemos que la OPPAO no ha puesto mucho interés en segurar que los datos declarados en NV a uno u otro comprador se ajusten al detalle. A menudo se trata de los mismos armadores y les da igual. Por eso, consideramos que son mas correctos los datos que recogemos directamente de POSA (los pdf), pero así todo decidimos comprobarlo
 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
@@ -545,7 +561,7 @@ plot (ggp)
 ```
 
 
-### PNV vs PV (all) {-}
+### NV vs V (all) {-}
 
 **Peso NV vs Peso ventas por mes y por barco (incluye POSA)**
 
@@ -553,11 +569,11 @@ plot (ggp)
 
 *Parejas 8abd*: en general se observa underreporting en las NV, para las mismas especies que las parejas de la 8, más gallos, verdel y pulpos
 
-*Bakas 8abd*: en general están bastate ajustados los pesos de N1V y Ventas pero hay un sesgo por barco. Sobresale el Kalamendi que declara  mas en NV que en Ventas (sobre todo merluza, rape, gallo, congrio..) . 
+*Bakas 8abd*: en general están bastate ajustados los pesos de N1V y Ventas pero hay un sesgo por barco. Sobresale el Kalamendi que declara  mas en NV que en Ventas (sobre todo merluza, rape, gallo, congrio..). Este es un barco mu especial que vende parte de la cpatura en Pasaia, y no nos procupa.
 
 *Bakas 6*: en general están bastate ajustados los pesos de N1V
 
-Hasta ahora siempre hemos asumido que se declaran mayores desembarcos en OPPAO que en N1V. Según los datos de este año, esto no está tan claro
+Hasta ahora siempre hemos asumido que se declaran mayores desembarcos en OPPAO que en N1V. Este año vemso que las epsecies "no problematicas" se ajustan bastante bien, aunque sigue habiendo diferncias para espcies potencialmente problemáticas (merluza, verdel) en algunas flotas. Por otra parte, algunos barco vendan parte de la captura por canales diferentes a la OPPAO, y eso explica que para algunas especies el volumen sea mayor en NV.  
 
 
 ```{r echo=F, message=FALSE, warning=FALSE}
@@ -592,7 +608,7 @@ for (i in c("PTB_DEF_>=70_0_0","PTB_MPD_>=55_0_0", "OTB_DEF_>=70_0_0", "OTB_DEF_
 
 ```
 
-### PNV vs PV (separando POSA) {-}
+### NV vs V (separando POSA) {-}
 
 **Peso NV vs Peso ventas por mes y separando POSA y no POSA**
 
