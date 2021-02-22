@@ -266,6 +266,31 @@ subset(LN, IdVenta %in% c(538377, 538838, 539178, 539379, 552483, 552797, 553043
 subset(LN, IdVenta %in% c(553112) & Especie.muestreada.ALFA3 %in% c("MEG", "LDB"))
 
 
+## tabla resumen de muestreos
+####
+LN_TripSamp <- LN %>% group_by(IdVenta, Metier,  Puerto.venta, Trimestre, Especie.comercial) %>% 
+  summarise(TripSamp = length(unique(IdVenta)))
+temp <- LN %>% group_by (IdVenta, Metier, Puerto.venta, Trimestre, Especie.comercial.Gen, Especie.comercial, Especie.comercial.ALFA3, Especie.muestreada, Especie.muestreada.ALFA3) %>% 
+  summarise(Peso = sum(Peso, na.rm=T)) %>%
+  left_join(LN_TripSamp, by=c("IdVenta",  "Metier","Puerto.venta", "Trimestre", "Especie.comercial"))
+
+write.table(temp, "Procesados_Repartos/infoRepartos.csv", sep=";", dec=",", row.names = F)
+
+
+## tabla resumen para DESEMBARCOS
+####
+unique(DB$Tamaño[DB$Especie_Oficial_Gen=="Rapes Lophius"])
+unique(DB$Tamaño[DB$Especie_Oficial_Gen=="Gallos - ollarra"])
+DB$Tamaño2<- DB$Tamaño
+DB$Tamaño2<- gsub(" N| BL", "", DB$Tamaño2)
+DB$Tamaño2<- gsub("Gallo |whiffi |boscii", "", DB$Tamaño2)
+
+DB_summary <- DB %>% group_by(Metier, Trimestre, Tamaño2, Especie_Oficial_Gen, Especie_Oficial) %>% 
+                           summarise(Peso=sum(Peso, na.rm = T)) 
+            
+write.table(DB_summary, "Procesados_Repartos/InfoDesembarcos.csv", sep=";", dec=",", row.names = F)
+
+
 ## seleccionar especies
 # rapes, gallos,  calamares, sepias, potas, triglidos, rayas, soleidos, fanecas, cabrachos
 
@@ -274,8 +299,6 @@ i <- triglidos [1]; i
 i <- calamares [1]; i
 
 
-
-  
 ## General
 ##  % en desembarcos
 
@@ -290,18 +313,6 @@ prop <- prop.table(as.matrix(DB_summary[,2:ncol(DB_summary)]), margin = 1)
 prop <- round(prop,3)
 prop <- data.frame(cbind(DB_summary[,"Metier"], prop  ))
 names(prop)[1] <- "Metier"
-
-
-
-
-## tabla resumen de muestreos
-LN_TripSamp <- LN %>% group_by(IdVenta, Metier,  Puerto.venta, Trimestre, Especie.comercial) %>% 
-  summarise(TripSamp = length(unique(IdVenta)))
-temp <- LN %>% group_by (IdVenta, Metier, Puerto.venta, Trimestre, Especie.comercial.Gen, Especie.comercial, Especie.comercial.ALFA3, Especie.muestreada, Especie.muestreada.ALFA3) %>% 
-  summarise(Peso = sum(Peso, na.rm=T)) %>%
-  left_join(LN_TripSamp, by=c("IdVenta",  "Metier","Puerto.venta", "Trimestre", "Especie.comercial"))
-
-write.table(temp, "infoRepartos2.csv", sep=";", dec=",", row.names = F)
 
 
 ## Opcion 1
