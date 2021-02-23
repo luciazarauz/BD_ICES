@@ -85,7 +85,7 @@ buques      <- read.csv("0_Maestros/Buques_2020.txt",header=T,sep="\t",dec=",", 
   spAM         <- read.csv("Depuracion_Metiers/spAM.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(spAM)
   spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",stringsAsFactors = FALSE); head(spOTB)
   #Arte principal
-  buquesLLSGNS <- read.csv("Depuracion_Metiers/2019_buques_LLS_GNS.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(buquesLLSGNS)
+  #buquesLLSGNS <- read.csv("Depuracion_Metiers/2019_buques_LLS_GNS.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(buquesLLSGNS)
 
 
 #DB <- NV
@@ -196,9 +196,9 @@ DB$Trip <- DB$IdVenta
 #Metier codigo
 DB$Metier_cod  <- substr(DB$Metier,1,3)
 
-#Metier (LLS y GNS)
-DB$Metier_Principal <- buquesLLSGNS$Metier.principal.2018[match(DB$Cod_UE, buquesLLSGNS$Codigo.UE)] ## necesitamos datos actualizados!
-DB$Metier_Principal[is.na(DB$Metier_Principal)]<- "Otros"
+# #Metier (lista LLS y GNS)
+# DB$Metier_Principal <- buquesLLSGNS$Metier.principal.2018[match(DB$Cod_UE, buquesLLSGNS$Codigo.UE)] ## necesitamos datos actualizados!
+# DB$Metier_Principal[is.na(DB$Metier_Principal)]<- "Otros"
 
 #Zona  DB
 DB$Zona [grep("27.8.a|27.8.b|27.8.d|27.8.e",DB$Zona)]<- "27.8.abde"
@@ -235,38 +235,8 @@ DB$Zona2[DB$Zona2 %in% c("27.4", "27.5","27.8" )] <- DB$Zona[DB$Zona2 %in% c("27
 
 # Metier NV
 DB$MetierNV <- MetierSelect$C_Metier[match(DB$IdVenta, MetierSelect$IdVenta)]
-
-
-#    .Crear tablas con el Metier Principal NV   ####
-################################################## #
-MetierPrincipal <- DB
-MetierPrincipal$MetierNV[MetierPrincipal$MetierNV=="GTR"] <- "GNS"
-MetierPrincipal <- MetierPrincipal %>% group_by(Nombre_Buque, Cod_UE, Censo, MetierNV) %>% 
-                              summarise(Ntrips = Fun_CountUnique(Trip)) 
-
-  # Artes menores: GNS y LLS
-  Metier_GNS <- MetierPrincipal %>%  
-                    filter( MetierNV %in% c("GNS", "LLS") & Censo("ARTES MENORES EN CANTABRICO NW")) %>% 
-                    pivot_wider(names_from = MetierNV, values_from = Ntrips) 
-  Metier_GNS<-as.data.table(Metier_GNS)
-  dropnames <- c("Nombre_Buque", "Cod_UE",  "Censo" )
-  Metier_GNS$C_Metier <- colnames(Metier_GNS[,-dropnames, with =F])[apply(Metier_GNS[,-dropnames, with =F],1,which.max)]
-  Metier_GNS<-as.data.frame(Metier_GNS)
-
-  # Cerco: LHM y LTL
-  Metier_PS <- MetierPrincipal %>%  
-                    filter( MetierNV %in% c( "LHP","LTL", "LHM" ) & Censo ("CERCO EN CANTABRICO NW")) %>%
-                    pivot_wider(names_from = MetierNV, values_from = Ntrips) 
-  Metier_PS<-as.data.table(Metier_PS)
-  dropnames <- c("Nombre_Buque", "Cod_UE",  "Censo" )
-  Metier_PS$C_Metier <- colnames(Metier_PS[,-dropnames, with =F])[apply(Metier_PS[,-dropnames, with =F],1,which.max)]
-  Metier_PS<-as.data.frame(Metier_PS)
-  
-  subset(Metier_PS, Censo== "CERCO EN CANTABRICO NW" &  C_Metier=="LHM")
-  subset(Metier_PS, Censo== "CERCO EN CANTABRICO NW" &  C_Metier=="LTL")
-
-  
-  
+# 
+#   
 sum(DB$Kg_Desemb_Peso_Vivo, na.rm=TRUE)       # 45590178
 
 
@@ -539,11 +509,11 @@ db_sp<- DBba %>% arrange(Nombre_Buque, Fecha_Desembarco,Puerto_Venta) %>%
 
 # agregar por marea
 db_sp<-   db_sp %>% group_by(Nombre_Buque , Cod_UE , Eslora_total , Censo , Puerto_Base , Puerto_Base_CA  , Fecha_Desembarco , 
-                         Trip ,  Metier , Zona2 , MetierNV, Metier_Principal, Nsp , SpGroup) %>%
+                         Trip ,  Metier , Zona, Zona2 , MetierNV,  Nsp , SpGroup) %>%
                     summarise(Peso=sum(Kg_Desemb_Peso_Vivo, na.rm=TRUE))
 
 db_met <- dcast(db_sp,  Nombre_Buque  + Eslora_total + Censo + Puerto_Base + Puerto_Base_CA  + Fecha_Desembarco + 
-                  Trip +  Metier + MetierNV + Zona2 + Metier_Principal + Nsp  ~ SpGroup,
+                  Trip +  Metier + MetierNV + Zona + Zona2 + Nsp  ~ SpGroup,
                 fill=0, value.var = "Peso") #el fill=0 hace que en vez de poner NA a las celdas vac?as las rellene como = 0 que es lo real.
 
 vars <- unique(spAM$Grupo)
@@ -576,6 +546,57 @@ db_met$P2_GNS <-  (db_met$LHM + db_met$GNS) /  db_met$Total
 #db_met<- db_met %>% mutate_if( is.numeric, function(x){round(x,digits=2)})
 db_met   <- db_met %>% mutate_if(is.numeric, round, digits = 2)
 
+#   ..........................................  ####  
+#    ARTES FIJAS ALTURA                         ####
+################################################## #
+
+#    .Crear bd                                  ####
+################################################## #
+af_met<- subset(db_met, db_met$Censo %in% c("ARTES FIJAS EN ZONAS CIEM VB, VI,VII Y VIIIABDE"))
+
+sort(unique(af_met$Censo))
+sort(unique(af_met$Puerto_Base_CA))
+sort(unique(af_met$Metier))
+sort(unique(af_met$Zona2))
+sort(unique(af_met$MetierNV))
+
+#    .Asignar metier                            ####
+################################################## #
+sort(unique(af_met$Metier))
+af_met$Metier_Rev<-NA
+
+af_met$Metier_Rev  <- "LLS_DEF_0_0_0"
+af_met$Metier_Rev[ af_met$MetierNV == "GNS"]  <- "GNS_DEF_>=100_0_0"
+
+#Metier_Check
+af_met$Metier_Check <- af_met$Metier==af_met$Metier_Rev 
+
+#rescatar marea anterior y posterior
+af_met <- af_met %>% group_by(Nombre_Buque) %>% mutate(PrevMet=lag(Metier_Rev), NextMet=lead(Metier_Rev)) %>%  
+  ungroup() %>% data.frame
+subset(af_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet )
+subset(af_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet )
+
+
+#    .Chequeos                                  ####
+################################################## #
+# NA
+af_met[is.na(af_met$Metier_Rev),]
+head(subset(af_met, Metier_Check==FALSE))
+
+# Other checkings
+temp <- DBba %>% filter(Trip %in% af_met$Trip)
+temp$Metier_Rev <- af_met$Metier_Rev[match(temp$Trip,af_met$Trip)]
+temp$Metier_Check <- temp$Metier==temp$Metier_Rev 
+head(subset(temp, Metier!=Metier_Rev))
+
+SpSum <- summaryBy(Kg_Desemb_Peso_Vivo~Metier_Rev +Especie_Oficial, data=temp, FUN=sum, na.rm=TRUE)
+SpSum <- arrange(SpSum, Metier_Rev, desc( Kg_Desemb_Peso_Vivo.sum))
+SpSum
+
+# CheckTripId<- unique(temp$Trip[temp$Especie_Oficial!="Verdel - Caballa" & temp$Metier_Rev=="LHM_SPF_0_0_0"])
+# subset(temp, Trip %in% CheckTripId)
+# subset(temp, Metier!=Metier_Rev)
 
 
 #   ..........................................  ####  
@@ -590,9 +611,7 @@ sort(unique(rv_met$Censo))
 sort(unique(rv_met$Puerto_Base_CA))
 sort(unique(rv_met$Metier))
 sort(unique(rv_met$Zona2))
-sort(unique(rv_met$Metier_Principal))
 sort(unique(rv_met$MetierNV))
-table(rv_met$Metier_Principal)
 
 
 #    .Asignar metier                            ####
@@ -647,13 +666,14 @@ subset(temp, Metier!=Metier_Rev)
 
 #    .Crear bd                                  ####
 ################################################## #
-pa_met<- subset(db_met, db_met$Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE."))
+pa_met<- subset(db_met, db_met$Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", 
+                                            "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE",
+                                            "PALANGRE DE SUPERFICIE CALADERO NACIONAL"))
 
 sort(unique(pa_met$Censo))
 sort(unique(pa_met$Puerto_Base_CA))
 sort(unique(pa_met$Metier))
 sort(unique(pa_met$Zona2))
-sort(unique(pa_met$Metier_Principal))
 
 #    .Asignar metier                            ####
 ################################################## #
@@ -721,8 +741,12 @@ sort(unique(am_met$Censo))
 sort(unique(am_met$Puerto_Base_CA))
 sort(unique(am_met$Metier))
 sort(unique(am_met$Zona2))
-sort(unique(am_met$Metier_Principal))
 sort(unique(am_met$MetierNV))
+
+
+#excepciones: están censados en artes menores pero son barcos grandes
+# id <- c("CANALECHEBARRIA", "IZURDIA MAITEA", "OSTARTE (EX KREXAL)", "OSTARTE (EX KREXAL)", "GURE AMA MARTINA",
+#         "BETI BEGONAKO AMA (EX BETI BARRENETXEA)")
 
 #    .Asignar metier                            ####
 ################################################## #
@@ -732,7 +756,8 @@ am_met$Metier_Rev<-NA
 #lineas de mano
 am_met$Metier_Rev[am_met$P_LHM>0.99 ]  <- "LHM_SPF_0_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.90 & am_met$LHM>1000]  <- "LHM_SPF_0_0_0"
-am_met[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.80 & am_met$P_LHM>1000, ] 
+am_met[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.80 & am_met$LHM>1000, ] 
+am_met[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.80 & am_met$LHM>300, ] 
 
 #cacea
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
@@ -755,13 +780,7 @@ am_met$Metier_Rev[is.na(am_met$Metier_Rev) & (am_met$P_MOL+ am_met$P_CRU)>0.75  
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_CEP>0.5]  <- "LHM_CEP_0_0_0"
 
 #redes y palangres
-head(buquesLLSGNS)
-sort(unique(buquesLLSGNS$Metier.principal.2018))
-
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Metier_Principal=="GNS_DEF_60-79_0_0"  ] <- "GNS_DEF_60-79_0_0"
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Metier_Principal=="LLS_DEF_0_0_0"  ] <- "LLS_DEF_0_0_0"
-
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Metier=="LLS_DEF_0_0_0" ] <- "LLS_DEF_0_0_0"
+am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierNV=="LLS"  ] <- "LLS_DEF_0_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA!="Euskadi"  ] <- "GNS_DEF_80-99_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA=="Euskadi"  ] <- "GNS_DEF_60-79_0_0"
 
@@ -769,10 +788,10 @@ am_met$Metier_Rev[am_met$Metier_Rev=="GNS_DEF_60-79_0_0" & am_met$P2_GNS>=0.5 ] 
 am_met$Metier_Rev[am_met$Metier_Rev=="GNS_DEF_60-79_0_0" &  am_met$P_GTR>=0.5 ] <- "GTR_DEF_60-79_0_0"
 am_met$Metier_Rev[am_met$Metier_Rev=="GNS_DEF_60-79_0_0" &  am_met$P_GTR>=0.4 & am_met$P2_GNS<0.2] <- "GTR_DEF_60-79_0_0"
 
-#excepciones: están censados en artes menores pero son barcos grandes
-id <- c("CANALECHEBARRIA", "IZURDIA MAITEA", "OSTARTE (EX KREXAL)", "OSTARTE (EX KREXAL)", "GURE AMA MARTINA",
-        "BETI BEGONAKO AMA (EX BETI BARRENETXEA)")
-am_met$Censo[am_met$Nombre_Buque %in% id & am_met$Metier_Rev == "LLS_DEF_0_0_0"] <- "LLS_DEF_0_0_0"
+
+# Metier_Check
+am_met$Metier_Check <- am_met$Metier==am_met$Metier_Rev 
+
 
 # rescatar marea anterior y posterior
 am_met <- am_met %>% group_by(Nombre_Buque) %>% mutate(PrevMet=lag(Metier_Rev), NextMet=lead(Metier_Rev)) %>%  
@@ -781,14 +800,13 @@ subset(am_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LHM_SPF_
 subset(am_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LTL_LPF_0_0_0")
 subset(am_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LLS_DEF_0_0_0")
 # marcar para chequear
-am_met$Metier_Rev[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev=="LHM_SPF_0_0_0"] <- "Check"
-am_met$Metier_Rev[am_met$PrevMet == am_met$NextMet & am_met$Metier_Rev!= am_met$NextMet & am_met$NextMet == "LHM_SPF_0_0_0"] <- "Check"
-am_met$Metier_Rev[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev=="LTL_LPF_0_0_0"] <- "Check"
-am_met$Metier_Rev[am_met$PrevMet == am_met$NextMet & am_met$Metier_Rev!= am_met$NextMet & am_met$NextMet == "LTL_LPF_0_0_0"] <- "Check"
-am_met$Metier_Rev[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev=="LLS_DEF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LHM_SPF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$PrevMet    == am_met$NextMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet    == "LHM_SPF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LTL_LPF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$PrevMet    == am_met$NextMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet    == "LTL_LPF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LLS_DEF_0_0_0"] <- "Check"
 
-# Metier_Check
-am_met$Metier_Check <- am_met$Metier==am_met$Metier_Rev 
+
 
 
 #    .Chequeos                                  ####
@@ -824,7 +842,7 @@ sort(unique(ps_met$Censo))
 sort(unique(ps_met$Puerto_Base_CA))
 sort(unique(ps_met$Metier))
 sort(unique(ps_met$Zona2))
-sort(unique(ps_met$Metier_Principal))
+sort(unique(ps_met$MetierNV))
 
 # barcos de cerco que van a lineas de mano y currican
 # Buque_cercoLHM <- c("AITA RAMON", "ANDUIZA ANAIAK", "BETI ITXAS ARGI", "MARIA DIGNA DOS")
@@ -836,31 +854,39 @@ sort(unique(ps_met$Metier_Principal))
 ################################################## #
 ps_met$Metier_Rev<-NA
 
-ps_met$Metier_Rev[ps_met$P_TUN>0.80]  <- "LHP_LPF_0_0_0"
-ps_met$Metier_Rev[ps_met$Metier_Rev %in% c("LHP_LPF_0_0_0") & ps_met$Nombre_Buque %in% Buque_cercoLTL] <- "LTL_LPF_0_0_0"
-
-ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$Nombre_Buque %in% Buque_cercoLHM] <- "LHM_SPF_0_0_0"
-ps_met[is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.80 &  ps_met$Nombre_Buque %in% Buque_cercoLHM & ps_met$LHM>1000,]
+# ps_met$Metier_Rev[ps_met$P_TUN>0.80]  <- "LHP_LPF_0_0_0"
+# ps_met$Metier_Rev[ps_met$Metier_Rev %in% c("LHP_LPF_0_0_0") & ps_met$Nombre_Buque %in% Buque_cercoLTL] <- "LTL_LPF_0_0_0"
+# 
+# ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$Nombre_Buque %in% Buque_cercoLHM] <- "LHM_SPF_0_0_0"
+# ps_met[is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.80 &  ps_met$Nombre_Buque %in% Buque_cercoLHM & ps_met$LHM>1000,]
 #ps_met$Metier_Rev[is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$Nombre_Buque %in% Buque_cercoLHM & ps_met$LHM>1000]  <- "LHM_SPF_0_0_0"ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev)] <- "PS_SPF_0_0_0" 
+
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LTL_LPF_0_0_0"
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LHM_SPF_0_0_0"
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 ] <- "LHP_LPF_0_0_0"
+
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) ] <- "PS_SPF_0_0_0"
                    
+# Metier_Check
+ps_met$Metier_Check <- ps_met$Metier==ps_met$Metier_Rev 
+
+
 #rescatar marea anterior y posterior
 ps_met <- ps_met %>% group_by(Nombre_Buque) %>% mutate(PrevMet=lag(Metier_Rev), NextMet=lead(Metier_Rev)) %>%  
   ungroup() %>% data.frame
 subset(ps_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LHM_SPF_0_0_0")
 subset(ps_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LTL_LPF_0_0_0")
 #marcar para chequear
-ps_met$Metier_Rev[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev=="LHM_SPF_0_0_0"] <- "Check"
-ps_met$Metier_Rev[ps_met$PrevMet == ps_met$NextMet & ps_met$Metier_Rev!= ps_met$NextMet & ps_met$NextMet == "LHM_SPF_0_0_0"] <- "Check"
-ps_met$Metier_Rev[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev=="LHP_LPF_0_0_0"] <- "Check"
-ps_met$Metier_Rev[ps_met$PrevMet == ps_met$NextMet & ps_met$Metier_Rev!= ps_met$NextMet & ps_met$NextMet == "LHP_LPF_0_0_0"] <- "Check"
-ps_met$Metier_Rev[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev=="LTL_LPF_0_0_0"] <- "Check"
-ps_met$Metier_Rev[ps_met$PrevMet == ps_met$NextMet & ps_met$Metier_Rev!= ps_met$NextMet & ps_met$NextMet == "LTL_LPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LHM_SPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LHM_SPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LHP_LPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LHP_LPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LTL_LPF_0_0_0"] <- "Check"
+ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LTL_LPF_0_0_0"] <- "Check"
 
-# Metier_Check
-ps_met$Metier_Check <- ps_met$Metier==ps_met$Metier_Rev 
 
-#    .Chequeos                                  ####
+
+#    .Chequeos              ####
 ############################## #
 #NA
 ps_met[is.na(ps_met$Metier_Rev),]
@@ -876,6 +902,7 @@ SpSum <- arrange(SpSum, Metier_Rev, desc( Kg_Desemb_Peso_Vivo.sum))
 SpSum
 
 subset(temp, Metier!=Metier_Rev)
+subset(ps_met, Metier!=Metier_Rev)
 
 CheckTripId<- unique(temp$Trip[temp$Especie_Oficial!="Verdel - Caballa" & temp$Metier_Rev=="LHM_SPF_0_0_0"])
 subset(temp, Trip %in% CheckTripId)
@@ -884,13 +911,14 @@ subset(temp, Trip %in% CheckTripId)
 #   ..........................................  ####  
 #   Juntar todo                                 ####
 ################################################## #
+dim(af_met)
 dim(rv_met)
 dim(pa_met)
 dim(am_met)
 dim(ps_met)
 
 # por marea
-met_all<- rbind(rv_met,pa_met,am_met,ps_met)
+met_all<- rbind(af_met, rv_met,pa_met,am_met,ps_met)
 met_all <- arrange(met_all, Nombre_Buque, Fecha_Desembarco, desc(Total))
 
 DB_all<- rbind(otb, ptb, DBba)
@@ -904,7 +932,7 @@ DB_all$Metier_Check <- temp_met$Metier_Check[match(DB_all$Trip, temp_met$Trip)]
 DB_all <- DB_all[,c("Nombre_Buque", "Cod_UE","Puerto_Base", "Eslora_total", "Censo", 
                     "Zona", "Zona2", 
                     "Fecha_Desembarco", "Puerto_Venta", "Trip", 
-                    "Metier_Principal", "MetierNV", "Especie_Oficial","SpGroup",
+                    "MetierNV", "Especie_Oficial","SpGroup",
                     "Kg_Desemb_Peso_Vivo", "Metier", "Metier_Rev",  "Metier_Check" )]
 
 #   Guardar ficheros                            ####
@@ -913,12 +941,57 @@ write.table(met_all, paste("Depuracion_Metiers\\Output\\", Ano,"_DB_metierizada_
 write.table(DB_all, paste("Depuracion_Metiers\\Output\\", Ano,"_DB_metierizada_all.csv", sep=""), row.names = FALSE, sep=";", dec=",")
 
 
-tapply(am_met$Trip, list( am_met$Metier_Rev, am_met$MetierNV), Fun_CountUnique)
-temp <- am_met %>% group_by(Nombre_Buque,Censo, Metier_Rev, MetierNV) %>% 
-  summarise(Ntrips = Fun_CountUnique(Trip))          
-temp_2 <- filter(temp,  Metier_Rev %in% c("GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0", "GNS_DEF_80-99_0_0", "LLS_DEF_0_0_0") &
-                   MetierNV %in% c("GNS", "GTR", "LLS")) %>%
-  pivot_wider(names_from = MetierNV, values_from = Ntrips) %>%
-  data.frame()
-tapply(temp_2$Ntrops, list( temp_2$Metier_Rev, temp_2$MetierNV), sum)
+
+#    Barcos dudosos: expert knowledge              ####
+###################################################### #
+# Check metier principal
+check <- subset(met_all, Metier_Rev!="Check")
+check$Metier_Rev <- substr(check$Metier_Rev,1,3)
+check$Metier_Rev [check$Metier_Rev == "GTR"] <- "GNS"
+
+check_fin <- check %>%
+  group_by(Nombre_Buque) %>%
+  mutate (Nmetier = Fun_CountUnique(Metier_Rev)) %>% 
+  ungroup() %>%
+  group_by(Nombre_Buque, Censo, Metier_Rev, Nmetier) %>% 
+  summarise(Ntrip = Fun_CountUnique(Trip)) %>%
+  pivot_wider(names_from = Metier_Rev, values_from = Ntrip)
+check_fin[is.na(check_fin)] <- 0
+
+# explorar los datos
+head(subset(check_fin, Censo %in% "RASCO EN CANTABRICO NW"))
+(subset(check_fin, Censo =="RASCO EN CANTABRICO NW" & GNS>0 & LLS>0))
+
+head(subset(check_fin, Censo =="VOLANTA EN CANTABRICO NW"))
+(subset(check_fin, Censo =="VOLANTA EN CANTABRICO NW" & GNS>0 & LLS>0))
+
+head(subset(check_fin, Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", 
+                                    "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE",
+                                    "PALANGRE DE SUPERFICIE CALADERO NACIONAL")))
+(subset(check_fin, Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", 
+                                "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE",
+                                "PALANGRE DE SUPERFICIE CALADERO NACIONAL")
+                  & GNS>0 & LLS>0))
+
+head(subset(check_fin, Censo =="ARTES MENORES EN CANTABRICO NW"))
+subset(check_fin, Censo =="ARTES MENORES EN CANTABRICO NW" & GNS>0 & LLS>0)
+
+head(subset(check_fin, Censo =="CERCO EN CANTABRICO NW"))
+(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & Nmetier==3))
+(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LHM>0))
+(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & LHP>0 & LTL>0))
+(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LTL>0))
+(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & LHM>0 & LHP>0))
+
+
+
+#marcar para chequear
+tCheck <- subset(check_fin, (Censo =="ARTES MENORES EN CANTABRICO NW" & GNS>0 & LLS>0) |
+                            (Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LHM>0) |
+                            (Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LTL>0))
+                      
+tCheck <- tCheck %>% arrange(Censo, Nombre_Buque) %>% data.frame()                      
+                      
+#grabar tabla
+write.table(tCheck, paste("Depuracion_Metiers\\Output\\", Ano,"_BuquesCheck.csv", sep=""), row.names = FALSE, sep=";", dec=",")
 

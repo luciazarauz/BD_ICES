@@ -6,3 +6,5 @@
 /0_Maestros/
 /Depuracion_biologicos/Data/
 /Procesados_LWR/Data/
+*.csv
+*.xls
