@@ -4,15 +4,6 @@
 ############################# #
 rm(list=ls())
 
-path.data <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro SGP\\20200421_InfoBaseFinal")
-path.aux <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro SGP\\Auxtables")
-path.res <- file.path("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2020\\15_Simulacro\\Results")
-
-
-
-
-
-
 
 # Libraries             #####
 ############################ #
@@ -31,7 +22,7 @@ library(dplyr)
 # Leer fichero                          ####
 ############################################### #
 setwd(path.data)
-load(file="Dori2019_v3.Rdata" )
+load(file="0_Datos/Infobase/Dori2019_v3.Rdata" )
 
 # Preparar Tabla Importación  #####
 ################################# #
@@ -176,8 +167,8 @@ sum(DoriBD$PESO, na.rm=T)
 # Grabar Tabla
 
 setwd(path.res)
-save(DoriBD, file="DoriBD_Importar.RData")
-write.table(DoriBD, file="DoriBD_Importar.csv", sep=";", dec=",", row.names = F)
+save(DoriBD, file="0_Datos/Infobase/DoriBD_Importar.RData")
+write.table(DoriBD, file="0_Datos/Infobase/DoriBD_Importar.csv", sep=";", dec=",", row.names = F)
 
 
 

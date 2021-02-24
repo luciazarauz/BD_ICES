@@ -31,7 +31,7 @@ library(reshape2)
 # Se cargan los datos derivados de la depuracion.
 
 rm(list=ls())
-load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
+load(file="0_Datos/Infobase/Infobase2019_Unique_20200724.Rdata"   )
 
 
 # # ############################# #

@@ -50,7 +50,7 @@ library(dplyr)
 # # ################## #
 
 rm(list=ls())
-load(file="Datos/Infobase2019_Unique_20200724.Rdata"   )
+load(file="0_Datos/Infobase/Infobase2019_Unique_20200724.Rdata"   )
 
 
 # EXPLORE LINKS OF THE TABLES      ########################
@@ -239,7 +239,7 @@ names(InfoCapturasCalculadas_All)[grepl("Peso",names(InfoCapturasCalculadas_All)
 # Grabar fichero                          ####
 ############################################### #
   
-  save(Dori,InfoVentas, file="Datos/Dori2019_v1.RData")
+  save(Dori,InfoVentas, file="0_Datos/Infobase/Dori2019_v1.RData")
 
 
 

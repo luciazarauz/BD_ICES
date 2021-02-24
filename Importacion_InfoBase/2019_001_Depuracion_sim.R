@@ -75,7 +75,7 @@ MaestroBuques$Caladero.principal <- mgsub(c("á","é","í","ó","ú"), c("a","e"
 # # Infobase           #
 # # ------------------ #
 
-load(file = "Datos/DatosOficiales2019_Originales_ultimaversion.RData")
+load(file = "0_Datos/Infobase/DatosOficiales2019_Originales_ultimaversion.RData")
 
   # BarcosAzti:        Lista de barcos que han desembarcado al menos un día en el PV. Nos la da HAZI. 
   #                    Nosotros se la mandamos al IEO para que la utilice en el filtro.  
@@ -404,7 +404,7 @@ InfoParametrosArteCapturas_wide <- rename(InfoParametrosArteCapturas_wide,
 
 save(InfoBase, InfoBuquesUnique, InfoDiarios, InfoVentas, InfoOrigenLineas, 
      InfoCapturaLance0, InfoCapturas, InfoCapturasCalculadas, InfoDescartes, 
-     InfoParametrosArteCapturas_wide,  file="Datos/Infobase2019_Unique_20200724.Rdata"  )
+     InfoParametrosArteCapturas_wide,  file="0_Datos/Infobase/Infobase2019_Unique_20200724.Rdata"  )
 
 # ----------------------------------------------------------------- #
     

@@ -50,7 +50,7 @@ library(dplyr)
 ############################# #
 
 
-load(file="Datos/Dori2019_v1.Rdata"   )
+load(file="0_Datos/Infobase/Dori2019_v1.Rdata"   )
 
 
 ### Previo
@@ -588,6 +588,6 @@ for (i in sort(unique(Dori$CensoPorModalidad))){
 ############################################### #
 
 
-save(Dori, file="Datos/Dori2019_v2.RData")
+save(Dori, file="0_Datos/Infobase/Dori2019_v2.RData")
 
 

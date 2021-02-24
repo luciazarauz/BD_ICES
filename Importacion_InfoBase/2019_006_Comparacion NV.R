@@ -56,18 +56,18 @@ mgsub <- function(pattern, replacement, x, ...) {
 # # Load                                 ####
 # # ####################################### #
 
-load(file="Datos/Dori2019_v3.Rdata"   )
-load(file="Datos/Dori2019_v2.Rdata"   )
+load(file="0_Datos/Infobase/Dori2019_v3.Rdata"   )
+load(file="0_Datos/Infobase/Dori2019_v2.Rdata"   )
 
-NV <- read.csv("Datos/NV2019.csv", sep=",", dec=".", stringsAsFactors = F, skip=11)
+NV <- read.csv("0_Datos/NV2019.csv", sep=",", dec=".", stringsAsFactors = F, skip=11)
 names(NV) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(NV))
 head(NV)
 
-Ventas <- read.csv("Datos/Ventas2019.csv", sep=",", dec=".", stringsAsFactors = F, skip=8)
+Ventas <- read.csv("0_Datos/Ventas2019.csv", sep=",", dec=".", stringsAsFactors = F, skip=8)
 names(Ventas) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(Ventas))
 head(Ventas)
 
-MaestrosBuque <- read.csv("Auxtables/MaestroBuquesAZTI_2019.csv", sep=",", dec=".", stringsAsFactors = F)
+MaestrosBuque <- read.csv("0_Maestros/MaestroBuquesAZTI_2019.csv", sep=",", dec=".", stringsAsFactors = F)
 names(MaestrosBuque) <- mgsub(c("á","é","í","ó","ú"), c("a","e","i","o","u"), names(MaestrosBuque))
 head(MaestrosBuque)
 
