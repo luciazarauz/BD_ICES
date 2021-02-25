@@ -231,3 +231,15 @@ dim(Dori_2[Dori_2$AZTI_BD=="Captura0",])
 
 
 
+##
+head(subset(Dori, is.na(IdCaptura)))
+a <- (subset(Dori, is.na(IdCaptura) & is.na(IdDesembarqueEspecie) & is.na(IdNotaDeVenta)))
+
+dim(a)
+
+a <- (subset(Dori, is.na(IdCaptura) & is.na(IdDesembarqueEspecie) & is.na(IdNotaDeVenta)))
+
+
+head(subset(Dori, is.na(IdCaptura) & is.na(IdDesembarqueEspecie & CatchCategory!="Descartes")))
+
+

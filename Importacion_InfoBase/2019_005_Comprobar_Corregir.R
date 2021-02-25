@@ -247,18 +247,18 @@ Desembarcado  <- funDesembarcado (Dori)
 
 head(CodigoOrigen)
 
-# identifico las mareas que tienen PesoConsumo de CA/ DE/ Descartes
-check <- CodigoOrigen %>% filter ((!is.na(CA)) | (!is.na(DE) ) | (!is.na(Descartes) )) # mareas que  tienen pesos con origen CA/ DE/ Descartes
-dim(check)
+# identifico las mareas que tienen PesoConsumo de CA/ DE/ NV
+check <- CodigoOrigen %>% filter ((!is.na(CA)) | (!is.na(DE) )  ) # mareas que  tienen pesos con origen CA/ DE
 head(check)
 tail(check)
 
-  check2 <- CodigoOrigen %>% filter ((is.na(CA)) & (is.na(DE) ) & (is.na(Descartes) & !is.na(NV))) # mareas que solo tienen pesos con origen NV
-  check2 <- CodigoOrigen %>% filter ((is.na(CA)) & (is.na(DE) ) & (is.na(Descartes) & !is.na(X0))) # mareas que solo tienen pesos con origen 0
-
+  check2 <- CodigoOrigen %>% filter ((is.na(CA)) & (is.na(DE) ) & !is.na(NV)) # mareas que solo tienen pesos con origen NV
+  check2 <- CodigoOrigen %>% filter ((is.na(CA)) & (is.na(DE) ) & (is.na(NV) & X0>0)) # mareas que solo tienen pesos con origen 0
+  check2 <- CodigoOrigen %>% filter ((is.na(CA)) & (is.na(DE) ) & (!is.na(X0) )) # mareas que solo tienen pesos con origen 0
+  
 
 # identifico las lineas que en esas mareas tienen un origen difernete a CA y DE. Todas tienen peso =0
-temp <- Dori[,namevar] %>% filter(IdMarea %in% check$IdMarea & !CodigoOrigen %in% c("CA", "DE", "Descartes"))
+temp <- Dori[,namevar] %>% filter(IdMarea %in% check$IdMarea & !CodigoOrigen %in% c("CA", "DE"))
 dim(temp)
 
   sum(temp$PesoConsumo)
@@ -273,11 +273,15 @@ head(unique(temp$IdMarea))
 i <- "ESP-TRP-00594820190612113122"
 i <- "42399_2019-01-02"
 i <- "ESP-13702689"
+i <- "ESP-13702690"
 
 subset(CodigoOrigen, IdMarea==i)
 subset(Dori[,namevar], IdMarea==i)
 subset(Dori[,namevar], IdMarea==i & IdDori %in% temp$IdDori)
 subset(Dori[,namevar], IdMarea==i & !IdDori %in% temp$IdDori)
+
+subset(CodigoOrigen, Nombre=="ATXURRA ANAIAK" & month(C_FcRegresoFloor)%in% c(2,3))
+subset(MareasTotales, Nombre=="ATXURRA ANAIAK" & month(C_FcRegresoFloor)%in% c(2,3))
 
 
 
@@ -285,8 +289,8 @@ subset(Dori[,namevar], IdMarea==i & !IdDori %in% temp$IdDori)
 ######################## #
 #   - eliminamos de la BD original. son lineas ficticias readas al combinar diferentes fuentes de información
 
-check <- CodigoOrigen %>% filter ((!is.na(CA)) | (!is.na(DE) ) | (!is.na(Descartes) )) # mareas que  tienen pesos con origen CA/ DE/ Descartes
-temp <- Dori[,namevar] %>% filter(IdMarea %in% check$IdMarea & !CodigoOrigen %in% c("CA", "DE", "Descartes"))  # dentro de las enteriores, lineas con origen NV/ 0
+check <- CodigoOrigen %>% filter ((!is.na(CA)) | (!is.na(DE) ) ) # mareas que  tienen pesos con origen CA/ DE
+temp <- Dori[,namevar] %>% filter(IdMarea %in% check$IdMarea & !CodigoOrigen %in% c("CA", "DE"))  # dentro de las enteriores, lineas con origen NV/ 0
 
   length(unique(Dori$IdMarea))
 Dori <- subset(Dori, !IdDori %in% temp$IdDori)
@@ -574,10 +578,16 @@ Dori <- subset(Dori, !IdDori %in% temp$IdDori)
    # duda: peso desembarcado, peso capturado: lo mantengo en la BD??
    
    
+  # caracteristicas arte
+   
+   names(Dori)
    
    
+  namearte <- c("TamañoMedioAnzuelos_mm", "Altura_m","AlturaMediaRedes_m", "LongitudMediaRedes_m", 
+                "Longitud_m", "TamanoMalla_m", "NumeroTotalAnzuelos", "NumeroNasas", 
+                "NumeroPalangresLineasLanzadas", "NumeroRedesLanzadas",  "NumeroTotalRedes",  "LomgitudTotalRedes")
    
    
-   
+   temp <- Dori %>% select(IdMarea,namearte, PesoConsumoTotal) %>% group_by(IdMarea) %>% summarise(PesoConsumoTotal = sum(PesoConsumoTotal))
    
   
