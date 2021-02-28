@@ -222,6 +222,7 @@ table(DB$Zona)
 
 #Area Rev y Area NV
 DB$Zona_Rev   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
+DB$Zona_Rev[DB$Zona_Rev =="27.8.c"] <- "27.8.c.e"
 DB$ZonaNV   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
 DB$ZonaNV [grep("27.8.a|27.8.b|27.8.d|27.8.e",DB$ZonaNV)]<- "27.8.abde"
 DB$ZonaNV [grep("27.8.c",DB$ZonaNV)]<- "27.8.c"
@@ -694,7 +695,7 @@ sort(unique(pa_met$Metier))
 pa_met$Metier_Rev<-NA
 pa_met$Metier_Rev[pa_met$P_LHM>0.80]  <- "LHM_SPF_0_0_0"
 pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
-pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_ALG>0.80]  <- "MIS_ALG_0"
+pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_ALG>0.80]  <- "MIS_MIS_0_0_0_HC"
 pa_met$Metier_Rev[is.na(pa_met$Metier_Rev)]  <- "LLS_DEF_0_0_0"
 
 # excepciones: no están censados en artes menores pero son barcos pequeños
@@ -780,7 +781,7 @@ am_met[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.80 & am_met$LHM>300, ]
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
 
 #algas
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_ALG >0.9]  <- "MIS_ALG_0"
+am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_ALG >0.9]  <- "MIS_MIS_0_0_0_HC"
 
 #anemonas
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_MIS >0.9]  <- "MIS_MIS_0_0_0_HC"
