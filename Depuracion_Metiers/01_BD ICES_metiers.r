@@ -956,9 +956,9 @@ write.table(met_ba, paste("Depuracion_Metiers\\Output\\", Ano,"_DB_porMarea_Baju
 ############################################ #
 
 # BD por metier
-MET_all <- rbind( otb_met[,c("Trip", "Nombre_Buque", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
-                  ptb_met[,c("Trip", "Nombre_Buque", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
-                  met_ba[ ,c("Trip", "Nombre_Buque", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")])
+MET_all <- rbind( otb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
+                  ptb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
+                  met_ba[ ,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")])
 # BD por meitier para importar en la BD ICES
   MET_all_imp <- MET_all[,c("Trip", "Metier_Rev", "Zona_Rev")]
 
