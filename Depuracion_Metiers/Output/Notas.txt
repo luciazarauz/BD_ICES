@@ -1,0 +1,10 @@
+- importamos el fichero DB_pormarea_all_Importar.
+
+- las areas que tienen muestreo se quedan sin importar, porque nos fiamos más de la información que nos dá el muestreador.
+
+- luego estás tallas se corregiran con la inforamción de infobase. 
+
+- La jerarquia es:
+	1. infobase
+	2. Muestreo
+	3. NV

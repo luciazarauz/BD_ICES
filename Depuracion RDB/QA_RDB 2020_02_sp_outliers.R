@@ -15,12 +15,10 @@ Fun_CountUnique <- function (x) { length(unique(x))}
 #library(ggplus)
 
 # cargar datos
-data.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2018/" 
-res.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2018/QA results/" 
 
-setwd(data.path)
 options(scipen=999)
-load("RDB2018.RData")
+load("Depuracion RDB/QA results/RDB2020_NSEA.RData")
+
 ls()
 
 
@@ -32,19 +30,14 @@ ls()
 for(sp_sci in c("Lophius budegassa", "Engraulis encrasicolus", "Lophius piscatorius",
                    "Merluccius merluccius",   "Trachurus trachurus", "Scomber scombrus" ,
                    "Lepidorhombus whiffiagonis", "Sardina pilchardus")){
-  
+
 
 #sp_sci <- "Sardina pilchardus"
-alfa <- speciesAZTI$Cod..ALFA.3[speciesAZTI$Nombre.Cientifico==sp_sci]
-wormsid <- speciesAZTI$WORMS[speciesAZTI$Nombre.Cientifico==sp_sci]
-lenwt_sp <- subset(lenwt, Species==sp_sci)
+alfa <- especies$ALFA[especies$Nombre.Cientifico==sp_sci]
+wormsid <- especies$WORMS[especies$Nombre.Cientifico==sp_sci]
 
 # crear carpetas y nobre de fichero
-filename <- paste("0_QA_",alfa,"_outliers.csv", sep="")
-
-res.sp.path<- paste(res.path, sp_sci, sep="")
-dir.create(res.sp.path)
-setwd(res.sp.path)
+filename <- paste("Depuracion RDB/QA results/", alfa, "_QA_outliers.csv", sep="")
 
 # subset del fichero cs
 cs_stock <- csSubset(cs, spp==wormsid )  
@@ -62,12 +55,12 @@ csPi_stockS <- csSubset(csPi, spp==wormsid & sampType=="S" )
 # outliers length class ####
 ############################
 
-png(filename=paste("Outliers lenNum_", alfa, ".png", sep=""))
+png(filename=paste("Depuracion RDB/QA results/",alfa,"_Outliers lenNum.png", sep=""))
 #windows()
 tablaoutlier<- outliers(csPi_stockM,slot="hl",var="lenNum")
 dev.off()
 
-png(filename=paste("Outliers lenCls_", alfa, ".png", sep=""))
+png(filename=paste("Depuracion RDB/QA results/", alfa, "_Outliers lenCls.png", sep=""))
 #windows()
 tablaoutlier<- outliers(csPi_stockM,slot="hl",var="lenCls")
 dev.off()
@@ -77,9 +70,9 @@ out$FAC_EC_lvl6 <- tr$FAC_EC_lvl6[match(out$trpCode, tr$Trip_code)]
 out$NombreBuque <- tr$NombreBuque[match(out$trpCode, tr$Trip_code)]
 out$Date <- tr$Date[match(out$trpCode, tr$Trip_code)]
 
-write.table("potential outliers length sampling", filename, row.names = FALSE, sep=",")
-write.table(out,filename, append=TRUE, row.names = FALSE, sep=",")
-write.table("", filename, append=TRUE, row.names = FALSE, sep=",")
+write.table("potential outliers length sampling", filename, row.names = FALSE, sep=";")
+write.table(out,filename, append=TRUE, row.names = FALSE, sep=";")
+write.table("", filename, append=TRUE, row.names = FALSE, sep=";")
 
 
 
@@ -102,8 +95,9 @@ ca_stock$area[ca_stock$area %in% c("27.8.c.w","27.8.c.e")] <- "27.8.c"
 
 
 # length boxplot per sex and quarter
- 
-  png(filename=paste("Length boxplot by sex and quarter_", alfa, ".png", sep=""))
+if (nrow(ca_stock)>0){  
+  
+  png(filename=paste("Depuracion RDB/QA results/", alfa, "_Length boxplot by sex and quarter.png", sep=""))
     #windows()  
     gg1 <- ggplot(data=ca_stock) + 
             aes(x=sex, y=lenCls) +
@@ -118,82 +112,75 @@ ca_stock$area[ca_stock$area %in% c("27.8.c.w","27.8.c.e")] <- "27.8.c"
 ###################################
 #ca_stock <- data.frame(ca_stock)
   
-  if (!is.na(ca_stock$indWt)){    
+  
     
-ca_stock$indWtTeoric<- lenwt_sp$a*ca_stock$lenCls^lenwt_sp$b
-ca_stock$indWtTeoric[is.na(ca_stock$indWt)] <- NA
-
 ca_stock$sex[ca_stock$sex==""]<- "0"
 colarea <- c("27.8.c" = "red","27.8.a" = "blue","27.8.b" = "cyan", "27.8.d" = "green3","27.6.a" = "magenta")
 colsex <- c("0" = "green3","F" = "blue","M" = "red")
 
 
 # por sex
-png(filename=paste("Length weight by sex_", alfa, ".png", sep=""))
+png(filename=paste("Depuracion RDB/QA results/", alfa, "_Length weight by sex.png", sep=""))
   #windows()
   gg1 <-  ggplot(data=ca_stock, aes(x=lenCls, y=indWt, color=sex)) + 
             geom_point( size=3) + 
             scale_color_manual(values=colsex)+
-            geom_point(mapping=aes(x=lenCls, y=indWtTeoric), col="black") +
             ggtitle(paste("Length-Weight -", alfa)) +  theme(plot.title = element_text(hjust = 0.5))
   print(gg1)
   dev.off()
 
   
 #por area
-  png(filename=paste("Length weight by area_", alfa, ".png", sep=""))
+  png(filename=paste("Depuracion RDB/QA results/", alfa, "_Length weight by area.png", sep=""))
   #windows()   
    gg1 <- ggplot(data=ca_stock, aes(x=lenCls, y=indWt, color=area)) + 
             geom_point(size=3) + 
             scale_color_manual(values=colarea)+
-            geom_point(mapping=aes(x=lenCls, y=indWtTeoric), col="black") +
             ggtitle(paste("Length-Weight -", alfa)) +  theme(plot.title = element_text(hjust = 0.5))
    print(gg1)
   dev.off()
  
   
 #por quarter y sex
-  png(filename=paste("Length weight by sex and quarter_", alfa, ".png", sep=""))
+  png(filename=paste("Depuracion RDB/QA results/", alfa, "_Length weight by sex and quarter.png", sep=""))
   #windows()
    gg1 <- ggplot(data=ca_stock, aes(x=lenCls, y=indWt, color=sex)) + 
             facet_wrap(~quarter, ncol=2) +
             geom_point(shape=1) + 
             scale_color_manual(values=colsex)+
-            geom_point(mapping=aes(x=lenCls, y=indWtTeoric), col="black") +
             ggtitle(paste("Length-Weight -", alfa)) +  theme(plot.title = element_text(hjust = 0.5))
    print(gg1)
   dev.off() 
 
   
-#por quarter y área
-  png(filename=paste("Length weight by area and quarter_", alfa, ".png", sep=""))
+#por quarter y ?rea
+  png(filename=paste("Depuracion RDB/QA results/", alfa, "_Length weight by area and quarter.png", sep=""))
   #windows()   
    gg1 <- ggplot(data=ca_stock, aes(x=lenCls, y=indWt, color=area)) + 
             facet_wrap(~quarter, ncol=2) +
             geom_point(shape=1) + 
             scale_color_manual(values=colarea)+
-            geom_point(mapping=aes(x=lenCls, y=indWtTeoric), col="black") +
             ggtitle(paste("Length-Weight -", alfa)) +  theme(plot.title = element_text(hjust = 0.5))
    print(gg1)
   dev.off()
 
 
 #plot general. identificar puntos
-windows()
-  plot(x=ca_stock$lenCls, y=ca_stock$indWt, main=paste(sp_sci, "- Length Weigth"))
-  points(x=ca_stock$lenCls, y= ca_stock$indWtTeoric, col="red")
-  out_temp <- identify(x=ca_stock$lenCls, y= ca_stock$indWt, labels=ca_stock$trpCode, plot=TRUE)
-  
-dev.copy(png,paste("Outliers length weight_", alfa, ".png", sep=""))
-dev.off() 
+# windows()
+#   plot(x=ca_stock$lenCls, y=ca_stock$indWt, main=paste(sp_sci, "- Length Weigth"))
+#   points(x=ca_stock$lenCls, y= ca_stock$indWtTeoric, col="red")
+#   out_temp <- identify(x=ca_stock$lenCls, y= ca_stock$indWt, labels=ca_stock$trpCode, plot=TRUE)
+#   
+# dev.copy(png,paste("Depuracion RDB/QA results/Outliers length weight_", alfa, ".png", sep=""))
+# dev.off() 
 
-out_lenwt <- ca_stock[out_temp,c("trpCode", "area", "quarter", "month", "fishId", "sex", "lenCls","indWt","age"), with=FALSE]
-out_lenwt$NombreBuque <- tr$NombreBuque[match(out_lenwt$trpCode, tr$Trip_code)]
-out_lenwt$sp_sci <- sp_sci
-
-write.table("Potential outlier length weight relationship", filename,  append=TRUE, row.names = FALSE, sep=",")
-write.table(out_lenwt,filename, append=TRUE, row.names = FALSE, sep=",")
-write.table("", filename, append=TRUE, row.names = FALSE, sep=",")
+# out_lenwt <- ca_stock[out_temp,c("trpCode", "area", "quarter", "month", "fishId", "sex", "lenCls","indWt","age"), with=FALSE]
+# out_lenwt$NombreBuque <- tr$NombreBuque[match(out_lenwt$trpCode, tr$Trip_code)]
+# out_lenwt$sp_sci <- sp_sci
+# 
+# write.table("Potential outlier length weight relationship", filename,  append=TRUE, row.names = FALSE, sep=";")
+# write.table(out_lenwt,filename, append=TRUE, row.names = FALSE, sep=";")
+# write.table("", filename, append=TRUE, row.names = FALSE, sep=";")
 
   }
 

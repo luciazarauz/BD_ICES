@@ -12,15 +12,12 @@ library(data.table)
 library(fishPifct)
 Fun_CountUnique <- function (x) { length(unique(x))}
 #devtools::install_github("guiastrennec/ggplus")
-library(ggplus)
+#library(ggplus)
 
 # cargar datos
-data.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2018/" 
-res.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2018/QA results/" 
 
-setwd(data.path)
 options(scipen=999)
-load("RDB2018.RData")
+load("Depuracion RDB/QA results/RDB2020_NSEA.RData")
 ls()
 
 
@@ -31,18 +28,13 @@ ls()
 
   
   sp_sci <- "Engraulis encrasicolus"
-  alfa <- speciesAZTI$Cod..ALFA.3[speciesAZTI$Nombre.Cientifico==sp_sci]
-  wormsid <- speciesAZTI$WORMS[speciesAZTI$Nombre.Cientifico==sp_sci]
-  lenwt_sp <- subset(lenwt, Species==sp_sci)
-  
+  alfa <- especies$ALFA[especies$Nombre.Cientifico==sp_sci]
+  wormsid <- especies$WORMS[especies$Nombre.Cientifico==sp_sci]
+
   # crear carpetas y nobre de fichero
-  res.sp.path<- paste(res.path, sp_sci, sep="")
-  dir.create(res.sp.path)
-  setwd(res.sp.path)
-  
-  filename <- paste("0_QA_",alfa,"_deltaplot.csv", sep="")
-  write.table("DeltaPlot Analisis", filename,  row.names = FALSE, sep=",")
-  write.table("", filename, append=TRUE, row.names = FALSE, sep=",")
+  filename <- paste("Depuracion RDB/QA results/0_QA_",alfa,"_deltaplot.csv", sep="")
+  write.table("DeltaPlot Analisis", filename,  row.names = FALSE, sep=";")
+  write.table("", filename, append=TRUE, row.names = FALSE, sep=";")
   
 
   
@@ -78,11 +70,11 @@ ls()
     
     windows(10,7)    
     delta.out <- plot(deltas,  strat1 = "timeStrata",strat2 = "techStrata", selection = TRUE)
-    dev.copy(png,paste("Distr Tallas DeltaPlot_", alfa, paste(metiername,collapse=" & "), ".png", sep=""))
+    dev.copy(png,paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot_", paste(metiername,collapse=" & "), ".png", sep=""))
     dev.off() 
     
     #windows()
-    png(filename=paste("Distr Tallas DeltaPlot selected_", alfa, paste(metiername,collapse=" & "), ".png", sep=""))
+    png(filename=paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot selected_", paste(metiername,collapse=" & "), ".png", sep=""))
     plot(delta.out)
     dev.off() 
   
@@ -103,13 +95,13 @@ ls()
         alltrips    
         
         
-        write.table("anomalous delta distributions", filename,  append=TRUE, row.names = FALSE, sep=",")
-        write.table(deltatrips,filename, append=TRUE, row.names = FALSE, sep=",")
-        write.table("", filename, append=TRUE, row.names = FALSE, sep=",")
+        write.table("Depuracion RDB/QA results/anomalous delta distributions", filename,  append=TRUE, row.names = FALSE, sep=";")
+        write.table(deltatrips,filename, append=TRUE, row.names = FALSE, sep=";")
+        write.table("", filename, append=TRUE, row.names = FALSE, sep=";")
         
-        write.table("all delta distributions", filename, append=TRUE,  row.names = FALSE, sep=",")
-        write.table(alltrips,filename, append=TRUE, row.names = FALSE, sep=",")
-        write.table("", filename, append=TRUE, row.names = FALSE, sep=",")
+        write.table("Depuracion RDB/QA results/all delta distributions", filename, append=TRUE,  row.names = FALSE, sep=";")
+        write.table(alltrips,filename, append=TRUE, row.names = FALSE, sep=";")
+        write.table("", filename, append=TRUE, row.names = FALSE, sep=";")
         
            
 #dibujar distribuciones de talla
@@ -148,7 +140,7 @@ ls()
         ggtitle(paste("Distr Tallas (deltaPlot) -", alfa, paste(metier,collapse=" & "), "- p",page)) +  theme(plot.title = element_text(hjust = 0.5))
         
         #windows(13,8)
-        png(filename=paste(paste("Distr Tallas (deltaPlot) -", alfa, paste(metiername,collapse=" & "), "- p",page), ".png", sep=""),
+        png(filename=paste(paste("Depuracion RDB/QA results/", alfa,"__Distr Tallas (deltaPlot) -",  paste(metiername,collapse=" & "), "- p",page), ".png", sep=""),
             width = 1500, height = 900)
         print(gg1)
         dev.off()
@@ -180,7 +172,7 @@ ls()
       ggtitle(paste("Distr Tallas (deltaPlot) -", alfa, paste(metier,collapse=" & "), "- p",page)) +  theme(plot.title = element_text(hjust = 0.5))
     
     #windows(13,8)
-    png(filename=paste(paste("Distr Tallas (lendisPlot) -", alfa, paste(metiername,collapse=" & "), "- p",page), ".png", sep=""),
+    png(filename=paste(paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas (lendisPlot) -", paste(metiername,collapse=" & "), "- p",page), ".png", sep=""),
         width = 1500, height = 900)
     print(gg1)
     dev.off()
