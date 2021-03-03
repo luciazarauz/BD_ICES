@@ -144,7 +144,7 @@ buques      <- read.csv("0_Maestros/Buques_2020.txt",header=T,sep="\t",dec=",", 
   head(subset(NV, IdVenta %in% idx)) %>% group_by(Nombre_Buque) %>% summarise (nTrips = Fun_CountUnique(IdVenta))
   # corrijo zonas imposibles y la zona 8 porque no permite distinguir entre 8c y 8abd
   ZonaSelect$C_Zona[ZonaSelect$C_Zona %in% c("27.4", "27.5", "27.8")] <- NA
-  
+
   
   # MetierSelect
   ########## #
@@ -223,6 +223,9 @@ table(DB$Zona)
 #Area Rev y Area NV
 DB$Zona_Rev   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
 DB$Zona_Rev[DB$Zona_Rev =="27.8.c"] <- "27.8.c.e"
+DB$Zona_Rev[DB$Censo %in% c("ARRASTRE DE FONDO EN CANTABRICO NW") & !is.na(DB$Zona_Rev) & DB$Zona_Rev!= "27.8.c.e"] <- "27.8.c.e" 
+DB$Zona_Rev[DB$Censo %in% c("ARTES MENORES EN CANTABRICO NW") & !is.na(DB$Zona_Rev) & DB$Zona_Rev %in% c("27.6.a", "27.7")] <- NA
+
 DB$ZonaNV   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
 DB$ZonaNV [grep("27.8.a|27.8.b|27.8.d|27.8.e",DB$ZonaNV)]<- "27.8.abde"
 DB$ZonaNV [grep("27.8.c",DB$ZonaNV)]<- "27.8.c"
@@ -239,6 +242,11 @@ unique(DB$ZonaNV)
 # Metier NV
 DB$MetierNV <- MetierSelect$C_Metier[match(DB$IdVenta, MetierSelect$IdVenta)]
 # 
+# Metier Principal ysecundario
+DB$MetierPrincipal <- buques$Metier.principal[match(DB$Cod_UE, buques$Codigo.UE)]
+DB$MetierSecundario <- buques$Metier.secundario[match(DB$Cod_UE, buques$Codigo.UE)]
+
+
 #   
 sum(DB$Kg_Desemb_Peso_Vivo, na.rm=TRUE)       # 45590178
 
@@ -341,7 +349,7 @@ ptb$SpGroup <- NA
 
 #    .Agrupar por marea                         ####
 ################################################## #
-ptb_met     <- ptb %>% group_by(Nombre_Buque, Puerto_Base, Censo, Trip, Fecha_Desembarco, Dia, Mes, Ano, ZonaDB, Zona, Zona_Rev, ZonaNV, Metier) %>% 
+ptb_met     <- ptb %>% group_by(Nombre_Buque, Puerto_Base, Censo, Trip, Fecha_Desembarco, Dia, Mes, Ano, ZonaDB, Zona, Zona_Rev, ZonaNV, Metier, MetierPrincipal, MetierSecundario) %>% 
                         summarise(Peso = sum(Kg_Desemb_Peso_Vivo, na.rm=T)) %>%
                         data.frame()
 
@@ -404,7 +412,8 @@ otb$SpGroup[is.na(otb$SpGroup)] <- "Otras"
     
 #    .Agrupar por marea                         ####
 ################################################## #
-otb_met     <- otb %>% group_by(Nombre_Buque, Puerto_Base, Censo, Trip, Fecha_Desembarco, Dia, Mes, Ano, ZonaDB, Zona, Zona_Rev, ZonaNV, Metier, SpGroup) %>% 
+otb_met     <- otb %>% group_by(Nombre_Buque, Puerto_Base, Censo, Trip, Fecha_Desembarco, Dia, Mes, Ano, ZonaDB, Zona, Zona_Rev, ZonaNV, 
+                                Metier, MetierPrincipal, MetierSecundario, SpGroup) %>% 
                           summarise(Peso = sum(Kg_Desemb_Peso_Vivo, na.rm=T)) %>%
                           pivot_wider(names_from = SpGroup, values_from = Peso) %>%
                           data.frame()    
@@ -523,11 +532,11 @@ db_sp<- DBba %>% arrange(Nombre_Buque, Fecha_Desembarco,Puerto_Venta) %>%
 
 # agregar por marea
 db_sp<-   db_sp %>% group_by(Nombre_Buque , Cod_UE , Eslora_total , Censo , Puerto_Base , Puerto_Base_CA  , Fecha_Desembarco , 
-                         Trip ,  Metier , ZonaDB, Zona, Zona_Rev, ZonaNV, MetierNV,  Nsp , SpGroup) %>%
+                         Trip ,  ZonaDB, Zona, Zona_Rev, ZonaNV, Metier , MetierNV, MetierPrincipal, MetierSecundario, Nsp , SpGroup) %>%
                     summarise(Peso=sum(Kg_Desemb_Peso_Vivo, na.rm=TRUE))
 
 db_met <- dcast(db_sp,  Nombre_Buque  + Eslora_total + Censo + Puerto_Base + Puerto_Base_CA  + Fecha_Desembarco + 
-                  Trip +  Metier + MetierNV + ZonaDB + Zona + Zona_Rev + ZonaNV + Nsp  ~ SpGroup,
+                  Trip +  Metier + MetierNV + MetierPrincipal + MetierSecundario + ZonaDB + Zona + Zona_Rev + ZonaNV + Nsp  ~ SpGroup,
                 fill=0, value.var = "Peso") #el fill=0 hace que en vez de poner NA a las celdas vac?as las rellene como = 0 que es lo real.
 
 vars <- unique(spAM$Grupo)
@@ -536,25 +545,29 @@ db_met[setdiff(vars,names(db_met))] <- 0
 db_met <- as.data.frame(db_met)
 
 
-db_met$Total <- db_met$ALG + db_met$CRU + db_met$GNS + db_met$GTR + db_met$LHM + 
-                db_met$MIS + db_met$MOL + db_met$TUN + db_met$CEP + db_met$Otras 
-db_met$P_ALG <-  db_met$ALG /  db_met$Total 
+db_met$Total <- db_met$CEP + db_met$CRU + db_met$GNS + db_met$GTR + db_met$HKE + db_met$LHM + 
+                db_met$LLS + db_met$MIS +  db_met$MOL + db_met$TUN + db_met$Otras 
+db_met$P_CEP <-  db_met$CEP /  db_met$Total 
 db_met$P_CRU <-  db_met$CRU /  db_met$Total 
 db_met$P_GNS <-  db_met$GNS /  db_met$Total 
-db_met$P_GTR <-  db_met$GTR /  db_met$Total 
+db_met$P_GTR <-  db_met$GTR /  db_met$Total
+db_met$P_HKE <-  db_met$HKE /  db_met$Total 
 db_met$P_LHM <-  db_met$LHM /  db_met$Total 
+db_met$P_LLS <-  db_met$LLS /  db_met$Total 
 db_met$P_MIS <-  db_met$MIS /  db_met$Total 
 db_met$P_MOL <-  db_met$MOL /  db_met$Total 
 db_met$P_TUN <-  db_met$TUN /  db_met$Total 
-db_met$P_CEP <-  db_met$CEP /  db_met$Total 
+
 db_met$P_otr <-  db_met$Otras /  db_met$Total
-db_met$P_Total <- db_met$P_ALG + db_met$P_CRU + db_met$P_GNS + db_met$P_GTR + db_met$P_LHM + 
-                  db_met$P_MIS + db_met$P_MOL + db_met$P_TUN + db_met$P_CEP +db_met$P_otr
-db_met$P2_GNS <-  (db_met$LHM + db_met$GNS) /  db_met$Total 
+db_met$P_Total <- db_met$P_CEP + db_met$P_CRU + db_met$P_GNS + db_met$P_GTR + db_met$P_HKE + db_met$P_LHM + 
+                  db_met$P_LLS + db_met$P_MIS + db_met$P_MOL + db_met$P_TUN +db_met$P_otr
+db_met$P2_GNS <-  (db_met$P_HKE + db_met$P_LHM + db_met$P_GNS) 
+db_met$P2_LLS <-  (db_met$P_HKE + db_met$P_LLS) 
 
 #db_met<- db_met %>% mutate_if( is.numeric, function(x){round(x,digits=2)})
 db_met   <- db_met %>% mutate_if(is.numeric, round, digits = 2)
 
+unique(db_met$P_Total)
 #   ..........................................  ####  
 #    ARTES FIJAS ALTURA                         ####
 ################################################## #
@@ -575,7 +588,8 @@ sort(unique(af_met$Metier))
 af_met$Metier_Rev<-NA
 
 af_met$Metier_Rev  <- "LLS_DEF_0_0_0"
-af_met$Metier_Rev[ af_met$MetierNV == "GNS"]  <- "GNS_DEF_>=100_0_0"
+#af_met$Metier_Rev[ af_met$MetierNV == "GNS"]  <- "GNS_DEF_>=100_0_0"
+af_met$Metier_Rev[ af_met$MetierPrincipal == "GNS_DEF_>=100_0_0"]  <- "GNS_DEF_>=100_0_0"
 
 #    .Variable Check                            ####
 ################################################## #
@@ -631,7 +645,7 @@ sort(unique(rv_met$Metier))
 rv_met$Metier_Rev<-NA
 rv_met$Metier_Rev[rv_met$P_LHM>0.80]  <- "LHM_SPF_0_0_0"
 rv_met$Metier_Rev[is.na(rv_met$Metier_Rev) & rv_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
-rv_met$Metier_Rev[is.na(rv_met$Metier_Rev) & rv_met$ZonaNV %in% c("27.8.abde", "27.8.c" )]  <- "GNS_DEF_>=100_0_0"
+rv_met$Metier_Rev[is.na(rv_met$Metier_Rev) & rv_met$Zona %in% c("27.8.abde", "27.8.c" )]  <- "GNS_DEF_>=100_0_0"
 rv_met$Metier_Rev[is.na(rv_met$Metier_Rev) & rv_met$Puerto_Base_CA %in% c("Euskadi") &
                     rv_met$Zona %in% c("27.7","27.6" )]  <- "GNS_DEF_100-119_0_0"
 rv_met[is.na(rv_met$Metier_Rev) & !rv_met$Puerto_Base_CA %in% c("Euskadi") &
@@ -695,7 +709,7 @@ sort(unique(pa_met$Metier))
 pa_met$Metier_Rev<-NA
 pa_met$Metier_Rev[pa_met$P_LHM>0.80]  <- "LHM_SPF_0_0_0"
 pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
-pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_ALG>0.80]  <- "MIS_MIS_0_0_0_HC"
+pa_met$Metier_Rev[is.na(pa_met$Metier_Rev) & pa_met$P_MIS>0.80]  <- "MIS_MIS_0_0_0_HC"
 pa_met$Metier_Rev[is.na(pa_met$Metier_Rev)]  <- "LLS_DEF_0_0_0"
 
 # excepciones: no están censados en artes menores pero son barcos pequeños
@@ -780,10 +794,7 @@ am_met[is.na(am_met$Metier_Rev) & am_met$P_LHM>0.80 & am_met$LHM>300, ]
 #cacea
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_TUN>0.80]  <- "LTL_LPF_0_0_0"
 
-#algas
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_ALG >0.9]  <- "MIS_MIS_0_0_0_HC"
-
-#anemonas
+#algas/anemonas
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_MIS >0.9]  <- "MIS_MIS_0_0_0_HC"
 
 #nasas
@@ -798,7 +809,12 @@ am_met$Metier_Rev[is.na(am_met$Metier_Rev) & (am_met$P_MOL+ am_met$P_CRU)>0.75  
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_CEP>0.5]  <- "LHM_CEP_0_0_0"
 
 #redes y palangres
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierNV=="LLS"  ] <- "LLS_DEF_0_0_0"
+am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.75]  <- "LLS_DEF_0_0_0"
+  #am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierNV=="LLS"  ] <- "LLS_DEF_0_0_0"
+  temp <- am_met[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.5 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0") , ]
+  temp <- am_met[is.na(am_met$Metier_Rev) & am_met$P2_LLS<0.4 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0") , ]
+  
+  am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.5 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0")  ] <- "LLS_DEF_0_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA!="Euskadi"  ] <- "GNS_DEF_80-99_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA=="Euskadi"  ] <- "GNS_DEF_60-79_0_0"
 
@@ -821,10 +837,11 @@ subset(am_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LTL_LPF_
 subset(am_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LLS_DEF_0_0_0")
 # marcar para chequear
 am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LHM_SPF_0_0_0"] <- "Check"
-am_met$Metier_Check[am_met$PrevMet    == am_met$NextMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet    == "LHM_SPF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LHM_CEP_0_0_0"] <- "Check"
 am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LTL_LPF_0_0_0"] <- "Check"
-am_met$Metier_Check[am_met$PrevMet    == am_met$NextMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet    == "LTL_LPF_0_0_0"] <- "Check"
 am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$Metier_Rev == "LLS_DEF_0_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet != "GTR_DEF_60-79_0_0" & am_met$PrevMet != "GTR_DEF_60-79_0_0" & am_met$Metier_Rev == "GNS_DEF_60-79_0_0"] <- "Check"
+am_met$Metier_Check[am_met$Metier_Rev != am_met$PrevMet & am_met$Metier_Rev != am_met$NextMet & am_met$NextMet != "GNS_DEF_60-79_0_0" & am_met$PrevMet != "GNS_DEF_60-79_0_0" & am_met$Metier_Rev == "GTR_DEF_60-79_0_0"] <- "Check"
 
 
 
@@ -874,6 +891,7 @@ sort(unique(ps_met$MetierNV))
 ################################################## #
 ps_met$Metier_Rev<-NA
 
+# utilizando lista de buques de referencia
 # ps_met$Metier_Rev[ps_met$P_TUN>0.80]  <- "LHP_LPF_0_0_0"
 # ps_met$Metier_Rev[ps_met$Metier_Rev %in% c("LHP_LPF_0_0_0") & ps_met$Nombre_Buque %in% Buque_cercoLTL] <- "LTL_LPF_0_0_0"
 # 
@@ -881,8 +899,16 @@ ps_met$Metier_Rev<-NA
 # ps_met[is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.80 &  ps_met$Nombre_Buque %in% Buque_cercoLHM & ps_met$LHM>1000,]
 #ps_met$Metier_Rev[is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$Nombre_Buque %in% Buque_cercoLHM & ps_met$LHM>1000]  <- "LHM_SPF_0_0_0"ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev)] <- "PS_SPF_0_0_0" 
 
-ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LTL_LPF_0_0_0"
-ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LHM_SPF_0_0_0"
+# utilizando arte NV
+#ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LTL_LPF_0_0_0"
+#ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LHM_SPF_0_0_0"
+
+# utilizando maestros
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierPrincipal %in% c("LTL_LPF_0_0_0")] <- "LTL_LPF_0_0_0"
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierSecundario %in% c("LTL_LPF_0_0_0")] <- "LTL_LPF_0_0_0"
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierPrincipal %in% c("LHM_SPF_0_0_0")] <- "LHM_SPF_0_0_0"
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierSecundario %in% c("LHM_SPF_0_0_0")] <- "LHM_SPF_0_0_0"
+
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 ] <- "LHP_LPF_0_0_0"
 
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) ] <- "PS_SPF_0_0_0"
@@ -901,11 +927,8 @@ subset(ps_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LHM_SPF_
 subset(ps_met, Metier_Rev!=PrevMet & Metier_Rev!=NextMet & Metier_Rev=="LTL_LPF_0_0_0")
 #marcar para chequear
 ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LHM_SPF_0_0_0"] <- "Check"
-ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LHM_SPF_0_0_0"] <- "Check"
 ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LHP_LPF_0_0_0"] <- "Check"
-ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LHP_LPF_0_0_0"] <- "Check"
 ps_met$Metier_Check[ps_met$Metier_Rev != ps_met$PrevMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$Metier_Rev =="LTL_LPF_0_0_0"] <- "Check"
-ps_met$Metier_Check[ps_met$PrevMet    == ps_met$NextMet & ps_met$Metier_Rev != ps_met$NextMet & ps_met$NextMet    == "LTL_LPF_0_0_0"] <- "Check"
 
 
 
@@ -956,9 +979,9 @@ write.table(met_ba, paste("Depuracion_Metiers\\Output\\", Ano,"_DB_porMarea_Baju
 ############################################ #
 
 # BD por metier
-MET_all <- rbind( otb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
-                  ptb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
-                  met_ba[ ,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")])
+MET_all <- rbind( otb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "MetierPrincipal", "MetierSecundario", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
+                  ptb_met[,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "MetierPrincipal", "MetierSecundario", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")], 
+                  met_ba[ ,c("Trip", "Nombre_Buque", "Censo", "Fecha_Desembarco", "Metier", "MetierPrincipal", "MetierSecundario", "Metier_Rev", "Metier_Check", "ZonaDB", "Zona_Rev")])
 # BD por meitier para importar en la BD ICES
   MET_all_imp <- MET_all[,c("Trip", "Metier_Rev", "Zona_Rev")]
 
@@ -973,7 +996,8 @@ DB_all$Zona_Rev <- MET_all$Zona_Rev[match(DB_all$Trip, MET_all$Trip)]
 
 DB_all <- DB_all[,c("Trip", "Nombre_Buque", "Cod_UE","Puerto_Base", "Eslora_total", "Censo", 
                     "Fecha_Desembarco", "Puerto_Venta",  
-                    "Zona","ZonaNV","MetierNV","Especie_Oficial","SpGroup",
+                    "Zona","ZonaNV",
+                    "MetierNV","Especie_Oficial","SpGroup",
                     "Kg_Desemb_Peso_Vivo",  
                     "Metier", "Metier_Rev",  "Metier_Check", "Zona_Rev")]
 
@@ -992,7 +1016,7 @@ write.table(DB_all, paste("Depuracion_Metiers\\Output\\", Ano,"_DB_all.csv", sep
 ########################################################## #
 
 # Check metier principal
-check <- subset(met_ba, Metier_Rev!="Check")
+check <- subset(met_ba, Metier_Check!="Check")
 check$Metier_Rev <- substr(check$Metier_Rev,1,3)
 check$Metier_Rev [check$Metier_Rev == "GTR"] <- "GNS"
 
@@ -1000,7 +1024,7 @@ check_fin <- check %>%
   group_by(Nombre_Buque) %>%
   mutate (Nmetier = Fun_CountUnique(Metier_Rev)) %>% 
   ungroup() %>%
-  group_by(Nombre_Buque, Censo, Metier_Rev, Nmetier) %>% 
+  group_by(Nombre_Buque, Censo, MetierPrincipal, MetierSecundario, Metier_Rev, Nmetier) %>% 
   summarise(Ntrip = Fun_CountUnique(Trip)) %>%
   pivot_wider(names_from = Metier_Rev, values_from = Ntrip)
 check_fin[is.na(check_fin)] <- 0
