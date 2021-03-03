@@ -30,7 +30,7 @@ ls()
 #   "Lepidorhombus whiffiagonis", "Sardina pilchardus"
 
   
-  sp_sci <- "Merluccius merluccius"
+  sp_sci <- "Trachurus trachurus"
 
   alfa <- especies$ALFA[especies$Nombre.Cientifico==sp_sci]
   wormsid <- especies$WORMS[especies$Nombre.Cientifico==sp_sci]
@@ -94,12 +94,7 @@ ls()
       dev.copy(png,paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot_", paste(metiername,collapse=" & "), ".png", sep=""))
       dev.off() 
       
-      #windows()
-      # png(filename=paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot selected_", paste(metiername,collapse=" & "), ".png", sep=""))
-      # plot(delta.out)
-      # dev.off() 
-    
-  
+
     # .Guardamos los detalles de las mareas dudosas          ####
     ########################################################### #   
       
@@ -130,6 +125,9 @@ ls()
     #.Dibujar distribuciones de talla (por funcion)             ####
     ############################################################## #   
     windows()
+    plot(delta.out)
+
+    windows()
     lenDisPlot(cs_stockM, species=wormsid, fraction="LAN", level="trip",
                trpCode=as.character(deltatrips$trpCode))
     windows()
@@ -157,7 +155,7 @@ ls()
                   ymin = -Inf,ymax = Inf,alpha = 0.3) +
         geom_bar(mapping=aes(x=lenCls, y=lenNum), stat="identity") + 
         #facet_wrap(~ trpCode, ncol=7, nrow=5, scales="free_y") +
-        facet_wrap(~ trpCode, ncol=8, nrow=4) +
+        facet_wrap(~ trpCode, ncol=10, nrow=5) +
         theme(legend.position="none") +
         ggtitle(paste(alfa, "__Distr Tallas (lendisPlot) -",  paste(metier,collapse=" & "), "- p",page)) +  theme(plot.title = element_text(hjust = 0.5))
       
@@ -194,7 +192,7 @@ ls()
                     ymin = -Inf,ymax = Inf,alpha = 0.3) +
           geom_bar(mapping=aes(x=Length, y=Number), stat="identity") + 
           #facet_wrap(~ trpCode, ncol=7, nrow=5, scales="free_y") +
-          facet_wrap(~ trpCode, ncol=8, nrow=4) +
+          facet_wrap(~ trpCode, ncol=10 nrow=5) +
           theme(legend.position="none") +
           ggtitle(paste(alfa, "__Distr Tallas (deltaPlot) -",  paste(metier,collapse=" & "), "- p",page)) +  theme(plot.title = element_text(hjust = 0.5))
           
