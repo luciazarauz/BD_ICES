@@ -91,8 +91,8 @@ ls()
       
       windows(10,7)    
       delta.out <- plot(deltas,  strat1 = "timeStrata",strat2 = "techStrata", selection = TRUE)
-      dev.copy(png,paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot_", paste(metiername,collapse=" & "), ".png", sep=""))
-      dev.off() 
+      # dev.copy(png,paste("Depuracion RDB/QA results/", alfa, "__Distr Tallas DeltaPlot_", paste(metiername,collapse=" & "), ".png", sep=""))
+      # dev.off() 
       
 
     # .Guardamos los detalles de las mareas dudosas          ####
