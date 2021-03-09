@@ -13,6 +13,7 @@ rm(list=ls())
  
 library(devtools)
 
+
 library(ggplot2)
 library(data.table)
 library(doBy)
@@ -20,6 +21,10 @@ require(mapplots)
 
 require(dplyr)
 require(tidyr)
+library(COSTcore)
+library(COSTeda)
+library(fishPifct)
+
 
 # count unique
 Fun_CountUnique <- function (x) { length(unique(x))}
@@ -59,6 +64,7 @@ buques$Buque <- toupper(buques$Buque)
 buques$Caladero.principal <- toupper(buques$Caladero.principal)
 buques$CensoPorModalidad <- toupper(buques$CensoPorModalidad)
 sort(unique(buques$Caladero.principal))
+sort(unique(buques$CensoPorModalidad))
 
 # Especies
 especies      <- read.csv("0_Maestros/Especies_2020.txt",header=T,sep="\t",dec=",", stringsAsFactors = FALSE); head(especies)
@@ -196,7 +202,8 @@ t2
 unique(hh$Area)
 idcheck <- unique(hh$Area[!hh$Area %in% RDBarea$Code ])
 hh$Area[hh$Area %in% c("27.8.c.e","27.8.c.e.1", "27.8.c.e.2")] <- "27.8.c"
-hh$Area[hh$Area %in% c("27.6")] <- "27.6.a"
+hh$Area[hh$Area %in% c("27.8.c.e","27.8.c.w")] <- "27.8.c"
+#hh$Area[hh$Area %in% c("27.6")] <- "27.6.a"
 hh$Area[hh$Area %in% c("27.8.d.2")] <- "27.8.d"
 t3 <- subset(hh, Area %in% idcheck, select=hh_varsum)
 t3
@@ -269,7 +276,7 @@ fd_ps <- subset(hh, substr(hh$FAC_EC_lvl6,1,2)=="PS")
 
 
 png(filename="Depuracion RDB/QA results/Fishing duration.png",  width = 900, height = 450)
-    #windows(10,5)
+    windows(10,5)
     par(mfrow=c(1,3))
     dotchart(fd_ptb$Fishing_duration, groups=as.factor(fd_ptb$Fishing_validity) , main="PTB", xlab="Fishing duration (min)")
     abline(v=240, col="red")
@@ -277,9 +284,9 @@ png(filename="Depuracion RDB/QA results/Fishing duration.png",  width = 900, hei
     dotchart(fd_otb$Fishing_duration, groups=as.factor(fd_otb$Fishing_validity), main="OTB", xlab="Fishing duration (min)")
      abline(v=60, col="red")
     abline(v=360, col="red")
-    #dotchart(fd_ps$Fishing_duration, groups=as.factor(fd_ps$Fishing_validity), main="PS", xlab="Fishing duration (min)")
-    #abline(v=60, col="red")
-    #abline(v=360, col="red")
+    # dotchart(fd_ps$Fishing_duration, groups=as.factor(fd_ps$Fishing_validity), main="PS", xlab="Fishing duration (min)")
+    # abline(v=60, col="red")
+    # abline(v=360, col="red") #no hay fishing duration en cerco
   dev.off()
 
   dotchart(hh$Fishing_duration[substr(hh$FAC_EC_lvl6,1,3)=="OTB"], groups = as.factor(hh$Fishing_validity[substr(hh$FAC_EC_lvl6,1,3)=="OTB"]), main="OTB", xlab="Fishing duration (min)")
@@ -389,12 +396,17 @@ wS <- subset(sl, Weight==max(sl$Weight[sl$Sampling_type=="S"]) & sl$Sampling_typ
   boxplot(sl$Weight[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
   boxplot(sl$Weight[sl$SpeciesName=="Verdel - Caballa"]~sl$Sampling_type[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
   
+  windows()
+  par(mfrow=c(1,2))
+  boxplot(sl$Weight[sl$SpeciesName=="Merluza europea"], main= "Weight")
+  boxplot(sl$Weight[sl$SpeciesName=="Merluza europea"]~sl$Sampling_type[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
+  
   
 max(sl$Subsample_weight)
 swM <- subset(sl, Subsample_weight==max(sl$Subsample_weight[sl$Sampling_type=="M"]) & sl$Sampling_type=="M",sl_varsum); swM
 swS <- subset(sl, Subsample_weight==max(sl$Subsample_weight[sl$Sampling_type=="S"]) & sl$Sampling_type=="S",sl_varsum); swS
 
-subset(sl, Subsample_weight>10000000,sl_varsum)
+subset(sl, Subsample_weight>1000000,sl_varsum)
   windows()
   par(mfrow=c(1,2))
   boxplot(sl$Subsample_weight, main= "subsample Weight")
@@ -405,7 +417,9 @@ subset(sl, Subsample_weight>10000000,sl_varsum)
   boxplot(sl$Weight[sl$SpeciesName=="Rape blanco"], main= "Weight")
   boxplot(sl$Weight[sl$SpeciesName=="Rape blanco"]~sl$Sampling_type[sl$SpeciesName=="Rape blanco"], main= "Weight")
   
-  swS <- subset(sl, Subsample_weight>3000000 & sl$Sampling_type=="M",sl_varsum); swS
+  #ponemos el umbral de acuerdo al boxplot
+  swS <- subset(sl, Subsample_weight>1000000 & sl$Sampling_type=="S",sl_varsum); swS
+  swM <- subset(sl, Subsample_weight>3000000 & sl$Sampling_type=="M",sl_varsum); swM
   
   
 sl0<-subset(sl, Weight>0 )
@@ -414,6 +428,11 @@ temp2 <- temp<(-2)
 wdif<-sl0[temp2,sl_varsum]
 wdif
   
+a <- subset(sl, Trip_code=="S655554" )
+subset(sl0, sl0$Subsample_weight>sl0$Weight & Sampling_type=="S")  # chequear que el kalamendi 11/10 está bien
+subset(sl0, sl0$Subsample_weight>sl0$Weight & Sampling_type=="M")
+
+
     write.table("max weigth and subsample weigth", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
     write.table(rbind(wM, wS, swM,swS), "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
     #write.table(0, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
