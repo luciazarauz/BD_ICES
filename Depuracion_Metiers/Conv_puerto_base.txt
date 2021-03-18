@@ -121,6 +121,7 @@ Puertos Ingleses,Inglaterra,ING
 Puertos Irlandeses,Irlanda,IRL
 Raxo,Galicia,ESP
 Redondela,Galicia,ESP
+Ribadesella,Asturias,ESP
 Sada,Galicia,ESP
 Saint Jean de Luz,Francia,FRA
 San Ciprian,Galicia,ESP

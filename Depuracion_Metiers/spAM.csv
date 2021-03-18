@@ -17,7 +17,7 @@ GUU;Chelidonichthys lucerna;Bejel;GNS
 HMM;Trachurus mediterraneus;Chicharro Blanco;GNS
 HOM;Trachurus trachurus;Chicharro Negro;GNS
 JAX;Trachurus spp;Chicharros;GNS
-HOM;Trachurus picturatus;Chicharro Azul;GNS
+JAA;Trachurus picturatus;Chicharro Azul;GNS
 BIB;Trisopterus luscus;Faneca comun;GNS
 GAD;Trisopterus spp;Fanecas spp;GNS
 MUR;Mullus surmuletus;Salmonete de roca;GNS
@@ -74,3 +74,15 @@ OCT;Octopodidae;Pulpos;MOL
 ALB;Thunnus alalunga;Bonito del Norte;TUN
 BFT;Thunnus thynnus;Cimarron, Atun rojo;TUN
 BET;Thunnus obesus;Patudo;TUN
+BSH;Prionace glauca;Tintorera - Azulon;LPF
+MSK;Lamnidae;Marrajos - Cailones - Jaquetones;LPF
+POR;Lamna nasus;Marrajo sardinero - cailon marrajo;LPF
+SMA;Isurus oxyrinchus;Marrajo - Txintxoleta;LPF
+FOR;Phycis phycis;Brotola de roca (Phycis phycis);DWS
+FOX;Phycis spp;Lochas - Brotolas;DWS
+GFB;Phycis blennoides;Brotola de fango (Phycis blennoides);DWS
+GAG;Galeorhinus galeus;Cazon;DWS
+BLI;Molva dypterygia dypterygia;Maruca azul - Palo (Molva dypterygia);DWS
+LIN;Molva molva;Maruca - Juliana (Molva molva);DWS
+LNZ;Molva spp;Marucas;DWS
+USK;Brosme brosme;Brosmio;DWS
