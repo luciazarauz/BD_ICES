@@ -2,11 +2,8 @@
 # Readme:                                                           #
 # ----------------------------------------------------------------- #
 #
-# Aquí se lee el fichero Infobase.mdb que nos envía el IEO y 
-# sacamos el fichero "DatosOficiales2019_Originales_ultimaversion.RData"
-# que está dentro de la carpeta "Datos/".
+# Aquí se lee los ficheros InfoBase que nos envía SGP a travñes del IEO.
 #
-# también se lee el fichero de NotasVenta.mdb que nos envía el IEO y 
 # sacamos el fichero "NotasVenta2019_Originales.RData"
 # que NO está dentro de la carpeta "Datos/".
 #
@@ -24,32 +21,23 @@
 # ## Necesario abrir R en 32 Bits
 # ## rStudio 1.1 (1.2 no funciona con 32 bits)
 # ----------------------------------------------------------------- #
-# 
-# # ################## #
-# # Libraries          #
-# # ################## #
-# rm(list=(ls()))
-# 
-# library(RODBC)
-# library(here)
-# library (stringr)
-# 
-#
-# # ################## #
-# # Definir el path    #          
-# # ################## #
-# 
-# path.data <- file.path("Datos")
-# 
-# setwd(path.data)
-# setwd(path.venta)
-# 
-#
-# # ##################################### #
-# # Leer tablas BD. (Solo la primera vez) #
-# # ##################################### #
-# 
-# channel <- odbcConnectAccess("InfoBase2019_Final_Azti.mdb")
+
+# ################## #
+# Libraries          #
+# ################## #
+rm(list=(ls()))
+
+library(RODBC)
+library(here)
+library (stringr)
+
+
+
+# ##################################### #
+# Leer tablas BD. (Solo la primera vez) #
+# ##################################### #
+
+# channel <- odbcConnectAccess("C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\2021\\7_InfoBase\\20210309_infobase\\InfoBase2020_Azti.mdb")
 # sqlTables(channel)
 # 
 # BarcosAzti        <- sqlFetch(channel, "BarcosAzti",stringsAsFactors=FALSE)
@@ -69,31 +57,56 @@
 # 
 # close(channel)
 # 
-# save( BarcosAzti, 
-#       InfoBase, 
-#       InfoBuques, 
-#       InfoCapturaLance0, 
-#       InfoCapturas, 
-#       InfoCapturasCalculadas, 
-#       InfoDescartes, 
-#       InfoDiarios,
-#       InfoOrigenLineas, 
-#       InfoParametrosArteCapturas, 
-#       InfoVentas, 
-#       Puertos,  file = "Datos/DatosOficiales2019_Originales_ultimaversion.RData")
 # 
-# 
-# # ############################################# #
-# # Leer tablas Notasventa. (Solo la primera vez) #
-# ############################################### #
-# 
+
+InfoBase                    <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoBase.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoBuques                  <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoBuques.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoBuquesOk                <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoBuquesOk.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoCaptura0                <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoCaptura0.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoCapturasCalculadas      <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoCapturasCalculadas.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoDescartes               <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoDescartes.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoDiarios                 <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoDiarios.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoOrigenLineas            <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoOrigenLineas.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoParametrosArteCapturas  <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoParametrosArteCapturas.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+InfoVentas                  <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\InfoVentas.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+
+head(InfoBase)
+head(InfoBuques)
+head(InfoBuquesOk)
+head(InfoCaptura0)
+head(InfoCapturasCalculadas)
+head(InfoDescartes)
+head(InfoDiarios)
+head(InfoOrigenLineas)
+head(InfoParametrosArteCapturas)
+head(InfoVentas)
+
+
+save( InfoBase,
+      InfoBuques,
+      InfoBuquesOk,
+      InfoCaptura0,
+      InfoCapturasCalculadas,
+      InfoDescartes,
+      InfoDiarios,
+      InfoOrigenLineas,
+      InfoParametrosArteCapturas,
+      InfoVentas,
+      file = "0_Datos/Infobase/2020/InfoBase2020_Originales_20210309.RData")
+
+
+# ############################################# #
+# Leer tablas Notasventa. (Solo la primera vez) #
+############################################### #
+
 # channel <- odbcConnectAccess("NotasVenta2019_Azti.mdb")
 # sqlTables(channel)
 # 
 # NotasVenta2019        <- sqlFetch(channel, "NotasVenta2019_Azti",stringsAsFactors=FALSE)
 # names(NotasVenta2019) <- make.names(names(NotasVenta2019))
 # names(NotasVenta2019) <-gsub("\\.","",names(NotasVenta2019))
-# save(NotasVenta2019,  file = "NotasVenta2019_Originales.RData")
-# 
-#
+
+NotasVenta  <- read.table("C:\\use\\0_GitHub\\BD_ICES\\0_Datos\\Infobase\\2020\\NotasVenta2020_Azti.txt", sep=";", dec=",", header=TRUE, stringsAsFactors = FALSE)
+save(NotasVenta,  file = "0_Datos/Infobase/2020/NotasVenta2020_Originales_20210224.RData")
+
 # ----------------------------------------------------------------- #

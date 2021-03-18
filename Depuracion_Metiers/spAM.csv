@@ -1,10 +1,17 @@
 Cod ALFA 3;Nombre Cientifico;Nombre Oficial;Grupo
-SWX;Algae;Algas nep (DEA);ALG
-GEL;Gelidium spp;Algas Gelidium;ALG
-GEQ;Gelidium corneum;Alga Imperial (Gelidium);ALG
+SQC;Loligo;Calamares Loligo spp.;CEP
+SQR;Loligo vulgaris;Calamar común;CEP
+SQZ;Loliginidae;Calamares Loliginidae;CEP
+SQU;Loliginidae Ommastrephidae;Calamares jibias potas DEA;CEP
 CRE;Cancer pagurus;Buey;CRU
 LIO;Necora puber;Necora;CRU
 QPX;Palaemon spp;Camarones ;CRU
+PAL;Palaemon spp;Camarones Palaemon;CRU
+QPX;Camarones Palaemon nep;Palaemon spp;CRU
+CPR;Palaemon serratus;Camaron comun;CRU
+CNZ;Crangon spp;Camarones Crangon;CRU
+SCR;Maja squinado;Centolla;CRU
+LBE;Homarus gammarus;Bogavante;CRU
 GUM;Chelidonichthys obscurus;Arete oscuro ;GNS
 GUU;Chelidonichthys lucerna;Bejel;GNS
 HMM;Trachurus mediterraneus;Chicharro Blanco;GNS
@@ -13,7 +20,6 @@ JAX;Trachurus spp;Chicharros;GNS
 HOM;Trachurus picturatus;Chicharro Azul;GNS
 BIB;Trisopterus luscus;Faneca comun;GNS
 GAD;Trisopterus spp;Fanecas spp;GNS
-HKE;Merluccius merluccius;Merluza europea;GNS
 MUR;Mullus surmuletus;Salmonete de roca;GNS
 MUX;Mullus spp;Salmonetes (Mullus spp);GNS
 MUT;Mullus barbatus;Salmonete de fango;GNS
@@ -22,7 +28,6 @@ GUG;Eutrigla gurnardus;Perlon;GNS
 CTZ;Trigloporus lastoviza;Rubio;GNS
 GUN;Trigla lyra;Garneo;GNS
 GUR;Chelidonichthys cuculus;Cuco, Peona;GNS
-MAC;Scomber scombrus;Verdel, Caballa;LHM
 RSE;Scorpaena scrofa;Cabracho;GTR
 SOS;Pegusa lascaris;Lenguado de arena;GTR
 SOL;Solea solea;Lenguado ;GTR
@@ -42,13 +47,30 @@ BLL;Scophthalmus rhombus;Remol, Corujo;GTR
 TUR;Scophthalmus maximus;Rodaballo;GTR
 CTC;Sepia officinalis;Sepia;GTR
 CTL;Sepiidae;Sepias y chocos;GTR
+HKE;Merluccius merluccius;Merluza europea;HKE
+MAC;Scomber scombrus;Verdel, Caballa;LHM
+COE;Conger conger;Congrio;LLS
+BSS;Dicentrarchus labrax;Lubina;LLS
+WHB;Micromesistius poutassou;Lirio - Bacaladilla;LLS
+ALF;Beryx sp.;Alfonsinos - Reyes (Beryx spp.);LLS
+SBA;Pagellus acarne;Aligote;LLS
+SRG;Diplodus spp;Sargos - raspallones nep;LLS
+SWA;Diplodus sargus;Sargo;LLS
+RPG;Pagrus pagrus;Pargo;LLS
+CTB;Diplodus vulgaris;Sargo mojarra;LLS
+SBZ;Diplodus cervinus;Sargo breado;LLS
+SHR;Diplodus puntazzo;Sargo picudo;LLS
+SBS;Oblada melanura;Oblada - colanegra - Buzten Baltza;LLS
+SBG;Sparus aurata;Dorada;LLS
+BRB;Spondyliosoma cantharus;Chopa;LLS
+SWX;Algae;Algas nep (DEA);MIS
+GEL;Gelidium spp;Algas Gelidium;MIS
+GEQ;Gelidium corneum;Alga Imperial (Gelidium);MIS
+NOW;Anemonia sulcata;Anemona de mar comun;MIS
+PCB;Mitella pollicipes;Percebe;MIS
 EOI;Eledone cirrhosa;Pulpo blanco;MOL
 OCC;Octopus vulgaris;Pulpo comun;MOL
 OCT;Octopodidae;Pulpos;MOL
 ALB;Thunnus alalunga;Bonito del Norte;TUN
 BFT;Thunnus thynnus;Cimarron, Atun rojo;TUN
-NOW;Anemonia sulcata;Anemona de mar comun;MIS
-SQC;Loligo;Calamares Loligo spp.;CEP
-SQR;Loligo vulgaris;Calamar común;CEP
-SQZ;Loliginidae;Calamares Loliginidae;CEP
-SQU;Loliginidae Ommastrephidae;Calamares jibias potas DEA;CEP
+BET;Thunnus obesus;Patudo;TUN
