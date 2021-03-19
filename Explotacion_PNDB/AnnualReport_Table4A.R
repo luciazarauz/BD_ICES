@@ -132,8 +132,8 @@ DB$Trimestre_Desembarco[is.na(DB$Trimestre_Desembarco)] <- DB$Trimestre[is.na(DB
 DB$date <- as.Date(format(ISOdate(DB$Año,DB$Mes_Desembarco,DB$Dia_Desembarco),"%d/%m/%Y"),"%d/%m/%Y")
 
 DB$voyageId <- paste(DB$UnidadPesquera, DB$date, sep="_")
-DB$market_day <- paste(DB$Puerto_Desembarco , DB$date, sep="_")
-DB$market_day_event<- paste(DB$Puerto_Desembarco , DB$voyageId, sep="_")
+DB$market_day <- paste(DB$Puerto_Venta , DB$date, sep="_")
+DB$market_day_event<- paste(DB$Puerto_Venta , DB$voyageId, sep="_")
 
 DB$date<- as.Date(DB$date,"%d/%m/%Y")
 DB$weekday<- weekdays(DB$date)
@@ -258,7 +258,7 @@ AR_SamplingDesignTable <- full_join(LandingStrata, SamplingStrata, by="strata") 
 
 
 #guardar t<blas
-write.table(AR_SamplingDesignTable, "AR_4A_SamplingDesignTable.csv", sep=";", dec=".", row.names=F)
+write.table(AR_SamplingDesignTable, "Explotacion_PNDB\\AR_4A_SamplingDesignTable.csv", sep=";", dec=".", row.names=F)
 
 
 
