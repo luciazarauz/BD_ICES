@@ -315,7 +315,10 @@ sapply(Dori[grepl("Puerto", names(Dori))], function(x) sum(is.na(x))) # Prioriza
 
   # relleno NAs con info de la marea
   #hay areas que tienen lineas que vienen de NV y de CA. Solo las de CA tienen info sobre la marea. Hay que rellenar todas las lineas con esa infromación
-Dori <- Dori %>% group_by(IdMarea) %>% mutate(C_CodigoPuertoDesembarque_AL5 = paste(unique(CodigoPuertoDesembarque_AL5), collapse = "//")) %>% data.frame()
+Dori$CodigoPuertoDesembarque_AL5temp <- Dori$CodigoPuertoRegreso_AL5
+Dori$CodigoPuertoDesembarque_AL5temp[is.na(Dori$CodigoPuertoDesembarque_AL5temp)] <- Dori$CodigoPuertoDesembarque_AL5[is.na(Dori$CodigoPuertoDesembarque_AL5temp)]
+
+Dori <- Dori %>% group_by(IdMarea) %>% mutate(C_CodigoPuertoDesembarque_AL5 = paste(unique(CodigoPuertoDesembarque_AL5temp), collapse = "//")) %>% data.frame()
 
 length(unique(Dori$IdMarea[grepl("//NA", Dori$C_CodigoPuertoDesembarque_AL5)]))
 length(unique(Dori$IdMarea[grepl("NA//", Dori$C_CodigoPuertoDesembarque_AL5)]))
@@ -323,7 +326,7 @@ length(unique(Dori$IdMarea[grepl("NA//", Dori$C_CodigoPuertoDesembarque_AL5)]))
 
 Dori$C_CodigoPuertoDesembarque_AL5 <- gsub("NA//", "" ,Dori$C_CodigoPuertoDesembarque_AL5)
 Dori$C_CodigoPuertoDesembarque_AL5 <- gsub("//NA", "" ,Dori$C_CodigoPuertoDesembarque_AL5)
-Dori$C_CodigoPuertoDesembarque_AL5[grepl("//", Dori$C_CodigoPuertoDesembarque_AL5)] <- Dori$CodigoPuertoDesembarque_AL5[grepl("//", Dori$C_CodigoPuertoDesembarque_AL5)]
+Dori$C_CodigoPuertoDesembarque_AL5[grepl("//", Dori$C_CodigoPuertoDesembarque_AL5)] <- Dori$CodigoPuertoDesembarque_AL5temp[grepl("//", Dori$C_CodigoPuertoDesembarque_AL5)]
 Dori$C_CodigoPuertoDesembarque_AL5[grepl("NA", Dori$C_CodigoPuertoDesembarque_AL5)] <- NA
 
   # Selecciono los puertos con mas desembarcos
