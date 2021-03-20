@@ -66,7 +66,7 @@ head(NV); dim(NV)
   NV$Puerto_Base  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), NV$Puerto_Base)
   
 # Notas de Venta
-DO <-read.table("0_Datos/DO_2019.csv", sep=";",dec=",",header=T, stringsAsFactors = FALSE)
+DO <-read.table("0_Datos/DO_2020.csv", sep=";",dec=",",header=T, stringsAsFactors = FALSE)
 
 head(DO); dim(DO)
 names(DO)       <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), names(DO))
@@ -89,40 +89,36 @@ DO <- DO %>% rename( Cod_UE                = Cod__UE_Buque,
                      )
 
 
-  
 #Conversiones
-  #Censo buque
+#Censo buque
 buques      <- read.csv("0_Maestros/Buques_2020.txt",header=T,sep="\t",dec=",", stringsAsFactors = FALSE); head(buques)
-  names(buques)       <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), names(buques))
-  buques$Buque        <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Buque)
-  buques$Puerto.base  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Puerto.base)
-  buques$Caladero.principal  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Caladero.principal)
-  buques$CensoPorModalidad  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$CensoPorModalidad)
-  buques$Buque <- toupper(buques$Buque)
-  buques$Caladero.principal <- toupper(buques$Caladero.principal)
-  buques$CensoPorModalidad <- toupper(buques$CensoPorModalidad)
-  
-  sort(unique(buques$Caladero.principal))
+names(buques)       <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), names(buques))
+buques$Buque        <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Buque)
+buques$Puerto.base  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Puerto.base)
+buques$Caladero.principal  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$Caladero.principal)
+buques$CensoPorModalidad  <- mgsub(c("ñ","á","é","í","ó","ú"), c("n","a","e","i","o","u"), buques$CensoPorModalidad)
+buques$Buque <- toupper(buques$Buque)
+buques$Caladero.principal <- toupper(buques$Caladero.principal)
+buques$CensoPorModalidad <- toupper(buques$CensoPorModalidad)
 
-  #Puerto Base
-  conv_base   <- read.csv("Depuracion_Metiers/Conv_puerto_base.txt",header=T,sep=",",dec=".", stringsAsFactors = FALSE); head(conv_base)
-  #Listas de especies objetivo para la asignación de metier
-  spAM         <- read.csv("Depuracion_Metiers/spAM.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(spAM)
-  spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",stringsAsFactors = FALSE); head(spOTB)
-  #Arte principal
-  #buquesLLSGNS <- read.csv("Depuracion_Metiers/2019_buques_LLS_GNS.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(buquesLLSGNS)
+sort(unique(buques$Caladero.principal))
+
+#Puerto Base
+conv_base   <- read.csv("Depuracion_Metiers/Conv_puerto_base.txt",header=T,sep=",",dec=".", stringsAsFactors = FALSE); head(conv_base)
+#Listas de especies objetivo para la asignación de metier
+spAM         <- read.csv("Depuracion_Metiers/spAM.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(spAM)
+spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",stringsAsFactors = FALSE); head(spOTB)
+#Arte principal
+#buquesLLSGNS <- read.csv("Depuracion_Metiers/2019_buques_LLS_GNS.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(buquesLLSGNS)
 
 
-  ##################################### #
-  #  Definir Fuente datos           #####
-  ##################################### #
   #Ventas
   DB <- DB
   Fuente <- "Ventas"
   
   # #Datos Oficiales
   # DB <- DO
-  # Fuente <- "DO"  
+  # Fuente <- "DO"
   
   ##################################### #
   #   NV: Zona y Arte               #####
@@ -202,6 +198,21 @@ buques      <- read.csv("0_Maestros/Buques_2020.txt",header=T,sep="\t",dec=",", 
   
   # MetierSelect
   ########## #
+  table(DO$MetierDO)
+  
+  DO$MetierDO[DO$MetierDO %in% c("Arrastre de fondo (sin especificar)")] <- "TB"
+  DO$MetierDO[DO$MetierDO %in% c("Arrastre de fondo a la pareja" )] <- "PTB"
+  DO$MetierDO[DO$MetierDO %in% c("Arrastre de fondo con puertas")] <- "OTB"
+  DO$MetierDO[DO$MetierDO %in% c("Cacea al currican")] <- "LTL"
+  DO$MetierDO[DO$MetierDO %in% c("Cerco con jareta", "Red de cerco con jareta desde dos embarcaciones")] <- "PS"  
+  DO$MetierDO[DO$MetierDO %in% c("Líneas de mano y líneas de caña (manuales)")] <- "LHM"
+  DO$MetierDO[DO$MetierDO %in% c("Líneas de mano y líneas de caña (mecanizadas)")] <- "LHP"
+  DO$MetierDO[DO$MetierDO %in% c("Nasas")] <- "FPO"  
+  DO$MetierDO[DO$MetierDO %in% c("Palangre de superficie","Palangres (sin especificar)", "Palangres calados")] <- "LLS"  
+  DO$MetierDO[DO$MetierDO %in% c("Redes de enmalle (sin especificar)", "Redes de enmalle de cerco", "Redes de enmalle de fondo (caladas)")] <- "GNS"  
+  DO$MetierDO[DO$MetierDO %in% c("Redes de trasmallo (Miños, etc.)")] <- "GTR"  
+  
+  
   MetierSelectDO <- DO %>% group_by(IdVenta, MetierDO) %>% summarise(Kg_Desemb_Peso_Vivo = sum(Kg_Desemb_Peso_Vivo, na.rm=T)) %>%
     dcast(IdVenta ~ MetierDO, value.var="Kg_Desemb_Peso_Vivo")   
   names(MetierSelectDO) <- make.names(names(MetierSelectDO))
@@ -242,12 +253,13 @@ DB$Pais_Base <- conv_base$origen_cod[match(DB$Puerto_Base, conv_base$puerto)]
   unique(DB$Pais_Base)
 
 
-#Trip
+#Fecha desembarco
 DB$Dia_Desembarco[is.na(DB$Dia_Desembarco)] <- DB$Dia[is.na(DB$Dia_Desembarco)]
 DB$Mes_Desembarco[is.na(DB$Mes_Desembarco)] <- DB$Mes[is.na(DB$Mes_Desembarco)]
 DB$Trimestre_Desembarco[is.na(DB$Trimestre_Desembarco)] <- DB$Trimestre[is.na(DB$Trimestre_Desembarco)]
 DB$Fecha_Desembarco <- as.Date(format(ISOdate(DB$Ano,DB$Mes_Desembarco,DB$Dia_Desembarco),"%d/%m/%Y"),"%d/%m/%Y")
-#DB$Trip_id_V_desembarco <- paste(DB$Nombre_Buque, as.character(DB$Fecha_Desembarco), DB$Puerto_Venta, sep="_")
+
+#Trip
 DB$Trip <- DB$IdVenta
 
 #Metier codigo
@@ -300,13 +312,12 @@ DB$MetierNV <- MetierSelect$C_Metier[match(DB$IdVenta, MetierSelect$IdVenta)]
 DB$MetierDO <- MetierSelectDO$C_Metier[match(DB$IdVenta, MetierSelectDO$IdVenta)]
 #DB$MetierDO <- NA # Igualar a NA si todavia no tenemos los DO
 
-# 
 
 # Metier Principal ysecundario
 DB$MetierPrincipal <- buques$Metier.principal[match(DB$Cod_UE, buques$Codigo.UE)]
 DB$MetierSecundario <- buques$Metier.secundario[match(DB$Cod_UE, buques$Codigo.UE)]
 
-
+subset(DB, is.na(DB$MetierPrincipal))
 
 
 
@@ -362,7 +373,7 @@ DB_extr<- subset(DB, !DB$Pais_Base %in% c("ARM", "BER", "BIO", "DON", "ESP", "GE
                                     "MUT", "OND", "ORI", "PAS", "PLE", "SAN", "ZIE") )                                    
                                     
 head(DB_extr)
-table(DB_extr$Metier)
+table(DB_extr$MetierPrincipal)
 sort(unique(DB_extr$Puerto_Base))
 
 #   ...........................................................  #### 
@@ -370,18 +381,18 @@ sort(unique(DB_extr$Puerto_Base))
 #   * ALTURA (PTB, OTB) *                                       #####
 ################################################################### #
 
-DB_alt<- subset(DB, substr(DB$Metier, 1, 3) %in% c("OTB", "PTB") )
+DB_alt<- subset(DB, substr(DB$MetierPrincipal, 1, 3) %in% c("OTB", "PTB") )
 DB_alt<- subset(DB_alt, DB_alt$Pais_Base %in% c("ARM", "BER", "BIO", "DON", "ESP", "GET", "HON", "LEK", "MUN",
                                           "MUT", "OND", "ORI", "PAS", "PLE", "SAN", "ZIE") )                                    
 #@esta separacion de buques españoles se podria mejorar accediendo directamente  a maestros en la BD
 head(DB_alt)
-table(DB_alt$Metier)
+table(DB_alt$MetierPrincipal)
 table(DB_alt$Censo)
-table(DB_alt$Censo,DB_alt$Metier)
+table(DB_alt$Censo,DB_alt$MetierPrincipal)
 
 #separo OTB de PTB
-otb   <- subset(DB_alt, Metier_cod %in% c("OTB") )
-ptb   <- subset(DB_alt, Metier_cod %in% c("PTB"))
+otb   <- subset(DB_alt, substr(DB_alt$MetierPrincipal, 1, 3) %in% c("OTB") )
+ptb   <- subset(DB_alt, substr(DB_alt$MetierPrincipal, 1, 3) %in% c("PTB"))
 
 #    .Exploración de datos                      ####
 ################################################## #
@@ -401,6 +412,8 @@ temp<- subset(temp, Nombre_Buque %in% c("GURE GASKUNA", "GURE KANTABRIKO"))
 tapply(temp$Trip, list(temp$Fecha_Desembarco, temp$Metier_cod), Fun_CountUnique)
 tapply(temp$Trip, list(temp$Fecha_Desembarco, temp$Metier_cod, temp$Nombre_Buque), Fun_CountUnique)
 
+temp<- subset(DB_alt, Puerto_Base=="Ondarroa" )
+tapply(temp$Trip, list(temp$Nombre_Buque, temp$MetierPrincipal), Fun_CountUnique)
 
 #   ..........................................  ####
 #    PTB                                       ####
@@ -887,26 +900,41 @@ am_met$Metier_Rev[is.na(am_met$Metier_Rev) & (am_met$P_MOL+ am_met$P_CRU)>0.75  
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_CEP>0.5]  <- "LHM_CEP_0_0_0"
 
 #redes y palangres
-am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.75]  <- "LLS_DEF_0_0_0"
 
   # 
   # # basado en el metier de NV
   # # am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierNV=="LLS"  ] <- "LLS_DEF_0_0_0"
 
-  # # basado en la composición específica y en el metier de Maestros (1)
+  # # basado en la composición específica y en el metier de Maestros
   # temp <- am_met[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.5 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0") , ]
   # subset(temp, Metier %in% c("GNS_DEF_80-99_0_0", "GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0"))
   # temp <- am_met[is.na(am_met$Metier_Rev) & !( am_met$P2_LLS>0.5 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0") ), ]
   # subset(temp, Metier=="LLS_DEF_0_0_0")
   # #am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.5 & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0")  ] <- "LLS_DEF_0_0_0"
   
-  # basado en la composición específica y en el metier de Maestros (2)
-  temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$P_LLS>(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0"),])  
-  subset(temp, Metier %in% c("GNS_DEF_80-99_0_0", "GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0"))
-  temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$P_LLS<(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0"),])  
-  subset(temp, Metier=="LLS_DEF_0_0_0")
-  am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_LLS>(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0")  ] <- "LLS_DEF_0_0_0"
+  # basado en el Metier de Datos Oficiales (1)
+  #explorar
+    temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$MetierDO %in% c("LLS"),])  
+    subset(temp, Metier %in% c("GNS_DEF_80-99_0_0", "GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0"))
+    temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$MetierDO %in% c("GNS"),])  
+    subset(temp, Metier %in% c("LLS_DEF_0_0_0"))
+  #aplicar
+    am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierDO %in% c("LLS")]  <- "LLS_DEF_0_0_0"
+    am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$MetierDO %in% c("GNS")]  <- "GNS_DEF_60-79_0_0"
   
+
+  # basado en la composición específica y en el metier de Maestros (2)
+  #explorar
+    temp <- am_met[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.75,]  
+      subset(temp, Metier %in% c("GNS_DEF_80-99_0_0", "GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0"))
+    temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$P_LLS>(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0"),])  
+      subset(temp, Metier %in% c("GNS_DEF_80-99_0_0", "GNS_DEF_60-79_0_0", "GTR_DEF_60-79_0_0"))
+    temp <- (am_met[is.na(am_met$Metier_Rev) & am_met$P_LLS<(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0"),])  
+      subset(temp, Metier=="LLS_DEF_0_0_0")
+  #aplicar
+    am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P2_LLS>0.75]  <- "LLS_DEF_0_0_0"
+    am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$P_LLS>(am_met$P_GNS + am_met$P_GTR) & (am_met$MetierPrincipal=="LLS_DEF_0_0_0" | am_met$MetierSecundario=="LLS_DEF_0_0_0")  ] <- "LLS_DEF_0_0_0"
+    
   
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA!="Euskadi"  ] <- "GNS_DEF_80-99_0_0"
 am_met$Metier_Rev[is.na(am_met$Metier_Rev) & am_met$Puerto_Base_CA=="Euskadi"  ] <- "GNS_DEF_60-79_0_0"
@@ -974,11 +1002,6 @@ sort(unique(ps_met$Metier))
 sort(unique(ps_met$ZonaNV))
 sort(unique(ps_met$MetierNV))
 
-# barcos de cerco que van a lineas de mano y currican
-# Buque_cercoLHM <- c("AITA RAMON", "ANDUIZA ANAIAK", "BETI ITXAS ARGI", "MARIA DIGNA DOS")
-# Buque_cercoLTL <- c("AITA RAMON", "AMATXO (3BI21-96)", "ANDUIZA ANAIAK", "BETI EUSKAL HERRIA", "BETI ITXAS ARGI", "DEMAR",
-#                     "LEKANDA",   "OSKARBI", "MARIA DIGNA DOS", "NUEVO ROBER")
-
 
 #    .Asignar metier                            ####
 ################################################## #
@@ -996,9 +1019,14 @@ ps_met$Metier_Rev<-NA
 #ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LTL_LPF_0_0_0"
 #ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierNV %in% c("LHM", "LTL")] <- "LHM_SPF_0_0_0"
 
-# utilizando maestros
+# utilizando datos oficiales y maestros
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierDO %in% c("LTL")] <- "LTL_LPF_0_0_0"
+
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierPrincipal %in% c("LTL_LPF_0_0_0")] <- "LTL_LPF_0_0_0"
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_TUN>0.90 &  ps_met$MetierSecundario %in% c("LTL_LPF_0_0_0")] <- "LTL_LPF_0_0_0"
+
+ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierDO %in% c("LHM")] <- "LHM_SPF_0_0_0"
+
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierPrincipal %in% c("LHM_SPF_0_0_0")] <- "LHM_SPF_0_0_0"
 ps_met$Metier_Rev[ is.na(ps_met$Metier_Rev) & ps_met$P_LHM>0.90 &  ps_met$MetierSecundario %in% c("LHM_SPF_0_0_0")] <- "LHM_SPF_0_0_0"
 
@@ -1111,7 +1139,7 @@ write.table(DB_all, paste("Depuracion_Metiers\\Output\\", Ano, Fuente, "_all.csv
 ########################################################## #
 
 # Check metier principal
-check <- subset(met_ba, Metier_Check!="Check")
+check <- subset(met_ba, Metier_Check!="Check"|is.na(Metier_Check))
 check$Metier_Rev <- substr(check$Metier_Rev,1,3)
 check$Metier_Rev [check$Metier_Rev == "GTR"] <- "GNS"
 
@@ -1171,12 +1199,15 @@ write.table(tCheck, paste("Depuracion_Metiers\\Output\\", Ano, Fuente,"_BuquesCh
 ########################################################## #
 
 # Check metier principal
-check <- subset(met_ba, Metier_Check!="Check")
+check <- subset(met_ba, Metier_Check!="Check"|is.na(Metier_Check))
 table(check$MetierDO)
 check$MetierDO[check$MetierDO %in% c("GN","GNS", "GTN", "GTR")] <- "GNS"
 check$MetierDO[check$MetierDO %in% c("LL", "LLD", "LLS", "LX")] <- "LLS"
 check$MetierDO[check$MetierDO %in% c("PS", "PS1", "PS2")] <- "PS_"
 
+# check$MetierDO[check$MetierDO %in% c("Redes.de.enmalle..sin.especificar.","Redes.de.enmalle.de.fondo..caladas.", "Redes.de.trasmallo..Miños..etc..")] <- "GNS"
+# check$MetierDO[check$MetierDO %in% c( "Palangre.de.superficie", "Palangres..sin.especificar.", "Palangres.calados")] <- "LLS"
+# check$MetierDO[check$MetierDO %in% c("Cerco.con.jareta", "PS1", "PS2")] <- "PS_"
 
 check_fin <- check %>%
   group_by(Nombre_Buque) %>%
