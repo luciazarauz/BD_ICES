@@ -42,6 +42,7 @@ Colindres,Cantabria,ESP
 Comillas,Cantabria,ESP
 Concarneau,Francia,FRA
 Cork,Irlanda,IRL
+Corme,Galicia,ESP
 Cudillero,Asturias,ESP
 Desconocido,Desconocido,DES
 Desconocido (c),Desconocido,DES
@@ -95,7 +96,7 @@ Mundaka,Euskadi,MUN
 Muros,Galicia,ESP
 Musel-Gijon,Asturias,ESP
 Mutriku,Euskadi,MUT
-Muxia, Galicia, ESP
+Muxia, Galicia,ESP
 Newlyn,Inglaterra,ING
 Noia,Galicia,ESP
 O Grove,Galicia,ESP

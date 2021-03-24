@@ -112,13 +112,13 @@ spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",strings
 #buquesLLSGNS <- read.csv("Depuracion_Metiers/2019_buques_LLS_GNS.csv",header=T,sep=";",dec=",", stringsAsFactors = FALSE); head(buquesLLSGNS)
 
 
-  #Ventas
-  DB <- DB
-  Fuente <- "Ventas"
+  # #Ventas
+  # DB <- DB
+  # Fuente <- "Ventas"
   
-  # #Datos Oficiales
-  # DB <- DO
-  # Fuente <- "DO"
+  #Datos Oficiales
+  DB <- DO
+  Fuente <- "DO"
   
   ##################################### #
   #   NV: Zona y Arte               #####
@@ -170,10 +170,10 @@ spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",strings
   ZonaSelect$C_Zona[ZonaSelect$C_Zona=="27.8" & !is.na(ZonaSelect$X27.8.D)] <- "27.8.D"
   head(ZonaSelect[ZonaSelect$C_Zona=="27.8",])
   
-  idx <- ZonaSelect$IdVenta[ZonaSelect$C_Zona %in% c("27.4", "27.5")]
+  idx <- ZonaSelect$IdVenta[ZonaSelect$C_Zona %in% c("27.4", "27.4.A","27.4.C","27.5")]
   head(subset(NV, IdVenta %in% idx)) %>% group_by(Nombre_Buque) %>% summarise (nTrips = Fun_CountUnique(IdVenta))
   # corrijo zonas imposibles y la zona 8 porque no permite distinguir entre 8c y 8abd
-  ZonaSelect$C_Zona[ZonaSelect$C_Zona %in% c("27.4", "27.5", "27.8")] <- NA
+  ZonaSelect$C_Zona[ZonaSelect$C_Zona %in% c("27.4", "27.4.A","27.4.C", "27.5", "27.8")] <- NA
 
   
   # MetierSelect
@@ -222,6 +222,7 @@ spOTB        <- read.csv("Depuracion_Metiers/spOTB.csv",header=T,sep=";",strings
   MetierSelectDO$C_Metier <- colnames(MetierSelectDO[,-dropnames, with =F])[apply(MetierSelectDO[,-dropnames, with =F],1,which.max)]
   MetierSelectDO<-as.data.frame(MetierSelectDO)
 
+  head(MetierSelectDO)
     
 ################################################################### #
 #   Preparar Datos: Nuevas variables                            #####
@@ -245,6 +246,7 @@ DB$Vessel_length <- buques$Eslora [match(DB$Cod_UE, buques$Codigo.UE)]
 #Puertos  
 DB$Puerto_Base_CA <- conv_base$origen[match(DB$Puerto_Base, conv_base$puerto)]
   unique(DB$Nombre_Buque[is.na(DB$Puerto_Base_CA)])
+  unique(DB$Puerto_Base[is.na(DB$Puerto_Base_CA)])
   unique(DB$Puerto_Base_CA)
   
 DB$Pais_Base <- conv_base$origen_cod[match(DB$Puerto_Base, conv_base$puerto)]
@@ -287,6 +289,8 @@ table(DB$Zona)
 
 #Area Rev y Area NV
 DB$Zona_Rev   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
+DB$Zona_Rev   <- tolower(ZonaSelect$C_Zona[match(DB$IdVenta, ZonaSelect$IdVenta)])
+
 DB$Zona_Rev[DB$Zona_Rev =="27.8.c"] <- "27.8.c.e"
 DB$Zona_Rev[DB$Censo %in% c("ARRASTRE DE FONDO EN CANTABRICO NW") & !is.na(DB$Zona_Rev) & DB$Zona_Rev!= "27.8.c.e"] <- "27.8.c.e" 
 DB$Zona_Rev[DB$Censo %in% c("ARTES MENORES EN CANTABRICO NW") & !is.na(DB$Zona_Rev) & DB$Zona_Rev %in% c("27.6.a", "27.7")] <- NA
@@ -313,7 +317,7 @@ DB$MetierDO <- MetierSelectDO$C_Metier[match(DB$IdVenta, MetierSelectDO$IdVenta)
 #DB$MetierDO <- NA # Igualar a NA si todavia no tenemos los DO
 
 
-# Metier Principal ysecundario
+# Metier Principal y secundario
 DB$MetierPrincipal <- buques$Metier.principal[match(DB$Cod_UE, buques$Codigo.UE)]
 DB$MetierSecundario <- buques$Metier.secundario[match(DB$Cod_UE, buques$Codigo.UE)]
 
@@ -375,7 +379,7 @@ DB_extr<- subset(DB, !DB$Pais_Base %in% c("ARM", "BER", "BIO", "DON", "ESP", "GE
 head(DB_extr)
 table(DB_extr$MetierPrincipal)
 sort(unique(DB_extr$Puerto_Base))
-
+sort(unique(DB_extr$Pais_Base))
 #   ...........................................................  #### 
 ################################################################### #
 #   * ALTURA (PTB, OTB) *                                       #####
@@ -520,7 +524,9 @@ otb_met$Metier_Rev <- NA
     
     sort(unique(otb_met$Puerto_Base [otb_met$Metier %in% c("OTB_DEF_>=55_0_0","OTB_SPF_>=55_0_0")]))
     sort(unique(otb_met$Nombre_Buque[otb_met$Metier %in% c("OTB_DEF_>=55_0_0","OTB_SPF_>=55_0_0")]))
-  
+   
+    subset(otb_met, otb_met$Metier %in% c("OTB_DEF_>=55_0_0","OTB_SPF_>=55_0_0") & Puerto_Base=="Pasaia")
+    
 #    ..VII       ####
   otb_met$Metier_Rev[otb_met$Censo %in% c("ARRASTRE DE FONDO EN ZONAS CIEM VB, VI,VII Y VIIIABDE") & otb_met$ZonaNV %in% c("27.7" )] <- "OTB_DEF_70-99_0_0"
     sort(unique(otb_met$Puerto_Base[otb_met$Metier_Rev=="OTB_DEF_70-99_0_0"]))
@@ -669,7 +675,7 @@ sort(unique(af_met$Puerto_Base_CA))
 sort(unique(af_met$Metier))
 sort(unique(af_met$ZonaNV))
 sort(unique(af_met$MetierNV))
-sort(unique(af_met$MetierDO))
+table(unique(af_met$MetierDO))
 
 #    .Asignar metier                            ####
 ################################################## #
@@ -678,6 +684,7 @@ af_met$Metier_Rev<-NA
 
 af_met$Metier_Rev  <- "LLS_DEF_0_0_0"
 #af_met$Metier_Rev[ af_met$MetierNV == "GNS"]  <- "GNS_DEF_>=100_0_0"
+af_met$Metier_Rev[ af_met$MetierDO == "GNS"]  <- "GNS_DEF_>=100_0_0"
 af_met$Metier_Rev[ af_met$MetierPrincipal == "GNS_DEF_>=100_0_0"]  <- "GNS_DEF_>=100_0_0"
 
 #    .Variable Check                            ####
@@ -1199,64 +1206,30 @@ write.table(tCheck, paste("Depuracion_Metiers\\Output\\", Ano, Fuente,"_BuquesCh
 ########################################################## #
 
 # Check metier principal
-check <- subset(met_ba, Metier_Check!="Check"|is.na(Metier_Check))
-table(check$MetierDO)
-check$MetierDO[check$MetierDO %in% c("GN","GNS", "GTN", "GTR")] <- "GNS"
-check$MetierDO[check$MetierDO %in% c("LL", "LLD", "LLS", "LX")] <- "LLS"
-check$MetierDO[check$MetierDO %in% c("PS", "PS1", "PS2")] <- "PS_"
+checkDO <- subset(met_ba, Metier_Check!="Check"|is.na(Metier_Check))
+table(checkDO$MetierDO)
+checkDO$MetierDO[checkDO$MetierDO %in% c("GN","GNS", "GTN", "GTR")] <- "GNS"
+checkDO$MetierDO[checkDO$MetierDO %in% c("LL", "LLD", "LLS", "LX")] <- "LLS"
+checkDO$MetierDO[checkDO$MetierDO %in% c("PS", "PS1", "PS2")] <- "PS_"
 
-# check$MetierDO[check$MetierDO %in% c("Redes.de.enmalle..sin.especificar.","Redes.de.enmalle.de.fondo..caladas.", "Redes.de.trasmallo..Miños..etc..")] <- "GNS"
-# check$MetierDO[check$MetierDO %in% c( "Palangre.de.superficie", "Palangres..sin.especificar.", "Palangres.calados")] <- "LLS"
-# check$MetierDO[check$MetierDO %in% c("Cerco.con.jareta", "PS1", "PS2")] <- "PS_"
-
-check_fin <- check %>%
+check_finDO <- checkDO %>%
   group_by(Nombre_Buque) %>%
   mutate (Nmetier = Fun_CountUnique(MetierDO)) %>% 
   ungroup() %>%
   group_by(Nombre_Buque, Censo, MetierPrincipal, MetierSecundario, MetierDO, Nmetier) %>% 
   summarise(Ntrip = Fun_CountUnique(Trip)) %>%
   pivot_wider(names_from = MetierDO, values_from = Ntrip)
-check_fin[is.na(check_fin)] <- 0
-
-
-# explorar los datos
-subset(check_fin, Censo %in% "RASCO EN CANTABRICO NW")
-(subset(check_fin, Censo =="RASCO EN CANTABRICO NW" & GNS>0 & LLS>0))
-
-subset(check_fin, Censo =="VOLANTA EN CANTABRICO NW")
-(subset(check_fin, Censo =="VOLANTA EN CANTABRICO NW" & GNS>0 & LLS>0))
-
-subset(check_fin, Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", 
-                               "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE",
-                               "PALANGRE DE SUPERFICIE CALADERO NACIONAL"))
-(subset(check_fin, Censo %in% c("PALANGRE DE FONDO EN CANTABRICO NW", 
-                                "PALANGRE DE FONDO MENORES 100 TRB EN VIIIABDE",
-                                "PALANGRE DE SUPERFICIE CALADERO NACIONAL")
-        & GNS>0 & LLS>0))
-
-head(subset(check_fin, Censo =="ARTES MENORES EN CANTABRICO NW"))
-subset(check_fin, Censo =="ARTES MENORES EN CANTABRICO NW" & GNS>0 & LLS>0)
-
-head(subset(check_fin, Censo =="CERCO EN CANTABRICO NW"))
-(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & Nmetier==3))
-(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LHM>0))
-(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & LHP>0 & LTL>0))
-(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LTL>0))
-(subset(check_fin, Censo =="CERCO EN CANTABRICO NW" & LHM>0 & LHP>0))
-
+check_finDO[is.na(check_finDO)] <- 0
 
 
 #marcar para chequear
-tCheck <- subset(check_fin, (Censo =="ARTES MENORES EN CANTABRICO NW" & GNS>0 & LLS>0) |
-                   (Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LHM>0) |
-                   (Censo =="CERCO EN CANTABRICO NW" & LHP>0 & LTL>0) |
-                   (Censo =="CERCO EN CANTABRICO NW" & PS_>0 & LTL>0) |
-                   (Censo =="CERCO EN CANTABRICO NW" & LHM>0 & LHP>0))
+tCheckDO <- check_finDO %>% filter(Nombre_Buque %in% tCheck$Nombre_Buque)
 
 
-tCheck <- tCheck %>% arrange(Censo, Nombre_Buque) %>% data.frame()                      
+tCheckDO <- tCheckDO %>% arrange(Censo, Nombre_Buque) %>% data.frame()                      
 
 #grabar tabla
-write.table(tCheck, paste("Depuracion_Metiers\\Output\\", Ano, Fuente,"_BuquesCheck_MetierDO.csv", sep=""), row.names = FALSE, sep=";", dec=",")
+write.table(tCheckDO, paste("Depuracion_Metiers\\Output\\", Ano, Fuente,"_BuquesCheckDO.csv", sep=""), row.names = FALSE, sep=";", dec=",")
+
 
 
