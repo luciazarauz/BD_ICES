@@ -520,7 +520,7 @@ otb_met$Metier_Rev <- NA
 
 #    ..VIIIc     ####
   otb_met$Metier_Rev[otb_met$Censo %in% c("ARRASTRE DE FONDO EN CANTABRICO NW")] <- "OTB_DEF_>=55_0_0"
-  otb_met$Metier_Rev[otb_met$Metier_Rev %in% c("OTB_DEF_>=55_0_0") & otb_met$P_pel>=0.9 ] <- "OTB_SPF_>=55_0_0"
+  otb_met$Metier_Rev[otb_met$Metier_Rev %in% c("OTB_DEF_>=55_0_0") & otb_met$P_pel>=0.9 ] <- "OTB_SPF_>=55_0_0"  # cambiar a OTB_MPD xq OTB_SPF no esta admitifo en IC
     
     sort(unique(otb_met$Puerto_Base [otb_met$Metier %in% c("OTB_DEF_>=55_0_0","OTB_SPF_>=55_0_0")]))
     sort(unique(otb_met$Nombre_Buque[otb_met$Metier %in% c("OTB_DEF_>=55_0_0","OTB_SPF_>=55_0_0")]))
