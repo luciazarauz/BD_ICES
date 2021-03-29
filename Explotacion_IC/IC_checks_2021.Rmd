@@ -1,0 +1,178 @@
+---
+title: "IC checks"
+#author: "lucia zarauz"
+date: format(today, format="%A, %d of %B of %Y")
+#output: word_document
+output: pdf_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE, error = FALSE}
+
+exists_SD_L <- exists("SD_AZTI")  && "L" %in% unique(SD_AZTI$CatchCategory)
+exists_SD_D <- exists("SD_AZTI")  && "D" %in% unique(SD_AZTI$CatchCategory)
+```
+
+# `r azti`
+
+
+## Esfuerzo por metier y Área (Kw/day)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+kable(EffortMetierArea) 
+```
+
+## Esfuerzo por metier y trimestre (Kw/day)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+kable(EffortMetierSeason)
+```
+
+\pagebreak
+
+## Reported landings por metier y ?rea (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+  kable(LandRepMetierArea)
+```
+
+## Reported landings por metier y trimestre (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+     kable(LandRepMetierSeason)  
+```
+
+
+\pagebreak
+
+## Unreported landings por metier y ?rea (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+kable(LandUnrepMetierArea) 
+
+```
+
+
+## Unreported landings por metier y trimestre (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+     kable(LandUnrepMetierSeason)   
+```
+
+\pagebreak
+
+## BMS landings por metier y ?rea (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+  kable(BMSRepMetierArea)
+```
+
+## BMS landings por metier y trimestre (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+     kable(BMSRepMetierSeason)  
+```
+
+\pagebreak
+
+## Reported Discards por metier y ?rea (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+kable(RepDiscMetierArea) 
+
+```
+
+
+## Reported Discards por metier y trimestre (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+     kable(RepDiscMetierSeason)   
+```
+
+
+\pagebreak
+
+## Discards por metier y ?rea (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+kable(DiscMetierArea) 
+
+```
+
+
+## Discards por metier y trimestre (ton)
+
+```{r, echo=FALSE, message=FALSE,results='asis'}
+     kable(DiscMetierSeason)   
+```
+
+
+\pagebreak
+
+## Sampling effort (N? de mareas/lances muestreados)
+```{r, echo=FALSE, message=FALSE,results='asis'}
+ kable(NTripsFisOp)
+``` 
+
+## Sampling effort (N? de individuos)
+```{r, echo=FALSE, message=FALSE,results='asis'}
+ kable(NIndiv)
+``` 
+
+## Landings Mean size por metier
+```{r, echo=FALSE, message=FALSE,results='asis'}
+ kable(MeanWeightLand)
+``` 
+
+\pagebreak
+
+```{r, fig.height=7, fig.width=6, echo=FALSE, message=FALSE, results='asis',  eval=exists_SD_L}
+
+pandoc.header("Landings length distribution - Annual (n? at length)", level = 2)
+
+LandingLDYear
+```
+
+\pagebreak
+
+
+```{r, fig.height=7, fig.width=6, echo=FALSE, message=FALSE, results='asis', eval=exists_SD_L}
+
+pandoc.header("Landings length distribution - Semester (n? at length)", level = 2)
+
+for (i in unique(tempLandSeason$Fleet)) {
+        print(plot_list[[i]] )
+        print(kable(table_list[[i]] ))
+         cat("\n")
+         }
+```
+
+\pagebreak
+
+## Discards Mean size por metier
+```{r, echo=FALSE, message=FALSE,results='asis'}
+ kable(MeanWeightDis)
+``` 
+
+
+
+```{r, fig.height=7, fig.width=6, echo=FALSE, message=FALSE, results='asis',  eval=exists_SD_D}
+
+pandoc.header("Discards length distribution - Annual (n? at length)", level = 2)
+
+DiscardsLDYear
+```
+
+\pagebreak
+
+
+```{r, fig.height=7, fig.width=6, echo=FALSE, message=FALSE, results='asis', eval=exists_SD_D}
+
+pandoc.header("Discards length distribution - Semester (n? at length)", level = 2)
+
+for (i in unique(tempDisSeason$Fleet)) {
+        print(plot_list_D[[i]] )
+        print(kable(table_list_D[[i]] ))
+         cat("\n")
+         }
+```
+

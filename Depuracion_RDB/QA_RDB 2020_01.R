@@ -216,22 +216,21 @@ t4
   
 
 # write tables
-write.table("harbours in tr but not in the RDB", "Depuracion RDB/QA results/0_corregir.csv", row.names = FALSE, sep=";")
-write.table(t1, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-head(sl
-     )
-write.table("metiers in hh but not in the RDB", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table(t2, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("harbours in tr but not in the RDB", "Depuracion_RDB/QA results/0_corregir.csv", row.names = FALSE, sep=";")
+write.table(t1, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
-write.table("areas in hh but not in the RDB", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table(t3, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("metiers in hh but not in the RDB", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(t2, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
-write.table("species in sl but not in the RDB" , "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table(t4, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("areas in hh but not in the RDB", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(t3, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+
+write.table("species in sl but not in the RDB" , "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(t4, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
 
 # Weigth=0 
@@ -240,9 +239,9 @@ weigth0 <- sl[sl$Weight==0, sl_varsum]
 weigth0
 
 
-    write.table("trips with weigth=0", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table(weigth0, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("trips with weigth=0", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table(weigth0, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
 
 # Duplicates
@@ -251,9 +250,9 @@ temp<- aggregate(Station_number ~ Trip_code + Landing_country, FUN = "sum", data
 dupli <- temp[duplicated(temp$Trip_code)==TRUE,]
 dupli
 
-    write.table("trips duplicados", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table(dupli, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("trips duplicados", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table(dupli, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
     
 # fishing duration
@@ -275,7 +274,7 @@ fd_ptb <- subset(hh, substr(hh$FAC_EC_lvl6,1,3)=="PTB")
 fd_ps <- subset(hh, substr(hh$FAC_EC_lvl6,1,2)=="PS")
 
 
-png(filename="Depuracion RDB/QA results/Fishing duration.png",  width = 900, height = 450)
+png(filename="Depuracion_RDB/QA results/Fishing duration.png",  width = 900, height = 450)
     windows(10,5)
     par(mfrow=c(1,3))
     dotchart(fd_ptb$Fishing_duration, groups=as.factor(fd_ptb$Fishing_validity) , main="PTB", xlab="Fishing duration (min)")
@@ -292,18 +291,18 @@ png(filename="Depuracion RDB/QA results/Fishing duration.png",  width = 900, hei
   dotchart(hh$Fishing_duration[substr(hh$FAC_EC_lvl6,1,3)=="OTB"], groups = as.factor(hh$Fishing_validity[substr(hh$FAC_EC_lvl6,1,3)=="OTB"]), main="OTB", xlab="Fishing duration (min)")
   
   
-      write.table("fishing duration. PTB (4,10), OTB (1,6), PS (0.5, 5)", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-      write.table(fishdur, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-      write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+      write.table("fishing duration. PTB (4,10), OTB (1,6), PS (0.5, 5)", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+      write.table(fishdur, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+      write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
   
 
 # Dates not in 2020
 ###################
    datetemp <- subset(tr, Date< "2020-01-01" | Date > "2020-12-31", select=tr_varsum)   
    datetemp
-       write.table("dates", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-       write.table(datetemp, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-       write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+       write.table("dates", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+       write.table(datetemp, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+       write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
        
 # Maps
 ######
@@ -319,13 +318,13 @@ require(maps);require(mapdata);
          map.axes()
          points <- identify(-hh$Pos_Start_Lon_dec, hh$Pos_Start_Lat_dec, labels = hh$Trip_code, plot=TRUE)
       
-       dev.copy(png, "Depuracion RDB/QA results/Map start haul.png")
+       dev.copy(png, "Depuracion_RDB/QA results/Map start haul.png")
        dev.off() 
        
        positemp <- hh[points, c(hh_varsum,"Pos_Start_Lon_dec","Pos_Start_Lat_dec")]
-           write.table("posiciones start", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-           write.table(positemp, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-           write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table("posiciones start", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table(positemp, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
        
    # stop haul
        latlim <- c(min(hh$Pos_Stop_Lat_dec, na.rm=T)-1, max(hh$Pos_Stop_Lat_dec, na.rm=T)+1)
@@ -337,13 +336,13 @@ require(maps);require(mapdata);
          map.axes()
          points <- identify(-hh$Pos_Stop_Lon_dec, hh$Pos_Stop_Lat_dec, labels = hh$Trip_code, plot=TRUE)
        
-       dev.copy(png, "Depuracion RDB/QA results/Map stop haul.png")
+       dev.copy(png, "Depuracion_RDB/QA results/Map stop haul.png")
        dev.off() 
        
        positemp <- hh[points, c(hh_varsum,"Pos_Stop_Lon_dec","Pos_Stop_Lat_dec")]
-           write.table("posiciones stop", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-           write.table(positemp, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-           write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table("posiciones stop", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table(positemp, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+           write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
        
        
     # Stat rect
@@ -398,6 +397,17 @@ wS <- subset(sl, Weight==max(sl$Weight[sl$Sampling_type=="S"]) & sl$Sampling_typ
   
   windows()
   par(mfrow=c(1,2))
+  boxplot(sl$Weight[sl$SpeciesName=="Bonito del Norte"], main= "Weight")
+  boxplot(sl$Weight[sl$SpeciesName=="Bonito del Norte"]~sl$Sampling_type[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
+  
+  windows()
+  par(mfrow=c(1,2))
+  boxplot(sl$Weight[sl$SpeciesName=="Estornino del Atlantico"], main= "Weight")
+  boxplot(sl$Weight[sl$SpeciesName=="Estornino del Atlantico"]~sl$Sampling_type[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
+  
+  
+  windows()
+  par(mfrow=c(1,2))
   boxplot(sl$Weight[sl$SpeciesName=="Merluza europea"], main= "Weight")
   boxplot(sl$Weight[sl$SpeciesName=="Merluza europea"]~sl$Sampling_type[sl$SpeciesName=="Verdel - Caballa"], main= "Weight")
   
@@ -433,27 +443,27 @@ subset(sl0, sl0$Subsample_weight>sl0$Weight & Sampling_type=="S")  # chequear qu
 subset(sl0, sl0$Subsample_weight>sl0$Weight & Sampling_type=="M")
 
 
-    write.table("max weigth and subsample weigth", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table(rbind(wM, wS, swM,swS), "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    #write.table(0, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("max weigth and subsample weigth", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table(rbind(wM, wS, swM,swS), "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    #write.table(0, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
     
-    write.table("subsample weigth higher tan weigth (2%)", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table(wdif, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-    write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("subsample weigth higher tan weigth (2%)", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table(wdif, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+    write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
     
     # Subsample_weight=0
 x<-   subset(sl, Subsample_weight==0,sl_varsum)
-write.table("subsample weigth  = 0 ", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table(x, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("subsample weigth  = 0 ", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(x, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
 ## Number_at_length>500 ####
 ##################    
 x<- subset(hl, Number_at_length>1000,hl_varsum)
-write.table("Number_at_length>500", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table(x, "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
-write.table("", "Depuracion RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("Number_at_length>500", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(x, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table("", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
 
 ## Identificar mareas ####
 ##################
@@ -470,7 +480,7 @@ subset(sl, Trip_code=="M467849" & Species==126484,sl_varsum)
 ## Save files ####
 ##################
  
-save(cs, csPi,tr,hh,sl,hl,ca,buques,especies, file="Depuracion RDB/QA results/RDB2020_NSEA.RData")  
+save(cs, csPi,tr,hh,sl,hl,ca,buques,especies, file="Depuracion_RDB/QA results/RDB2020_NSEA.RData")  
 
 
 head(hl)  
