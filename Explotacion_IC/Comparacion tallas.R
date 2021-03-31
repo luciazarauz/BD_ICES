@@ -1,4 +1,9 @@
 
+################################################################# #
+# este código sirve para comparar las distribciones de tallas extrapoladas del muestreo en puerto y del muestreo abordo
+#
+################################################################# #
+
 rm(list=(ls()))
 options(digits=2, scipen = 999)
 
@@ -39,6 +44,8 @@ if("SD" %in% unique(x$V1)){
   SD_m$NumSamplesLngt[ SD_m$NumSamplesLngt==-9]<-0
   SD_m$NumLngtMeas[ SD_m$NumLngtMeas==-9]<-0
   SD_m$AgeLength <- as.numeric(SD_m$AgeLength )
+  SD_m$WeightLength <- SD_m$NumberCaught * SD_m$MeanWeight
+  
 } 
 
 head(SD_m)
@@ -67,6 +74,7 @@ if("SD" %in% unique(x$V1)){
   SD_s$NumSamplesLngt[ SD_s$NumSamplesLngt==-9]<-0
   SD_s$NumLngtMeas[ SD_s$NumLngtMeas==-9]<-0
   SD_s$AgeLength <- as.numeric(SD_s$AgeLength )
+  SD_s$WeightLength <- SD_s$NumberCaught * SD_s$MeanWeight
 } 
 
 head(SD_s)
@@ -79,7 +87,7 @@ t1 <- SD_s %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% sum
                                                                                      NumLngtMeas    = unique(NumLngtMeas) ) 
 data.frame(t1)
 
-subset(t1, Fleet == "OTB_DEF_>=70_0_0" & NumSamplesLngt>0)
+subset(t1, Fleet == "PTB_DEF_>=70_0_0" & NumSamplesLngt>0)
 
 
 
@@ -107,21 +115,19 @@ ggplot(comp, aes(x = Sampling, y = CATON)) +
 ####
 #market
 comp_m <- subset(SD_m, Fleet == "OTB_DEF_>=70_0_0" & NumSamplesLngt > 0 & CatchCategory == "L")
-comp_m <- comp_m %>% mutate(WeigthLngt = NumberCaught * MeanWeight)
 comp_m$Sampling <- "market"
 comp_m %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% summarize( NumSamplesLngt = unique( NumSamplesLngt),
                                                                                     NumLngtMeas    = unique(NumLngtMeas)) 
 #onboard
 comp_s <- subset(SD_s, Fleet == "OTB_DEF_>=70_0_0" & NumSamplesLngt > 0 & CatchCategory == "L")
-comp_s <- comp_s %>% mutate(WeigthLngt = NumberCaught * MeanWeight)
 comp_s$Sampling <- "onboard"
 comp_s %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% summarize( NumSamplesLngt = unique( NumSamplesLngt),
                                                                                     NumLngtMeas    = unique(NumLngtMeas) ) 
 
 comp <- rbind (comp_m, comp_s)
 
-windows(7,10)
-ggplot(comp, aes(x = MeanLength, y = WeigthLngt, colour = Sampling)) + 
+windows(10,7)
+ggplot(comp, aes(x = MeanLength, y = WeightLength, colour = Sampling)) + 
   geom_line() + 
   facet_wrap(~ Season)
 
@@ -141,7 +147,7 @@ comp_s %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% summari
 
 comp <- rbind (comp_m, comp_s)
 
-windows(7,10)
+windows(10,7)
 ggplot(comp, aes(x = MeanLength, y = NumberCaught, colour = Sampling)) + 
   geom_line() + 
   facet_wrap(~ Season)
@@ -163,7 +169,7 @@ comp_s %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% summari
 
 comp <- rbind (comp_m, comp_s)
 
-windows(7,10)
+windows(10,7)
 ggplot(comp, aes(x = MeanLength, y = NumberCaught, colour = Sampling)) + 
   geom_line() + 
   facet_wrap(~ Season)
@@ -176,7 +182,7 @@ comp <- subset(SD_s, Fleet == "OTB_DEF_>=70_0_0" & NumSamplesLngt > 0)
 comp %>% group_by(Year, Season, Fleet, FishingArea, CatchCategory) %>% summarize( NumSamplesLngt = unique( NumSamplesLngt),
                                                                                      NumLngtMeas    = unique(NumLngtMeas) ) 
 
-windows(7,10)
+windows(10,7)
 ggplot(comp, aes(x = MeanLength, y = NumberCaught, colour = CatchCategory)) + 
   geom_line() + 
   facet_wrap(~ Season)

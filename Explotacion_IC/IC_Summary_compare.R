@@ -66,7 +66,7 @@ data[is.na(data$Species) & data$Year=="y2020",]
 
 
 #data <- data %>% filter (Group %in% c("WGBIE", "WGCSE", "WGDEEP", "WGCEPH", "WGHANSA", "WGWIDE", "WGEF"))
-data <- data %>% filter (Group %in% c("WGCEPH"))
+data <- data %>% filter (Group %in% c("WGBIE"))
 
 #data <- data %>% filter(Species=="HKE")
 
@@ -77,7 +77,7 @@ data %>% filter (Year %in% c( "y2020")) %>% group_by(File, Group, Year, Species)
 
 
 
-data %>% filter (Year %in% c( "y2020")) %>% group_by(File, Group, Year, Species, Fleet) %>% 
+data %>% filter (Year %in% c( "y2020") ) %>% group_by(File, Group, Year, Species, Fleet) %>% 
                                             summarise(SI_LR=sum(SI_LR, na.rm=TRUE), 
                                                       SI_LN=sum(SI_LN, na.rm=TRUE),
                                                       SI_DR=sum(SI_DR, na.rm=TRUE),
@@ -85,7 +85,7 @@ data %>% filter (Year %in% c( "y2020")) %>% group_by(File, Group, Year, Species,
                                                       SD_DR=sum(SD_DR, na.rm=TRUE)) %>%
                                             data.frame()
 
-table(temp$Fleet)
+table(data$Fleet [data$Year %in% c( "y2020")])
 
 
 subset(data, is.na(Species))
@@ -112,6 +112,7 @@ data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Yea
 
 
 data %>% group_by(Group, File) %>% summarise(SI_LN=sum(SI_LN, na.rm=TRUE))%>% filter(SI_LN==0 & Group!="WGDEEP")
+
 
 data %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_LN=sum(SI_LN, na.rm=TRUE)) %>%
   dcast(Group  + Fleet + Species ~ Year, sum) 

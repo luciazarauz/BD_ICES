@@ -38,8 +38,9 @@ library(fishPifct)
 ####################
 
 codes.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2019/codes"  
-data.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2020/RCG NANSEA/"  
 res.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2019/QA results/" 
+
+data.path <- "C:/use/0_Lucia/1_Proyectos/AA_SegPes/RDB/Data 2019/RCG_NA/"  
 
 options(scipen=999)
 
@@ -52,7 +53,7 @@ stocks <- read.csv("ICES__stocks_code_list.csv", stringsAsFactors =FALSE, strip.
 dim(speciesAZTI)
 
 # RDB codes
-harbour <- read.table("Harbour.csv", sep=",", header=TRUE, stringsAsFactors =FALSE)
+#harbour <- read.table("Harbour.csv", sep=",", header=TRUE, stringsAsFactors =FALSE)
 metier <- read.table("FishingActivityCategory.csv", sep=",", header=TRUE, stringsAsFactors =FALSE)
 species <- read.table("Species.csv", sep=";", header=TRUE, stringsAsFactors =FALSE, na.strings=c(""," ","NULL"))
 area <- read.table("Area.csv", sep=",", header=TRUE, stringsAsFactors =FALSE, na.strings=c(""," ","NULL"))
@@ -125,7 +126,7 @@ ca$SpeciesSciName<-speciesAZTI$Nombre.Cientifico[match(ca$Species, speciesAZTI$W
 ## general checkings ####
 #########################
 
-tr_varsum <-c("Sampling_type","Trip_code","NombreBuque","Date", "HarbourName")
+tr_varsum <-c("Sampling_type","Trip_code","NombreBuque","Date",  "Harbour", "Vessel_flag_country", "Landing_country")
 hh_varsum <-c("Sampling_type","Trip_code","NombreBuque","Date", "Station_number","FAC_EC_lvl6","Fishing_validity","Fishing_duration", "Species_registration")
 sl_varsum <-c("Sampling_type","Trip_code","Station_number","Species","Catch_category","Comm_size_cat_scale","Comm_size_cat","Weight","Subsample_weight","NombreBuque","Date","SpeciesName")
 
@@ -133,9 +134,10 @@ sl_varsum <-c("Sampling_type","Trip_code","Station_number","Species","Catch_cate
 ## identificar registros problem?ticos ####
 ###########################################
 
-ca[ca$Trip_code=="V459072" & ca$Species=="126426" & ca$Single_fish_number %in% c("3648") ,]
-sl[sl$Trip_code=="S655515" & sl$Station_number==1 , sl_varsum]
-hh[hh$Trip_code=="S655523"  , hh_varsum ]
+ca[ca$Trip_code=="S646577" & ca$Species=="126426" & ca$Single_fish_number %in% c("3648") ,]
+sl[sl$Trip_code=="S654775" & sl$Station_number==1 , sl_varsum]
+hh[hh$Trip_code=="S646857"  , hh_varsum ]
+tr[tr$Trip_code=="S647442"  , tr_varsum ]
 
 
 
