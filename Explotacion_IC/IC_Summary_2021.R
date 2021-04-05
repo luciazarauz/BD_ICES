@@ -14,7 +14,7 @@ options(digits=5)
  dir.data <- "\\\\dok\\nas\\P04\\O-SUK\\GPSDatos\\3 SegPes\\Datos\\Datos Enviados\\2021\\ICES\\"
  
  
-folder <- c("2021 DC WGCEPH", "2021 DC WGDEEP", "2021 DC WGBIE")
+folder <- c("2021 DC WGCEPH", "2021 DC WGDEEP", "2021 DC WGBIE", "2021 DC WGCSE")
 # folder <- c("2020 WGBIE\\Gallo Boscii Datos históricos")
 # folder <- c( "2020 DC WGDEEP","2020 DC WGBIE", "2020 DC AFWG", "2020 DC WGCSE", "2020 DC WGCEPH", "2020 DC WGHANSA", 
 #              "2020 DC WGWIDE", "2020 DC WGEF", "2020 DC WKWEST", "2020 DC WKCOLIAS")  

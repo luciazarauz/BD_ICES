@@ -66,7 +66,7 @@ data[is.na(data$Species) & data$Year=="y2020",]
 
 
 #data <- data %>% filter (Group %in% c("WGBIE", "WGCSE", "WGDEEP", "WGCEPH", "WGHANSA", "WGWIDE", "WGEF"))
-data <- data %>% filter (Group %in% c("WGBIE"))
+data <- data %>% filter (Group %in% c("WGCSE"))
 
 #data <- data %>% filter(Species=="HKE")
 
