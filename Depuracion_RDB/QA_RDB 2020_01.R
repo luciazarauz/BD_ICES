@@ -377,6 +377,26 @@ unique(sl$SpeciesName[(sl$Trip_code %in% aaa) & sl$SpeciesName=="Calamar comun" 
   #                       o cambiarlos por fuera en el TR (solo estan en el TR). pero perdemso trazabilidad
 
 
+# calse de talla para anchoa y sardina
+####################################
+
+temp <- hl%>% filter(SpeciesName %in% c("Sardina", "Anchoa - Boqueron") & Sampling_type=="S") %>%
+            group_by(Trip_code, NombreBuque, Date, SpeciesName, Station_number, Length_class) %>% 
+            summarise(Nind = sum(Number_at_length)) %>%
+            mutate(Diff = Length_class - lag(Length_class)) %>%
+            pivot_wider(id_cols= - Length_class, names_from = Diff, values_from = Nind, values_fn = list(Nind=length, na.rm=TRUE)) %>%
+            select(-'NA') %>% data.frame()
+
+temp$s <- rowSums(temp[,6:ncol(temp)], na.rm=T)
+temp <- subset(temp, s>0, select=-s)
+
+subset(temp, NombreBuque=="MAR MARES"& Station_number==2)
+
+write.table("clase de talla (revisar por si acaso)", "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+write.table(temp, "Depuracion_RDB/QA results/0_corregir.csv", append=TRUE, row.names = FALSE, sep=";")
+
+
+
 # Landed weight and subsample weight
 ####################################
 options(scipen=999)

@@ -66,7 +66,7 @@ data[is.na(data$Species) & data$Year=="y2020",]
 
 
 #data <- data %>% filter (Group %in% c("WGBIE", "WGCSE", "WGDEEP", "WGCEPH", "WGHANSA", "WGWIDE", "WGEF"))
-data <- data %>% filter (Group %in% c("WGCSE"))
+data <- data %>% filter (Group %in% c("WGHANSA"))
 
 #data <- data %>% filter(Species=="HKE")
 
@@ -85,12 +85,41 @@ data %>% filter (Year %in% c( "y2020") ) %>% group_by(File, Group, Year, Species
                                                       SD_DR=sum(SD_DR, na.rm=TRUE)) %>%
                                             data.frame()
 
+
+data %>% filter (Year %in% c( "y2020") ) %>% group_by(File, Group, Year, Species, Fleet) %>% 
+  summarise(SI_LR=sum(SI_LR, na.rm=TRUE), 
+            SI_LN=sum(SI_LN, na.rm=TRUE),
+            SI_DR=sum(SI_DR, na.rm=TRUE),
+            SD_LR=sum(SD_LR, na.rm=TRUE),
+            SD_DR=sum(SD_DR, na.rm=TRUE)) %>% data.frame()
+
+data %>% filter (Year %in% c( "y2020") ) %>% group_by(File, Group, Year, Species, Fleet) %>% 
+  summarise(SI_LR=sum(SI_LR, na.rm=TRUE), 
+            SI_LN=sum(SI_LN, na.rm=TRUE),
+            SI_DR=sum(SI_DR, na.rm=TRUE),
+            SD_LR=sum(SD_LR, na.rm=TRUE),
+            SD_DR=sum(SD_DR, na.rm=TRUE)) %>% filter(Fleet %in% c("PTB_MPD_>=55_0_0") & SD_DR>0) %>% data.frame()
+
+data %>% filter (Year %in% c( "y2020") ) %>% group_by(File, Group, Year, Species, Fleet) %>% 
+  summarise(SI_LR=sum(SI_LR, na.rm=TRUE), 
+            SI_LN=sum(SI_LN, na.rm=TRUE),
+            SI_DR=sum(SI_DR, na.rm=TRUE),
+            SD_LR=sum(SD_LR, na.rm=TRUE),
+            SD_DR=sum(SD_DR, na.rm=TRUE)) %>% filter(Fleet %in% c("LLD_LPF") ) %>% data.frame()
+
+
+## revisar parejas PTB>MPD para descartes -> fina
+# %>% filter(Fleet %in% c("LHM_SPF_0_0_0", "LLD_LPF", "OTB_SPF_>=55_0_0"))
+
 table(data$Fleet [data$Year %in% c( "y2020")])
 
 
 subset(data, is.na(Species))
 
 # SI landings
+data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Year, Species) %>% summarise(SI_LR=sum(SI_LR, na.rm=TRUE)) %>%
+  dcast(Group   + Species ~ Year, sum)
+
 data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_LR=sum(SI_LR, na.rm=TRUE)) %>%
   dcast(Group  + Fleet + Species ~ Year, sum)
 
@@ -119,16 +148,23 @@ data %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_LN=sum(SI_LN, na
 
 
 # discards
+data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Year, Species) %>% summarise(SI_DR=sum(SI_DR, na.rm=TRUE)) %>%
+  dcast(Group  + Species ~ Year, sum)
+
 data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_DR=sum(SI_DR, na.rm=TRUE)) %>%
   dcast(Group  + Fleet + Species ~ Year, sum) 
 
 data %>% filter (Year %in% c("y2018", "y2019", "y2020")) %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_DR=sum(SI_DR, na.rm=TRUE)) %>%
   dcast(Group  + Fleet + Species ~ Year, sum) %>% filter((abs(y2018-y2019)/(y2018+y2019))>0.3 & (y2019>1 | y2018>1)) 
 
-data %>% group_by(Group, Year, Fleet, Species) %>% summarise(SI_DR=sum(SI_DR, na.rm=TRUE)) %>%
+data %>% filter (Year %in% c("y2020")) %>% 
+          group_by(Group, File, Year, Fleet, Species) %>% summarise(SI_DR=sum(SI_DR, na.rm=TRUE)) %>%
+          dcast(Group  + File + Fleet + Species ~ Year, sum) 
+
+data %>% group_by(Group, Year, Fleet, Species) %>% summarise(NSamp_DR=sum(NSamp_DR, na.rm=TRUE)) %>% filter(NSamp_DR>0) %>%
   dcast(Group  + Fleet + Species ~ Year, sum) 
 
-data %>% group_by(Group, Year, Fleet, Species) %>% summarise(NSamp_DR=sum(NSamp_DR, na.rm=TRUE)) %>% filter(NSamp_DR==1) %>%
+data %>% group_by(Group, Year, Fleet, Species) %>% summarise(NInd_DR=sum(NInd_DR, na.rm=TRUE)) %>% filter(NInd_DR>0) %>%
   dcast(Group  + Fleet + Species ~ Year, sum) 
 
 

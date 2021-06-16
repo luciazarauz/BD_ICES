@@ -5,16 +5,22 @@
 ################################################
 ## R version 3.3.0 (2016-05-03)
 
+# todo: habria que inclur una columna con la clase de talla, para poder comprobar qu ene pelagicos estan siempre al 0.5 cm
+
 rm (list=ls())
 library(data.table)
 options(digits=5)
 
- #dir.data <- "C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\ICES Data Transmission\\2021 DataCall\\3_Checks\\"
- #dir.data <- "C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\ICES Data Transmission\\2019 DataCall\\"
- dir.data <- "\\\\dok\\nas\\P04\\O-SUK\\GPSDatos\\3 SegPes\\Datos\\Datos Enviados\\2021\\ICES\\"
- 
- 
-folder <- c("2021 DC WGCEPH", "2021 DC WGDEEP", "2021 DC WGBIE", "2021 DC WGCSE")
+# dir.data <- "C:\\use\\0_Lucia\\1_Proyectos\\AA_SegPes\\ICES Data Transmission\\2021 DataCall\\Unallocated\\"
+# folder <- c("data")
+
+dir.data <- "\\\\dok\\nas\\P04\\O-SUK\\GPSDatos\\3 SegPes\\Datos\\Datos Enviados\\2021\\ICES\\"
+setwd(dir.data)
+list.dirs('.', recursive=FALSE)
+
+folder <- c("2021 DC WGBIE", "2021 DC WGCEPH", "2021 DC WGCSE", 
+            "2021 DC WGDEEP",  "2021 DC WGEF", "2021 DC WGHANSA" , 
+            "2021 DC WGWIDE", "2021 DC WKCOLIAS")
 # folder <- c("2020 WGBIE\\Gallo Boscii Datos históricos")
 # folder <- c( "2020 DC WGDEEP","2020 DC WGBIE", "2020 DC AFWG", "2020 DC WGCSE", "2020 DC WGCEPH", "2020 DC WGHANSA", 
 #              "2020 DC WGWIDE", "2020 DC WGEF", "2020 DC WKWEST", "2020 DC WKCOLIAS")  
@@ -26,9 +32,9 @@ Sum_IC <- NULL
 for (j in folder) {       
   dir.files <- paste(dir.data, j, sep="")
   setwd(dir.files)
-  
-  #files <- gsub(pattern = "\\.csv$", "",  list.files(pattern = "\\.csv$"))
-  files <- gsub(pattern = "\\.csv$", "",  intersect(list.files(pattern = "\\.csv$"), list.files(pattern = "2021 DC")))
+
+  # files <- gsub(pattern = "\\.csv$", "",  list.files(pattern = "\\.csv$"))
+    files <- gsub(pattern = "\\.csv$", "",  intersect(list.files(pattern = "\\.csv$"), list.files(pattern = "2021 DC")))
  
                      
   # Leer los ficheros
