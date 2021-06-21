@@ -1,0 +1,10 @@
+name: recreapp
+title:
+username:
+account: aztigps
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2600962
+bundleId: 3601142
+url: https://aztigps.shinyapps.io/recreapp/
+when: 1599459976.88029

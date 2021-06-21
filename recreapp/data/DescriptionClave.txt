@@ -1,0 +1,10 @@
+
+<h2 style="text-align:CENTER; color: #3768AF;")> Diario de pesca recreativa</h2>
+
+<BR> 
+<p style="text-align:JUSTIFY;">
+<font size="3"> Introduce usuario y clave para acceder a la aplicación. </font>   
+
+
+
+       

@@ -1,0 +1,36 @@
+
+<h4 style="text-align:JUSTIFY;margin-left:150px;margin-right:150px;margin-top:-15px;"> 
+¡Bienvenid@ y muchas gracias por su colaboración!</h4>
+
+<BR>&nbsp;<BR> 
+<p style="text-align:JUSTIFY;margin-left:150px;margin-right:150px; margin-top:-15px;">
+<font size="3"> El principal objetivo del proyecto es mejorar el conocimiento que se 
+tiene del impacto biológico de la pesca recreativa marítima en la franja litoral, las especies 
+principales capturadas, el esfuerzo realizado, etc. Además, se pretende involucrar al sector 
+recreativo para que participen activamente aportando a los científicos información relevante 
+respecto a su actividad a fin de  que ésta contribuya a una gestión sostenible de 
+los recursos marinos. </font>  
+
+<BR>&nbsp;<BR>  
+<p style="text-align:JUSTIFY;margin-left:150px;margin-right:150px;margin-top:-15px;">
+
+<font size="3"> En este proyecto participan pescadores recreativos de referencia para 
+evaluar el impacto de las especies más relevantes capturadas por este sector. Esto permitirá 
+comparar las estimas obtenidas a través del muestreo rutinario que realiza AZTI con 
+métodos off-site (encuestas telefónicas) dentro del reglamento europeo de la “Data Collection Framework” 
+(EC 2017/1004), con la información recogida a través de estos pescadores de referencia. </font>   
+
+<BR>&nbsp;<BR>  
+<p style="text-align:JUSTIFY;margin-left:150px;margin-right:150px;margin-top:-15px;">
+
+<font size="3"> Esta aplicación shiny, permite introducir online los datos detallados 
+de la actividad realizada cada día de pesca por estos pescadores de referencia y 
+son enviados directamente a la base de datos de AZTI para su posterior análisis.</font>   
+
+<BR>&nbsp;<BR>    
+<BR>&nbsp;<BR>                    
+<p style="text-align:JUSTIFY;margin-left:150px;margin-right:150px;margin-top:-15px;"> 
+
+<font size="3">Para más información sobre el proyecto y/o consulta sobre la aplicación:
+<a href="mailto:emugerza@azti.es">Envíanos un email</a></font>
+           
