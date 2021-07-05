@@ -6,6 +6,7 @@ library(shinythemes)
 library(shinyBS)
 library(shinyTime)
 library(shinyjs)
+library(shinyWidgets)
 library(epitools) # for date
 library(data.table)
 library(leaflet)
